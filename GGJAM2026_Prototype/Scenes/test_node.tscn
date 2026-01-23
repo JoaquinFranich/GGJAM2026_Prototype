@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6acoj3awhcs5"]
+
+[ext_resource type="Texture2D" uid="uid://c3au3dr2qgihq" path="res://Assets/Images/AGU04927.JPG" id="1_00acv"]
+[ext_resource type="Script" uid="uid://cn3wugrrr4eea" path="res://Scripts/test_node.gd" id="1_ylgs7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ylgs7"]
+radius = 415.7644
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylgs7"]
+size = Vector2(59, 34)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ylgs7")
+
+[node name="FocusItem" type="Sprite2D" parent="."]
+position = Vector2(577.75006, 323.25003)
+scale = Vector2(0.19241668, 0.162375)
+texture = ExtResource("1_00acv")
+
+[node name="Area2D" type="Area2D" parent="FocusItem"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FocusItem/Area2D"]
+position = Vector2(266.34875, 909.93054)
+scale = Vector2(0.9999998, 0.9999999)
+shape = SubResource("CircleShape2D_ylgs7")
+
+[node name="DirectionButtons" type="CanvasGroup" parent="."]
+
+[node name="ButtonLeft" type="Sprite2D" parent="DirectionButtons"]
+
+[node name="Area2D" type="Area2D" parent="DirectionButtons/ButtonLeft"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DirectionButtons/ButtonLeft/Area2D"]
+position = Vector2(36, 381)
+shape = SubResource("RectangleShape2D_ylgs7")
+
+[node name="ButtonRight" type="Sprite2D" parent="DirectionButtons"]
+
+[node name="Area2D" type="Area2D" parent="DirectionButtons/ButtonRight"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DirectionButtons/ButtonRight/Area2D"]
+position = Vector2(1119, 379)
+shape = SubResource("RectangleShape2D_ylgs7")
+
+[node name="ButtonUp" type="Sprite2D" parent="DirectionButtons"]
+
+[node name="Area2D" type="Area2D" parent="DirectionButtons/ButtonUp"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DirectionButtons/ButtonUp/Area2D"]
+position = Vector2(626, 19)
+shape = SubResource("RectangleShape2D_ylgs7")
+
+[node name="ButtonDown" type="Sprite2D" parent="DirectionButtons"]
+
+[node name="Area2D" type="Area2D" parent="DirectionButtons/ButtonDown"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DirectionButtons/ButtonDown/Area2D"]
+position = Vector2(634, 628)
+shape = SubResource("RectangleShape2D_ylgs7")
+
+[connection signal="mouse_entered" from="FocusItem/Area2D" to="." method="change_cursor_hand"]
+[connection signal="mouse_exited" from="FocusItem/Area2D" to="." method="change_cursor_back"]
+[connection signal="mouse_entered" from="DirectionButtons/ButtonLeft/Area2D" to="." method="change_cursor_hand"]
+[connection signal="mouse_exited" from="DirectionButtons/ButtonLeft/Area2D" to="." method="change_cursor_back"]
+[connection signal="mouse_entered" from="DirectionButtons/ButtonRight/Area2D" to="." method="change_cursor_hand"]
+[connection signal="mouse_exited" from="DirectionButtons/ButtonRight/Area2D" to="." method="change_cursor_back"]
+[connection signal="mouse_entered" from="DirectionButtons/ButtonUp/Area2D" to="." method="change_cursor_hand"]
+[connection signal="mouse_exited" from="DirectionButtons/ButtonUp/Area2D" to="." method="change_cursor_back"]
+[connection signal="mouse_entered" from="DirectionButtons/ButtonDown/Area2D" to="." method="change_cursor_hand"]
+[connection signal="mouse_exited" from="DirectionButtons/ButtonDown/Area2D" to="." method="change_cursor_back"]
