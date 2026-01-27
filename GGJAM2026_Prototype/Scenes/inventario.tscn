@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://p8synkvgjg78"]
+
+[ext_resource type="Texture2D" uid="uid://cj1wl6rkgghlk" path="res://Images/AGU05046.JPG" id="1_g53kp"]
+[ext_resource type="Script" uid="uid://qhvwqs64arsg" path="res://Scripts/inventario.gd" id="1_w8c2t"]
+[ext_resource type="Texture2D" uid="uid://corq0pufvh5f5" path="res://Assets/Inventario.png" id="2_lkne6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_smvdb"]
+texture = ExtResource("1_g53kp")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xf715"]
+texture = ExtResource("2_lkne6")
+
+[node name="Inventario" type="Control" unique_id=952104272]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w8c2t")
+
+[node name="image_Game" type="Panel" parent="." unique_id=539294711]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_smvdb")
+metadata/_edit_use_anchors_ = true
+
+[node name="open_Inventory_Button" type="Button" parent="image_Game" unique_id=1305363643]
+layout_mode = 0
+offset_left = 1071.0
+offset_top = 232.0
+offset_right = 1152.0
+offset_bottom = 415.0
+theme_override_font_sizes/font_size = 128
+text = "<"
+
+[node name="Inventory" type="Panel" parent="image_Game" unique_id=2075325444]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6232639
+anchor_top = 0.023148147
+anchor_right = 1.0269097
+anchor_bottom = 1.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_xf715")
+metadata/_edit_use_anchors_ = true
+
+[node name="close_Inventory_Button" type="Button" parent="image_Game/Inventory" unique_id=20525228]
+layout_mode = 0
+anchor_left = -0.0043010423
+anchor_top = 0.314376
+anchor_right = -0.0043010423
+anchor_bottom = 0.314376
+offset_left = 80.999985
+offset_top = 183.0
+offset_right = 161.99998
+offset_bottom = 366.0
+rotation = 3.1415927
+theme_override_font_sizes/font_size = 128
+text = "<"
+metadata/_edit_use_anchors_ = true
+
+[node name="text_Inventory" type="Label" parent="image_Game/Inventory" unique_id=1538988188]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.63256055
+anchor_top = 0.083252884
+anchor_right = 0.79922724
+anchor_bottom = 0.15269732
+offset_left = -175.14063
+offset_top = -2.6990738
+offset_right = -30.640625
+offset_bottom = -1.6574059
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "INVENTARIO"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="grid_Inventory" type="GridContainer" parent="image_Game/Inventory" unique_id=1583761795]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 106.0
+offset_right = 363.0
+offset_bottom = 519.0
+columns = 2
+
+[node name="object" type="Button" parent="image_Game/Inventory/grid_Inventory" unique_id=1880139881]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="object2" type="Button" parent="image_Game/Inventory/grid_Inventory" unique_id=145114036]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="object3" type="Button" parent="image_Game/Inventory/grid_Inventory" unique_id=124389280]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="object4" type="Button" parent="image_Game/Inventory/grid_Inventory" unique_id=396762236]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="object5" type="Button" parent="image_Game/Inventory/grid_Inventory" unique_id=1653024375]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="object6" type="Button" parent="image_Game/Inventory/grid_Inventory" unique_id=1621548082]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="pressed" from="image_Game/open_Inventory_Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="image_Game/Inventory/close_Inventory_Button" to="." method="_on_close_inventory_button_pressed"]
