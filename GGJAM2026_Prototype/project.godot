@@ -14,3 +14,7 @@ config/name="GGJAM2026_Prototype"
 run/main_scene="uid://c6acoj3awhcs5"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SceneManager="*res://Scripts/scene_manager.gd"
