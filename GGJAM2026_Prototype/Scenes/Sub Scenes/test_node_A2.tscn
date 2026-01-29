@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://cw7hegfcobemo"]
+
+[ext_resource type="Script" uid="uid://cn3wugrrr4eea" path="res://Scripts/test_node.gd" id="1_78n38"]
+[ext_resource type="PackedScene" uid="uid://cn608h0uv81g6" path="res://Scenes/Buttons Scenes/focus_item_scene.tscn" id="2_w33d5"]
+[ext_resource type="PackedScene" uid="uid://c411v8jfiphlo" path="res://Scenes/Buttons Scenes/button_left_scene.tscn" id="3_mvgme"]
+[ext_resource type="Texture2D" uid="uid://7qjlvgt40dvs" path="res://Assets/Images/AGU04935.JPG" id="3_w33d5"]
+[ext_resource type="PackedScene" uid="uid://nt346hojr4fx" path="res://Scenes/Buttons Scenes/button_right_scene.tscn" id="4_fqea3"]
+[ext_resource type="PackedScene" uid="uid://o8plrju4600a" path="res://Scenes/Buttons Scenes/button_up_scene.tscn" id="5_v412h"]
+[ext_resource type="PackedScene" uid="uid://bu0b1ia4kw37q" path="res://Scenes/Buttons Scenes/button_down_scene.tscn" id="6_dhmh5"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_78n38")
+
+[node name="FocusItem" parent="." instance=ExtResource("2_w33d5")]
+position = Vector2(625, 262)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(576.50006, 325.49997)
+scale = Vector2(0.19183335, 0.16174999)
+texture = ExtResource("3_w33d5")
+
+[node name="DirectionButtons" type="CanvasGroup" parent="."]
+
+[node name="ButtonLeft" parent="DirectionButtons" instance=ExtResource("3_mvgme")]
+offset_left = 5.0
+offset_top = 207.0
+offset_right = 184.0
+offset_bottom = 468.0
+
+[node name="ButtonRight" parent="DirectionButtons" instance=ExtResource("4_fqea3")]
+
+[node name="ButtonUp" parent="DirectionButtons" instance=ExtResource("5_v412h")]
+
+[node name="ButtonDown" parent="DirectionButtons" instance=ExtResource("6_dhmh5")]
