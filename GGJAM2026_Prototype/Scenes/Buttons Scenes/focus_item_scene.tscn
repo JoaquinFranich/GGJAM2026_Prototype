@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn608h0uv81g6"]
+
+[ext_resource type="Script" uid="uid://dgorbfmocprha" path="res://Scripts/clickable_focus_item.gd" id="2_mftg0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ylgs7"]
+radius = 501.34402
+
+[node name="FocusItem" type="Sprite2D"]
+scale = Vector2(0.19241668, 0.162375)
+script = ExtResource("2_mftg0")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(0.9999998, 0.9999999)
+shape = SubResource("CircleShape2D_ylgs7")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_mouse_exited"]

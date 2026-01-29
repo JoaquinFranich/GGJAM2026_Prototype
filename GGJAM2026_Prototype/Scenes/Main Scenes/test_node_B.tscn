@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://lkm601q37gpo"]
+
+[ext_resource type="Script" uid="uid://cn3wugrrr4eea" path="res://Scripts/test_node.gd" id="1_3cmgj"]
+[ext_resource type="PackedScene" uid="uid://cn608h0uv81g6" path="res://Scenes/Buttons Scenes/focus_item_scene.tscn" id="2_14b4a"]
+[ext_resource type="PackedScene" uid="uid://c411v8jfiphlo" path="res://Scenes/Buttons Scenes/button_left_scene.tscn" id="3_vxk2m"]
+[ext_resource type="PackedScene" uid="uid://nt346hojr4fx" path="res://Scenes/Buttons Scenes/button_right_scene.tscn" id="4_f450v"]
+[ext_resource type="PackedScene" uid="uid://o8plrju4600a" path="res://Scenes/Buttons Scenes/button_up_scene.tscn" id="5_oa0lp"]
+[ext_resource type="PackedScene" uid="uid://bu0b1ia4kw37q" path="res://Scenes/Buttons Scenes/button_down_scene.tscn" id="6_f373r"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_3cmgj")
+
+[node name="FocusItem" parent="." instance=ExtResource("2_14b4a")]
+position = Vector2(577.75006, 323.25003)
+
+[node name="DirectionButtons" type="CanvasGroup" parent="."]
+
+[node name="ButtonLeft" parent="DirectionButtons" instance=ExtResource("3_vxk2m")]
+
+[node name="ButtonRight" parent="DirectionButtons" instance=ExtResource("4_f450v")]
+
+[node name="ButtonUp" parent="DirectionButtons" instance=ExtResource("5_oa0lp")]
+
+[node name="ButtonDown" parent="DirectionButtons" instance=ExtResource("6_f373r")]
