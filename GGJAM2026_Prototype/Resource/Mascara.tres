@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Inventory_item" format=3 uid="uid://72khd2vcatav"]
+
+[ext_resource type="Script" uid="uid://3oqaarhqn78m" path="res://Scripts/Inventory_item.gd" id="1_8uvit"]
+[ext_resource type="Texture2D" uid="uid://c4u4qna175328" path="res://Assets/Arte Conceptual/objeto_inv_mascara.png" id="2_1en3f"]
+
+[resource]
+script = ExtResource("1_8uvit")
+name = "Mascara"
+texture = ExtResource("2_1en3f")
+metadata/_custom_type_script = "uid://3oqaarhqn78m"

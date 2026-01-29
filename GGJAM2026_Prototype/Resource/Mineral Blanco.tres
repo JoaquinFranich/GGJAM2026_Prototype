@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Inventory_item" format=3 uid="uid://qvbi0yfbalds"]
+
+[ext_resource type="Script" uid="uid://3oqaarhqn78m" path="res://Scripts/Inventory_item.gd" id="2_nwwif"]
+[ext_resource type="Texture2D" uid="uid://bgtiatcw5ry0v" path="res://Assets/Arte Conceptual/objeto_inv_mineral1.png" id="2_yq2tm"]
+
+[resource]
+script = ExtResource("2_nwwif")
+name = "Mineral blanco"
+texture = ExtResource("2_yq2tm")
+metadata/_custom_type_script = "uid://3oqaarhqn78m"

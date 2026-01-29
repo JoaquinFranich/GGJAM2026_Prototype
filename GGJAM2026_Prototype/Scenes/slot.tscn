@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cv7q47p7bgiei"]
+
+[ext_resource type="Script" uid="uid://dpbm5x573f5si" path="res://Scripts/slot.gd" id="1_luhj6"]
+
+[node name="slot" type="Button" unique_id=2144664429]
+anchors_preset = -1
+anchor_right = 0.10329861
+anchor_bottom = 0.2191358
+offset_right = -3.0
+offset_bottom = -2.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_luhj6")
+metadata/_edit_use_anchors_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=861460054]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="CenterContainer" unique_id=419577321]
+layout_mode = 2
+
+[node name="slot_Object" type="Sprite2D" parent="CenterContainer/Panel" unique_id=1426957330]
