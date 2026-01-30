@@ -1,27 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbgeov02by1qw"]
+[gd_scene load_steps=3 format=3 uid="uid://cn4d3f8mqab1b"]
 
-[ext_resource type="Script" uid="uid://cn3wugrrr4eea" path="res://Scripts/test_node.gd" id="1_m4mht"]
-[ext_resource type="PackedScene" uid="uid://cn608h0uv81g6" path="res://Scenes/Buttons Scenes/focus_item_scene.tscn" id="2_l0jlp"]
-[ext_resource type="PackedScene" uid="uid://c411v8jfiphlo" path="res://Scenes/Buttons Scenes/button_left_scene.tscn" id="3_f50pl"]
-[ext_resource type="PackedScene" uid="uid://nt346hojr4fx" path="res://Scenes/Buttons Scenes/button_right_scene.tscn" id="4_upory"]
-[ext_resource type="PackedScene" uid="uid://o8plrju4600a" path="res://Scenes/Buttons Scenes/button_up_scene.tscn" id="5_bn6pp"]
-[ext_resource type="PackedScene" uid="uid://bu0b1ia4kw37q" path="res://Scenes/Buttons Scenes/button_down_scene.tscn" id="6_6hybr"]
+[ext_resource type="Script" uid="uid://yxuaks03atg1" path="res://Scripts/scene_ui_config.gd" id="1_cu75p"]
+[ext_resource type="Texture2D" uid="uid://bn5lf4kul0a8y" path="res://Assets/Images/Scene A/ESCENA A0.jpg" id="2_5jln0"]
 
-[node name="Node2D" type="Node2D"]
-script = ExtResource("1_m4mht")
+[node name="TestNodeA" type="Node2D"]
+script = ExtResource("1_cu75p")
+focus_item_position = Vector2(960, 320)
+focus_item_scale = Vector2(0.1924167, 0.16237502)
+visible_direction_buttons = Array[String](["left"])
 
-[node name="FocusItem" parent="." instance=ExtResource("2_l0jlp")]
-position = Vector2(577.75006, 323.25003)
-
-[node name="DirectionButtons" type="CanvasGroup" parent="."]
-
-[node name="ButtonLeft" parent="DirectionButtons" instance=ExtResource("3_f50pl")]
-
-[node name="ButtonRight" parent="DirectionButtons" instance=ExtResource("4_upory")]
-visible = false
-
-[node name="ButtonUp" parent="DirectionButtons" instance=ExtResource("5_bn6pp")]
-visible = false
-
-[node name="ButtonDown" parent="DirectionButtons" instance=ExtResource("6_6hybr")]
-visible = false
+[node name="Background" type="Sprite2D" parent="."]
+show_behind_parent = true
+texture = ExtResource("2_5jln0")
+centered = false

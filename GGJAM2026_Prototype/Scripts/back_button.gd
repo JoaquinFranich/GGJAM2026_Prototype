@@ -12,6 +12,9 @@ extends Button
 var hand_cursor = preload("res://Assets/Images/HandCursor.png")
 
 func _ready():
+	# Deshabilitar el focus visual para que no se muestre el recuadro al hacer clic
+	focus_mode = Control.FOCUS_NONE
+	
 	# Conectar la señal pressed si no está conectada
 	if not pressed.is_connected(_on_pressed):
 		pressed.connect(_on_pressed)
@@ -20,6 +23,8 @@ func _ready():
 	_update_button_state()
 
 func _on_pressed():
+	# Asegurar que el botón no tenga focus después del clic
+	release_focus()
 	SceneManager.on_back_clicked()
 
 ## Actualiza si el botón debe estar habilitado o no

@@ -1,0 +1,125 @@
+[gd_scene load_steps=10 format=3 uid="uid://ohkq2yimyfak"]
+
+[ext_resource type="Script" uid="uid://dxjx1v8suhs8f" path="res://Scripts/ui_manager.gd" id="1_ui_mgr"]
+[ext_resource type="Texture2D" uid="uid://bb6p0ous5qhfi" path="res://Assets/Images/UI/FLECHA_IZQUIERDA.png" id="2_left"]
+[ext_resource type="Texture2D" uid="uid://d7b117old0t7" path="res://Assets/Images/UI/FLECHA_DERECHA.png" id="3_right"]
+[ext_resource type="Texture2D" uid="uid://dtt6psnd7jxci" path="res://Assets/Images/UI/FLECHA_ARRIBA.png" id="4_up"]
+[ext_resource type="Texture2D" uid="uid://dj1bx6q70m7l5" path="res://Assets/Images/UI/FLECHA_ABAJO.png" id="5_down"]
+[ext_resource type="Script" uid="uid://bt5qb6fw70ct5" path="res://Scripts/direction_button_left.gd" id="6_btn_left"]
+[ext_resource type="Script" uid="uid://peat3akbnfrf" path="res://Scripts/direction_button_right.gd" id="7_btn_right"]
+[ext_resource type="Script" uid="uid://d3fj3c8g5xnr5" path="res://Scripts/direction_button_up.gd" id="8_btn_up"]
+[ext_resource type="Script" uid="uid://drq08otxijrjj" path="res://Scripts/direction_button_down.gd" id="9_btn_down"]
+
+[node name="UI_manager" type="CanvasLayer"]
+layer = 5
+script = ExtResource("1_ui_mgr")
+
+[node name="DirectionButtons" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ButtonLeft" type="Button" parent="DirectionButtons"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 540.0
+offset_right = 94.0
+offset_bottom = 624.0
+icon = ExtResource("2_left")
+flat = true
+script = ExtResource("6_btn_left")
+
+[node name="ButtonRight" type="Button" parent="DirectionButtons"]
+layout_mode = 0
+offset_left = 1826.0
+offset_top = 540.0
+offset_right = 1919.0
+offset_bottom = 624.0
+icon = ExtResource("3_right")
+flat = true
+script = ExtResource("7_btn_right")
+
+[node name="ButtonUp" type="Button" parent="DirectionButtons"]
+layout_mode = 0
+offset_left = 913.0
+offset_top = 1.0
+offset_right = 1006.0
+offset_bottom = 85.0
+icon = ExtResource("4_up")
+flat = true
+script = ExtResource("8_btn_up")
+
+[node name="ButtonDown" type="Button" parent="DirectionButtons"]
+layout_mode = 0
+offset_left = 913.0
+offset_top = 995.0
+offset_right = 1006.0
+offset_bottom = 1079.0
+icon = ExtResource("5_down")
+flat = true
+script = ExtResource("9_btn_down")
+
+[node name="FocusItemContainer" type="Node2D" parent="."]
+
+[node name="InventoryPanel" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -300.0
+offset_bottom = 300.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Background" type="ColorRect" parent="InventoryPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2, 0.2, 0.2, 0.8)
+
+[node name="Title" type="Label" parent="InventoryPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Inventario"
+horizontal_alignment = 1
+
+[node name="ItemsContainer" type="VBoxContainer" parent="InventoryPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 50.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="mouse_entered" from="DirectionButtons/ButtonLeft" to="DirectionButtons/ButtonLeft" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DirectionButtons/ButtonLeft" to="DirectionButtons/ButtonLeft" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="DirectionButtons/ButtonRight" to="DirectionButtons/ButtonRight" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DirectionButtons/ButtonRight" to="DirectionButtons/ButtonRight" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="DirectionButtons/ButtonUp" to="DirectionButtons/ButtonUp" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DirectionButtons/ButtonUp" to="DirectionButtons/ButtonUp" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="DirectionButtons/ButtonDown" to="DirectionButtons/ButtonDown" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DirectionButtons/ButtonDown" to="DirectionButtons/ButtonDown" method="_on_mouse_exited"]

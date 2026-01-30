@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GGJAM2026_Prototype"
-run/main_scene="uid://c6acoj3awhcs5"
+run/main_scene="uid://bfcfjodonodjs"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,3 +19,10 @@ config/icon="res://icon.svg"
 
 SceneManager="*res://Scripts/scene_manager.gd"
 DialogueManager="*res://Scripts/dialogue_manager.gd"
+UI_manager="*res://Scenes/UI/ui_manager.tscn"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"

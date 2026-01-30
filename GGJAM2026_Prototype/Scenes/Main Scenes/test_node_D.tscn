@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7aisimrbdrtd"]
+
+[ext_resource type="Script" uid="uid://yxuaks03atg1" path="res://Scripts/scene_ui_config.gd" id="1_cm3ef"]
+[ext_resource type="Texture2D" uid="uid://bn5lf4kul0a8y" path="res://Assets/Images/Scene A/ESCENA A0.jpg" id="2_1tdas"]
+
+[node name="TestNodeA" type="Node2D"]
+script = ExtResource("1_cm3ef")
+focus_item_position = Vector2(960, 320)
+focus_item_scale = Vector2(0.1924167, 0.16237502)
+visible_direction_buttons = Array[String](["left"])
+
+[node name="Background" type="Sprite2D" parent="."]
+show_behind_parent = true
+texture = ExtResource("2_1tdas")
+centered = false

@@ -16,7 +16,7 @@ var fade_overlay: ColorRect
 var current_scene: String = ""
 
 # Escena a la que lleva "Volver" global. Por defecto la escena inicial del proyecto.
-var volver_target: String = "res://Scenes/Main Scenes/test_node_A.tscn"
+var volver_target: String = "res://Scenes/Main Scenes/test_node_00.tscn"
 
 # =============================================================================
 # SISTEMA DE NAVEGACIÓN CENTRALIZADO
@@ -25,10 +25,10 @@ var volver_target: String = "res://Scenes/Main Scenes/test_node_A.tscn"
 # Escenas principales en orden (A, B, C, D, E, F)
 # Modifica este array con las rutas reales de tus escenas principales
 var main_scenes: Array[String] = [
-	"res://Scenes/Main Scenes/test_node_A.tscn",      # A (escena principal 1)
-	"res://Scenes/Main Scenes/test_node_B.tscn",      # B (descomentar y ajustar cuando existan)
+	"res://Scenes/Main Scenes/test_node_00.tscn",      # 00 (escena principal 1)
+	"res://Scenes/Main Scenes/test_node_A.tscn",      # A (descomentar y ajustar cuando existan)
+	"res://Scenes/Main Scenes/test_node_B.tscn",      # B
 	"res://Scenes/Main Scenes/test_node_C.tscn",      # C
-	# "res://Scenes/scene_D.tscn",      # D
 	# "res://Scenes/scene_E.tscn",      # E
 	# "res://Scenes/scene_F.tscn",      # F
 ]
@@ -41,12 +41,13 @@ var sub_scenes: Dictionary = {
 		"res://Scenes/Sub Scenes/test_node_A1.tscn",       # A1
 		"res://Scenes/Sub Scenes/test_node_A2.tscn",     # A2 (descomentar cuando exista)
 		"res://Scenes/Sub Scenes/test_node_A3.tscn",     # A3
+		"res://Scenes/Sub Scenes/test_node_A4.tscn"
 	],
-	# "res://Scenes/scene_B.tscn": [
-	#     "res://Scenes/B1.tscn",
-	#     "res://Scenes/B2.tscn",
+	 "res://Scenes/Main Scenes/test_node_B.tscn": [
+		"res://Scenes/Sub Scenes/test_node_B1.tscn",
+		"res://Scenes/Sub Scenes/test_node_B2.tscn",
 	#     "res://Scenes/B3.tscn",
-	# ],
+	 ],
 }
 
 # Inventario simple: lista de IDs de ítems recogidos
@@ -155,6 +156,14 @@ func can_advance() -> bool:
 ## Indica si hay una escena anterior disponible (para habilitar/deshabilitar botón Volver)
 func can_go_back() -> bool:
 	return _get_back_scene() != ""
+
+## Obtiene la siguiente escena disponible (método público)
+func get_next_scene() -> String:
+	return _get_next_scene()
+
+## Obtiene la escena anterior disponible (método público)
+func get_back_scene() -> String:
+	return _get_back_scene()
 
 # =============================================================================
 # LÓGICA INTERNA DE NAVEGACIÓN
