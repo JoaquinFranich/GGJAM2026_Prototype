@@ -18,3 +18,4 @@ config/icon="res://icon.svg"
 [autoload]
 
 SceneManager="*res://Scripts/scene_manager.gd"
+DialogueManager="*res://Scripts/dialogue_manager.gd"
