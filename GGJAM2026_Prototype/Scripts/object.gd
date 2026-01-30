@@ -22,7 +22,7 @@ func _on_mouse_entered() -> void:
 
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if Input.is_action_just_pressed("Recoger_objeto") == true:
+	if Input.is_action_just_pressed("Click_izq") == true:
 		InventoryManager.add_item(item_data)
 		queue_free()
 	pass # Replace with function body.

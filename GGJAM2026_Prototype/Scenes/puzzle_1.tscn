@@ -1,0 +1,523 @@
+[gd_scene format=3 uid="uid://bxtny80000tk"]
+
+[ext_resource type="Texture2D" uid="uid://dqjxx8pwxlo7n" path="res://Assets/Arte Conceptual/interfaz concepto 006.jpg" id="1_irh2w"]
+[ext_resource type="Texture2D" uid="uid://g0q1j68qoupr" path="res://Assets/Arte Conceptual/FLECHA_ARRIBA.png" id="2_4wiqn"]
+[ext_resource type="Script" uid="uid://bjra2ysnqxaqr" path="res://Scripts/hud.gd" id="2_b21fk"]
+[ext_resource type="Texture2D" uid="uid://be86nkjb2ijyk" path="res://Assets/Arte Conceptual/interfaz_inventario.png" id="3_4wiqn"]
+[ext_resource type="Texture2D" uid="uid://cxf2v7pl2s74j" path="res://Assets/Arte Conceptual/menu_boton_small.png" id="4_6he5u"]
+[ext_resource type="PackedScene" uid="uid://cv7q47p7bgiei" path="res://Scenes/slot.tscn" id="4_cmxtg"]
+[ext_resource type="Script" uid="uid://djmqoqjd208v2" path="res://Scripts/menu_pause.gd" id="5_6he5u"]
+[ext_resource type="Script" uid="uid://bkiwjoimyheua" path="res://Scripts/container_numbers.gd" id="5_8yig3"]
+[ext_resource type="Script" uid="uid://hc3xmwdsf67y" path="res://Scripts/menu_options.gd" id="6_8yig3"]
+[ext_resource type="AudioStream" uid="uid://pva1g3prng7a" path="res://Audio/Button_Click.mp3" id="7_w6xic"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b21fk"]
+size = Vector2(89, 48)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bc0aw"]
+bg_color = Color(0, 0, 0, 0.60784316)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4g23"]
+bg_color = Color(18.892157, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4sbii"]
+bg_color = Color(0.9882266, 0, 0.10187087, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8yig3"]
+texture = ExtResource("4_6he5u")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fc6wd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_20ibb"]
+texture = ExtResource("3_4wiqn")
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_pnuok"]
+color = Color(1, 1, 1, 1)
+thickness = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kxp6t"]
+bg_color = Color(0.16794264, 0.61649424, 0.99999994, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xwju"]
+bg_color = Color(0, 0.3675467, 0.63751465, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wgihu"]
+bg_color = Color(0.050980393, 0.050980393, 0.050980393, 1)
+
+[node name="Puzzle1" type="Node2D" unique_id=1586064223]
+
+[node name="scene" type="Sprite2D" parent="." unique_id=1206340572]
+position = Vector2(576.49994, 323.50003)
+scale = Vector2(0.288, 0.243)
+texture = ExtResource("1_irh2w")
+
+[node name="Area2D" type="Area2D" parent="scene" unique_id=965426511]
+position = Vector2(67.70854, 709.8764)
+scale = Vector2(3, 3)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="scene/Area2D" unique_id=839507007]
+texture = ExtResource("2_4wiqn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scene/Area2D" unique_id=36019058]
+shape = SubResource("RectangleShape2D_b21fk")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1595312031]
+
+[node name="HUD" type="Control" parent="UI" unique_id=1552952506]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("2_b21fk")
+metadata/_edit_use_anchors_ = true
+
+[node name="candado_UI" type="Panel" parent="UI/HUD" unique_id=79938444]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.36458334
+anchor_top = 0.1574074
+anchor_right = 0.6501736
+anchor_bottom = 0.86882716
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bc0aw")
+metadata/_edit_use_anchors_ = true
+
+[node name="exit_Candado" type="Panel" parent="UI/HUD/candado_UI" unique_id=287949295]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.9240122
+anchor_right = 1.0
+anchor_bottom = 0.054229934
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_y4g23")
+metadata/_edit_use_anchors_ = true
+
+[node name="exit" type="Button" parent="UI/HUD/candado_UI/exit_Candado" unique_id=531657983]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_4sbii")
+text = "X"
+metadata/_edit_use_anchors_ = true
+
+[node name="image_Candado" type="Panel" parent="UI/HUD/candado_UI" unique_id=1426932984]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.32826748
+anchor_top = 0.14099783
+anchor_right = 0.63221884
+anchor_bottom = 0.35791758
+offset_left = 3.0
+offset_right = 3.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_8yig3")
+metadata/_edit_use_anchors_ = true
+
+[node name="open_Candado" type="Button" parent="UI/HUD/candado_UI" unique_id=1020725230]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.337386
+anchor_top = 0.38611713
+anchor_right = 0.662614
+anchor_bottom = 0.46637744
+offset_top = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "ABRIR"
+metadata/_edit_use_anchors_ = true
+
+[node name="container_Numbers" type="HBoxContainer" parent="UI/HUD/candado_UI" unique_id=943739506]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.9978308
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_8yig3")
+metadata/_edit_use_anchors_ = true
+
+[node name="number_Panel1" type="Panel" parent="UI/HUD/candado_UI/container_Numbers" unique_id=1376836181]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="button_Up1" type="Button" parent="UI/HUD/candado_UI/container_Numbers/number_Panel1" unique_id=214297570]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.13537118
+grow_horizontal = 2
+text = "^"
+
+[node name="number1" type="Label" parent="UI/HUD/candado_UI/container_Numbers/number_Panel1" unique_id=540211786]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.2117904
+anchor_right = 1.0
+anchor_bottom = 0.7882096
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 96
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="button_Down1" type="Button" parent="UI/HUD/candado_UI/container_Numbers/number_Panel1" unique_id=1830859716]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -29.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "v"
+
+[node name="number_Panel2" type="Panel" parent="UI/HUD/candado_UI/container_Numbers" unique_id=761888472]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="button_Up2" type="Button" parent="UI/HUD/candado_UI/container_Numbers/number_Panel2" unique_id=872662847]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.13537118
+grow_horizontal = 2
+text = "^"
+
+[node name="number2" type="Label" parent="UI/HUD/candado_UI/container_Numbers/number_Panel2" unique_id=904373821]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.2117904
+anchor_right = 1.0
+anchor_bottom = 0.7882096
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 96
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="button_Down2" type="Button" parent="UI/HUD/candado_UI/container_Numbers/number_Panel2" unique_id=796566898]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -30.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "v"
+
+[node name="number_Panel3" type="Panel" parent="UI/HUD/candado_UI/container_Numbers" unique_id=1916030992]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="button_Up3" type="Button" parent="UI/HUD/candado_UI/container_Numbers/number_Panel3" unique_id=1805098820]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.13537118
+grow_horizontal = 2
+text = "^"
+
+[node name="number3" type="Label" parent="UI/HUD/candado_UI/container_Numbers/number_Panel3" unique_id=2027889514]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.2117904
+anchor_right = 1.0
+anchor_bottom = 0.7882096
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 96
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="button_Down3" type="Button" parent="UI/HUD/candado_UI/container_Numbers/number_Panel3" unique_id=2052739092]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -29.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "v"
+
+[node name="inventory_HUD" type="Panel" parent="UI/HUD" unique_id=1968143591]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 690.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_fc6wd")
+metadata/_edit_group_ = true
+
+[node name="open_Inventory_Button" type="Button" parent="UI/HUD/inventory_HUD" unique_id=797383456]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.9296875
+anchor_top = 0.3587963
+anchor_right = 1.0
+anchor_bottom = 0.6412037
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 128
+text = "<"
+
+[node name="Inventory" type="Panel" parent="UI/HUD/inventory_HUD" unique_id=947729830]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_right = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_20ibb")
+
+[node name="close_Inventory_Button" type="Button" parent="UI/HUD/inventory_HUD/Inventory" unique_id=1772393601]
+layout_mode = 0
+anchor_left = -0.0043010423
+anchor_top = 0.314376
+anchor_right = -0.0043010423
+anchor_bottom = 0.314376
+offset_left = 80.999985
+offset_top = 183.0
+offset_right = 161.99998
+offset_bottom = 366.0
+rotation = 3.1415927
+theme_override_font_sizes/font_size = 128
+text = "<"
+metadata/_edit_use_anchors_ = true
+
+[node name="text_Inventory" type="Label" parent="UI/HUD/inventory_HUD/Inventory" unique_id=71261484]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.63256055
+anchor_top = 0.083252884
+anchor_right = 0.79922724
+anchor_bottom = 0.15269732
+offset_left = -175.14063
+offset_top = -2.6990738
+offset_right = -30.640625
+offset_bottom = -1.6574059
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "INVENTARIO"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="grid_Inventory" type="GridContainer" parent="UI/HUD/inventory_HUD/Inventory" unique_id=1143492098]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.227957
+anchor_top = 0.17219588
+anchor_right = 0.7354839
+anchor_bottom = 0.8309637
+columns = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="slot" parent="UI/HUD/inventory_HUD/Inventory/grid_Inventory" unique_id=2144664429 instance=ExtResource("4_cmxtg")]
+layout_mode = 2
+
+[node name="slot2" parent="UI/HUD/inventory_HUD/Inventory/grid_Inventory" unique_id=608686254 instance=ExtResource("4_cmxtg")]
+layout_mode = 2
+
+[node name="slot3" parent="UI/HUD/inventory_HUD/Inventory/grid_Inventory" unique_id=423009234 instance=ExtResource("4_cmxtg")]
+layout_mode = 2
+
+[node name="slot4" parent="UI/HUD/inventory_HUD/Inventory/grid_Inventory" unique_id=1137688523 instance=ExtResource("4_cmxtg")]
+layout_mode = 2
+
+[node name="slot5" parent="UI/HUD/inventory_HUD/Inventory/grid_Inventory" unique_id=1685974819 instance=ExtResource("4_cmxtg")]
+layout_mode = 2
+
+[node name="slot6" parent="UI/HUD/inventory_HUD/Inventory/grid_Inventory" unique_id=399843458 instance=ExtResource("4_cmxtg")]
+layout_mode = 2
+
+[node name="menu_Pause" type="Panel" parent="UI/HUD" unique_id=1729454934]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_6he5u")
+
+[node name="button_Container" type="VBoxContainer" parent="UI/HUD/menu_Pause" unique_id=1898105713]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.5
+offset_top = -99.5
+offset_right = 112.5
+offset_bottom = 99.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="button_play" type="Button" parent="UI/HUD/menu_Pause/button_Container" unique_id=1771837928]
+clip_contents = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Continuar"
+
+[node name="button_options" type="Button" parent="UI/HUD/menu_Pause/button_Container" unique_id=510110040]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Opciones"
+
+[node name="button_exit" type="Button" parent="UI/HUD/menu_Pause/button_Container" unique_id=44782860]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Regresar al inicio"
+
+[node name="menu_Options" type="Panel" parent="UI/HUD" unique_id=565144239]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.22222222
+anchor_top = 0.16049382
+anchor_right = 0.7772895
+anchor_bottom = 0.9251543
+offset_left = -8.888889
+offset_top = -6.419753
+offset_right = -8.888889
+offset_bottom = -6.419754
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bc0aw")
+script = ExtResource("6_8yig3")
+metadata/_edit_use_anchors_ = true
+
+[node name="title_Options" type="Label" parent="UI/HUD/menu_Options" unique_id=1410189191]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2794937
+anchor_right = 0.7205063
+anchor_bottom = 0.090817355
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Menu de opciones"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="exit_Options" type="Panel" parent="UI/HUD/menu_Options" unique_id=1630775070]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.92962563
+anchor_right = 1.0
+anchor_bottom = 0.090817355
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_y4g23")
+metadata/_edit_use_anchors_ = true
+
+[node name="exit" type="Button" parent="UI/HUD/menu_Options/exit_Options" unique_id=1655338509]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_4sbii")
+text = "X"
+
+[node name="container_Options" type="VBoxContainer" parent="UI/HUD/menu_Options" unique_id=2058992232]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.099648125
+anchor_top = 0.43138245
+anchor_right = 0.9003519
+anchor_bottom = 0.5686176
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="music-Text" type="Label" parent="UI/HUD/menu_Options/container_Options" unique_id=9055041]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="music_Volume" type="HSlider" parent="UI/HUD/menu_Options/container_Options" unique_id=551917648]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_pnuok")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kxp6t")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_5xwju")
+min_value = -60.0
+max_value = 0.0
+value = -10.0
+
+[node name="sfx_Text" type="Label" parent="UI/HUD/menu_Options/container_Options" unique_id=2027074075]
+layout_mode = 2
+text = "SFX Volume"
+
+[node name="sfx_Volume" type="HSlider" parent="UI/HUD/menu_Options/container_Options" unique_id=1321395507]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_pnuok")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kxp6t")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_5xwju")
+min_value = -60.0
+max_value = 0.0
+metadata/_edit_use_anchors_ = true
+
+[node name="checkbox_Fullscreen" type="CheckBox" parent="UI/HUD/menu_Options/container_Options" unique_id=713633732]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_wgihu")
+text = "Fullscreen
+"
+
+[node name="SFX_button" type="AudioStreamPlayer" parent="UI/HUD" unique_id=1397787344]
+stream = ExtResource("7_w6xic")
+
+[connection signal="input_event" from="scene/Area2D" to="UI/HUD/candado_UI/container_Numbers" method="_on_area_2d_input_event"]
+[connection signal="pressed" from="UI/HUD/candado_UI/exit_Candado/exit" to="UI/HUD/candado_UI/container_Numbers" method="_on_exit_pressed"]
+[connection signal="pressed" from="UI/HUD/candado_UI/open_Candado" to="UI/HUD/candado_UI/container_Numbers" method="_on_open_candado_pressed"]
+[connection signal="pressed" from="UI/HUD/candado_UI/container_Numbers/number_Panel1/button_Up1" to="UI/HUD/candado_UI/container_Numbers" method="_on_button_up_1_pressed"]
+[connection signal="pressed" from="UI/HUD/candado_UI/container_Numbers/number_Panel1/button_Down1" to="UI/HUD/candado_UI/container_Numbers" method="_on_button_down_1_pressed"]
+[connection signal="pressed" from="UI/HUD/candado_UI/container_Numbers/number_Panel2/button_Up2" to="UI/HUD/candado_UI/container_Numbers" method="_on_button_up_2_pressed"]
+[connection signal="pressed" from="UI/HUD/candado_UI/container_Numbers/number_Panel2/button_Down2" to="UI/HUD/candado_UI/container_Numbers" method="_on_button_down_2_pressed"]
+[connection signal="pressed" from="UI/HUD/candado_UI/container_Numbers/number_Panel3/button_Up3" to="UI/HUD/candado_UI/container_Numbers" method="_on_button_up_3_pressed"]
+[connection signal="pressed" from="UI/HUD/candado_UI/container_Numbers/number_Panel3/button_Down3" to="UI/HUD/candado_UI/container_Numbers" method="_on_button_down_3_pressed"]
+[connection signal="pressed" from="UI/HUD/inventory_HUD/open_Inventory_Button" to="UI/HUD" method="_on_open_inventory_button_pressed"]
+[connection signal="pressed" from="UI/HUD/inventory_HUD/Inventory/close_Inventory_Button" to="UI/HUD" method="_on_close_inventory_button_pressed"]
+[connection signal="pressed" from="UI/HUD/menu_Pause/button_Container/button_play" to="UI/HUD/menu_Pause" method="_on_button_play_pressed"]
+[connection signal="pressed" from="UI/HUD/menu_Pause/button_Container/button_options" to="UI/HUD/menu_Pause" method="_on_button_options_pressed"]
+[connection signal="pressed" from="UI/HUD/menu_Pause/button_Container/button_exit" to="UI/HUD/menu_Pause" method="_on_button_exit_pressed"]
+[connection signal="pressed" from="UI/HUD/menu_Options/exit_Options/exit" to="UI/HUD/menu_Options" method="_on_exit_pressed"]
+[connection signal="value_changed" from="UI/HUD/menu_Options/container_Options/music_Volume" to="UI/HUD/menu_Options" method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="UI/HUD/menu_Options/container_Options/sfx_Volume" to="UI/HUD/menu_Options" method="_on_sfx_volume_value_changed"]
+[connection signal="toggled" from="UI/HUD/menu_Options/container_Options/checkbox_Fullscreen" to="UI/HUD/menu_Options" method="_on_checkbox_fullscreen_toggled"]

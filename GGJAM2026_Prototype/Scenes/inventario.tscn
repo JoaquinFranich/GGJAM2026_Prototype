@@ -1,18 +1,5 @@
 [gd_scene format=3 uid="uid://p8synkvgjg78"]
 
-<<<<<<< Updated upstream
-[ext_resource type="Texture2D" uid="uid://cj1wl6rkgghlk" path="res://Images/AGU05046.JPG" id="1_g53kp"]
-[ext_resource type="Script" uid="uid://qhvwqs64arsg" path="res://Scripts/inventario.gd" id="1_w8c2t"]
-[ext_resource type="Texture2D" uid="uid://corq0pufvh5f5" path="res://Assets/Inventario.png" id="2_lkne6"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_smvdb"]
-texture = ExtResource("1_g53kp")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xf715"]
-texture = ExtResource("2_lkne6")
-
-[node name="Inventario" type="Control" unique_id=952104272]
-=======
 [ext_resource type="Texture2D" uid="uid://cycwfrt6i835m" path="res://Assets/Arte Conceptual/ESCENA A2.jpg" id="1_ajrix"]
 [ext_resource type="Script" uid="uid://lkuxo4wtbcxs" path="res://Scripts/object.gd" id="2_1myu6"]
 [ext_resource type="Texture2D" uid="uid://d3cepeat5wqps" path="res://Assets/Arte Conceptual/objeto_esc_mineral1.png" id="2_c1ctk"]
@@ -110,54 +97,20 @@ shape = SubResource("RectangleShape2D_y2ef4")
 [node name="UI" type="CanvasLayer" parent="." unique_id=842436274]
 
 [node name="HUD" type="Control" parent="UI" unique_id=875677509]
->>>>>>> Stashed changes
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-<<<<<<< Updated upstream
-script = ExtResource("1_w8c2t")
-
-[node name="image_Game" type="Panel" parent="." unique_id=539294711]
-=======
 mouse_filter = 1
 script = ExtResource("2_vii62")
 
 [node name="inventory_HUD" type="Panel" parent="UI/HUD" unique_id=539294711]
->>>>>>> Stashed changes
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-<<<<<<< Updated upstream
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_smvdb")
-metadata/_edit_use_anchors_ = true
-
-[node name="open_Inventory_Button" type="Button" parent="image_Game" unique_id=1305363643]
-layout_mode = 0
-offset_left = 1071.0
-offset_top = 232.0
-offset_right = 1152.0
-offset_bottom = 415.0
-theme_override_font_sizes/font_size = 128
-text = "<"
-
-[node name="Inventory" type="Panel" parent="image_Game" unique_id=2075325444]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.6232639
-anchor_top = 0.023148147
-anchor_right = 1.0269097
-anchor_bottom = 1.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_xf715")
-metadata/_edit_use_anchors_ = true
-
-[node name="close_Inventory_Button" type="Button" parent="image_Game/Inventory" unique_id=20525228]
-=======
 offset_left = 690.0
 offset_right = 3.0
 grow_horizontal = 2
@@ -190,7 +143,6 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_c1ctk")
 
 [node name="close_Inventory_Button" type="Button" parent="UI/HUD/inventory_HUD/Inventory" unique_id=20525228]
->>>>>>> Stashed changes
 layout_mode = 0
 anchor_left = -0.0043010423
 anchor_top = 0.314376
@@ -205,11 +157,7 @@ theme_override_font_sizes/font_size = 128
 text = "<"
 metadata/_edit_use_anchors_ = true
 
-<<<<<<< Updated upstream
-[node name="text_Inventory" type="Label" parent="image_Game/Inventory" unique_id=1538988188]
-=======
 [node name="text_Inventory" type="Label" parent="UI/HUD/inventory_HUD/Inventory" unique_id=1538988188]
->>>>>>> Stashed changes
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.63256055
@@ -227,48 +175,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-<<<<<<< Updated upstream
-[node name="grid_Inventory" type="GridContainer" parent="image_Game/Inventory" unique_id=1583761795]
-layout_mode = 0
-offset_left = 108.0
-offset_top = 106.0
-offset_right = 363.0
-offset_bottom = 519.0
-columns = 2
-
-[node name="object" type="Button" parent="image_Game/Inventory/grid_Inventory" unique_id=1880139881]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="object2" type="Button" parent="image_Game/Inventory/grid_Inventory" unique_id=145114036]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="object3" type="Button" parent="image_Game/Inventory/grid_Inventory" unique_id=124389280]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="object4" type="Button" parent="image_Game/Inventory/grid_Inventory" unique_id=396762236]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="object5" type="Button" parent="image_Game/Inventory/grid_Inventory" unique_id=1653024375]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="object6" type="Button" parent="image_Game/Inventory/grid_Inventory" unique_id=1621548082]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[connection signal="pressed" from="image_Game/open_Inventory_Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="image_Game/Inventory/close_Inventory_Button" to="." method="_on_close_inventory_button_pressed"]
-=======
 [node name="grid_Inventory" type="GridContainer" parent="UI/HUD/inventory_HUD/Inventory" unique_id=1583761795]
 layout_mode = 1
 anchors_preset = -1
@@ -454,4 +360,3 @@ bus = &"SFX"
 [connection signal="value_changed" from="UI/HUD/menu_Options/container_Options/music_Volume" to="UI/HUD/menu_Options" method="_on_music_volume_value_changed"]
 [connection signal="value_changed" from="UI/HUD/menu_Options/container_Options/sfx_Volume" to="UI/HUD/menu_Options" method="_on_sfx_volume_value_changed"]
 [connection signal="toggled" from="UI/HUD/menu_Options/container_Options/checkbox_Fullscreen" to="UI/HUD/menu_Options" method="_on_checkbox_fullscreen_toggled"]
->>>>>>> Stashed changes
