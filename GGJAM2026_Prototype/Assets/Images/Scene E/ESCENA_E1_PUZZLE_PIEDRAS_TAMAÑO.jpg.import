@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://l6old072r3kg"
-path="res://.godot/imported/ESCENARIO_D9_PUZZLE_CANDADO_PLANO 3_ABIERTO.jpg-1d60deadde691fd10a3def1f19a99694.ctex"
+uid="uid://cmf1a75lytpj1"
+path="res://.godot/imported/ESCENA_E1_PUZZLE_PIEDRAS_TAMAÑO.jpg-15deeb4b5f4d62a4268585be6216dc07.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Scene D/ESCENARIO_D9_PUZZLE_CANDADO_PLANO 3_ABIERTO.jpg"
-dest_files=["res://.godot/imported/ESCENARIO_D9_PUZZLE_CANDADO_PLANO 3_ABIERTO.jpg-1d60deadde691fd10a3def1f19a99694.ctex"]
+source_file="res://Assets/Images/Scene E/ESCENA_E1_PUZZLE_PIEDRAS_TAMAÑO.jpg"
+dest_files=["res://.godot/imported/ESCENA_E1_PUZZLE_PIEDRAS_TAMAÑO.jpg-15deeb4b5f4d62a4268585be6216dc07.ctex"]
 
 [params]
 

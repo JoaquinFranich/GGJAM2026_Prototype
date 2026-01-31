@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ohkq2yimyfak"]
+[gd_scene load_steps=12 format=3 uid="uid://ohkq2yimyfak"]
 
 [ext_resource type="Script" uid="uid://dxjx1v8suhs8f" path="res://Scripts/ui_manager.gd" id="1_ui_mgr"]
 [ext_resource type="Texture2D" uid="uid://bb6p0ous5qhfi" path="res://Assets/Images/UI/FLECHA_IZQUIERDA.png" id="2_left"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://d3fj3c8g5xnr5" path="res://Scripts/direction_button_up.gd" id="8_btn_up"]
 [ext_resource type="Script" uid="uid://drq08otxijrjj" path="res://Scripts/direction_button_down.gd" id="9_btn_down"]
 [ext_resource type="Texture2D" uid="uid://c2hncm32q0ao0" path="res://Assets/Images/UI/MASCARA_UI.png" id="10_4jujk"]
+[ext_resource type="Texture2D" uid="uid://bc4rw67nnoujl" path="res://Assets/Images/Clues/FLECHA_PISTA_PARTICULA.png" id="11_2fful"]
 
 [node name="UI_manager" type="CanvasLayer"]
 layer = 5
@@ -69,9 +70,9 @@ flat = true
 script = ExtResource("9_btn_down")
 
 [node name="MaskButton" type="Button" parent="."]
-offset_left = 424.0
+offset_left = 299.0
 offset_top = 858.0
-offset_right = 576.0
+offset_right = 451.0
 offset_bottom = 1054.0
 icon = ExtResource("10_4jujk")
 
@@ -95,25 +96,24 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(1, 0, 0, 0.223529)
 
-[node name="RainParticles" type="CPUParticles2D" parent="MaskOverlay"]
-visible = false
-position = Vector2(870, -492)
-rotation = -0.14915936
-amount = 2500
+[node name="ArrowParticles" type="CPUParticles2D" parent="MaskOverlay"]
+position = Vector2(1975, 327)
+scale = Vector2(1, 0.3600006)
+amount = 30
+texture = ExtResource("11_2fful")
+lifetime = 10.0
 randomness = 0.3
 emission_shape = 3
-emission_rect_extents = Vector2(1033.225, 1)
-gravity = Vector2(0, 1500)
-initial_velocity_max = 160.38
-linear_accel_max = 33.96
-radial_accel_max = 39.62
-damping_min = 1.03
-damping_max = 5.305
-angle_min = -203.8
-angle_max = 271.7
-scale_amount_min = 0.0
-scale_amount_max = 10.0
-color = Color(0.7, 0.8, 1, 0.8)
+emission_rect_extents = Vector2(10, 540)
+direction = Vector2(-1, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 400.0
+angle_min = 180.0
+angle_max = 180.0
+scale_amount_min = 0.5
+scale_amount_max = 1.5
 
 [node name="ClueDisplay" type="TextureRect" parent="MaskOverlay"]
 layout_mode = 1

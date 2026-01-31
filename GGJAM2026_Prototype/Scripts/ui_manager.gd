@@ -20,7 +20,9 @@ var _focus_item_scene: PackedScene
 # Referencias para Mecánica de Máscara
 var _mask_button: Button
 var _mask_overlay: Control
+var _arrow_particles: CPUParticles2D
 var _clue_display: TextureRect
+var _mask_timer: Timer
 
 
 # Referencia al DialogueManager (ya existe como singleton)
@@ -68,6 +70,15 @@ func _initialize_references():
 	_mask_overlay = get_node_or_null("MaskOverlay")
 	if _mask_overlay:
 		_clue_display = _mask_overlay.get_node_or_null("ClueDisplay")
+		_arrow_particles = _mask_overlay.get_node_or_null("ArrowParticles")
+	
+	# Crear y configurar el Timer para la máscara
+	if not _mask_timer:
+		_mask_timer = Timer.new()
+		_mask_timer.one_shot = true
+		_mask_timer.wait_time = 3.0 # Duración de la máscara en segundos
+		_mask_timer.timeout.connect(_on_mask_timer_timeout)
+		add_child(_mask_timer)
 	
 	# Conectar señales de los botones
 	_connect_button_signals()
@@ -146,8 +157,14 @@ func configure_scene_ui_multiple(focus_items_config: Array, visible_buttons: Arr
 	call_deferred("_check_mask_button_visibility")
 
 func _check_mask_button_visibility():
-	# Si la escena no configuró pista, ocultar botón (reset)
-	# Esto es un fail-safe
+	# Si se inicia una nueva escena, asegurar que todo esté reseteado
+	# Detener timer si estaba corriendo de la escena anterior
+	if _mask_timer and not _mask_timer.is_stopped():
+		_mask_timer.stop()
+		
+	# Asegurar botón habilitado (si es visible)
+	if _mask_button:
+		_mask_button.disabled = false
 	pass
 
 ## Establece la posición y escala del FocusItem (método legacy - un solo FocusItem)
@@ -330,14 +347,58 @@ func set_current_clue(texture: Texture2D, clue_position: Vector2 = Vector2.ZERO,
 			_clue_display.scale = clue_scale
 
 ## Alterna el modo máscara (overlay visible/oculto)
+## AHORA CON TIMER: Activa la máscara por un tiempo limitado
 func toggle_mask_mode():
+	# Si el overlay ya está visible, no hacemos nada (o podríamos apagarlo, pero el diseño es con timer)
+	# Si quisiéramos permitir apagar manualmente, aquí iría la lógica.
+	# Por ahora, asumimos que solo se activa y el timer lo apaga.
 	if _mask_overlay:
-		_mask_overlay.visible = not _mask_overlay.visible
+		# 1. Mostrar Overlay
+		_mask_overlay.visible = true
+		
+		# 2. Gestionar Partículas (Solo en F1 y F2)
+		_update_arrow_particles_state()
+		
+		# 3. Deshabilitar botón y arrancar timer
+		if _mask_button:
+			_mask_button.disabled = true
+		
+		if _mask_timer:
+			_mask_timer.start()
+
+## Actualiza el estado de las partículas según la escena actual
+func _update_arrow_particles_state():
+	if not _arrow_particles:
+		return
+		
+	var current = SceneManager.current_scene
+	# Verificar si es F1 o F2 (usando los nombres de archivo específicos)
+	var is_arrow_scene = current.ends_with("test_node_F1.tscn") or current.ends_with("test_node_F2.tscn")
+	
+	if is_arrow_scene:
+		_arrow_particles.visible = true
+		_arrow_particles.emitting = true
+	else:
+		_arrow_particles.visible = false
+		_arrow_particles.emitting = false
 
 ## Oculta el overlay de máscara (reset)
 func hide_mask_overlay():
 	if _mask_overlay:
 		_mask_overlay.visible = false
+	
+	# Apagar partículas también
+	if _arrow_particles:
+		_arrow_particles.visible = false
+		_arrow_particles.emitting = false
+
+func _on_mask_timer_timeout():
+	# Se acabó el tiempo
+	hide_mask_overlay()
+	
+	# Reactivar botón
+	if _mask_button:
+		_mask_button.disabled = false
 
 func _on_mask_button_pressed():
 	toggle_mask_mode()

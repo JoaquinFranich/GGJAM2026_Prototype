@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4mpx16pevp53"
-path="res://.godot/imported/ESCENARIO_FONDO_EXTRA_005.jpg-04a6aa074a77399d00ba526b08f71e94.ctex"
+uid="uid://bknoupftn68ml"
+path="res://.godot/imported/puntero_003.png-bbe4eae0a4da701720267e1b43039a5b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Transitions/ESCENARIO_FONDO_EXTRA_005.jpg"
-dest_files=["res://.godot/imported/ESCENARIO_FONDO_EXTRA_005.jpg-04a6aa074a77399d00ba526b08f71e94.ctex"]
+source_file="res://Assets/Images/Cursor/puntero_003.png"
+dest_files=["res://.godot/imported/puntero_003.png-bbe4eae0a4da701720267e1b43039a5b.ctex"]
 
 [params]
 

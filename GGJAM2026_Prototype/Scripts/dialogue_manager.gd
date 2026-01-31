@@ -27,8 +27,8 @@ var _is_typing: bool = false
 
 # Rutas de caras por speaker (preparado para varios personajes)
 var _speaker_portraits: Dictionary = {
-	"main": "res://Assets/Images/HandCursor.png",   # Placeholder; sustituir por retrato real
-	"other": "res://icon.svg",                       # Placeholder para el otro personaje
+	"main": "res://Assets/Images/Cursor/puntero_001.png", # Placeholder; sustituir por retrato real
+	"other": "res://icon.svg", # Placeholder para el otro personaje
 }
 
 const FADE_DURATION: float = 0.25
@@ -71,7 +71,7 @@ func show_dialogue(blocks: Array) -> void:
 		if b is Dictionary and b.has("text"):
 			_blocks.append(b)
 		elif b is String:
-			_blocks.append({ "speaker": "main", "text": b })
+			_blocks.append({"speaker": "main", "text": b})
 	if _blocks.is_empty():
 		return
 	_current_index = 0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3ka57tsslr3s"
-path="res://.godot/imported/ESCENARIO_D6_PUZZLE_CANDADO_PLANO_2_CERRADO.jpg-074b99adebade9b294f1777a1e1464fc.ctex"
+uid="uid://b8sqlljc5gsuo"
+path="res://.godot/imported/ESCENA_F7_FINAL_VICTIMA_1.jpg-5cd3355efb51518e13f2a29a8275d8c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Scene D/ESCENARIO_D6_PUZZLE_CANDADO_PLANO_2_CERRADO.jpg"
-dest_files=["res://.godot/imported/ESCENARIO_D6_PUZZLE_CANDADO_PLANO_2_CERRADO.jpg-074b99adebade9b294f1777a1e1464fc.ctex"]
+source_file="res://Assets/Images/Scene F/ESCENA_F7_FINAL_VICTIMA_1.jpg"
+dest_files=["res://.godot/imported/ESCENA_F7_FINAL_VICTIMA_1.jpg-5cd3355efb51518e13f2a29a8275d8c1.ctex"]
 
 [params]
 

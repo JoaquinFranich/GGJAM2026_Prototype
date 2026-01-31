@@ -3,8 +3,6 @@ extends Button
 ## Script para el botón de dirección arriba (Mirar arriba)
 ## Cambia a escena del techo (solo en escenas específicas)
 
-var hand_cursor = preload("res://Assets/Images/HandCursor.png")
-
 # Escena destino cuando se hace clic (debe ser configurada por la escena)
 var target_scene: String = ""
 
@@ -21,6 +19,11 @@ func _ready():
 	# Conectar señal pressed
 	if not pressed.is_connected(_on_pressed):
 		pressed.connect(_on_pressed)
+	
+	if not button_down.is_connected(_on_button_down):
+		button_down.connect(_on_button_down)
+	if not button_up.is_connected(_on_button_up):
+		button_up.connect(_on_button_up)
 
 func _on_pressed():
 	if target_scene != "" and ResourceLoader.exists(target_scene):
@@ -29,7 +32,13 @@ func _on_pressed():
 		push_warning("DirectionButtonUp: target_scene no configurada o no existe")
 
 func _on_mouse_entered():
-	Input.set_custom_mouse_cursor(hand_cursor)
+	CursorManager.set_hand_cursor()
 
 func _on_mouse_exited():
-	Input.set_custom_mouse_cursor(null)
+	CursorManager.reset_cursor()
+
+func _on_button_down():
+	CursorManager.set_click_cursor()
+
+func _on_button_up():
+	CursorManager.set_hand_cursor()

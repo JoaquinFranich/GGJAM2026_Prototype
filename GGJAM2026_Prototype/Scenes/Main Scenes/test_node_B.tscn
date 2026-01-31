@@ -6,7 +6,7 @@
 [node name="TestNodeA" type="Node2D"]
 script = ExtResource("2_ui_config")
 visible_direction_buttons = Array[String](["up", "down", "left"])
-button_up_target_scene = "res://Scenes/Main Scenes/test_node_C.tscn"
+button_up_target_scene = "res://Scenes/Sub Scenes/test_node_C1.tscn"
 button_down_target_scene = "res://Scenes/Main Scenes/test_node_00.tscn"
 button_left_target_scene = "res://Scenes/Sub Scenes/test_node_B1.tscn"
 

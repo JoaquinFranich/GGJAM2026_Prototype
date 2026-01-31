@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmhkmo5u60d0h"
-path="res://.godot/imported/HandCursor.png-1cfe5b3d2532a5a5717ed4f4efa4b9ab.ctex"
+uid="uid://6ulqkjowd682"
+path="res://.godot/imported/FLECHA_PISTA.png-f0a7d59719b7da37dd475f7a56def0e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/HandCursor.png"
-dest_files=["res://.godot/imported/HandCursor.png-1cfe5b3d2532a5a5717ed4f4efa4b9ab.ctex"]
+source_file="res://Assets/Images/Clues/FLECHA_PISTA.png"
+dest_files=["res://.godot/imported/FLECHA_PISTA.png-f0a7d59719b7da37dd475f7a56def0e3.ctex"]
 
 [params]
 

@@ -11,8 +11,6 @@ extends Node2D
 ## - Al pasar el mouse sobre el área, cambia a cursor de mano
 ## - Al salir, vuelve al cursor normal
 
-var hand_cursor = preload("res://Assets/Images/HandCursor.png")
-
 func _ready():
 	# Buscar el Area2D hijo
 	var area = _find_area2d()
@@ -38,23 +36,29 @@ func _find_area2d() -> Area2D:
 func _on_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if event is InputEventMouseButton:
 		var mouse_event = event as InputEventMouseButton
-		if mouse_event.pressed and mouse_event.button_index == MOUSE_BUTTON_LEFT:
-			# 1. Verificar si tenemos una meta-data de destino (puesta por UI_manager)
-			var target_scene = get_meta("target_scene", "")
-			
-			# 2. Si hay destino, ir allí DIRECTAMENTE
-			if target_scene != "" and ResourceLoader.exists(target_scene):
-				SceneManager.change_scene(target_scene)
-				# Opcional: emitir señal local si es necesario
-			
-			# 3. Si NO hay destino, usar comportamiento por defecto
+		if mouse_event.button_index == MOUSE_BUTTON_LEFT:
+			if mouse_event.pressed:
+				CursorManager.set_click_cursor()
+				
+				# 1. Verificar si tenemos una meta-data de destino (puesta por UI_manager)
+				var target_scene = get_meta("target_scene", "")
+				
+				# 2. Si hay destino, ir allí DIRECTAMENTE
+				if target_scene != "" and ResourceLoader.exists(target_scene):
+					SceneManager.change_scene(target_scene)
+					# Opcional: emitir señal local si es necesario
+				
+				# 3. Si NO hay destino, usar comportamiento por defecto
+				else:
+					SceneManager.on_focusitem_clicked()
 			else:
-				SceneManager.on_focusitem_clicked()
+				# Al soltar (pressed = false), volver a mano
+				CursorManager.set_hand_cursor()
 
 ## Cambia el cursor a mano al pasar el mouse
 func _on_mouse_entered():
-	Input.set_custom_mouse_cursor(hand_cursor)
+	CursorManager.set_hand_cursor()
 
 ## Restaura el cursor al salir
 func _on_mouse_exited():
-	Input.set_custom_mouse_cursor(null)
+	CursorManager.reset_cursor()

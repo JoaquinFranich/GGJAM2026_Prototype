@@ -25,12 +25,13 @@ var volver_target: String = "res://Scenes/Main Scenes/test_node_00.tscn"
 # Escenas principales en orden (A, B, C, D, E, F)
 # Modifica este array con las rutas reales de tus escenas principales
 var main_scenes: Array[String] = [
-	"res://Scenes/Main Scenes/test_node_00.tscn",      # 00 (escena principal 1)
-	"res://Scenes/Main Scenes/test_node_A.tscn",      # A (descomentar y ajustar cuando existan)
-	"res://Scenes/Main Scenes/test_node_B.tscn",      # B
-	"res://Scenes/Main Scenes/test_node_C.tscn",      # C
-	"res://Scenes/Main Scenes/test_node_D.tscn",      # E
-	# "res://Scenes/scene_F.tscn",      # F
+	"res://Scenes/Main Scenes/test_node_00.tscn", # 00 (escena principal 1)
+	"res://Scenes/Main Scenes/test_node_A.tscn", # A (descomentar y ajustar cuando existan)
+	"res://Scenes/Main Scenes/test_node_B.tscn", # B
+	"res://Scenes/Main Scenes/test_node_C.tscn", # C
+	"res://Scenes/Main Scenes/test_node_D.tscn", # D
+	"res://Scenes/Main Scenes/test_node_E.tscn", # E
+	"res://Scenes/Main Scenes/test_node_F.tscn",
 ]
 
 # Subescenas por cada escena principal
@@ -38,27 +39,42 @@ var main_scenes: Array[String] = [
 # Valor: array ordenado de sus subescenas [A1, A2, A3] o [B1, B2, B3], etc.
 var sub_scenes: Dictionary = {
 	"res://Scenes/Main Scenes/test_node_A.tscn": [
-		"res://Scenes/Sub Scenes/test_node_A1.tscn",       # A1
-		"res://Scenes/Sub Scenes/test_node_A2.tscn",     # A2 (descomentar cuando exista)
-		"res://Scenes/Sub Scenes/test_node_A3.tscn",     # A3
+		"res://Scenes/Sub Scenes/test_node_A1.tscn",
+		"res://Scenes/Sub Scenes/test_node_A2.tscn",
+		"res://Scenes/Sub Scenes/test_node_A3.tscn",
 	],
-	 "res://Scenes/Main Scenes/test_node_B.tscn": [
+	"res://Scenes/Main Scenes/test_node_B.tscn": [
 		"res://Scenes/Sub Scenes/test_node_B1.tscn",
 		"res://Scenes/Sub Scenes/test_node_B2.tscn",
 		"res://Scenes/Sub Scenes/test_node_B3.tscn",
 	 ],
-		"res://Scenes/Main Scenes/test_node_C.tscn": [
-		"res://Scenes/Sub Scenes/test_node_C1.tscn",       # A1
-		"res://Scenes/Sub Scenes/test_node_C2.tscn",     # A2 (descomentar cuando exista)
-		"res://Scenes/Sub Scenes/test_node_C3.tscn",     # A3
+	"res://Scenes/Main Scenes/test_node_C.tscn": [
+		"res://Scenes/Sub Scenes/test_node_C1.tscn",
+		"res://Scenes/Sub Scenes/test_node_C2.tscn",
+		"res://Scenes/Sub Scenes/test_node_C3.tscn",
 		"res://Scenes/Sub Scenes/test_node_C4.tscn"
 	],
-			"res://Scenes/Main Scenes/test_node_D.tscn": [
-		"res://Scenes/Sub Scenes/test_node_D1.tscn",       # A1
-		"res://Scenes/Sub Scenes/test_node_D2.tscn",     # A2 (descomentar cuando exista)
-		"res://Scenes/Sub Scenes/test_node_D3.tscn",     # A3
+	"res://Scenes/Main Scenes/test_node_D.tscn": [
+		"res://Scenes/Sub Scenes/test_node_D1.tscn",
+		"res://Scenes/Sub Scenes/test_node_D2.tscn",
+		"res://Scenes/Sub Scenes/test_node_D3.tscn",
 		"res://Scenes/Sub Scenes/test_node_D4.tscn",
 		"res://Scenes/Sub Scenes/test_node_D5.tscn",
+	],
+		"res://Scenes/Main Scenes/test_node_E.tscn": [
+		"res://Scenes/Sub Scenes/test_node_E1.tscn",
+		"res://Scenes/Sub Scenes/test_node_E2.tscn",
+		"res://Scenes/Sub Scenes/test_node_E3.tscn",
+		"res://Scenes/Sub Scenes/test_node_E4.tscn",
+		"res://Scenes/Sub Scenes/test_node_E5.tscn",
+	],
+		"res://Scenes/Main Scenes/test_node_F.tscn": [
+		"res://Scenes/Sub Scenes/test_node_F1.tscn",
+		"res://Scenes/Sub Scenes/test_node_F2.tscn",
+		"res://Scenes/Sub Scenes/test_node_F3.tscn",
+		"res://Scenes/Sub Scenes/test_node_F4.tscn",
+		"res://Scenes/Sub Scenes/test_node_F5.tscn",
+		"res://Scenes/Sub Scenes/test_node_F6.tscn"
 	],
 }
 

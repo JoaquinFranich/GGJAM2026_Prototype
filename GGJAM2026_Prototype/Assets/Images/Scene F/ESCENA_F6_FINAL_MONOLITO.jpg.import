@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvmkjikl6jh7f"
-path="res://.godot/imported/ESCENARIO_FONDO_EXTRA_004.jpg-16441133b3c27def0909e6bb2d5176e0.ctex"
+uid="uid://dqr5wxxuuanq8"
+path="res://.godot/imported/ESCENA_F6_FINAL_MONOLITO.jpg-c90272662eabc6e61e8c46b530d6e27d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Transitions/ESCENARIO_FONDO_EXTRA_004.jpg"
-dest_files=["res://.godot/imported/ESCENARIO_FONDO_EXTRA_004.jpg-16441133b3c27def0909e6bb2d5176e0.ctex"]
+source_file="res://Assets/Images/Scene F/ESCENA_F6_FINAL_MONOLITO.jpg"
+dest_files=["res://.godot/imported/ESCENA_F6_FINAL_MONOLITO.jpg-c90272662eabc6e61e8c46b530d6e27d.ctex"]
 
 [params]
 

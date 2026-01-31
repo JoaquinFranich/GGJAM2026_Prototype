@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://io5k8uwmjwvs"
-path="res://.godot/imported/ESCENA_D5_PUZZLE_CANDADO_PLANO 1_CERRADO.jpg-6c85f563678fe685cc0f3c42e27178d4.ctex"
+uid="uid://ct2wjaw1hb8gq"
+path="res://.godot/imported/ESCENA_F3_CLOACA_FINAL_SI_BARRAS.jpg-6861e1abcf8460044919402831ca9950.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Scene D/ESCENA_D5_PUZZLE_CANDADO_PLANO 1_CERRADO.jpg"
-dest_files=["res://.godot/imported/ESCENA_D5_PUZZLE_CANDADO_PLANO 1_CERRADO.jpg-6c85f563678fe685cc0f3c42e27178d4.ctex"]
+source_file="res://Assets/Images/Scene F/ESCENA_F3_CLOACA_FINAL_SI_BARRAS.jpg"
+dest_files=["res://.godot/imported/ESCENA_F3_CLOACA_FINAL_SI_BARRAS.jpg-6861e1abcf8460044919402831ca9950.ctex"]
 
 [params]
 

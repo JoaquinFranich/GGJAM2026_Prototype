@@ -9,7 +9,7 @@ focus_item_position = Vector2(1425, 500)
 focus_item_scale = Vector2(0.28, 0.28)
 visible_direction_buttons = Array[String](["up", "down"])
 button_up_target_scene = "res://Scenes/Main Scenes/test_node_D.tscn"
-button_down_target_scene = "res://Scenes/Main Scenes/test_node_C.tscn"
+button_down_target_scene = "res://Scenes/Main Scenes/test_node_B.tscn"
 
 [node name="Background" type="Sprite2D" parent="."]
 show_behind_parent = true

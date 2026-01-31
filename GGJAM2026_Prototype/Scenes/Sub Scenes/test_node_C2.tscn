@@ -8,6 +8,7 @@ script = ExtResource("1_ux5t6")
 focus_item_position = Vector2(1000, 389)
 focus_item_scale = Vector2(0.38, 0.38)
 visible_direction_buttons = Array[String](["left"])
+button_left_target_scene = "res://Scenes/Sub Scenes/test_node_C1.tscn"
 mask_clue_position = Vector2(740, 640)
 mask_clue_scale = Vector2(0.3, 0.3)
 
