@@ -5,9 +5,9 @@
 
 [node name="TestNodeA1" type="Node2D"]
 script = ExtResource("1_bwaml")
-focus_item_position = Vector2(235, 940)
-focus_item_scale = Vector2(0.45, 0.45)
-visible_direction_buttons = Array[String](["left"])
+visible_direction_buttons = Array[String](["up", "right"])
+button_up_target_scene = "res://Scenes/Sub Scenes/test_node_B2.tscn"
+button_right_target_scene = "res://Scenes/Main Scenes/test_node_B.tscn"
 
 [node name="Background" type="Sprite2D" parent="."]
 show_behind_parent = true

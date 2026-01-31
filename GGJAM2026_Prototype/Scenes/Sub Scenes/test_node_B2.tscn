@@ -7,7 +7,8 @@
 script = ExtResource("1_0q13t")
 focus_item_position = Vector2(438, 920)
 focus_item_scale = Vector2(0.6, 0.6)
-visible_direction_buttons = Array[String](["left"])
+visible_direction_buttons = Array[String](["right"])
+button_right_target_scene = "res://Scenes/Sub Scenes/test_node_B1.tscn"
 
 [node name="Background" type="Sprite2D" parent="."]
 show_behind_parent = true

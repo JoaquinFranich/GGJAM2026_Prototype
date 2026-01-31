@@ -6,7 +6,7 @@
 [node name="TestNodeA1" type="Node2D"]
 script = ExtResource("1_1oowx")
 visible_direction_buttons = Array[String](["up"])
-button_up_target_scene = "res://Scenes/Main Scenes/test_node_C.tscn"
+button_up_target_scene = "res://Scenes/Main Scenes/test_node_B.tscn"
 
 [node name="Background" type="Sprite2D" parent="."]
 show_behind_parent = true
