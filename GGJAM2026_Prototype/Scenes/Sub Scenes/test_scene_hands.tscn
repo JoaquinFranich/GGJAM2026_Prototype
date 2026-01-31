@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" uid="uid://seq_hands" path="res://Scripts/final_sequence_hands.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://dqr5wxxuuanq8" path="res://Assets/Images/Scene F/ESCENA_F6_FINAL_MONOLITO.jpg" id="2_bg"]
+[ext_resource type="Texture2D" uid="uid://dciqk6plxg34j" path="res://Assets/Images/UI/ESCENARIO_FINAL_MANO_1.png" id="3_h1"]
+[ext_resource type="Texture2D" uid="uid://dxtjrw6b2msvx" path="res://Assets/Images/UI/ESCENARIO_FINAL_MANO_2.png" id="4_h2"]
+
+[node name="TestSceneHands" type="Node2D" node_paths=PackedStringArray("hand1_node", "hand2_node")]
+script = ExtResource("1_script")
+hand1_node = NodePath("Hand1")
+hand2_node = NodePath("Hand2")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_bg")
+centered = false
+
+[node name="Hand1" type="Sprite2D" parent="."]
+position = Vector2(760, 487)
+scale = Vector2(0.789, 0.789)
+texture = ExtResource("3_h1")
+centered = false
+
+[node name="Hand2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(760, 487)
+scale = Vector2(0.789, 0.789)
+texture = ExtResource("4_h2")
+centered = false

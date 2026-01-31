@@ -7,6 +7,7 @@
 script = ExtResource("1_ht008")
 focus_item_position = Vector2(925, 575)
 focus_item_scale = Vector2(0.32, 0.32)
+focus_item_target_scene = "res://Scenes/Sub Scenes/test_scene_hands.tscn"
 mask_clue_position = Vector2(900, 825)
 mask_clue_scale = Vector2(0.35, 0.35)
 

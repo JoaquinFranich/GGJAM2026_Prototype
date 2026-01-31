@@ -74,7 +74,9 @@ var sub_scenes: Dictionary = {
 		"res://Scenes/Sub Scenes/test_node_F3.tscn",
 		"res://Scenes/Sub Scenes/test_node_F4.tscn",
 		"res://Scenes/Sub Scenes/test_node_F5.tscn",
-		"res://Scenes/Sub Scenes/test_node_F6.tscn"
+		"res://Scenes/Sub Scenes/test_node_F6.tscn",
+		"res://Scenes/Sub Scenes/test_node_F7.tscn",
+		"res://Scenes/Sub Scenes/test_node_F8.tscn",
 	],
 }
 

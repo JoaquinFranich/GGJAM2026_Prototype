@@ -24,6 +24,11 @@ var _arrow_particles: CPUParticles2D
 var _clue_display: TextureRect
 var _mask_timer: Timer
 
+# Referencias para Retrato de Personaje
+var _character_portrait: TextureRect
+const PORTRAIT_NORMAL = preload("res://Assets/Images/Personaje/policia_normal.png")
+const PORTRAIT_MASK = preload("res://Assets/Images/Personaje/policia_máscara.png")
+
 
 # Referencia al DialogueManager (ya existe como singleton)
 # No necesitamos instanciarlo aquí, solo coordinamos
@@ -71,6 +76,10 @@ func _initialize_references():
 	if _mask_overlay:
 		_clue_display = _mask_overlay.get_node_or_null("ClueDisplay")
 		_arrow_particles = _mask_overlay.get_node_or_null("ArrowParticles")
+	
+	_character_portrait = get_node_or_null("CharacterPortrait")
+	if _character_portrait:
+		_character_portrait.texture = PORTRAIT_NORMAL
 	
 	# Crear y configurar el Timer para la máscara
 	if not _mask_timer:
@@ -365,6 +374,10 @@ func toggle_mask_mode():
 		
 		if _mask_timer:
 			_mask_timer.start()
+			
+		# 4. Cambiar retrato
+		if _character_portrait:
+			_character_portrait.texture = PORTRAIT_MASK
 
 ## Actualiza el estado de las partículas según la escena actual
 func _update_arrow_particles_state():
@@ -390,6 +403,11 @@ func hide_mask_overlay():
 	# Apagar partículas también
 	if _arrow_particles:
 		_arrow_particles.visible = false
+		_arrow_particles.emitting = false
+	
+	# Restaurar retrato
+	if _character_portrait:
+		_character_portrait.texture = PORTRAIT_NORMAL
 		_arrow_particles.emitting = false
 
 func _on_mask_timer_timeout():
