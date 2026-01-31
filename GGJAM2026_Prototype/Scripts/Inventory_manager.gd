@@ -4,7 +4,7 @@ extends Node
 # Es un singleton
 
 @export var inventario: Inventory = preload("res://Resource/Inventario.tres")
-
+const max_Slots = 6
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

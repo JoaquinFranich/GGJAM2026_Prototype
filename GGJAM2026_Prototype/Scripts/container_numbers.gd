@@ -1,12 +1,21 @@
 extends HBoxContainer
 
+@onready var inventory_hud: Panel = $"../../inventory_HUD"
+@onready var mascara: Area2D = $"../../../../scene/Mascara"
+@onready var candado_ui: Panel = $".."
+
+const maletin_Abierto = preload("uid://bk5nalx0m1fjr")
+const maletin_Vacio = preload("uid://cl0w63ooxtka0")
+
+
 var candado_Success = [8,5,6]
 var candado_output = [0,0,0]
-var numbers: Array = [0,1,2,3,4,5,6,7,8,9]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$"..".visible = false
+	mascara.visible = false
+	inventory_hud.visible = true
+	candado_ui.visible = false
 	update_numbers()
 	pass # Replace with function body.
 
@@ -15,18 +24,25 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_exit_pressed() -> void:
-	$"..".visible = false
+	candado_ui.visible = false
+	inventory_hud.visible = true
 	pass # Replace with function body.
 
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("Click_izq"):
-		$"..".visible = true
+		candado_ui.visible = true
+		if candado_output != candado_Success:
+			inventory_hud.visible = false
 	pass # Replace with function body.
 
 func _on_open_candado_pressed() -> void:
 	if candado_output == candado_Success:
+		candado_ui.visible = false
+		inventory_hud.visible = true
 		print("Candado abierto")
+		$"../../../../scene/Area2D/Sprite2D".texture = maletin_Abierto
+		mascara.visible = true
 	else:
 		print("Combinación incorrecta")
 	pass # Replace with function body.
@@ -69,4 +85,13 @@ func _on_button_up_3_pressed() -> void:
 func _on_button_down_3_pressed() -> void:
 	candado_output[2] = (candado_output[2] - 1 + 10) % 10 
 	update_numbers()
+	pass # Replace with function body.
+
+
+func _on_mascara_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event.is_action_pressed("Click_izq"):
+		print("Agarraste la mascara")
+		candado_ui.queue_free()
+		$"../../../../scene/Area2D/Sprite2D".texture = maletin_Vacio
+		inventory_hud.visible = true
 	pass # Replace with function body.

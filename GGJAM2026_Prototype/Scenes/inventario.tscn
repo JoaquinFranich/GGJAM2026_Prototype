@@ -71,7 +71,7 @@ texture = ExtResource("2_c1ctk")
 shape = SubResource("RectangleShape2D_1myu6")
 
 [node name="object2" type="Area2D" parent="." unique_id=948323947]
-position = Vector2(555, 520)
+position = Vector2(577, 459)
 script = ExtResource("2_1myu6")
 item_data = ExtResource("5_xxtvc")
 metadata/_edit_group_ = true
@@ -108,16 +108,16 @@ script = ExtResource("2_vii62")
 
 [node name="inventory_HUD" type="Panel" parent="UI/HUD" unique_id=539294711]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_left = 0.5989583
+anchor_right = 1.0026041
 anchor_bottom = 1.0
-offset_left = 690.0
-offset_right = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxEmpty_c1ctk")
 metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
 
 [node name="open_Inventory_Button" type="Button" parent="UI/HUD/inventory_HUD" unique_id=1305363643]
 layout_mode = 1
@@ -309,29 +309,42 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="music-Text" type="Label" parent="UI/HUD/menu_Options/container_Options" unique_id=468175860]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/HUD/menu_Options/container_Options" unique_id=1329950069]
+layout_mode = 2
+
+[node name="music-Text" type="Label" parent="UI/HUD/menu_Options/container_Options/HBoxContainer" unique_id=468175860]
 layout_mode = 2
 text = "Music Volume"
+
+[node name="music_value" type="Label" parent="UI/HUD/menu_Options/container_Options/HBoxContainer" unique_id=906299542]
+layout_mode = 2
+text = "100"
 
 [node name="music_Volume" type="HSlider" parent="UI/HUD/menu_Options/container_Options" unique_id=618775744]
 layout_mode = 2
 theme_override_styles/slider = SubResource("StyleBoxLine_f74yr")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ocbqq")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_xxtvc")
-min_value = -60.0
+min_value = -50.0
 max_value = 0.0
-value = -10.0
 
-[node name="sfx_Text" type="Label" parent="UI/HUD/menu_Options/container_Options" unique_id=154397267]
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/HUD/menu_Options/container_Options" unique_id=573262366]
+layout_mode = 2
+
+[node name="sfx_Text" type="Label" parent="UI/HUD/menu_Options/container_Options/HBoxContainer2" unique_id=154397267]
 layout_mode = 2
 text = "SFX Volume"
+
+[node name="sfx_value" type="Label" parent="UI/HUD/menu_Options/container_Options/HBoxContainer2" unique_id=481513181]
+layout_mode = 2
+text = "100"
 
 [node name="sfx_Volume" type="HSlider" parent="UI/HUD/menu_Options/container_Options" unique_id=767356467]
 layout_mode = 2
 theme_override_styles/slider = SubResource("StyleBoxLine_f74yr")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ocbqq")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_xxtvc")
-min_value = -60.0
+min_value = -50.0
 max_value = 0.0
 metadata/_edit_use_anchors_ = true
 

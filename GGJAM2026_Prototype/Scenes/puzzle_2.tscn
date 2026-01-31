@@ -1,0 +1,438 @@
+[gd_scene format=3 uid="uid://cgkmw5fdilnxy"]
+
+[ext_resource type="Texture2D" uid="uid://j53wljai0f5m" path="res://Assets/Arte Conceptual/PUZZLE TATETI sample 1.jpg" id="1_e8k6r"]
+[ext_resource type="Script" uid="uid://d08en5gx2a3oi" path="res://Scripts/puzzle_2.gd" id="1_yj3nx"]
+[ext_resource type="PackedScene" uid="uid://brd2pa43edtn7" path="res://Scenes/panel.tscn" id="2_tjxg2"]
+[ext_resource type="Script" uid="uid://bjra2ysnqxaqr" path="res://Scripts/hud.gd" id="3_kap8u"]
+[ext_resource type="Texture2D" uid="uid://dip53oxnhohy0" path="res://Assets/Arte Conceptual/PUZZLE_1_TATETI_A1.png" id="4_hmc3r"]
+[ext_resource type="Texture2D" uid="uid://w3av8dqmipr" path="res://Assets/Arte Conceptual/PUZZLE_2_TATETI_A1.png" id="5_kap8u"]
+[ext_resource type="Texture2D" uid="uid://bwo0fxfniuqc1" path="res://Assets/Arte Conceptual/PUZZLE_3_TATETI_A1.png" id="6_o213u"]
+[ext_resource type="Texture2D" uid="uid://be86nkjb2ijyk" path="res://Assets/Arte Conceptual/interfaz_inventario.png" id="6_vxify"]
+[ext_resource type="PackedScene" uid="uid://cv7q47p7bgiei" path="res://Scenes/slot.tscn" id="7_8oxcg"]
+[ext_resource type="Texture2D" uid="uid://d3ornsgom5oi5" path="res://Assets/Arte Conceptual/PUZZLE_1_TATETI_A2.png" id="7_o213u"]
+[ext_resource type="Texture2D" uid="uid://cp3un5h2347ej" path="res://Assets/Arte Conceptual/PUZZLE_1_TATETI_A4.png" id="7_vxify"]
+[ext_resource type="Texture2D" uid="uid://brajnpmcwhnw4" path="res://Assets/Arte Conceptual/PUZZLE_1_TATETI_A7.png" id="8_f5xrh"]
+[ext_resource type="Texture2D" uid="uid://cqkmj075xy1ac" path="res://Assets/Arte Conceptual/PUZZLE_1_TATETI_A3.png" id="8_mtur5"]
+[ext_resource type="Texture2D" uid="uid://dyr6s03popilf" path="res://Assets/Arte Conceptual/PUZZLE_2_TATETI_A4.png" id="8_tvw2h"]
+[ext_resource type="Script" uid="uid://djmqoqjd208v2" path="res://Scripts/menu_pause.gd" id="8_wgai7"]
+[ext_resource type="Texture2D" uid="uid://c2m00jal7yekl" path="res://Assets/Arte Conceptual/PUZZLE_1_TATETI_A5.png" id="9_8oxcg"]
+[ext_resource type="Script" uid="uid://hc3xmwdsf67y" path="res://Scripts/menu_options.gd" id="9_75m6e"]
+[ext_resource type="Texture2D" uid="uid://1sgvoieb5rg4" path="res://Assets/Arte Conceptual/PUZZLE_3_TATETI_A4.png" id="9_auf41"]
+[ext_resource type="Texture2D" uid="uid://cmb5qlrleb6co" path="res://Assets/Arte Conceptual/PUZZLE_1_TATETI_A10.png" id="9_ne3ia"]
+[ext_resource type="Texture2D" uid="uid://2auwy4r38w7i" path="res://Assets/Arte Conceptual/PUZZLE_2_TATETI_A7.png" id="10_2g837"]
+[ext_resource type="AudioStream" uid="uid://pva1g3prng7a" path="res://Audio/Button_Click.mp3" id="10_x3e5s"]
+[ext_resource type="Texture2D" uid="uid://c4syuusk11368" path="res://Assets/Arte Conceptual/PUZZLE_1_TATETI_A6.png" id="11_8oxcg"]
+[ext_resource type="Texture2D" uid="uid://4btmvdscxurl" path="res://Assets/Arte Conceptual/PUZZLE_1_TATETI_A8.png" id="12_kaqbm"]
+[ext_resource type="Texture2D" uid="uid://eusbrd3rpdrn" path="res://Assets/Arte Conceptual/PUZZLE_2_TATETI_A10.png" id="12_lpcx3"]
+[ext_resource type="Texture2D" uid="uid://b1kn4o08nh4gp" path="res://Assets/Arte Conceptual/PUZZLE_3_TATETI_A7.png" id="12_yj3nx"]
+[ext_resource type="Texture2D" uid="uid://cui7wyrdotmn2" path="res://Assets/Arte Conceptual/PUZZLE_1_TATETI_A11.png" id="13_ggthv"]
+[ext_resource type="Texture2D" uid="uid://dp03cinxgalow" path="res://Assets/Arte Conceptual/PUZZLE_2_TATETI_A2.png" id="14_smu74"]
+[ext_resource type="Texture2D" uid="uid://colr3v18n6kn3" path="res://Assets/Arte Conceptual/PUZZLE_3_TATETI_A10.png" id="15_3lxjp"]
+[ext_resource type="Texture2D" uid="uid://cti4si3dq312u" path="res://Assets/Arte Conceptual/PUZZLE_2_TATETI_A5.png" id="16_owgnr"]
+[ext_resource type="Texture2D" uid="uid://xteudrmnh5y5" path="res://Assets/Arte Conceptual/PUZZLE_1_TATETI_A9.png" id="16_rsyx2"]
+[ext_resource type="Texture2D" uid="uid://cmocmx3y8lkqf" path="res://Assets/Arte Conceptual/PUZZLE_1_TATETI_A12.png" id="17_besgi"]
+[ext_resource type="Texture2D" uid="uid://deeuy0ghm5qg1" path="res://Assets/Arte Conceptual/PUZZLE_3_TATETI_A2.png" id="18_7tl1c"]
+[ext_resource type="Texture2D" uid="uid://dvjdhukojumqq" path="res://Assets/Arte Conceptual/PUZZLE_2_TATETI_A8.png" id="18_puu8n"]
+[ext_resource type="Texture2D" uid="uid://b2go4pejdbuww" path="res://Assets/Arte Conceptual/PUZZLE_2_TATETI_A11.png" id="20_akpi4"]
+[ext_resource type="Texture2D" uid="uid://0oj1omhtekxg" path="res://Assets/Arte Conceptual/PUZZLE_3_TATETI_A5.png" id="21_12qsd"]
+[ext_resource type="Texture2D" uid="uid://ctlvr1hdaupoa" path="res://Assets/Arte Conceptual/PUZZLE_2_TATETI_A3.png" id="22_7wa7n"]
+[ext_resource type="Texture2D" uid="uid://ci22ayifgln1r" path="res://Assets/Arte Conceptual/PUZZLE_2_TATETI_A6.png" id="24_4xplt"]
+[ext_resource type="Texture2D" uid="uid://cjc0sjo7278jk" path="res://Assets/Arte Conceptual/PUZZLE_3_TATETI_A8.png" id="24_h27m7"]
+[ext_resource type="Texture2D" uid="uid://buohebqbu8jko" path="res://Assets/Arte Conceptual/PUZZLE_2_TATETI_A9.png" id="26_tp2px"]
+[ext_resource type="Texture2D" uid="uid://1gw1hhtfacmn" path="res://Assets/Arte Conceptual/PUZZLE_3_TATETI_A11.png" id="27_1n1dp"]
+[ext_resource type="Texture2D" uid="uid://csfhy41rrn76l" path="res://Assets/Arte Conceptual/PUZZLE_2_TATETI_A12.png" id="28_gbxfn"]
+[ext_resource type="Texture2D" uid="uid://bqahtk75btfax" path="res://Assets/Arte Conceptual/PUZZLE_3_TATETI_A3.png" id="30_7oifo"]
+[ext_resource type="Texture2D" uid="uid://dfgyeye57r4be" path="res://Assets/Arte Conceptual/PUZZLE_3_TATETI_A6.png" id="33_cxfts"]
+[ext_resource type="Texture2D" uid="uid://dtw4x6v5cxpea" path="res://Assets/Arte Conceptual/PUZZLE_3_TATETI_A9.png" id="36_s521q"]
+[ext_resource type="Texture2D" uid="uid://ba48vceytlscw" path="res://Assets/Arte Conceptual/PUZZLE_3_TATETI_A12.png" id="39_fjh2g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fc6wd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_20ibb"]
+texture = ExtResource("6_vxify")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ylpju"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aqwrv"]
+bg_color = Color(18.892157, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxoyd"]
+bg_color = Color(0.9882266, 0, 0.10187087, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_aqwrv"]
+color = Color(1, 1, 1, 1)
+thickness = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kt2nm"]
+bg_color = Color(0.16794264, 0.61649424, 0.99999994, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0mag"]
+bg_color = Color(0, 0.3675467, 0.63751465, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gtu58"]
+bg_color = Color(0.050980393, 0.050980393, 0.050980393, 1)
+
+[node name="Puzzle2" type="Node2D" unique_id=1586064223]
+script = ExtResource("1_yj3nx")
+
+[node name="scene" type="Sprite2D" parent="." unique_id=1206340572]
+position = Vector2(576.37994, 323.62)
+scale = Vector2(0.6006458, 0.5988518)
+texture = ExtResource("1_e8k6r")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1595312031]
+
+[node name="HUD" type="Control" parent="UI" unique_id=1552952506]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("3_kap8u")
+metadata/_edit_use_anchors_ = true
+
+[node name="GridContainer" type="GridContainer" parent="UI/HUD" unique_id=1481080150]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.28732634
+anchor_top = 0.18672839
+anchor_right = 0.7061465
+anchor_bottom = 0.63580245
+offset_right = 6.1035156e-05
+offset_bottom = 3.0517578e-05
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 0
+columns = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" parent="UI/HUD/GridContainer" unique_id=693399836 instance=ExtResource("2_tjxg2")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+images = Array[Texture2D]([ExtResource("4_hmc3r"), ExtResource("5_kap8u"), ExtResource("6_o213u"), null])
+index = 3
+
+[node name="Panel2" parent="UI/HUD/GridContainer" unique_id=2020196043 instance=ExtResource("2_tjxg2")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+images = Array[Texture2D]([ExtResource("7_vxify"), ExtResource("8_tvw2h"), ExtResource("9_auf41"), null])
+index = 1
+
+[node name="Panel3" parent="UI/HUD/GridContainer" unique_id=22117862 instance=ExtResource("2_tjxg2")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+images = Array[Texture2D]([ExtResource("8_f5xrh"), ExtResource("10_2g837"), ExtResource("12_yj3nx"), null])
+index = 3
+
+[node name="Panel4" parent="UI/HUD/GridContainer" unique_id=1611782715 instance=ExtResource("2_tjxg2")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+images = Array[Texture2D]([ExtResource("9_ne3ia"), ExtResource("12_lpcx3"), ExtResource("15_3lxjp"), null])
+
+[node name="Panel5" parent="UI/HUD/GridContainer" unique_id=94679665 instance=ExtResource("2_tjxg2")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+images = Array[Texture2D]([ExtResource("7_o213u"), ExtResource("14_smu74"), ExtResource("18_7tl1c"), null])
+
+[node name="Panel6" parent="UI/HUD/GridContainer" unique_id=1046342135 instance=ExtResource("2_tjxg2")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+images = Array[Texture2D]([ExtResource("9_8oxcg"), ExtResource("16_owgnr"), ExtResource("21_12qsd"), null])
+index = 3
+
+[node name="Panel7" parent="UI/HUD/GridContainer" unique_id=1098443349 instance=ExtResource("2_tjxg2")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+images = Array[Texture2D]([ExtResource("12_kaqbm"), ExtResource("18_puu8n"), ExtResource("24_h27m7"), null])
+index = 1
+
+[node name="Panel8" parent="UI/HUD/GridContainer" unique_id=1373000183 instance=ExtResource("2_tjxg2")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+images = Array[Texture2D]([ExtResource("13_ggthv"), ExtResource("20_akpi4"), ExtResource("27_1n1dp"), null])
+index = 3
+
+[node name="Panel9" parent="UI/HUD/GridContainer" unique_id=1087483896 instance=ExtResource("2_tjxg2")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+images = Array[Texture2D]([ExtResource("8_mtur5"), ExtResource("22_7wa7n"), ExtResource("30_7oifo"), null])
+index = 2
+
+[node name="Panel10" parent="UI/HUD/GridContainer" unique_id=220757796 instance=ExtResource("2_tjxg2")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+images = Array[Texture2D]([ExtResource("11_8oxcg"), ExtResource("24_4xplt"), ExtResource("33_cxfts"), null])
+index = 1
+
+[node name="Panel11" parent="UI/HUD/GridContainer" unique_id=1068230282 instance=ExtResource("2_tjxg2")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+images = Array[Texture2D]([ExtResource("16_rsyx2"), ExtResource("26_tp2px"), ExtResource("36_s521q"), null])
+index = 2
+
+[node name="Panel12" parent="UI/HUD/GridContainer" unique_id=974373873 instance=ExtResource("2_tjxg2")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+images = Array[Texture2D]([ExtResource("17_besgi"), ExtResource("28_gbxfn"), ExtResource("39_fjh2g"), null])
+index = 1
+
+[node name="inventory_HUD" type="Panel" parent="UI/HUD" unique_id=1968143591]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 690.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_fc6wd")
+metadata/_edit_group_ = true
+
+[node name="open_Inventory_Button" type="Button" parent="UI/HUD/inventory_HUD" unique_id=797383456]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.9296875
+anchor_top = 0.3587963
+anchor_right = 1.0
+anchor_bottom = 0.6412037
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 128
+text = "<"
+
+[node name="Inventory" type="Panel" parent="UI/HUD/inventory_HUD" unique_id=947729830]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_right = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_20ibb")
+
+[node name="close_Inventory_Button" type="Button" parent="UI/HUD/inventory_HUD/Inventory" unique_id=1772393601]
+layout_mode = 0
+anchor_left = -0.0043010423
+anchor_top = 0.314376
+anchor_right = -0.0043010423
+anchor_bottom = 0.314376
+offset_left = 80.999985
+offset_top = 183.0
+offset_right = 161.99998
+offset_bottom = 366.0
+rotation = 3.1415927
+theme_override_font_sizes/font_size = 128
+text = "<"
+metadata/_edit_use_anchors_ = true
+
+[node name="text_Inventory" type="Label" parent="UI/HUD/inventory_HUD/Inventory" unique_id=71261484]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.63256055
+anchor_top = 0.083252884
+anchor_right = 0.79922724
+anchor_bottom = 0.15269732
+offset_left = -175.14063
+offset_top = -2.6990738
+offset_right = -30.640625
+offset_bottom = -1.6574059
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "INVENTARIO"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="grid_Inventory" type="GridContainer" parent="UI/HUD/inventory_HUD/Inventory" unique_id=1143492098]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.227957
+anchor_top = 0.17219588
+anchor_right = 0.7354839
+anchor_bottom = 0.8309637
+columns = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="slot" parent="UI/HUD/inventory_HUD/Inventory/grid_Inventory" unique_id=2144664429 instance=ExtResource("7_8oxcg")]
+layout_mode = 2
+
+[node name="slot2" parent="UI/HUD/inventory_HUD/Inventory/grid_Inventory" unique_id=608686254 instance=ExtResource("7_8oxcg")]
+layout_mode = 2
+
+[node name="slot3" parent="UI/HUD/inventory_HUD/Inventory/grid_Inventory" unique_id=423009234 instance=ExtResource("7_8oxcg")]
+layout_mode = 2
+
+[node name="slot4" parent="UI/HUD/inventory_HUD/Inventory/grid_Inventory" unique_id=1137688523 instance=ExtResource("7_8oxcg")]
+layout_mode = 2
+
+[node name="slot5" parent="UI/HUD/inventory_HUD/Inventory/grid_Inventory" unique_id=1685974819 instance=ExtResource("7_8oxcg")]
+layout_mode = 2
+
+[node name="slot6" parent="UI/HUD/inventory_HUD/Inventory/grid_Inventory" unique_id=399843458 instance=ExtResource("7_8oxcg")]
+layout_mode = 2
+
+[node name="menu_Pause" type="Panel" parent="UI/HUD" unique_id=1729454934]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_wgai7")
+
+[node name="button_Container" type="VBoxContainer" parent="UI/HUD/menu_Pause" unique_id=1898105713]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.5
+offset_top = -99.5
+offset_right = 112.5
+offset_bottom = 99.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="button_play" type="Button" parent="UI/HUD/menu_Pause/button_Container" unique_id=1771837928]
+clip_contents = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Continuar"
+
+[node name="button_options" type="Button" parent="UI/HUD/menu_Pause/button_Container" unique_id=510110040]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Opciones"
+
+[node name="button_exit" type="Button" parent="UI/HUD/menu_Pause/button_Container" unique_id=44782860]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Regresar al inicio"
+
+[node name="menu_Options" type="Panel" parent="UI/HUD" unique_id=1635873009]
+visible = false
+layout_mode = 0
+anchor_left = 0.22222222
+anchor_top = 0.16049382
+anchor_right = 0.7772895
+anchor_bottom = 0.9251543
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ylpju")
+script = ExtResource("9_75m6e")
+metadata/_edit_use_anchors_ = true
+
+[node name="title_Options" type="Label" parent="UI/HUD/menu_Options" unique_id=1966891350]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2794937
+anchor_right = 0.7205063
+anchor_bottom = 0.090817355
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Menu de opciones"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="exit_Options" type="Panel" parent="UI/HUD/menu_Options" unique_id=1627404005]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.92962563
+anchor_right = 1.0
+anchor_bottom = 0.090817355
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_aqwrv")
+metadata/_edit_use_anchors_ = true
+
+[node name="exit" type="Button" parent="UI/HUD/menu_Options/exit_Options" unique_id=802927952]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_cxoyd")
+text = "X"
+
+[node name="container_Options" type="VBoxContainer" parent="UI/HUD/menu_Options" unique_id=1605152982]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.099648125
+anchor_top = 0.43138245
+anchor_right = 0.9003519
+anchor_bottom = 0.5686176
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/HUD/menu_Options/container_Options" unique_id=1744932484]
+layout_mode = 2
+
+[node name="music-Text" type="Label" parent="UI/HUD/menu_Options/container_Options/HBoxContainer" unique_id=1988434258]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="music_value" type="Label" parent="UI/HUD/menu_Options/container_Options/HBoxContainer" unique_id=240656065]
+layout_mode = 2
+text = "100"
+
+[node name="music_Volume" type="HSlider" parent="UI/HUD/menu_Options/container_Options" unique_id=248924873]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_aqwrv")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kt2nm")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_w0mag")
+min_value = -50.0
+max_value = 0.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/HUD/menu_Options/container_Options" unique_id=1790584123]
+layout_mode = 2
+
+[node name="sfx_Text" type="Label" parent="UI/HUD/menu_Options/container_Options/HBoxContainer2" unique_id=1677756086]
+layout_mode = 2
+text = "SFX Volume"
+
+[node name="sfx_value" type="Label" parent="UI/HUD/menu_Options/container_Options/HBoxContainer2" unique_id=1705258705]
+layout_mode = 2
+text = "100"
+
+[node name="sfx_Volume" type="HSlider" parent="UI/HUD/menu_Options/container_Options" unique_id=965214508]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_aqwrv")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kt2nm")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_w0mag")
+min_value = -50.0
+max_value = 0.0
+metadata/_edit_use_anchors_ = true
+
+[node name="checkbox_Fullscreen" type="CheckBox" parent="UI/HUD/menu_Options/container_Options" unique_id=895301711]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_gtu58")
+text = "Fullscreen
+"
+
+[node name="SFX_button" type="AudioStreamPlayer" parent="UI/HUD" unique_id=1397787344]
+stream = ExtResource("10_x3e5s")
+bus = &"SFX"
+
+[connection signal="pressed" from="UI/HUD/inventory_HUD/open_Inventory_Button" to="UI/HUD" method="_on_open_inventory_button_pressed"]
+[connection signal="pressed" from="UI/HUD/inventory_HUD/Inventory/close_Inventory_Button" to="UI/HUD" method="_on_close_inventory_button_pressed"]
+[connection signal="pressed" from="UI/HUD/menu_Pause/button_Container/button_play" to="UI/HUD/menu_Pause" method="_on_button_play_pressed"]
+[connection signal="pressed" from="UI/HUD/menu_Pause/button_Container/button_options" to="UI/HUD/menu_Pause" method="_on_button_options_pressed"]
+[connection signal="pressed" from="UI/HUD/menu_Pause/button_Container/button_exit" to="UI/HUD/menu_Pause" method="_on_button_exit_pressed"]
+[connection signal="pressed" from="UI/HUD/menu_Options/exit_Options/exit" to="UI/HUD/menu_Options" method="_on_exit_pressed"]
+[connection signal="value_changed" from="UI/HUD/menu_Options/container_Options/music_Volume" to="UI/HUD/menu_Options" method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="UI/HUD/menu_Options/container_Options/sfx_Volume" to="UI/HUD/menu_Options" method="_on_sfx_volume_value_changed"]
+[connection signal="toggled" from="UI/HUD/menu_Options/container_Options/checkbox_Fullscreen" to="UI/HUD/menu_Options" method="_on_checkbox_fullscreen_toggled"]

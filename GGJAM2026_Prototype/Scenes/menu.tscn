@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cfbjpwptyioll"]
 
 [ext_resource type="Script" uid="uid://b21clmxhid4mv" path="res://Scripts/menu_inicio.gd" id="1_xhh6f"]
-[ext_resource type="Texture2D" uid="uid://df0vi0avpgoqk" path="res://Assets/Arte Conceptual/ESCENA 00 inicio.jpg" id="2_wbdvm"]
+[ext_resource type="Texture2D" uid="uid://cb0qe30dwkp2d" path="res://Assets/Arte Conceptual/PANTALLA DE INICIO.jpg" id="2_6swd7"]
 [ext_resource type="Texture2D" uid="uid://b5u765ujqirw5" path="res://Assets/Arte Conceptual/titulo1.png" id="3_6swd7"]
 [ext_resource type="Texture2D" uid="uid://qpb7ye8pj3q2" path="res://Assets/icon.svg" id="3_158mb"]
 [ext_resource type="Texture2D" uid="uid://beyhtuf1uu4wk" path="res://Assets/gamesquare logo.jpeg" id="3_wwsa2"]
@@ -10,14 +10,20 @@
 [ext_resource type="AudioStream" uid="uid://b5gq88etusvd1" path="res://Audio/Lluvia.mp3" id="5_wwsa2"]
 [ext_resource type="AudioStream" uid="uid://pva1g3prng7a" path="res://Audio/Button_Click.mp3" id="6_jsrd8"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cxoyd"]
-texture = ExtResource("2_wbdvm")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7qvly"]
+texture = ExtResource("2_6swd7")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rfqti"]
 texture = ExtResource("3_6swd7")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g8i7c"]
 texture = ExtResource("4_7qvly")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6swd7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7qvly"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rfqti"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jsrd8"]
 texture = ExtResource("3_wwsa2")
@@ -64,7 +70,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_cxoyd")
+theme_override_styles/panel = SubResource("StyleBoxTexture_7qvly")
 
 [node name="title_Container" type="HBoxContainer" parent="menu_Inicio" unique_id=2108888815]
 clip_contents = true
@@ -94,12 +100,14 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_g8i7c")
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.3237847
-anchor_top = 0.16743827
-anchor_right = 0.6762153
+anchor_left = 0.037326388
+anchor_top = 0.6080247
+anchor_right = 0.22569445
 anchor_bottom = 0.99691355
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
 theme_override_constants/separation = 20
 alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -107,17 +115,38 @@ metadata/_edit_use_anchors_ = true
 [node name="button_play" type="Button" parent="menu_Inicio/button_Container" unique_id=1889485416]
 clip_contents = true
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.99694544, 6.2329323e-06, 1.540184e-06, 1)
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6swd7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7qvly")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rfqti")
 text = "Jugar"
 
 [node name="button_options" type="Button" parent="menu_Inicio/button_Container" unique_id=1680942253]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.99694544, 6.2329323e-06, 1.540184e-06, 1)
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6swd7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7qvly")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rfqti")
 text = "Opciones"
 
 [node name="button_exit" type="Button" parent="menu_Inicio/button_Container" unique_id=982278060]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.99694544, 6.2329323e-06, 1.540184e-06, 1)
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6swd7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7qvly")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rfqti")
 text = "Salir del juego"
 
 [node name="logo_Container" type="VBoxContainer" parent="menu_Inicio" unique_id=1956454872]
@@ -148,10 +177,9 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_ylpju")
 
-[node name="menu_Options" type="Panel" parent="." unique_id=2124456507]
+[node name="menu_Options" type="Panel" parent="." unique_id=1635873009]
 visible = false
-layout_mode = 1
-anchors_preset = -1
+layout_mode = 0
 anchor_left = 0.22222222
 anchor_top = 0.16049382
 anchor_right = 0.7772895
@@ -162,7 +190,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ylpju")
 script = ExtResource("5_wbdvm")
 metadata/_edit_use_anchors_ = true
 
-[node name="title_Options" type="Label" parent="menu_Options" unique_id=1299455492]
+[node name="title_Options" type="Label" parent="menu_Options" unique_id=1966891350]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2794937
@@ -174,7 +202,7 @@ text = "Menu de opciones"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="exit_Options" type="Panel" parent="menu_Options" unique_id=384021701]
+[node name="exit_Options" type="Panel" parent="menu_Options" unique_id=1627404005]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.92962563
@@ -184,7 +212,7 @@ grow_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_aqwrv")
 metadata/_edit_use_anchors_ = true
 
-[node name="exit" type="Button" parent="menu_Options/exit_Options" unique_id=774016325]
+[node name="exit" type="Button" parent="menu_Options/exit_Options" unique_id=802927952]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -195,7 +223,7 @@ theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_cxoyd")
 text = "X"
 
-[node name="container_Options" type="VBoxContainer" parent="menu_Options" unique_id=931902093]
+[node name="container_Options" type="VBoxContainer" parent="menu_Options" unique_id=1605152982]
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
@@ -207,11 +235,18 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="music-Text" type="Label" parent="menu_Options/container_Options" unique_id=96805113]
+[node name="HBoxContainer" type="HBoxContainer" parent="menu_Options/container_Options" unique_id=1744932484]
+layout_mode = 2
+
+[node name="music-Text" type="Label" parent="menu_Options/container_Options/HBoxContainer" unique_id=1988434258]
 layout_mode = 2
 text = "Music Volume"
 
-[node name="music_Volume" type="HSlider" parent="menu_Options/container_Options" unique_id=1570784077]
+[node name="music_value" type="Label" parent="menu_Options/container_Options/HBoxContainer" unique_id=240656065]
+layout_mode = 2
+text = "100"
+
+[node name="music_Volume" type="HSlider" parent="menu_Options/container_Options" unique_id=248924873]
 layout_mode = 2
 theme_override_styles/slider = SubResource("StyleBoxLine_aqwrv")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kt2nm")
@@ -219,11 +254,18 @@ theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_w0mag")
 min_value = -50.0
 max_value = 0.0
 
-[node name="sfx_Text" type="Label" parent="menu_Options/container_Options" unique_id=1297984334]
+[node name="HBoxContainer2" type="HBoxContainer" parent="menu_Options/container_Options" unique_id=1790584123]
+layout_mode = 2
+
+[node name="sfx_Text" type="Label" parent="menu_Options/container_Options/HBoxContainer2" unique_id=1677756086]
 layout_mode = 2
 text = "SFX Volume"
 
-[node name="sfx_Volume" type="HSlider" parent="menu_Options/container_Options" unique_id=1305454108]
+[node name="sfx_value" type="Label" parent="menu_Options/container_Options/HBoxContainer2" unique_id=1705258705]
+layout_mode = 2
+text = "100"
+
+[node name="sfx_Volume" type="HSlider" parent="menu_Options/container_Options" unique_id=965214508]
 layout_mode = 2
 theme_override_styles/slider = SubResource("StyleBoxLine_aqwrv")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kt2nm")
@@ -232,11 +274,22 @@ min_value = -50.0
 max_value = 0.0
 metadata/_edit_use_anchors_ = true
 
-[node name="checkbox_Fullscreen" type="CheckBox" parent="menu_Options/container_Options" unique_id=123590166]
+[node name="checkbox_Fullscreen" type="CheckBox" parent="menu_Options/container_Options" unique_id=895301711]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_gtu58")
 text = "Fullscreen
 "
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=399161317]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=793056984]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="Music_Rain" type="AudioStreamPlayer" parent="." unique_id=17187681]
 stream = ExtResource("5_wwsa2")
@@ -245,11 +298,11 @@ parameters/looping = true
 
 [node name="SFX_button" type="AudioStreamPlayer" parent="." unique_id=733677518]
 stream = ExtResource("6_jsrd8")
+bus = &"SFX"
 
 [connection signal="pressed" from="menu_Inicio/button_Container/button_play" to="." method="_on_button_play_pressed"]
 [connection signal="pressed" from="menu_Inicio/button_Container/button_options" to="." method="_on_button_options_pressed"]
 [connection signal="pressed" from="menu_Inicio/button_Container/button_exit" to="." method="_on_button_exit_pressed"]
-[connection signal="pressed" from="menu_Options/exit_Options/exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="menu_Options/exit_Options/exit" to="menu_Options" method="_on_exit_pressed"]
 [connection signal="value_changed" from="menu_Options/container_Options/music_Volume" to="menu_Options" method="_on_music_volume_value_changed"]
 [connection signal="value_changed" from="menu_Options/container_Options/sfx_Volume" to="menu_Options" method="_on_sfx_volume_value_changed"]

@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://bnsr5545w24xj"]
 
+[ext_resource type="Script" uid="uid://hc3xmwdsf67y" path="res://Scripts/menu_options.gd" id="1_vs701"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ylpju"]
 bg_color = Color(0, 0, 0, 1)
 
@@ -22,7 +24,7 @@ bg_color = Color(0, 0.3675467, 0.63751465, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gtu58"]
 bg_color = Color(0.050980393, 0.050980393, 0.050980393, 1)
 
-[node name="menu_Options" type="Panel" unique_id=804806933]
+[node name="menu_Options" type="Panel" unique_id=1635873009]
 anchors_preset = -1
 anchor_left = 0.22222222
 anchor_top = 0.16049382
@@ -31,9 +33,10 @@ anchor_bottom = 0.9251543
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ylpju")
+script = ExtResource("1_vs701")
 metadata/_edit_use_anchors_ = true
 
-[node name="title_Options" type="Label" parent="." unique_id=2078994404]
+[node name="title_Options" type="Label" parent="." unique_id=1966891350]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2794937
@@ -45,7 +48,7 @@ text = "Menu de opciones"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="exit_Options" type="Panel" parent="." unique_id=1792959830]
+[node name="exit_Options" type="Panel" parent="." unique_id=1627404005]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.92962563
@@ -55,7 +58,7 @@ grow_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_aqwrv")
 metadata/_edit_use_anchors_ = true
 
-[node name="exit" type="Button" parent="exit_Options" unique_id=1035706587]
+[node name="exit" type="Button" parent="exit_Options" unique_id=802927952]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -66,7 +69,7 @@ theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_cxoyd")
 text = "X"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=549294345]
+[node name="container_Options" type="VBoxContainer" parent="." unique_id=1605152982]
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
@@ -78,21 +81,52 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="music_Volume" type="HSlider" parent="VBoxContainer" unique_id=1976721975]
+[node name="HBoxContainer" type="HBoxContainer" parent="container_Options" unique_id=1744932484]
 layout_mode = 2
-theme_override_styles/slider = SubResource("StyleBoxLine_aqwrv")
-theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kt2nm")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_w0mag")
 
-[node name="sfx_Volume" type="HSlider" parent="VBoxContainer" unique_id=397841733]
+[node name="music-Text" type="Label" parent="container_Options/HBoxContainer" unique_id=1988434258]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="music_value" type="Label" parent="container_Options/HBoxContainer" unique_id=240656065]
+layout_mode = 2
+text = "100"
+
+[node name="music_Volume" type="HSlider" parent="container_Options" unique_id=248924873]
 layout_mode = 2
 theme_override_styles/slider = SubResource("StyleBoxLine_aqwrv")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kt2nm")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_w0mag")
+min_value = -50.0
+max_value = 0.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="container_Options" unique_id=1790584123]
+layout_mode = 2
+
+[node name="sfx_Text" type="Label" parent="container_Options/HBoxContainer2" unique_id=1677756086]
+layout_mode = 2
+text = "SFX Volume"
+
+[node name="sfx_value" type="Label" parent="container_Options/HBoxContainer2" unique_id=1705258705]
+layout_mode = 2
+text = "100"
+
+[node name="sfx_Volume" type="HSlider" parent="container_Options" unique_id=965214508]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_aqwrv")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kt2nm")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_w0mag")
+min_value = -50.0
+max_value = 0.0
 metadata/_edit_use_anchors_ = true
 
-[node name="checkbox_Fullscreen" type="CheckBox" parent="VBoxContainer" unique_id=623218212]
+[node name="checkbox_Fullscreen" type="CheckBox" parent="container_Options" unique_id=895301711]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_gtu58")
 text = "Fullscreen
 "
+
+[connection signal="pressed" from="exit_Options/exit" to="." method="_on_exit_pressed"]
+[connection signal="value_changed" from="container_Options/music_Volume" to="." method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="container_Options/sfx_Volume" to="." method="_on_sfx_volume_value_changed"]
+[connection signal="toggled" from="container_Options/checkbox_Fullscreen" to="." method="_on_checkbox_fullscreen_toggled"]

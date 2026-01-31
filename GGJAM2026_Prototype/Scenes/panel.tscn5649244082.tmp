@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://brd2pa43edtn7"]
+
+[ext_resource type="Script" uid="uid://dsorlccv10qk" path="res://Scripts/cube_Pannel.gd" id="1_d8s8c"]
+[ext_resource type="Script" uid="uid://xgupk021etol" path="res://Scripts/cube_Button.gd" id="1_lonnl"]
+[ext_resource type="Texture2D" uid="uid://dip53oxnhohy0" path="res://Assets/Arte Conceptual/PUZZLE_1_TATETI_A1.png" id="2_1cqkm"]
+[ext_resource type="Texture2D" uid="uid://w3av8dqmipr" path="res://Assets/Arte Conceptual/PUZZLE_2_TATETI_A1.png" id="3_d8s8c"]
+[ext_resource type="Texture2D" uid="uid://bwo0fxfniuqc1" path="res://Assets/Arte Conceptual/PUZZLE_3_TATETI_A1.png" id="4_uj7lk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1cqkm"]
+
+[node name="Panel" type="Panel" unique_id=693399836]
+custom_minimum_size = Vector2(171, 163)
+anchors_preset = -1
+anchor_right = 0.1484375
+anchor_bottom = 0.25154322
+offset_right = -171.0
+offset_bottom = -163.00002
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_1cqkm")
+script = ExtResource("1_d8s8c")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="." unique_id=540870712]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lonnl")
+images = Array[Texture2D]([ExtResource("2_1cqkm"), ExtResource("3_d8s8c"), ExtResource("4_uj7lk")])
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
