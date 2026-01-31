@@ -21,6 +21,11 @@ extends Node2D
 ## 📏 Tamaño del FocusItem (1, 1 = tamaño normal) (LEGACY - un solo FocusItem)
 @export var focus_item_scale: Vector2 = Vector2.ONE
 
+## 🎯 Escena destino para el FocusItem (Opcional)
+## Si lo dejas vacío, el juego decidirá automáticamente (comportamiento por defecto)
+## Si pones una ruta, el FocusItem te llevará ahí obligatoriamente.
+@export var focus_item_target_scene: String = ""
+
 ## 🎯 Configuración de múltiples FocusItems
 ## Cada elemento del array es un FocusItem con:
 ## - position: Vector2 (posición)
@@ -47,7 +52,36 @@ extends Node2D
 ## 🆙 Escena destino para el botón "Up" (solo si usas botón arriba)
 ## Ejemplo: "res://Scenes/Main Scenes/techo.tscn"
 ## Si no usas botón Up, deja vacío ""
+## 🆙 Escena destino para el botón "Up" (solo si usas botón arriba)
+## Ejemplo: "res://Scenes/Main Scenes/techo.tscn"
+## Si no usas botón Up, deja vacío ""
+@export_group("Direction Buttons Configuration")
+## 🆙 Escena destino para el botón "Up" (solo si usas botón arriba)
+## Ejemplo: "res://Scenes/Main Scenes/techo.tscn"
 @export var button_up_target_scene: String = ""
+
+## ⬇️ Escena destino para el botón "Down"
+@export var button_down_target_scene: String = ""
+
+## ⬅️ Escena destino para el botón "Left"
+@export var button_left_target_scene: String = ""
+
+## ➡️ Escena destino para el botón "Right"
+@export var button_right_target_scene: String = ""
+
+@export_group("Mask Configuration")
+## 🎭 Textura de la pista para la Máscara
+## Si dejas esto vacío (null), el botón de la máscara NO aparecerá en esta escena.
+## Asigna una imagen aquí para habilitar la máscara y mostrar esta pista.
+@export var mask_clue_texture: Texture2D
+
+## 📍 Posición de la imagen de la pista (relativa al centro o según config de UI)
+## Ajusta esto para mover la imagen dentro de la máscara
+@export var mask_clue_position: Vector2 = Vector2.ZERO
+
+## 📏 Escala de la imagen de la pista
+## Ajusta esto para cambiar el tamaño de la imagen
+@export var mask_clue_scale: Vector2 = Vector2.ONE
 
 func _ready():
 	# Esperar un frame para asegurar que UI_manager esté listo
@@ -67,18 +101,33 @@ func configure_ui():
 		UI_manager.configure_scene_ui_multiple(focus_items, visible_direction_buttons)
 	# Si no, usar el método legacy (un solo FocusItem)
 	elif focus_item_position != Vector2.ZERO:
-		UI_manager.configure_scene_ui(focus_item_position, focus_item_scale, visible_direction_buttons)
+		UI_manager.configure_scene_ui(focus_item_position, focus_item_scale, visible_direction_buttons, focus_item_target_scene)
 	else:
 		# Si no hay posición, ocultar FocusItem pero mostrar botones
 		UI_manager.configure_scene_ui(Vector2.ZERO, Vector2.ONE, visible_direction_buttons)
 	
-	# Configurar ButtonUp si tiene target_scene
-	if button_up_target_scene != "":
-		var button_up = UI_manager.get_direction_button("up")
-		if button_up:
-			button_up.target_scene = button_up_target_scene
+	# Configurar Botones de Dirección
+	_configure_direction_button("up", button_up_target_scene)
+	_configure_direction_button("down", button_down_target_scene)
+	_configure_direction_button("left", button_left_target_scene)
+	_configure_direction_button("right", button_right_target_scene)
+	
+	# Configurar Pista de Máscara
+	# Si mask_clue_texture es null, set_current_clue ocultará el botón
+	UI_manager.set_current_clue(mask_clue_texture, mask_clue_position, mask_clue_scale)
+
+func _configure_direction_button(direction: String, target_scene_path: String):
+	if target_scene_path != "":
+		var button = UI_manager.get_direction_button(direction)
+		if button:
+			# Verificar si el botón tiene la propiedad target_scene (up, left, right, down modificados)
+			if "target_scene" in button:
+				button.target_scene = target_scene_path
+			else:
+				push_warning("scene_ui_config: El botón '" + direction + "' no soporta target_scene")
 		else:
-			push_warning("scene_ui_config: No se encontró el botón 'up' en UI_manager")
+			# Solo advertir si se esperaba usar pero el botón no está en UI manager (raro si está en visible_buttons)
+			pass
 
 ## Configura múltiples FocusItems manualmente desde código
 ## Úsalo en _ready() si prefieres configurar desde código en lugar del Inspector

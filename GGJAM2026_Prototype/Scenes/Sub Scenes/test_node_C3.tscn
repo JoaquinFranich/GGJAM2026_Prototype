@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkykema7cn0oj"]
+
+[ext_resource type="Script" uid="uid://yxuaks03atg1" path="res://Scripts/scene_ui_config.gd" id="1_g7b05"]
+[ext_resource type="Texture2D" uid="uid://dmv8jlk33n4l2" path="res://Assets/Images/Clues/PISTA_C_TATETI.png" id="2_7exak"]
+[ext_resource type="Texture2D" uid="uid://c1kwktdvnlju8" path="res://Assets/Images/Scene C/ESCENA.C3.jpg" id="2_g7b05"]
+
+[node name="TestNodeA1" type="Node2D"]
+script = ExtResource("1_g7b05")
+visible_direction_buttons = Array[String](["left"])
+mask_clue_texture = ExtResource("2_7exak")
+mask_clue_position = Vector2(750, 700)
+
+[node name="Background" type="Sprite2D" parent="."]
+show_behind_parent = true
+texture = ExtResource("2_g7b05")
+centered = false

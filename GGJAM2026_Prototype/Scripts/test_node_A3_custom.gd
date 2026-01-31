@@ -17,19 +17,19 @@ func _ready():
 	
 	# Configurar múltiples FocusItems
 	# Ajusta las posiciones (Vector2) según donde quieras que aparezcan
-	configure_focus_items_manual([
-		{
-			"position": Vector2(400, 300),  # Posición del FocusItem que lleva a A4
-			"scale": Vector2(1, 1),          # Tamaño normal
-			"target_scene": "res://Scenes/Sub Scenes/test_node_A4.tscn"  # Escena destino
-		},
-		{
-			"position": Vector2(900, 300),  # Posición del FocusItem que lleva a A5
-			"scale": Vector2(1, 1),          # Tamaño normal
-			"target_scene": "res://Scenes/Sub Scenes/test_node_A5.tscn"  # Escena destino
-		}
-	])
+	# configure_focus_items_manual([
+	# 	{
+	# 		"position": Vector2.ZERO,  # Posición del FocusItem que lleva a A4
+	# 		"scale": Vector2(1, 1),          # Tamaño normal
+	# 		"target_scene": "res://Scenes/Sub Scenes/test_node_A4.tscn"  # Escena destino
+	# 	},
+	# 	{
+	# 		"position": Vector2.ZERO,  # Posición del FocusItem que lleva a A5
+	# 		"scale": Vector2(1, 1),          # Tamaño normal
+	# 		"target_scene": "res://Scenes/Sub Scenes/test_node_A5.tscn"  # Escena destino
+	# 	}
+	# ])
 	
 	# Configurar botones de dirección visibles
 	UI_manager.hide_all_direction_buttons()
-	UI_manager.show_direction_button("left", true)  # Solo botón izquierdo para volver
+	UI_manager.show_direction_button("left", true) # Solo botón izquierdo para volver

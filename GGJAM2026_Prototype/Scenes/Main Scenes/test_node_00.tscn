@@ -6,7 +6,7 @@
 [node name="TestNode00" type="Node2D"]
 script = ExtResource("2_ui_config")
 visible_direction_buttons = Array[String](["right", "up"])
-button_up_target_scene = "D:/GitHub/GGJAM2026_Prototype/GGJAM2026_Prototype/Scenes/Main Scenes/test_node_B.tscn"
+button_up_target_scene = "res://Scenes/Main Scenes/test_node_B.tscn"
 
 [node name="Background" type="Sprite2D" parent="."]
 show_behind_parent = true

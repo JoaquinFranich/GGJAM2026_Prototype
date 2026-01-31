@@ -14,8 +14,14 @@ var _button_up: Button
 var _button_down: Button
 
 var _focus_item_container: Node2D
-var _current_focus_items: Array[Node2D] = []  # Array para múltiples FocusItems
+var _current_focus_items: Array[Node2D] = [] # Array para múltiples FocusItems
 var _focus_item_scene: PackedScene
+
+# Referencias para Mecánica de Máscara
+var _mask_button: Button
+var _mask_overlay: Control
+var _clue_display: TextureRect
+
 
 # Referencia al DialogueManager (ya existe como singleton)
 # No necesitamos instanciarlo aquí, solo coordinamos
@@ -55,7 +61,23 @@ func _initialize_references():
 	
 	_focus_item_container = get_node_or_null("FocusItemContainer")
 	
+	_focus_item_container = get_node_or_null("FocusItemContainer")
+	
+	# Referencias Máscara
+	_mask_button = get_node_or_null("MaskButton")
+	_mask_overlay = get_node_or_null("MaskOverlay")
+	if _mask_overlay:
+		_clue_display = _mask_overlay.get_node_or_null("ClueDisplay")
+	
 	# Conectar señales de los botones
+	_connect_button_signals()
+	
+	# Conectar señal de botón máscara
+	if _mask_button:
+		if not _mask_button.pressed.is_connected(_on_mask_button_pressed):
+			_mask_button.pressed.connect(_on_mask_button_pressed)
+		# Ocultar por defecto
+		_mask_button.visible = false
 	_connect_button_signals()
 	
 	# Ocultar todos los botones por defecto
@@ -83,13 +105,14 @@ func _connect_button_signals():
 ## focus_position: Posición donde aparecerá el FocusItem (Vector2.ZERO para ocultarlo)
 ## focus_scale: Escala del FocusItem (Vector2.ONE por defecto)
 ## visible_buttons: Array de direcciones visibles ["left", "right", "up", "down"]
-func configure_scene_ui(focus_position: Vector2 = Vector2.ZERO, focus_scale: Vector2 = Vector2.ONE, visible_buttons: Array[String] = []):
+## target_scene: Escena destino específica (opcional, "" = navegación automática)
+func configure_scene_ui(focus_position: Vector2 = Vector2.ZERO, focus_scale: Vector2 = Vector2.ONE, visible_buttons: Array[String] = [], target_scene: String = ""):
 	# Si hay posición, crear un FocusItem (compatibilidad con código antiguo)
 	if focus_position != Vector2.ZERO:
-		var focus_items_config = [{
+		var focus_items_config = [ {
 			"position": focus_position,
 			"scale": focus_scale,
-			"target_scene": ""  # Usa navegación automática
+			"target_scene": target_scene
 		}]
 		configure_focus_items(focus_items_config)
 	else:
@@ -114,12 +137,24 @@ func configure_scene_ui_multiple(focus_items_config: Array, visible_buttons: Arr
 	hide_all_direction_buttons()
 	for direction in visible_buttons:
 		show_direction_button(direction, true)
+	
+	# Asegurar que el overlay de máscara esté oculto al cambiar de escena
+	hide_mask_overlay()
+	# El botón de máscara se configura separadamente vía set_current_clue
+	# Si no se llama a set_current_clue, asumimos que no hay pista y ocultamos el botón
+	# Pero esperamos un frame por si la escena lo llama en su _ready
+	call_deferred("_check_mask_button_visibility")
+
+func _check_mask_button_visibility():
+	# Si la escena no configuró pista, ocultar botón (reset)
+	# Esto es un fail-safe
+	pass
 
 ## Establece la posición y escala del FocusItem (método legacy - un solo FocusItem)
-func set_focus_item_position(position: Vector2, scale: Vector2 = Vector2.ONE):
-	var focus_items_config = [{
+func set_focus_item_position(position: Vector2, item_scale: Vector2 = Vector2.ONE):
+	var focus_items_config = [ {
 		"position": position,
-		"scale": scale,
+		"scale": item_scale,
 		"target_scene": ""
 	}]
 	configure_focus_items(focus_items_config)
@@ -142,15 +177,15 @@ func configure_focus_items(focus_items_config: Array):
 		
 		var position = item_config.get("position", Vector2.ZERO)
 		if position == Vector2.ZERO:
-			continue  # Saltar si no hay posición
+			continue # Saltar si no hay posición
 		
-		var scale = item_config.get("scale", Vector2.ONE)
+		var item_scale = item_config.get("scale", Vector2.ONE)
 		var target_scene = item_config.get("target_scene", "")
 		
 		# Instanciar FocusItem
 		var focus_item = _focus_item_scene.instantiate()
 		focus_item.position = position
-		focus_item.scale = scale
+		focus_item.scale = item_scale
 		
 		# Configurar escena destino si se especificó
 		if target_scene != "":
@@ -158,10 +193,11 @@ func configure_focus_items(focus_items_config: Array):
 			# Por ahora, almacenamos la escena destino en una variable del nodo
 			focus_item.set_meta("target_scene", target_scene)
 			# Conectar señal personalizada para manejar el clic con destino específico
-			var area = focus_item.get_node_or_null("Area2D")
-			if area:
-				if not area.input_event.is_connected(_on_focus_item_with_target_clicked.bind(focus_item)):
-					area.input_event.connect(_on_focus_item_with_target_clicked.bind(focus_item))
+			# YA NO ES NECESARIO: El propio script clickable_focus_item.gd maneja esto leyendo la meta
+			# var area = focus_item.get_node_or_null("Area2D")
+			# if area:
+			# 	if not area.input_event.is_connected(_on_focus_item_with_target_clicked.bind(focus_item)):
+			# 		area.input_event.connect(_on_focus_item_with_target_clicked.bind(focus_item))
 		
 		_focus_item_container.add_child(focus_item)
 		_current_focus_items.append(focus_item)
@@ -178,7 +214,7 @@ func clear_focus_item():
 	clear_all_focus_items()
 
 ## Maneja el clic en un FocusItem con escena destino específica
-func _on_focus_item_with_target_clicked(viewport: Node, event: InputEvent, shape_idx: int, focus_item: Node2D):
+func _on_focus_item_with_target_clicked(_viewport: Node, event: InputEvent, _shape_idx: int, focus_item: Node2D):
 	if event is InputEventMouseButton:
 		var mb = event as InputEventMouseButton
 		if mb.pressed and mb.button_index == MOUSE_BUTTON_LEFT:
@@ -194,10 +230,10 @@ func _on_focus_item_with_target_clicked(viewport: Node, event: InputEvent, shape
 # =============================================================================
 
 ## Muestra u oculta un botón de dirección específico
-func show_direction_button(direction: String, visible: bool):
+func show_direction_button(direction: String, should_be_visible: bool):
 	var button = _get_direction_button(direction)
 	if button:
-		button.visible = visible
+		button.visible = should_be_visible
 	else:
 		push_warning("UI_manager: Botón de dirección no encontrado: " + direction)
 
@@ -231,14 +267,22 @@ func _get_direction_button(direction: String) -> Button:
 # =============================================================================
 
 func _on_button_left_pressed():
-	# Botón izquierdo: Volver a escena anterior (navegación entre subescenas)
-	SceneManager.on_back_clicked()
+	# Verificar si el botón tiene configuración personalizada
+	if _button_left and "target_scene" in _button_left and _button_left.target_scene != "":
+		SceneManager.change_scene(_button_left.target_scene)
+	else:
+		# Botón izquierdo: Volver a escena anterior (navegación entre subescenas)
+		SceneManager.on_back_clicked()
 	direction_button_clicked.emit("left")
 
 func _on_button_right_pressed():
-	# Botón derecho: Avanzar a siguiente subescena
-	# Usa la misma lógica que FocusItem
-	SceneManager.on_focusitem_clicked()
+	# Verificar si el botón tiene configuración personalizada
+	if _button_right and "target_scene" in _button_right and _button_right.target_scene != "":
+		SceneManager.change_scene(_button_right.target_scene)
+	else:
+		# Botón derecho: Avanzar a siguiente subescena
+		# Usa la misma lógica que FocusItem
+		SceneManager.on_focusitem_clicked()
 	direction_button_clicked.emit("right")
 
 func _on_button_up_pressed():
@@ -247,23 +291,56 @@ func _on_button_up_pressed():
 	direction_button_clicked.emit("up")
 
 func _on_button_down_pressed():
-	# Botón abajo: Navegar a escena principal anterior (C --> B)
-	var main_scenes = SceneManager.main_scenes
-	var current = SceneManager.current_scene
-	var current_idx = main_scenes.find(current)
-	
-	if current_idx > 0:
-		SceneManager.change_scene(main_scenes[current_idx - 1])
+	# Verificar si el botón tiene configuración personalizada
+	if _button_down and "target_scene" in _button_down and _button_down.target_scene != "":
+		SceneManager.change_scene(_button_down.target_scene)
 	else:
-		# Si no estamos en una main scene, intentar volver a la main scene padre
-		var back = SceneManager.get_back_scene()
-		if back != "":
-			SceneManager.change_scene(back)
+		# Botón abajo: Navegar a escena principal anterior (C --> B)
+		var main_scenes = SceneManager.main_scenes
+		var current = SceneManager.current_scene
+		var current_idx = main_scenes.find(current)
+		
+		if current_idx > 0:
+			SceneManager.change_scene(main_scenes[current_idx - 1])
+		else:
+			# Si no estamos en una main scene, intentar volver a la main scene padre
+			var back = SceneManager.get_back_scene()
+			if back != "":
+				SceneManager.change_scene(back)
 	direction_button_clicked.emit("down")
 
 # El FocusItem maneja su propio clic a través de clickable_focus_item.gd
 # Si necesitas detectar cuando se hace clic, puedes escuchar la señal de SceneManager
 # o conectar la señal focus_item_clicked desde fuera
+
+# =============================================================================
+# MECÁNICA DE MÁSCARA (VISIÓN DEL PASADO)
+# =============================================================================
+
+## Configura la pista actual y visibilidad del botón de máscara
+## Si textura es null, oculta el botón. Si es válida, lo muestra.
+func set_current_clue(texture: Texture2D, clue_position: Vector2 = Vector2.ZERO, clue_scale: Vector2 = Vector2.ONE):
+	if _mask_button:
+		_mask_button.visible = (texture != null)
+	
+	if _clue_display:
+		_clue_display.texture = texture
+		if texture:
+			_clue_display.position = clue_position
+			_clue_display.scale = clue_scale
+
+## Alterna el modo máscara (overlay visible/oculto)
+func toggle_mask_mode():
+	if _mask_overlay:
+		_mask_overlay.visible = not _mask_overlay.visible
+
+## Oculta el overlay de máscara (reset)
+func hide_mask_overlay():
+	if _mask_overlay:
+		_mask_overlay.visible = false
+
+func _on_mask_button_pressed():
+	toggle_mask_mode()
 
 # =============================================================================
 # EVENTOS DE CAMBIO DE ESCENA

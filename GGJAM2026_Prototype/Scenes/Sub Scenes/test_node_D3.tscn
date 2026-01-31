@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c13fqhq1ij85r"]
+
+[ext_resource type="Script" uid="uid://yxuaks03atg1" path="res://Scripts/scene_ui_config.gd" id="1_7f8qy"]
+[ext_resource type="Texture2D" uid="uid://bjuu326b5qtrh" path="res://Assets/Images/Scene D/ESCENA_D3_PALOMA_001.jpg" id="3_7f8qy"]
+
+[node name="TestNodeA1" type="Node2D"]
+script = ExtResource("1_7f8qy")
+focus_item_position = Vector2(930, 535)
+focus_item_scale = Vector2(0.42, 0.42)
+visible_direction_buttons = Array[String](["down"])
+button_down_target_scene = "res://Scenes/Sub Scenes/test_node_D2.tscn"
+mask_clue_position = Vector2(900, 825)
+mask_clue_scale = Vector2(0.35, 0.35)
+
+[node name="Background" type="Sprite2D" parent="."]
+show_behind_parent = true
+texture = ExtResource("3_7f8qy")
+centered = false

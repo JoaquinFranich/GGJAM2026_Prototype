@@ -5,6 +5,9 @@ extends Button
 
 var hand_cursor = preload("res://Assets/Images/HandCursor.png")
 
+# Escena destino cuando se hace clic (opcional, si se define sobrescribe el comportamiento por defecto)
+var target_scene: String = ""
+
 func _ready():
 	# Deshabilitar el focus visual para que no se muestre el recuadro al hacer clic
 	focus_mode = Control.FOCUS_NONE

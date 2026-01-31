@@ -29,7 +29,7 @@ var main_scenes: Array[String] = [
 	"res://Scenes/Main Scenes/test_node_A.tscn",      # A (descomentar y ajustar cuando existan)
 	"res://Scenes/Main Scenes/test_node_B.tscn",      # B
 	"res://Scenes/Main Scenes/test_node_C.tscn",      # C
-	# "res://Scenes/scene_E.tscn",      # E
+	"res://Scenes/Main Scenes/test_node_D.tscn",      # E
 	# "res://Scenes/scene_F.tscn",      # F
 ]
 
@@ -41,13 +41,25 @@ var sub_scenes: Dictionary = {
 		"res://Scenes/Sub Scenes/test_node_A1.tscn",       # A1
 		"res://Scenes/Sub Scenes/test_node_A2.tscn",     # A2 (descomentar cuando exista)
 		"res://Scenes/Sub Scenes/test_node_A3.tscn",     # A3
-		"res://Scenes/Sub Scenes/test_node_A4.tscn"
 	],
 	 "res://Scenes/Main Scenes/test_node_B.tscn": [
 		"res://Scenes/Sub Scenes/test_node_B1.tscn",
 		"res://Scenes/Sub Scenes/test_node_B2.tscn",
-	#     "res://Scenes/B3.tscn",
+		"res://Scenes/Sub Scenes/test_node_B3.tscn",
 	 ],
+		"res://Scenes/Main Scenes/test_node_C.tscn": [
+		"res://Scenes/Sub Scenes/test_node_C1.tscn",       # A1
+		"res://Scenes/Sub Scenes/test_node_C2.tscn",     # A2 (descomentar cuando exista)
+		"res://Scenes/Sub Scenes/test_node_C3.tscn",     # A3
+		"res://Scenes/Sub Scenes/test_node_C4.tscn"
+	],
+			"res://Scenes/Main Scenes/test_node_D.tscn": [
+		"res://Scenes/Sub Scenes/test_node_D1.tscn",       # A1
+		"res://Scenes/Sub Scenes/test_node_D2.tscn",     # A2 (descomentar cuando exista)
+		"res://Scenes/Sub Scenes/test_node_D3.tscn",     # A3
+		"res://Scenes/Sub Scenes/test_node_D4.tscn",
+		"res://Scenes/Sub Scenes/test_node_D5.tscn",
+	],
 }
 
 # Inventario simple: lista de IDs de ítems recogidos

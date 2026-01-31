@@ -35,12 +35,21 @@ func _find_area2d() -> Area2D:
 	return null
 
 ## Maneja el clic en el área
-func _on_area_input_event(viewport: Node, event: InputEvent, shape_idx: int):
+func _on_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if event is InputEventMouseButton:
 		var mouse_event = event as InputEventMouseButton
 		if mouse_event.pressed and mouse_event.button_index == MOUSE_BUTTON_LEFT:
-			# Delegar toda la lógica de navegación al SceneManager
-			SceneManager.on_focusitem_clicked()
+			# 1. Verificar si tenemos una meta-data de destino (puesta por UI_manager)
+			var target_scene = get_meta("target_scene", "")
+			
+			# 2. Si hay destino, ir allí DIRECTAMENTE
+			if target_scene != "" and ResourceLoader.exists(target_scene):
+				SceneManager.change_scene(target_scene)
+				# Opcional: emitir señal local si es necesario
+			
+			# 3. Si NO hay destino, usar comportamiento por defecto
+			else:
+				SceneManager.on_focusitem_clicked()
 
 ## Cambia el cursor a mano al pasar el mouse
 func _on_mouse_entered():

@@ -7,8 +7,9 @@
 script = ExtResource("2_ui_config")
 focus_item_position = Vector2(95, 850)
 focus_item_scale = Vector2(0.1924167, 0.16237502)
-visible_direction_buttons = Array[String](["up"])
-button_up_target_scene = "D:/GitHub/GGJAM2026_Prototype/GGJAM2026_Prototype/Scenes/Main Scenes/test_node_00.tscn"
+visible_direction_buttons = Array[String](["up", "down"])
+button_up_target_scene = "res://Scenes/Main Scenes/test_node_C.tscn"
+button_down_target_scene = "res://Scenes/Main Scenes/test_node_00.tscn"
 
 [node name="Background" type="Sprite2D" parent="."]
 show_behind_parent = true

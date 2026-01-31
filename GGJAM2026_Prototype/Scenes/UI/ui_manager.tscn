@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ohkq2yimyfak"]
+[gd_scene load_steps=11 format=3 uid="uid://ohkq2yimyfak"]
 
 [ext_resource type="Script" uid="uid://dxjx1v8suhs8f" path="res://Scripts/ui_manager.gd" id="1_ui_mgr"]
 [ext_resource type="Texture2D" uid="uid://bb6p0ous5qhfi" path="res://Assets/Images/UI/FLECHA_IZQUIERDA.png" id="2_left"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://peat3akbnfrf" path="res://Scripts/direction_button_right.gd" id="7_btn_right"]
 [ext_resource type="Script" uid="uid://d3fj3c8g5xnr5" path="res://Scripts/direction_button_up.gd" id="8_btn_up"]
 [ext_resource type="Script" uid="uid://drq08otxijrjj" path="res://Scripts/direction_button_down.gd" id="9_btn_down"]
+[ext_resource type="Texture2D" uid="uid://c2hncm32q0ao0" path="res://Assets/Images/UI/MASCARA_UI.png" id="10_4jujk"]
 
 [node name="UI_manager" type="CanvasLayer"]
 layer = 5
@@ -24,44 +25,111 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="ButtonLeft" type="Button" parent="DirectionButtons"]
+visible = false
 layout_mode = 0
-offset_left = 1.0
+offset_left = 54.0
 offset_top = 540.0
-offset_right = 94.0
+offset_right = 147.0
 offset_bottom = 624.0
 icon = ExtResource("2_left")
 flat = true
 script = ExtResource("6_btn_left")
 
 [node name="ButtonRight" type="Button" parent="DirectionButtons"]
+visible = false
 layout_mode = 0
-offset_left = 1826.0
+offset_left = 1777.0
 offset_top = 540.0
-offset_right = 1919.0
+offset_right = 1870.0
 offset_bottom = 624.0
 icon = ExtResource("3_right")
 flat = true
 script = ExtResource("7_btn_right")
 
 [node name="ButtonUp" type="Button" parent="DirectionButtons"]
+visible = false
 layout_mode = 0
 offset_left = 913.0
-offset_top = 1.0
-offset_right = 1006.0
-offset_bottom = 85.0
+offset_top = 62.0
+offset_right = 1010.0
+offset_bottom = 146.0
 icon = ExtResource("4_up")
 flat = true
 script = ExtResource("8_btn_up")
 
 [node name="ButtonDown" type="Button" parent="DirectionButtons"]
+visible = false
 layout_mode = 0
 offset_left = 913.0
-offset_top = 995.0
-offset_right = 1006.0
-offset_bottom = 1079.0
+offset_top = 953.0
+offset_right = 1010.0
+offset_bottom = 1037.0
 icon = ExtResource("5_down")
 flat = true
 script = ExtResource("9_btn_down")
+
+[node name="MaskButton" type="Button" parent="."]
+offset_left = 424.0
+offset_top = 858.0
+offset_right = 576.0
+offset_bottom = 1054.0
+icon = ExtResource("10_4jujk")
+
+[node name="MaskOverlay" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorFilter" type="ColorRect" parent="MaskOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0, 0, 0.223529)
+
+[node name="RainParticles" type="CPUParticles2D" parent="MaskOverlay"]
+visible = false
+position = Vector2(870, -492)
+rotation = -0.14915936
+amount = 2500
+randomness = 0.3
+emission_shape = 3
+emission_rect_extents = Vector2(1033.225, 1)
+gravity = Vector2(0, 1500)
+initial_velocity_max = 160.38
+linear_accel_max = 33.96
+radial_accel_max = 39.62
+damping_min = 1.03
+damping_max = 5.305
+angle_min = -203.8
+angle_max = 271.7
+scale_amount_min = 0.0
+scale_amount_max = 10.0
+color = Color(0.7, 0.8, 1, 0.8)
+
+[node name="ClueDisplay" type="TextureRect" parent="MaskOverlay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.46
+anchor_top = 0.72800004
+anchor_right = 0.46
+anchor_bottom = 0.72800004
+offset_left = -188.20001
+offset_top = -184.24005
+offset_right = 188.79999
+offset_bottom = 184.75995
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
 
 [node name="FocusItemContainer" type="Node2D" parent="."]
 
