@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://cs5rhlx013abx"]
+
+[ext_resource type="Script" uid="uid://beytkw4s85k20" path="res://Scripts/Inventory/InventoryItem.gd" id="1_s8wq0"]
+[ext_resource type="Texture2D" uid="uid://ckd2ol6t78urw" path="res://Assets/Images/Items/objeto_esc_pipas.png" id="2_ib3pt"]
+
+[resource]
+script = ExtResource("1_s8wq0")
+name = "pipas"
+texture = ExtResource("2_ib3pt")
+metadata/_custom_type_script = "uid://beytkw4s85k20"

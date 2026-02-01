@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://ckjwp5x0em6io"]
+
+[ext_resource type="Script" uid="uid://beytkw4s85k20" path="res://Scripts/Inventory/InventoryItem.gd" id="1_s4s1r"]
+[ext_resource type="Texture2D" uid="uid://e0mm2s185e1" path="res://Assets/Images/Items/objeto_esc_cuchillo.png" id="2_toyuy"]
+
+[resource]
+script = ExtResource("1_s4s1r")
+name = "Cuchillo"
+texture = ExtResource("2_toyuy")
+metadata/_custom_type_script = "uid://beytkw4s85k20"

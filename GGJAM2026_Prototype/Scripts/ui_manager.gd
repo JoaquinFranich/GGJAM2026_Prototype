@@ -34,12 +34,22 @@ const PORTRAIT_MASK = preload("res://Assets/Images/Personaje/policia_máscara.pn
 # No necesitamos instanciarlo aquí, solo coordinamos
 
 # =============================================================================
-# INVENTARIO (PREPARADO PARA FUTURO)
+# INVENTARIO
 # =============================================================================
-# TODO: Implementar cuando se necesite
-# var _inventory_panel: Control
-# var _inventory_items_container: Container
-# var _inventory_items: Dictionary = {}  # item_id -> instancia
+# =============================================================================
+# INVENTARIO
+# =============================================================================
+var _inventory_button: Button
+var _inventory_panel: Control
+var _inventory_items_container: Control
+var _inventory_data: Inventory
+var _inventory_slots: Array = []
+const MAX_INVENTORY_SLOTS = 6
+const INVENTORY_RESOURCE_PATH = "res://Resource/Inventario.tres"
+
+# Configuración de Animación Inventario
+# (Simplificado a Toggle Visible/Invisible)
+
 
 # =============================================================================
 # CONFIGURACIÓN INICIAL
@@ -80,6 +90,31 @@ func _initialize_references():
 	_character_portrait = get_node_or_null("CharacterPortrait")
 	if _character_portrait:
 		_character_portrait.texture = PORTRAIT_NORMAL
+		
+	# Referencias Inventario
+	_inventory_button = get_node_or_null("InventoryButton")
+	if _inventory_button:
+		if not _inventory_button.pressed.is_connected(toggle_inventory):
+			_inventory_button.pressed.connect(toggle_inventory)
+		
+		# Conectar señales de cursor
+		if not _inventory_button.mouse_entered.is_connected(CursorManager.set_hand_cursor):
+			_inventory_button.mouse_entered.connect(CursorManager.set_hand_cursor)
+		if not _inventory_button.mouse_exited.is_connected(CursorManager.reset_cursor):
+			_inventory_button.mouse_exited.connect(CursorManager.reset_cursor)
+		if not _inventory_button.button_down.is_connected(CursorManager.set_click_cursor):
+			_inventory_button.button_down.connect(CursorManager.set_click_cursor)
+		if not _inventory_button.button_up.is_connected(CursorManager.set_hand_cursor):
+			_inventory_button.button_up.connect(CursorManager.set_hand_cursor)
+			
+	_inventory_panel = get_node_or_null("InventoryPanel")
+	if _inventory_panel:
+		_inventory_items_container = _inventory_panel.get_node_or_null("ItemsContainer")
+		if _inventory_items_container:
+			_inventory_slots = _inventory_items_container.get_children()
+	
+	# Inicializar datos de inventario
+	_initialize_inventory_data()
 	
 	# Crear y configurar el Timer para la máscara
 	if not _mask_timer:
@@ -431,22 +466,50 @@ func _on_scene_transition_completed():
 	pass
 
 # =============================================================================
-# INVENTARIO (PREPARADO PARA FUTURO)
+# LÓGICA DE INVENTARIO
 # =============================================================================
 
-## TODO: Implementar cuando se necesite el inventario
-## Agrega un item al inventario
-# func add_item_to_inventory(item_id: String, icon_path: String) -> void:
-# 	pass
+func _initialize_inventory_data():
+	# Cargar o crear recurso de inventario
+	if ResourceLoader.exists(INVENTORY_RESOURCE_PATH):
+		_inventory_data = load(INVENTORY_RESOURCE_PATH)
+	else:
+		_inventory_data = Inventory.new()
+		# Opcional: Guardar el nuevo recurso para que persista (si se desea)
+		# ResourceSaver.save(_inventory_data, INVENTORY_RESOURCE_PATH)
+	
+	update_inventory_slots()
 
-## Remueve un item del inventario
-# func remove_item_from_inventory(item_id: String) -> void:
-# 	pass
+## Añade un item al inventario
+## Retorna true si se añadió con éxito, false si está lleno
+func register_item(item: InventoryItem) -> bool:
+	print("UI_manager: register_item solicitado para: ", item.name)
+	if not _inventory_data:
+		push_error("UI_manager: Datos de inventario no inicializados")
+		return false
+		
+	if _inventory_data.items.size() >= MAX_INVENTORY_SLOTS:
+		print("Inventario lleno") # TODO: Feedback visual
+		return false
+	
+	_inventory_data.items.append(item)
+	update_inventory_slots()
+	return true
 
-## Valida si un item puede ser colocado en la posición dada
-# func validate_item_placement(item_id: String, position: Vector2) -> bool:
-# 	return false
+## Actualiza la visualización de los slots
+func update_inventory_slots():
+	if not _inventory_items_container:
+		return
+		
+	var items = _inventory_data.items
+	for i in range(_inventory_slots.size()):
+		var slot_node = _inventory_slots[i]
+		if i < items.size():
+			slot_node.update_slot(items[i])
+		else:
+			slot_node.update_slot(null)
 
-## Muestra un mensaje de feedback al jugador
-# func show_feedback_message(message: String, duration: float = 2.0) -> void:
-# 	pass
+## Alterna la visibilidad del inventario
+func toggle_inventory():
+	if _inventory_panel:
+		_inventory_panel.visible = not _inventory_panel.visible

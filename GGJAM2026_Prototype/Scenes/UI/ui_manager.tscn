@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ohkq2yimyfak"]
+[gd_scene load_steps=15 format=3 uid="uid://ohkq2yimyfak"]
 
 [ext_resource type="Script" uid="uid://dxjx1v8suhs8f" path="res://Scripts/ui_manager.gd" id="1_ui_mgr"]
 [ext_resource type="Texture2D" uid="uid://bb6p0ous5qhfi" path="res://Assets/Images/UI/FLECHA_IZQUIERDA.png" id="2_left"]
@@ -11,6 +11,9 @@
 [ext_resource type="Script" uid="uid://drq08otxijrjj" path="res://Scripts/direction_button_down.gd" id="9_btn_down"]
 [ext_resource type="Texture2D" uid="uid://c2hncm32q0ao0" path="res://Assets/Images/UI/MASCARA_UI.png" id="10_4jujk"]
 [ext_resource type="Texture2D" uid="uid://bc4rw67nnoujl" path="res://Assets/Images/Clues/FLECHA_PISTA_PARTICULA.png" id="11_2fful"]
+[ext_resource type="Texture2D" uid="uid://b4igw8iyfsa4f" path="res://Assets/Images/UI/menu_boton_small.png" id="12_1ex63"]
+[ext_resource type="Texture2D" uid="uid://dnhup8ivq4b2v" path="res://Assets/Images/Items/interfaz_inventario.png" id="12_81skb"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/Components/Slot.tscn" id="12_slot"]
 
 [node name="UI_manager" type="CanvasLayer"]
 layer = 5
@@ -148,6 +151,21 @@ mouse_filter = 2
 expand_mode = 1
 stretch_mode = 5
 
+[node name="InventoryButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 238.0
+offset_top = -123.0
+offset_right = 338.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+icon = ExtResource("12_1ex63")
+
 [node name="InventoryPanel" type="Control" parent="."]
 visible = false
 layout_mode = 3
@@ -156,23 +174,32 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -300.0
-offset_bottom = 300.0
+offset_left = -294.0
+offset_top = 10.0
+offset_right = -53.0
+offset_bottom = 522.0
 grow_horizontal = 0
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Background" type="ColorRect" parent="InventoryPanel"]
+[node name="Background" type="TextureRect" parent="InventoryPanel"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_left = -0.53300005
+anchor_right = 0.684
 anchor_bottom = 1.0
+offset_left = 78.45305
+offset_top = -7.5
+offset_right = 316.11206
+offset_bottom = 7.5
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.2, 0.2, 0.2, 0.8)
+scale = Vector2(0.67999756, 1)
+mouse_filter = 2
+texture = ExtResource("12_81skb")
 
 [node name="Title" type="Label" parent="InventoryPanel"]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -186,19 +213,53 @@ grow_vertical = 0
 text = "Inventario"
 horizontal_alignment = 1
 
-[node name="ItemsContainer" type="VBoxContainer" parent="InventoryPanel"]
+[node name="ItemsContainer" type="GridContainer" parent="InventoryPanel"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_left = 0.079
+anchor_top = 0.164
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 50.0
-offset_right = -10.0
-offset_bottom = -10.0
+anchor_bottom = 0.855
+offset_left = -0.038993835
+offset_top = 0.031974792
+offset_right = -12.0
+offset_bottom = 0.16799927
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 2
 
-[connection signal="mouse_entered" from="DirectionButtons/ButtonLeft" to="DirectionButtons/ButtonLeft" method="_on_mouse_entered"]
+[node name="Slot1" parent="InventoryPanel/ItemsContainer" instance=ExtResource("12_slot")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot2" parent="InventoryPanel/ItemsContainer" instance=ExtResource("12_slot")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot3" parent="InventoryPanel/ItemsContainer" instance=ExtResource("12_slot")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot4" parent="InventoryPanel/ItemsContainer" instance=ExtResource("12_slot")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot5" parent="InventoryPanel/ItemsContainer" instance=ExtResource("12_slot")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot6" parent="InventoryPanel/ItemsContainer" instance=ExtResource("12_slot")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
 [connection signal="mouse_exited" from="DirectionButtons/ButtonLeft" to="DirectionButtons/ButtonLeft" method="_on_mouse_exited"]
 [connection signal="mouse_entered" from="DirectionButtons/ButtonRight" to="DirectionButtons/ButtonRight" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="DirectionButtons/ButtonRight" to="DirectionButtons/ButtonRight" method="_on_mouse_exited"]

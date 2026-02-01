@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkykema7cn0oj"]
+[gd_scene load_steps=6 format=3 uid="uid://bkykema7cn0oj"]
 
 [ext_resource type="Script" uid="uid://yxuaks03atg1" path="res://Scripts/scene_ui_config.gd" id="1_g7b05"]
 [ext_resource type="Texture2D" uid="uid://dmv8jlk33n4l2" path="res://Assets/Images/Clues/PISTA_C_TATETI.png" id="2_7exak"]
 [ext_resource type="Texture2D" uid="uid://c1kwktdvnlju8" path="res://Assets/Images/Scene C/ESCENA.C3.jpg" id="2_g7b05"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/PickupItem.tscn" id="4_upqh3"]
+[ext_resource type="Resource" uid="uid://rokpjk8r0ol4" path="res://Resource/piedra_puzzle_1.tres" id="5_tj0i3"]
 
 [node name="TestNodeA1" type="Node2D"]
 script = ExtResource("1_g7b05")
@@ -15,3 +17,8 @@ mask_clue_position = Vector2(750, 700)
 show_behind_parent = true
 texture = ExtResource("2_g7b05")
 centered = false
+
+[node name="PickupItem" parent="." instance=ExtResource("4_upqh3")]
+visible = false
+position = Vector2(854, 451)
+item_data = ExtResource("5_tj0i3")
