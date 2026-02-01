@@ -8,6 +8,7 @@ signal transition_completed
 
 var pipa_entregada: bool = false
 var candado_abierto: bool = false
+var activo = true
 
 # Diccionario para recordar qué objetos dejamos en el suelo
 var items_on_floor: Dictionary = {} 
