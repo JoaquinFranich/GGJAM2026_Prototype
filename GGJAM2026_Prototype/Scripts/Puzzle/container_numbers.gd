@@ -8,7 +8,7 @@ extends HBoxContainer
 #const maletin_Vacio = preload("uid://cl0w63ooxtka0")
 
 
-var candado_Success = [8,5,6]
+var candado_Success = [4,7,1]
 var candado_output = [0,0,0]
 
 # Called when the node enters the scene tree for the first time.
@@ -92,5 +92,6 @@ func _on_mascara_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 
 func _on_open_pressed() -> void:
 	if candado_output == candado_Success:
+		PuzzleManager.puzzle_candado = true
 		get_tree().change_scene_to_file("res://Scenes/Sub Scenes/test_node_B4.tscn")
 	pass # Replace with function body.

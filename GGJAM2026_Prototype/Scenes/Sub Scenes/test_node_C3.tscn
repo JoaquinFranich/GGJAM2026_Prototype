@@ -73,10 +73,6 @@ texture = ExtResource("6_1nm5b")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItem" unique_id=1189362272]
 shape = SubResource("RectangleShape2D_generic")
 
-[node name="UI" parent="." unique_id=2021790239 instance=ExtResource("6_tj0i3")]
-layer = 6
-visible = false
-
 [node name="UI_PUZZLE" type="CanvasLayer" parent="." unique_id=1658404337]
 script = ExtResource("7_3ktgv")
 
@@ -175,3 +171,7 @@ custom_minimum_size = Vector2(0, 0)
 layout_mode = 2
 images = Array[Texture2D]([ExtResource("29_eeqo7"), ExtResource("37_olpi2"), ExtResource("45_d7py3"), null])
 index = 3
+
+[node name="UI" parent="." unique_id=2021790239 instance=ExtResource("6_tj0i3")]
+layer = 6
+visible = false

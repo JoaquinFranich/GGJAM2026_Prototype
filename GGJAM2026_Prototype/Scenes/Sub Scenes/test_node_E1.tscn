@@ -3,11 +3,16 @@
 [ext_resource type="Script" uid="uid://yxuaks03atg1" path="res://Scripts/scene_ui_config.gd" id="1_p0tjr"]
 [ext_resource type="Texture2D" uid="uid://cmf1a75lytpj1" path="res://Assets/Images/Scene E/ESCENA_E1_PUZZLE_PIEDRAS_TAMAÑO.jpg" id="2_p0tjr"]
 [ext_resource type="Script" uid="uid://rqt7ys4xvw" path="res://Scripts/Puzzle/rock.gd" id="3_gua5x"]
+[ext_resource type="Script" uid="uid://dviot7k103m4g" path="res://Scripts/Puzzle/obtener_Mineral.gd" id="3_i5mpp"]
 [ext_resource type="Texture2D" uid="uid://cn485ok7ce7fb" path="res://Assets/Images/Personaje/PUZZLE_PIEDRA_1.png" id="3_vejwu"]
 [ext_resource type="Texture2D" uid="uid://ch3pgtll8pphm" path="res://Assets/Images/Personaje/PUZZLE_PIEDRA_2.png" id="4_gua5x"]
 [ext_resource type="Texture2D" uid="uid://thyo2jac8hyc" path="res://Assets/Images/Personaje/PUZZLE_PIEDRA_3.png" id="5_c681o"]
 [ext_resource type="Texture2D" uid="uid://cdk7juo4fi8l4" path="res://Assets/Images/Personaje/PUZZLE_PIEDRA_4.png" id="6_va1sl"]
 [ext_resource type="Texture2D" uid="uid://6d6prid5froj" path="res://Assets/Images/Personaje/PUZZLE_PIEDRA_5.png" id="7_dm346"]
+[ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="9_c681o"]
+[ext_resource type="Resource" uid="uid://bxa4qpc1xro05" path="res://Resource/piedra_puzzle_3.tres" id="10_dm346"]
+[ext_resource type="Script" uid="uid://r2c2xvf45ui6" path="res://Scripts/Inventory/PickupObject.gd" id="10_k2gll"]
+[ext_resource type="Texture2D" uid="uid://bwx5mfp84doj7" path="res://Assets/Images/Items/objeto_esc_mineral1.png" id="12_xsxdd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i5mpp"]
 size = Vector2(71.58948, 28.387695)
@@ -25,7 +30,7 @@ size = Vector2(91.568054, 65.1246)
 size = Vector2(122.368286, 78.48354)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qqw5o"]
-size = Vector2(63, 60)
+size = Vector2(45.048386, 47.908173)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6wdnu"]
 size = Vector2(70, 70)
@@ -39,6 +44,9 @@ size = Vector2(100, 131)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d35jg"]
 size = Vector2(120, 160)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_generic"]
+size = Vector2(100, 100)
+
 [node name="TestNodeA1" type="Node2D" unique_id=868673908]
 script = ExtResource("1_p0tjr")
 visible_direction_buttons = Array[String](["right"])
@@ -50,6 +58,7 @@ mask_clue_scale = Vector2(0.35, 0.35)
 show_behind_parent = true
 texture = ExtResource("2_p0tjr")
 centered = false
+script = ExtResource("3_i5mpp")
 
 [node name="scene" type="Sprite2D" parent="." unique_id=191976415]
 position = Vector2(955, 537)
@@ -94,75 +103,89 @@ metadata/_edit_group_ = true
 position = Vector2(-476.37057, 253.61871)
 shape = SubResource("RectangleShape2D_y8bbj")
 
-[node name="piedra1" type="Area2D" parent="scene" unique_id=355716411 node_paths=PackedStringArray("correct_hole")]
+[node name="Piedras" type="Node2D" parent="scene" unique_id=1423150371]
+
+[node name="piedra1" type="Area2D" parent="scene/Piedras" unique_id=355716411 node_paths=PackedStringArray("correct_hole")]
 position = Vector2(211.99988, 120)
 scale = Vector2(1.6648746, 1.669862)
 script = ExtResource("3_gua5x")
-snap_distance = 30
-correct_hole = NodePath("../Area2D/CollisionShape2D")
-metadata/_edit_group_ = true
+correct_hole = NodePath("../../Area2D/CollisionShape2D")
 
-[node name="image" type="Sprite2D" parent="scene/piedra1" unique_id=772682127]
+[node name="image" type="Sprite2D" parent="scene/Piedras/piedra1" unique_id=772682127]
+position = Vector2(7.438418, 1.4971185)
+scale = Vector2(0.7962077, 0.72610813)
 texture = ExtResource("3_vejwu")
 
-[node name="colission" type="CollisionShape2D" parent="scene/piedra1" unique_id=1955237914]
+[node name="colission" type="CollisionShape2D" parent="scene/Piedras/piedra1" unique_id=1955237914]
+position = Vector2(6.306885, 2.3953552)
 shape = SubResource("RectangleShape2D_qqw5o")
 
-[node name="piedra2" type="Area2D" parent="scene" unique_id=1092084525 node_paths=PackedStringArray("correct_hole")]
+[node name="piedra2" type="Area2D" parent="scene/Piedras" unique_id=1092084525 node_paths=PackedStringArray("correct_hole")]
 position = Vector2(-347, 155)
 script = ExtResource("3_gua5x")
-snap_distance = 30
-correct_hole = NodePath("../Area2D2/CollisionShape2D")
+correct_hole = NodePath("../../Area2D2/CollisionShape2D")
 metadata/_edit_group_ = true
 
-[node name="image" type="Sprite2D" parent="scene/piedra2" unique_id=684402697]
+[node name="image" type="Sprite2D" parent="scene/Piedras/piedra2" unique_id=684402697]
 texture = ExtResource("4_gua5x")
 
-[node name="colission" type="CollisionShape2D" parent="scene/piedra2" unique_id=705536539]
+[node name="colission" type="CollisionShape2D" parent="scene/Piedras/piedra2" unique_id=705536539]
 shape = SubResource("RectangleShape2D_6wdnu")
 
-[node name="piedra3" type="Area2D" parent="scene" unique_id=780368881 node_paths=PackedStringArray("correct_hole")]
+[node name="piedra3" type="Area2D" parent="scene/Piedras" unique_id=780368881 node_paths=PackedStringArray("correct_hole")]
 position = Vector2(-138, 169)
 script = ExtResource("3_gua5x")
-snap_distance = 30
-correct_hole = NodePath("../Area2D3/CollisionShape2D")
+correct_hole = NodePath("../../Area2D3/CollisionShape2D")
 metadata/_edit_group_ = true
 
-[node name="image" type="Sprite2D" parent="scene/piedra3" unique_id=1912130751]
+[node name="image" type="Sprite2D" parent="scene/Piedras/piedra3" unique_id=1912130751]
 texture = ExtResource("5_c681o")
 
-[node name="colission" type="CollisionShape2D" parent="scene/piedra3" unique_id=814404194]
+[node name="colission" type="CollisionShape2D" parent="scene/Piedras/piedra3" unique_id=814404194]
 shape = SubResource("RectangleShape2D_kiw4j")
 
-[node name="piedra4" type="Area2D" parent="scene" unique_id=225245261 node_paths=PackedStringArray("correct_hole")]
-position = Vector2(-773, 175.99997)
+[node name="piedra4" type="Area2D" parent="scene/Piedras" unique_id=225245261 node_paths=PackedStringArray("correct_hole")]
+position = Vector2(-773, 176)
 script = ExtResource("3_gua5x")
-snap_distance = 30
-correct_hole = NodePath("../Area2D4/CollisionShape2D")
+correct_hole = NodePath("../../Area2D4/CollisionShape2D")
 metadata/_edit_group_ = true
 
-[node name="image" type="Sprite2D" parent="scene/piedra4" unique_id=693407341]
+[node name="image" type="Sprite2D" parent="scene/Piedras/piedra4" unique_id=693407341]
 texture = ExtResource("6_va1sl")
 
-[node name="colission" type="CollisionShape2D" parent="scene/piedra4" unique_id=83616232]
+[node name="colission" type="CollisionShape2D" parent="scene/Piedras/piedra4" unique_id=83616232]
 position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_i2ylh")
 
-[node name="piedra5" type="Area2D" parent="scene" unique_id=1646267925 node_paths=PackedStringArray("correct_hole")]
-position = Vector2(799.13983, 185.3547)
+[node name="piedra5" type="Area2D" parent="scene/Piedras" unique_id=1646267925 node_paths=PackedStringArray("correct_hole")]
+position = Vector2(799.1399, 185.35474)
 script = ExtResource("3_gua5x")
-snap_distance = 30
-correct_hole = NodePath("../Area2D5/CollisionShape2D")
+correct_hole = NodePath("../../Area2D5/CollisionShape2D")
 metadata/_edit_group_ = true
 
-[node name="image" type="Sprite2D" parent="scene/piedra5" unique_id=2063930695]
+[node name="image" type="Sprite2D" parent="scene/Piedras/piedra5" unique_id=2063930695]
 texture = ExtResource("7_dm346")
 
-[node name="colission" type="CollisionShape2D" parent="scene/piedra5" unique_id=2084060945]
+[node name="colission" type="CollisionShape2D" parent="scene/Piedras/piedra5" unique_id=2084060945]
 shape = SubResource("RectangleShape2D_d35jg")
 
-[connection signal="input_event" from="scene/piedra1" to="scene/piedra1" method="_on_input_event"]
-[connection signal="input_event" from="scene/piedra2" to="scene/piedra2" method="_on_input_event"]
-[connection signal="input_event" from="scene/piedra3" to="scene/piedra3" method="_on_input_event"]
-[connection signal="input_event" from="scene/piedra4" to="scene/piedra4" method="_on_input_event"]
-[connection signal="input_event" from="scene/piedra5" to="scene/piedra5" method="_on_input_event"]
+[node name="PickupItem" type="Area2D" parent="." unique_id=874566283]
+position = Vector2(977, 661)
+script = ExtResource("10_k2gll")
+item_data = ExtResource("10_dm346")
+
+[node name="Sprite2D" type="Sprite2D" parent="PickupItem" unique_id=62041502]
+texture = ExtResource("12_xsxdd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItem" unique_id=1189362272]
+shape = SubResource("RectangleShape2D_generic")
+
+[node name="UI" parent="." unique_id=2021790239 instance=ExtResource("9_c681o")]
+layer = 6
+visible = false
+
+[connection signal="input_event" from="scene/Piedras/piedra1" to="scene/Piedras/piedra1" method="_on_input_event"]
+[connection signal="input_event" from="scene/Piedras/piedra2" to="scene/Piedras/piedra2" method="_on_input_event"]
+[connection signal="input_event" from="scene/Piedras/piedra3" to="scene/Piedras/piedra3" method="_on_input_event"]
+[connection signal="input_event" from="scene/Piedras/piedra4" to="scene/Piedras/piedra4" method="_on_input_event"]
+[connection signal="input_event" from="scene/Piedras/piedra5" to="scene/Piedras/piedra5" method="_on_input_event"]

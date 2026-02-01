@@ -23,3 +23,4 @@ texture = ExtResource("3_plhkb")
 
 [node name="UI" parent="." unique_id=2021790239 instance=ExtResource("4_mw8cu")]
 layer = 6
+visible = false

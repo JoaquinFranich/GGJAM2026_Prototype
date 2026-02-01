@@ -6,7 +6,15 @@ extends Node
 signal transition_started
 signal transition_completed
 
-var activo = true
+var pipa_entregada: bool = false
+var candado_abierto: bool = false
+
+# Diccionario para recordar qué objetos dejamos en el suelo
+var items_on_floor: Dictionary = {} 
+
+# IDs técnicos de tus objetos (ajústalos a tus nombres reales)
+const PIPA_ID = "pipas"
+const NUEVO_OBJETO_ID = "objeto_D3"
 
 var fade_duration: float = 0.5
 var fade_color: Color = Color.BLACK
@@ -49,6 +57,7 @@ var sub_scenes: Dictionary = {
 		"res://Scenes/Sub Scenes/test_node_B1.tscn",
 		"res://Scenes/Sub Scenes/test_node_B2.tscn",
 		"res://Scenes/Sub Scenes/test_node_B3.tscn",
+		"res://Scenes/Sub Scenes/test_node_B4.tscn"
 	 ],
 	"res://Scenes/Main Scenes/test_node_C.tscn": [
 		"res://Scenes/Sub Scenes/test_node_C1.tscn",
@@ -110,34 +119,103 @@ func _set_initial_current_scene():
 
 ## Cambia a una nueva escena con efecto de fade
 ## scene_path: Ruta de la escena destino (ej: "res://Scenes/nueva_escena.tscn")
+
 func change_scene(scene_path: String):
 	if not ResourceLoader.exists(scene_path):
 		push_error("SceneManager: La escena no existe: " + scene_path)
 		return
 	
 	transition_started.emit()
-	
-	# Fade out
 	await fade_out()
 	
-	# Cambiar escena
 	var error = get_tree().change_scene_to_file(scene_path)
 	if error != OK:
 		push_error("SceneManager: Error al cambiar de escena: " + str(error))
 		return
 	
-	# Resetear el cursor al cambiar de escena
 	Input.set_custom_mouse_cursor(null)
-
-	# Actualizar escena actual
 	current_scene = scene_path
 	
 	# Esperar un frame para que la nueva escena se cargue
 	await get_tree().process_frame
+
+	var escena_actual = get_tree().current_scene
+	if escena_actual == null:
+		await get_tree().process_frame # Esperamos un frame extra por seguridad
+		escena_actual = get_tree().current_scene
+
+	if escena_actual != null:
+		if current_scene.ends_with("test_node_D2.tscn"):
+			var items_actuales = UI_manager._inventory_data.items
+			var pipa_para_borrar = null
+
+			# 1. Buscar la pipa por su ruta de recurso (lo más seguro)
+			for item in items_actuales:
+				if item != null and item.resource_path.ends_with("Pipas.tres"):
+					pipa_para_borrar = item
+					break
+			
+			# 2. Si la encontramos, ejecutamos el evento
+			if pipa_para_borrar != null:
+				pipa_entregada = true
+				print("¡Evento activado! Pipa detectada en EscenaD2.")
+				var sprite_suelo = get_tree().current_scene.get_node_or_null("Paloma003")
+				print(sprite_suelo)
+				if sprite_suelo:
+					sprite_suelo.visible = true
+				# Borrar del recurso del UI_manager
+					UI_manager._inventory_data.items.erase(pipa_para_borrar)
+				# Actualizar los slots visuales para que se vea el hueco vacío
+					UI_manager.update_inventory_slots()
+		if current_scene.ends_with("test_node_D3.tscn"):
+		# Buscamos los nodos para ocultarlos
+			var llave = get_tree().current_scene.get_node_or_null("Background")
+			llave.visible = false
+			if pipa_entregada:
+				var s1 = get_tree().current_scene.get_node_or_null("Paloma_Comiendo")
+				var s2 = get_tree().current_scene.get_node_or_null("Paloma")
+				llave.visible = true
+				if s1: s1.visible = false
+				if s2: s2.visible = false
+				else:
+					print("No hay pipa, puedes explorar D2 libremente.")
+		if current_scene.ends_with("test_node_D5.tscn"):
+			var items_actuales = UI_manager._inventory_data.items
+			var llave_recurso = null
+
+			# 1. Buscar la llave en el inventario
+			for item in items_actuales:
+				if item != null and item.resource_path.ends_with("Llave.tres"): # Ajusta el nombre de tu .tres
+					llave_recurso = item
+					break
+			
+			# 2. Si tiene la llave, abrimos el candado
+			if llave_recurso != null:
+				print("¡Evento D5! Llave detectada, abriendo candado.")
+				candado_abierto = true
+				
+				# Ocultar el sprite del candado cerrado
+				var sprite_candado = escena_actual.get_node_or_null("EscenarioCadenas1")
+				if sprite_candado:
+					sprite_candado.visible = false
+				
+#				LOGICA PARA AVANZAR A LA ESCENA test_nodeD6
+				
+				# Quitar la llave del inventario
+				UI_manager._inventory_data.items.erase(llave_recurso)
+				UI_manager.update_inventory_slots()
+				
+				# Volver atrás o permitir seguir (según prefieras)
+				# on_back_clicked() 
+			else:
+				# Si el candado ya se abrió antes, mantenerlo oculto
+				if candado_abierto:
+					var sprite_candado = escena_actual.get_node_or_null("EscenarioCadenas1")
+					if sprite_candado: sprite_candado.visible = false
+				else:
+					print("D5: El candado está cerrado y no tienes la llave.")
 	
-	# Fade in
 	await fade_in()
-	
 	transition_completed.emit()
 
 ## Indica si se puede usar "Volver" (no estamos ya en volver_target)
@@ -292,6 +370,14 @@ func _has_item_for_chain(main_scene: String) -> bool:
 	# Ejemplo: si recogiste el ítem de la cadena A, llamas add_item("res://Scenes/test_node.tscn")
 	return has_item(main_scene)
 
+var items_dropped_in_scenes: Dictionary = {} # Guarda qué items hay en cada escena
+
+func drop_item_here(item_id: String):
+	if item_id in inventory:
+		inventory.erase(item_id)
+		items_dropped_in_scenes[current_scene] = item_id
+		print("Objeto ", item_id, " dejado en ", current_scene)
+
 ## Efecto de fade out (pantalla se oscurece)
 func fade_out() -> Signal:
 	fade_overlay.modulate.a = 0.0
@@ -324,6 +410,3 @@ func set_fade_color(color: Color):
 	if fade_overlay:
 		fade_overlay.color = color
 		
-func activar():
-	if not activo:
-		return

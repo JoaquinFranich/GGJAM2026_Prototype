@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var ui: CanvasLayer = $UI
+
 ## ============================================================================
 ## SCRIPT PARA CONFIGURAR LA UI EN CADA ESCENA
 ## ============================================================================
@@ -83,9 +85,11 @@ extends Node2D
 ## Ajusta esto para cambiar el tamaño de la imagen
 @export var mask_clue_scale: Vector2 = Vector2.ONE
 
+
 func _ready():
 	# Esperar un frame para asegurar que UI_manager esté listo
 	await get_tree().process_frame
+	ui.visible = false
 	# Configurar la UI
 	configure_ui()
 

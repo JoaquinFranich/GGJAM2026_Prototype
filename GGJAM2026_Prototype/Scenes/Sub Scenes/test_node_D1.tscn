@@ -1,21 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://b13l2p1pvbcx0"]
+[gd_scene format=3 uid="uid://b13l2p1pvbcx0"]
 
 [ext_resource type="Script" uid="uid://yxuaks03atg1" path="res://Scripts/scene_ui_config.gd" id="1_vef8d"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/PickupItem.tscn" id="3_uemcn"]
+[ext_resource type="PackedScene" uid="uid://d2p4s8loqccgw" path="res://Scenes/Objects/PickupItem.tscn" id="3_uemcn"]
 [ext_resource type="Texture2D" uid="uid://djbwbc6soauyi" path="res://Assets/Images/Scene D/ESCENA_D1_PUZZLE_TACHO_DE_BASURA_PLANO_DETALLE.jpg" id="3_vef8d"]
 [ext_resource type="Resource" uid="uid://cs5rhlx013abx" path="res://Resource/pipas.tres" id="4_1c742"]
+[ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="5_1c742"]
 
-[node name="TestNodeA1" type="Node2D"]
+[node name="TestNodeA1" type="Node2D" unique_id=1567934849]
 script = ExtResource("1_vef8d")
 visible_direction_buttons = Array[String](["left"])
+button_left_target_scene = "res://Scenes/Main Scenes/test_node_D.tscn"
 mask_clue_position = Vector2(900, 825)
 mask_clue_scale = Vector2(0.35, 0.35)
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=2058900492]
 show_behind_parent = true
 texture = ExtResource("3_vef8d")
 centered = false
 
-[node name="PickupItem" parent="." instance=ExtResource("3_uemcn")]
+[node name="PickupItem" parent="." unique_id=327412962 instance=ExtResource("3_uemcn")]
 position = Vector2(1169, 825)
 item_data = ExtResource("4_1c742")
+
+[node name="UI" parent="." unique_id=2021790239 instance=ExtResource("5_1c742")]
+layer = 6
+visible = false

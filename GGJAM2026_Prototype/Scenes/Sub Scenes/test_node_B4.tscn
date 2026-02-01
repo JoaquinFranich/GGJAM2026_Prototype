@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="5_ftdvx"]
 [ext_resource type="Texture2D" uid="uid://cxntco3idlb4i" path="res://Assets/Images/Items/escenario_maletin_abierto.png" id="6_8xcrl"]
 [ext_resource type="Script" uid="uid://dyen8gfy7nn40" path="res://Scripts/Puzzle/Maletin.gd" id="7_ppv3a"]
+[ext_resource type="Resource" uid="uid://ckjwp5x0em6io" path="res://Resource/cuchillo.tres" id="9_6u3ya"]
+[ext_resource type="Texture2D" uid="uid://bfo5fese132y7" path="res://Assets/Images/Inventory/objeto_inv_cuchillo.png" id="9_h58ij"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppv3a"]
 size = Vector2(194, 142)
@@ -15,12 +17,22 @@ size = Vector2(194, 142)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5ei0"]
 size = Vector2(194, 143)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_generic"]
+size = Vector2(100, 100)
+
 [node name="TestNodeA1" type="Node2D" unique_id=239917966]
 script = ExtResource("1_yqrum")
 focus_item_position = Vector2(438, 920)
 focus_item_scale = Vector2(0.6, 0.6)
+focus_item_target_scene = null
+focus_items = null
 visible_direction_buttons = Array[String](["right"])
-button_right_target_scene = "res://Scenes/Sub Scenes/test_node_B1.tscn"
+button_up_target_scene = null
+button_down_target_scene = null
+button_left_target_scene = null
+button_right_target_scene = "res://Scenes/Main Scenes/test_node_B.tscn"
+mask_clue_position = null
+mask_clue_scale = null
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1834790687]
 show_behind_parent = true
@@ -53,6 +65,19 @@ texture = ExtResource("4_ppv3a")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItem" unique_id=1189362272]
 position = Vector2(428, 920.5)
 shape = SubResource("RectangleShape2D_a5ei0")
+
+[node name="PickupItem2" type="Area2D" parent="." unique_id=306920029]
+position = Vector2(807.00006, 941)
+rotation = 0.40840703
+script = ExtResource("3_yqrum")
+item_data = ExtResource("9_6u3ya")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PickupItem2" unique_id=273797118]
+texture = ExtResource("9_h58ij")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItem2" unique_id=1042184795]
+shape = SubResource("RectangleShape2D_generic")
 
 [node name="UI" parent="." unique_id=2021790239 instance=ExtResource("5_ftdvx")]
 layer = 6

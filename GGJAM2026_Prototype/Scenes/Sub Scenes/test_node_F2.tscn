@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxn1kixekyqxn"]
+[gd_scene format=3 uid="uid://bxn1kixekyqxn"]
 
 [ext_resource type="Script" uid="uid://yxuaks03atg1" path="res://Scripts/scene_ui_config.gd" id="1_pkwe2"]
 [ext_resource type="Texture2D" uid="uid://6ulqkjowd682" path="res://Assets/Images/Clues/FLECHA_PISTA.png" id="2_ytvbl"]
 [ext_resource type="Texture2D" uid="uid://dvmkjikl6jh7f" path="res://Assets/Images/Scene F/ESCENA_F2.jpg" id="3_1adgj"]
+[ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="4_1adgj"]
 
-[node name="TestNodeA1" type="Node2D"]
+[node name="TestNodeA1" type="Node2D" unique_id=1183998394]
 script = ExtResource("1_pkwe2")
 visible_direction_buttons = Array[String](["right", "left"])
 button_left_target_scene = "res://Scenes/Sub Scenes/test_node_F3.tscn"
@@ -13,7 +14,11 @@ mask_clue_texture = ExtResource("2_ytvbl")
 mask_clue_position = Vector2(900, 825)
 mask_clue_scale = Vector2(0.003, 0.003)
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=948299407]
 show_behind_parent = true
 texture = ExtResource("3_1adgj")
 centered = false
+
+[node name="UI" parent="." unique_id=2021790239 instance=ExtResource("4_1adgj")]
+layer = 6
+visible = false

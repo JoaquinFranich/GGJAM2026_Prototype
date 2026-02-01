@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://d2f7awb7idwq5"]
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://d2f7awb7idwq5"]
 
-[ext_resource type="Script" uid="uid://beytkw4s85k20" path="res://Scripts/Inventory/InventoryItem.gd" id="1_1tdeh"]
-[ext_resource type="Texture2D" uid="uid://cmbyhl6kog5ef" path="res://Assets/Images/Items/objeto_esc_llave.png" id="2_7obt7"]
+[ext_resource type="Script" uid="uid://beytkw4s85k20" path="res://Scripts/Inventory/InventoryItem.gd" id="1_rbos0"]
+[ext_resource type="Texture2D" uid="uid://bg5ttxq7wqdcg" path="res://Assets/Images/Inventory/objeto_inv_llave.png" id="2_n8hog"]
 
 [resource]
-script = ExtResource("1_1tdeh")
-name = "llaves"
-texture = ExtResource("2_7obt7")
+script = ExtResource("1_rbos0")
+name = "Llave "
+texture = ExtResource("2_n8hog")
 metadata/_custom_type_script = "uid://beytkw4s85k20"

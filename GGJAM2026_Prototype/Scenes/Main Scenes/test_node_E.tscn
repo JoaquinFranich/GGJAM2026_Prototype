@@ -19,3 +19,4 @@ centered = false
 
 [node name="UI" parent="." unique_id=2021790239 instance=ExtResource("3_uhcec")]
 layer = 6
+visible = false

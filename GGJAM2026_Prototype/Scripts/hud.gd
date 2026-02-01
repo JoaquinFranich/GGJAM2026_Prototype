@@ -1,10 +1,11 @@
 extends Control
-@onready var hud_inventory: Panel = $inventory_HUD
-@onready var inventory_hud: Panel = $inventory_HUD/Inventory
+#@onready var hud_inventory: Panel = $inventory_HUD
+#@onready var inventory_hud: Panel = $inventory_HUD/Inventory
 @onready var menu_pause: Panel = $menu_Pause
 @onready var music_volume: HSlider = $menu_Options/container_Options/music_Volume
 @onready var sfx_volume: HSlider = $menu_Options/container_Options/sfx_Volume
 @onready var checkbox_fullscreen: CheckBox = $menu_Options/container_Options/checkbox_Fullscreen
+@onready var ui: CanvasLayer = $".."
 
 
 @onready var inventario: Inventory = preload("res://Resource/inventory.tres")
@@ -32,6 +33,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Abrir_menu_de_pausa") == true:
+		ui.visible = true
 		menu_pause.visible = true
 	pass
 

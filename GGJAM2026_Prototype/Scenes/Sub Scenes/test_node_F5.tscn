@@ -1,16 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://lc324ar41xdr"]
+[gd_scene format=3 uid="uid://lc324ar41xdr"]
 
 [ext_resource type="Script" uid="uid://yxuaks03atg1" path="res://Scripts/scene_ui_config.gd" id="1_v0ykb"]
 [ext_resource type="Texture2D" uid="uid://b6l5u2rpi7efx" path="res://Assets/Images/Scene F/ESCENA_F5_FINAL_HABITACION_MONOLITO2.jpg" id="2_v0ykb"]
+[ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="3_8l0vs"]
 
-[node name="TestNodeA1" type="Node2D"]
+[node name="TestNodeA1" type="Node2D" unique_id=952390868]
 script = ExtResource("1_v0ykb")
 focus_item_position = Vector2(953, 525)
 focus_item_scale = Vector2(0.25, 0.25)
 mask_clue_position = Vector2(900, 825)
 mask_clue_scale = Vector2(0.35, 0.35)
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=1154254076]
 show_behind_parent = true
 texture = ExtResource("2_v0ykb")
 centered = false
+
+[node name="UI" parent="." unique_id=2021790239 instance=ExtResource("3_8l0vs")]
+layer = 6
+visible = false

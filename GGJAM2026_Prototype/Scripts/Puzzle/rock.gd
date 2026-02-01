@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var snap_distance := 50
+@export var Precision_con_respecto_al_hoyo := 50
 @export var correct_hole: Node2D
 
 var drag = false
@@ -34,6 +34,6 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	pass # Replace with function body.
 
 func check_hole():
-	if global_position.distance_to(correct_hole.global_position) < snap_distance:
+	if global_position.distance_to(correct_hole.global_position) < Precision_con_respecto_al_hoyo:
 		print("Bien")
 		correct = true
