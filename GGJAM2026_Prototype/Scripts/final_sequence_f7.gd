@@ -15,6 +15,9 @@ func _ready():
 	focus_item_position = Vector2.ZERO
 	super._ready()
 	
+	# Reproducir audio de entrada tras el fade
+	_play_plot_twist_sound()
+	
 	# Asegurar que BG2 empiece invisible
 	if bg2: bg2.visible = false
 	
@@ -60,3 +63,11 @@ func _on_sequence_finished():
 	# Transición lenta a Créditos
 	SceneManager.set_fade_duration(4.0)
 	SceneManager.change_scene("res://Scenes/Sub Scenes/test_node_F8.tscn")
+
+func _play_plot_twist_sound():
+	var audio_player = AudioStreamPlayer.new()
+	var sfx = load("res://Assets/Audio/plot twist.wav")
+	if sfx:
+		audio_player.stream = sfx
+		add_child(audio_player)
+		audio_player.play()

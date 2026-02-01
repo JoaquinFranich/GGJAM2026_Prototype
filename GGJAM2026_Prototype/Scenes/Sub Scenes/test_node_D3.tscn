@@ -1,48 +1,62 @@
-[gd_scene format=3 uid="uid://c13fqhq1ij85r"]
+[gd_scene load_steps=11 format=3 uid="uid://c13fqhq1ij85r"]
 
 [ext_resource type="Script" uid="uid://yxuaks03atg1" path="res://Scripts/scene_ui_config.gd" id="1_7f8qy"]
 [ext_resource type="Texture2D" uid="uid://bjuu326b5qtrh" path="res://Assets/Images/Scene D/ESCENA_D3_PALOMA_001.jpg" id="3_7f8qy"]
 [ext_resource type="Script" uid="uid://r2c2xvf45ui6" path="res://Scripts/Inventory/PickupObject.gd" id="3_cix7b"]
 [ext_resource type="Texture2D" uid="uid://c1qe1227ic417" path="res://Assets/Images/Objects/PALOMA_001.png" id="3_hmipk"]
 [ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="3_m4y1v"]
-[ext_resource type="Resource" uid="uid://d2f7awb7idwq5" path="res://Resource/Llave.tres" id="4_fk4xl"]
+[ext_resource type="Resource" uid="uid://d2f7awb7idwq5" path="res://Resource/llave.tres" id="4_fk4xl"]
+[ext_resource type="Texture2D" uid="uid://cmbyhl6kog5ef" path="res://Assets/Images/Items/objeto_esc_llave.png" id="5_cix7b"]
+[ext_resource type="Script" uid="uid://udt3cuknigo0" path="res://Scripts/Inventory/PlaceableZone.gd" id="8_6wg7w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_generic"]
 size = Vector2(100, 100)
 
-[node name="TestNodeA1" type="Node2D" unique_id=1582663355]
+[sub_resource type="CircleShape2D" id="CircleShape2D_5tsd2"]
+radius = 113.110565
+
+[node name="TestNodeA1" type="Node2D"]
 script = ExtResource("1_7f8qy")
 visible_direction_buttons = Array[String](["down"])
 button_down_target_scene = "res://Scenes/Sub Scenes/test_node_D2.tscn"
 mask_clue_position = Vector2(900, 825)
 mask_clue_scale = Vector2(0.35, 0.35)
 
-[node name="Background" type="Sprite2D" parent="." unique_id=2060302862]
+[node name="Background" type="Sprite2D" parent="."]
 show_behind_parent = true
 texture = ExtResource("3_7f8qy")
 centered = false
 
-[node name="PickupItem" type="Area2D" parent="Background" unique_id=874566283]
-position = Vector2(782, 307.00003)
-rotation = 1.0646509
-scale = Vector2(0.99999994, 0.99999994)
+[node name="PickupItem" type="Area2D" parent="."]
+top_level = true
+position = Vector2(1048, 268)
+rotation = 0.5235988
+scale = Vector2(1.0427895, 1.0841804)
+priority = 1
 script = ExtResource("3_cix7b")
 item_data = ExtResource("4_fk4xl")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Background/PickupItem" unique_id=62041502]
+[node name="Llave" type="Sprite2D" parent="PickupItem"]
+texture = ExtResource("5_cix7b")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/PickupItem" unique_id=1189362272]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItem"]
 shape = SubResource("RectangleShape2D_generic")
 
-[node name="Paloma_Comiendo" type="Sprite2D" parent="." unique_id=722945589]
-texture = ExtResource("3_7f8qy")
-centered = false
-
-[node name="Paloma" type="Sprite2D" parent="." unique_id=1508733963]
+[node name="Paloma" type="Sprite2D" parent="."]
 position = Vector2(979, 293)
 texture = ExtResource("3_hmipk")
 
-[node name="UI" parent="." unique_id=2021790239 instance=ExtResource("3_m4y1v")]
+[node name="UI" parent="." instance=ExtResource("3_m4y1v")]
 layer = 6
 visible = false
+
+[node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("placed_node", "node_to_hide")]
+script = ExtResource("8_6wg7w")
+required_item_name = "Pipas"
+placed_node = NodePath("../PickupItem")
+node_to_hide = NodePath("../Paloma")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1255, 254)
+shape = SubResource("CircleShape2D_5tsd2")

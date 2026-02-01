@@ -25,11 +25,11 @@ func _ready():
 
 func _on_mouse_entered_logic():
 	_is_hovering = true
-	# CursorManager.set_hand_cursor() # Opcional: Feedback visual
+	CursorManager.set_hover_item_cursor()
 
 func _on_mouse_exited_logic():
 	_is_hovering = false
-	# CursorManager.reset_cursor() # Opcional
+	CursorManager.reset_cursor()
 
 func _unhandled_input(event):
 	if _is_hovering and event is InputEventMouseButton:

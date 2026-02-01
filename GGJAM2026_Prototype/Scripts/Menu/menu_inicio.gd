@@ -17,8 +17,8 @@ func _ready() -> void:
 	UI_manager.visible = false
 	music_menu.play()
 	color_rect.visible = true
-	color_rect.modulate.a = 1.5 
-	fade_out() 
+	color_rect.modulate.a = 1.5
+	fade_out()
 	music_volume.value = Settings.music_Volume
 	sfx_volume.value = Settings.sfx_Volume
 	checkbox_fullscreen.button_pressed = Settings.is_Fullscreen
@@ -27,12 +27,12 @@ func _ready() -> void:
 
 func fade_out():
 	var tween = create_tween()
-	tween.tween_property(color_rect, "modulate:a", 0.0, 2.5)	
+	tween.tween_property(color_rect, "modulate:a", 0.0, 2.5)
 	tween.finished.connect(_on_fade_finished)
 
 func fade_in():
 	var tween = create_tween()
-	tween.tween_property(color_rect, "modulate:a", 1.5, 2.5)	
+	tween.tween_property(color_rect, "modulate:a", 1.5, 2.5)
 	tween.finished.connect(_on_fade_finished)
 
 func _on_fade_finished():

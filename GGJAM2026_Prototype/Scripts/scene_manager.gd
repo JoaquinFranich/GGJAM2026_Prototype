@@ -11,7 +11,7 @@ var candado_abierto: bool = false
 var activo = true
 
 # Diccionario para recordar qué objetos dejamos en el suelo
-var items_on_floor: Dictionary = {} 
+var items_on_floor: Dictionary = {}
 
 # IDs técnicos de tus objetos (ajústalos a tus nombres reales)
 const PIPA_ID = "pipas"
@@ -145,77 +145,7 @@ func change_scene(scene_path: String):
 		await get_tree().process_frame # Esperamos un frame extra por seguridad
 		escena_actual = get_tree().current_scene
 
-	if escena_actual != null:
-		if current_scene.ends_with("test_node_D2.tscn"):
-			var items_actuales = UI_manager._inventory_data.items
-			var pipa_para_borrar = null
-
-			# 1. Buscar la pipa por su ruta de recurso (lo más seguro)
-			for item in items_actuales:
-				if item != null and item.resource_path.ends_with("Pipas.tres"):
-					pipa_para_borrar = item
-					break
-			
-			# 2. Si la encontramos, ejecutamos el evento
-			if pipa_para_borrar != null:
-				pipa_entregada = true
-				print("¡Evento activado! Pipa detectada en EscenaD2.")
-				var sprite_suelo = get_tree().current_scene.get_node_or_null("Paloma003")
-				print(sprite_suelo)
-				if sprite_suelo:
-					sprite_suelo.visible = true
-				# Borrar del recurso del UI_manager
-					UI_manager._inventory_data.items.erase(pipa_para_borrar)
-				# Actualizar los slots visuales para que se vea el hueco vacío
-					UI_manager.update_inventory_slots()
-		if current_scene.ends_with("test_node_D3.tscn"):
-		# Buscamos los nodos para ocultarlos
-			var llave = get_tree().current_scene.get_node_or_null("Background")
-			llave.visible = false
-			if pipa_entregada:
-				var s1 = get_tree().current_scene.get_node_or_null("Paloma_Comiendo")
-				var s2 = get_tree().current_scene.get_node_or_null("Paloma")
-				llave.visible = true
-				if s1: s1.visible = false
-				if s2: s2.visible = false
-				else:
-					print("No hay pipa, puedes explorar D2 libremente.")
-		if current_scene.ends_with("test_node_D5.tscn"):
-			var items_actuales = UI_manager._inventory_data.items
-			var llave_recurso = null
-
-			# 1. Buscar la llave en el inventario
-			for item in items_actuales:
-				if item != null and item.resource_path.ends_with("Llave.tres"): # Ajusta el nombre de tu .tres
-					llave_recurso = item
-					break
-			
-			# 2. Si tiene la llave, abrimos el candado
-			if llave_recurso != null:
-				print("¡Evento D5! Llave detectada, abriendo candado.")
-				candado_abierto = true
-				
-				# Ocultar el sprite del candado cerrado
-				var sprite_candado = escena_actual.get_node_or_null("EscenarioCadenas1")
-				if sprite_candado:
-					sprite_candado.visible = false
-				
-#				LOGICA PARA AVANZAR A LA ESCENA test_nodeD6
-				
-				# Quitar la llave del inventario
-				UI_manager._inventory_data.items.erase(llave_recurso)
-				UI_manager.update_inventory_slots()
-				
-				# Volver atrás o permitir seguir (según prefieras)
-				# on_back_clicked() 
-			else:
-				# Si el candado ya se abrió antes, mantenerlo oculto
-				if candado_abierto:
-					var sprite_candado = escena_actual.get_node_or_null("EscenarioCadenas1")
-					if sprite_candado: sprite_candado.visible = false
-				else:
-					print("D5: El candado está cerrado y no tienes la llave.")
-	
+	# Lógica heredada eliminada (D2, D3, D5) para evitar conflictos.
 	await fade_in()
 	transition_completed.emit()
 
@@ -410,4 +340,3 @@ func set_fade_color(color: Color):
 	fade_color = color
 	if fade_overlay:
 		fade_overlay.color = color
-		

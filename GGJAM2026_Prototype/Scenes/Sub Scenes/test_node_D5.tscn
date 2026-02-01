@@ -1,12 +1,17 @@
-[gd_scene format=3 uid="uid://6537tf15pxwn"]
+[gd_scene load_steps=9 format=3 uid="uid://6537tf15pxwn"]
 
 [ext_resource type="Script" uid="uid://yxuaks03atg1" path="res://Scripts/scene_ui_config.gd" id="1_mumra"]
 [ext_resource type="Texture2D" uid="uid://c3ka57tsslr3s" path="res://Assets/Images/Scene D/ESCENA_D5_PUZZLE_CANDADO_PLANO_2_CERRADO.jpg" id="2_ea1f5"]
 [ext_resource type="Texture2D" uid="uid://bd4ri2owdoh1r" path="res://Assets/Images/Clues/PISTA_D_PALOMA.png" id="2_mumra"]
+[ext_resource type="Texture2D" uid="uid://df1fykvvokakk" path="res://Assets/Images/Scene D/ESCENARIO_D8_PUZZLE_CANDADO_PLANO 2_ABIERTO.jpg" id="3_c6eh0"]
 [ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="4_u8ggf"]
 [ext_resource type="Texture2D" uid="uid://dfw7h6gtl8nmg" path="res://Assets/Images/Objects/escenario_cadenas1.png" id="5_7g0yr"]
+[ext_resource type="Script" uid="uid://udt3cuknigo0" path="res://Scripts/Inventory/PlaceableZone.gd" id="7_sf2t0"]
 
-[node name="TestNodeA1" type="Node2D" unique_id=339368989]
+[sub_resource type="CircleShape2D" id="CircleShape2D_6qffy"]
+radius = 89.005615
+
+[node name="TestNodeA1" type="Node2D"]
 script = ExtResource("1_mumra")
 focus_item_position = Vector2(910, 1100)
 focus_item_scale = Vector2(0.33, 0.33)
@@ -17,16 +22,31 @@ mask_clue_texture = ExtResource("2_mumra")
 mask_clue_position = Vector2(-15, -175)
 mask_clue_scale = Vector2(2, 2)
 
-[node name="Background" type="Sprite2D" parent="." unique_id=1953192748]
+[node name="Background2" type="Sprite2D" parent="."]
+show_behind_parent = true
+texture = ExtResource("3_c6eh0")
+centered = false
+
+[node name="Background" type="Sprite2D" parent="."]
 show_behind_parent = true
 texture = ExtResource("2_ea1f5")
 centered = false
 
-[node name="EscenarioCadenas1" type="Sprite2D" parent="." unique_id=2099974256]
-position = Vector2(1094, 989.00006)
-scale = Vector2(1.131579, 1.2963915)
+[node name="EscenarioCadenas1" type="Sprite2D" parent="."]
+position = Vector2(751.9999, 1018)
+scale = Vector2(1.3684207, 1.431701)
 texture = ExtResource("5_7g0yr")
 
-[node name="UI" parent="." unique_id=2021790239 instance=ExtResource("4_u8ggf")]
+[node name="UI" parent="." instance=ExtResource("4_u8ggf")]
 layer = 6
 visible = false
+
+[node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("placed_node", "node_to_hide")]
+script = ExtResource("7_sf2t0")
+required_item_name = "Llave"
+placed_node = NodePath("../EscenarioCadenas1")
+node_to_hide = NodePath("../Background")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(757, 1018)
+shape = SubResource("CircleShape2D_6qffy")

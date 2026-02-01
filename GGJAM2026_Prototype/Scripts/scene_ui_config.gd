@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var ui: CanvasLayer = $UI
+@onready var ui = $UI
 
 ## ============================================================================
 ## SCRIPT PARA CONFIGURAR LA UI EN CADA ESCENA
@@ -89,7 +89,8 @@ extends Node2D
 func _ready():
 	# Esperar un frame para asegurar que UI_manager esté listo
 	await get_tree().process_frame
-	ui.visible = false
+	if ui:
+		ui.visible = false
 	# Configurar la UI
 	configure_ui()
 

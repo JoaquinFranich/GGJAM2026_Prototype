@@ -1,11 +1,11 @@
-[gd_scene format=3 uid="uid://dll1rfpsiwa3i"]
+[gd_scene load_steps=5 format=3 uid="uid://dll1rfpsiwa3i"]
 
 [ext_resource type="Script" uid="uid://yxuaks03atg1" path="res://Scripts/scene_ui_config.gd" id="1_yakxm"]
 [ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="3_krpac"]
 [ext_resource type="Texture2D" uid="uid://bp7cgkxpvybh3" path="res://Assets/Images/Scene D/ESCENA_D2.jpg" id="3_yakxm"]
 [ext_resource type="Texture2D" uid="uid://cef6802fdxynb" path="res://Assets/Images/Objects/PALOMA_003.png" id="4_krpac"]
 
-[node name="TestNodeA1" type="Node2D" unique_id=1613663049]
+[node name="TestNodeA1" type="Node2D"]
 script = ExtResource("1_yakxm")
 focus_item_position = Vector2(810, 550)
 focus_item_scale = Vector2(0.42, 0.42)
@@ -16,17 +16,17 @@ button_down_target_scene = "res://Scenes/Main Scenes/test_node_D.tscn"
 mask_clue_position = Vector2(900, 825)
 mask_clue_scale = Vector2(0.35, 0.35)
 
-[node name="Background" type="Sprite2D" parent="." unique_id=1504037619]
+[node name="Background" type="Sprite2D" parent="."]
 show_behind_parent = true
 texture = ExtResource("3_yakxm")
 centered = false
 
-[node name="Paloma003" type="Sprite2D" parent="." unique_id=782993115]
+[node name="Paloma003" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(1419, 651)
 scale = Vector2(0.30037314, 0.33790523)
 texture = ExtResource("4_krpac")
 
-[node name="UI" parent="." unique_id=2021790239 instance=ExtResource("3_krpac")]
+[node name="UI" parent="." instance=ExtResource("3_krpac")]
 layer = 6
 visible = false

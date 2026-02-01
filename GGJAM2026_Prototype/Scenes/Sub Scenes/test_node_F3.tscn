@@ -1,21 +1,52 @@
-[gd_scene format=3 uid="uid://b7vtex1yv4y3n"]
+[gd_scene load_steps=6 format=3 uid="uid://b7vtex1yv4y3n"]
 
-[ext_resource type="Script" uid="uid://yxuaks03atg1" path="res://Scripts/scene_ui_config.gd" id="1_03olj"]
+[ext_resource type="Script" uid="uid://cid7ncsrq72bm" path="res://Scripts/Puzzles/puzzle_F3.gd" id="1_2q8el"]
 [ext_resource type="Texture2D" uid="uid://ct2wjaw1hb8gq" path="res://Assets/Images/Scene F/ESCENA_F3_CLOACA_FINAL_SI_BARRAS.jpg" id="2_03olj"]
 [ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="3_kjfsc"]
+[ext_resource type="Script" uid="uid://udt3cuknigo0" path="res://Scripts/Inventory/PlaceableZone.gd" id="4_k7xm0"]
 
-[node name="TestNodeA1" type="Node2D" unique_id=1596535649]
-script = ExtResource("1_03olj")
+[sub_resource type="CircleShape2D" id="CircleShape2D_d3e6v"]
+radius = 56.568542
+
+[node name="TestNodeA1" type="Node2D"]
+script = ExtResource("1_2q8el")
 visible_direction_buttons = Array[String](["right"])
 button_right_target_scene = "res://Scenes/Sub Scenes/test_node_F2.tscn"
 mask_clue_position = Vector2(900, 825)
 mask_clue_scale = Vector2(0.35, 0.35)
 
-[node name="Background" type="Sprite2D" parent="." unique_id=1368216320]
+[node name="Background" type="Sprite2D" parent="."]
 show_behind_parent = true
 texture = ExtResource("2_03olj")
 centered = false
 
-[node name="UI" parent="." unique_id=2021790239 instance=ExtResource("3_kjfsc")]
+[node name="UI" parent="." instance=ExtResource("3_kjfsc")]
 layer = 6
 visible = false
+
+[node name="Piedra1" type="Area2D" parent="." node_paths=PackedStringArray("placed_node")]
+script = ExtResource("4_k7xm0")
+required_item_name = "piedra_puzzle_1"
+placed_node = NodePath(".")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piedra1"]
+position = Vector2(816, 753)
+shape = SubResource("CircleShape2D_d3e6v")
+
+[node name="Piedra2" type="Area2D" parent="." node_paths=PackedStringArray("placed_node")]
+script = ExtResource("4_k7xm0")
+required_item_name = "Item Puzzle 3"
+placed_node = NodePath(".")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piedra2"]
+position = Vector2(1158, 724)
+shape = SubResource("CircleShape2D_d3e6v")
+
+[node name="Piedra3" type="Area2D" parent="." node_paths=PackedStringArray("placed_node")]
+script = ExtResource("4_k7xm0")
+required_item_name = "piedra_puzzle_3"
+placed_node = NodePath(".")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piedra3"]
+position = Vector2(981, 362)
+shape = SubResource("CircleShape2D_d3e6v")

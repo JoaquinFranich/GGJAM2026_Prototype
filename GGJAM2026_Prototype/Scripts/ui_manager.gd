@@ -10,7 +10,7 @@ extends CanvasLayer
 signal focus_item_clicked
 signal direction_button_clicked(direction: String)
 
-var activo = true	
+var activo = true
 
 # Referencias a elementos UI
 var _direction_buttons_container: Control
@@ -52,6 +52,9 @@ var _inventory_data: Inventory
 var _inventory_slots: Array = []
 const MAX_INVENTORY_SLOTS = 6
 const INVENTORY_RESOURCE_PATH = "res://Resource/Inventario.tres"
+
+# Estado de Selección de Item (Drag & Drop)
+var _selected_item: InventoryItem = null
 
 # Configuración de Animación Inventario
 # (Simplificado a Toggle Visible/Invisible)
@@ -519,6 +522,65 @@ func update_inventory_slots():
 func toggle_inventory():
 	if _inventory_panel:
 		_inventory_panel.visible = not _inventory_panel.visible
+
+# =============================================================================
+# LÓGICA DE SELECCIÓN Y USO DE ITEMS (DRAG & DROP)
+# =============================================================================
+
+## Selecciona un item del inventario para su uso
+func select_item(item: InventoryItem):
+	if not item:
+		return
+		
+	_selected_item = item
+	print("UI_manager: Item seleccionado -> ", item.name)
+	
+	# Cambiar cursor visualmente
+	CursorManager.set_custom_icon_cursor(item.texture)
+	
+	# Opcional: Cerrar inventario para ver mejor la escena
+	if _inventory_panel and _inventory_panel.visible:
+		toggle_inventory()
+
+## Deselecciona el item actual
+func deselect_item():
+	if _selected_item:
+		print("UI_manager: Item deseleccionado -> ", _selected_item.name)
+		_selected_item = null
+		CursorManager.reset_cursor()
+
+## Intenta usar el item seleccionado en una zona
+## Retorna true si tuvo éxito (era el item correcto)
+func try_place_item(required_item_name: String) -> bool:
+	if not _selected_item:
+		return false
+		
+	# Comparación por nombre (puedes cambiarlo a ID si prefieres)
+	if _selected_item.name == required_item_name:
+		print("UI_manager: Item colocado correctamente -> ", _selected_item.name)
+		
+		# Consumir item
+		_inventory_data.items.erase(_selected_item)
+		update_inventory_slots()
+		
+		# Limpiar selección
+		deselect_item()
+		return true
+		
+	print("UI_manager: Item incorrecto. Se esperaba: ", required_item_name, " pero se tiene: ", _selected_item.name)
+	return false
+
+## Obtener el item actualmente seleccionado
+func get_selected_item() -> InventoryItem:
+	return _selected_item
+
+func _unhandled_input(event):
+	# Cancelar selección con Clic Derecho
+	if _selected_item and event is InputEventMouseButton:
+		if event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
+			print("UI_manager: Clic Derecho, cancelando selección.")
+			deselect_item()
+			get_viewport().set_input_as_handled()
 
 func activar():
 	if not activo:
