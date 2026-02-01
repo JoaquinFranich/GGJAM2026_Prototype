@@ -1,0 +1,222 @@
+[gd_scene format=3 uid="uid://cda1136i4k88b"]
+
+[ext_resource type="Script" uid="uid://4850qgntji2g" path="res://Scripts/hud.gd" id="2_vii62"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/Components/Slot.tscn" id="2_wtp81"]
+[ext_resource type="PackedScene" uid="uid://wxqvo30moqd1" path="res://Scenes/Menu Scenes/menu_pause.tscn" id="3_8jt83"]
+[ext_resource type="PackedScene" uid="uid://bnsr5545w24xj" path="res://Scenes/Menu Scenes/menu_options.tscn" id="14_232u1"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_snqdn"]
+load_path = "res://.godot/imported/ESCENA A2.jpg-6b1fda04d292cd039bc7e92882cd234e.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1myu6"]
+size = Vector2(143, 135)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ocbqq"]
+size = Vector2(144, 188)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2ef4"]
+size = Vector2(106, 278)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c1ctk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r7tv0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_232u1"]
+modulate_color = Color(0.6378432, 0.6378432, 0.63784313, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tthkw"]
+modulate_color = Color(0.3403393, 0.34033933, 0.3403393, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c1ctk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jfq3t"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_osxqb"]
+modulate_color = Color(0.74558026, 0.7455802, 0.7455802, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u7ige"]
+modulate_color = Color(0.43134022, 0.43134025, 0.43134025, 1)
+
+[node name="game_UI" type="Node2D" unique_id=388317032]
+
+[node name="scene1" type="Sprite2D" parent="." unique_id=1736037816]
+visible = false
+position = Vector2(575.875, 324.125)
+scale = Vector2(0.6001302, 0.59976846)
+texture = SubResource("CompressedTexture2D_snqdn")
+
+[node name="object" type="Area2D" parent="." unique_id=294994655]
+position = Vector2(201.99997, 502)
+scale = Vector2(1.0000001, 1)
+metadata/_edit_group_ = true
+
+[node name="image" type="Sprite2D" parent="object" unique_id=1960773027]
+
+[node name="colission" type="CollisionShape2D" parent="object" unique_id=1293090939]
+shape = SubResource("RectangleShape2D_1myu6")
+
+[node name="object2" type="Area2D" parent="." unique_id=948323947]
+position = Vector2(706, 341)
+scale = Vector2(1.0000001, 1)
+metadata/_edit_group_ = true
+
+[node name="image" type="Sprite2D" parent="object2" unique_id=689139964]
+
+[node name="colission" type="CollisionShape2D" parent="object2" unique_id=865608158]
+shape = SubResource("RectangleShape2D_ocbqq")
+
+[node name="object3" type="Area2D" parent="." unique_id=388879604]
+position = Vector2(993, 298)
+scale = Vector2(1.0000001, 1)
+metadata/_edit_group_ = true
+
+[node name="image" type="Sprite2D" parent="object3" unique_id=1685171865]
+
+[node name="colission" type="CollisionShape2D" parent="object3" unique_id=1541657376]
+shape = SubResource("RectangleShape2D_y2ef4")
+
+[node name="Scene_ui" type="CanvasLayer" parent="." unique_id=243799558]
+layer = -1
+
+[node name="Image" type="TextureRect" parent="Scene_ui" unique_id=58283113]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=842436274]
+
+[node name="HUD" type="Control" parent="UI" unique_id=875677509]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("2_vii62")
+
+[node name="inventory_HUD" type="Panel" parent="UI/HUD" unique_id=539294711]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5989583
+anchor_right = 1.0026041
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_c1ctk")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="open_Inventory_Button" type="Button" parent="UI/HUD/inventory_HUD" unique_id=1305363643]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.81935483
+anchor_top = 0.31481484
+anchor_right = 0.9935484
+anchor_bottom = 0.5663582
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_r7tv0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_232u1")
+theme_override_styles/hover = SubResource("StyleBoxTexture_tthkw")
+metadata/_edit_use_anchors_ = true
+
+[node name="Inventory" type="Panel" parent="UI/HUD/inventory_HUD" unique_id=2075325444]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.060215052
+anchor_right = 1.060215
+anchor_bottom = 1.0
+offset_right = 3.0517578e-05
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_c1ctk")
+metadata/_edit_use_anchors_ = true
+
+[node name="close_Inventory_Button" type="Button" parent="UI/HUD/inventory_HUD/Inventory" unique_id=20525228]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.023619046
+anchor_top = 0.34019658
+anchor_right = 0.17400001
+anchor_bottom = 0.52900004
+offset_left = 70.06982
+offset_top = 122.54996
+offset_right = 70.212494
+offset_bottom = 122.75528
+rotation = 3.1415927
+theme_override_styles/normal = SubResource("StyleBoxTexture_jfq3t")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_osxqb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_u7ige")
+metadata/_edit_use_anchors_ = true
+
+[node name="text_Inventory" type="Label" parent="UI/HUD/inventory_HUD/Inventory" unique_id=1538988188]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.63256055
+anchor_top = 0.083252884
+anchor_right = 0.79922724
+anchor_bottom = 0.15269732
+offset_left = -175.14063
+offset_top = -2.6990738
+offset_right = -30.640625
+offset_bottom = -1.6574059
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "INVENTARIO"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="grid_Inventory" type="GridContainer" parent="UI/HUD/inventory_HUD/Inventory" unique_id=1583761795]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.227957
+anchor_top = 0.17219588
+anchor_right = 0.7354839
+anchor_bottom = 0.8309637
+columns = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Slot" parent="UI/HUD/inventory_HUD/Inventory/grid_Inventory" unique_id=1913878371 instance=ExtResource("2_wtp81")]
+layout_mode = 2
+
+[node name="Slot2" parent="UI/HUD/inventory_HUD/Inventory/grid_Inventory" unique_id=671809666 instance=ExtResource("2_wtp81")]
+layout_mode = 2
+
+[node name="Slot3" parent="UI/HUD/inventory_HUD/Inventory/grid_Inventory" unique_id=1592802479 instance=ExtResource("2_wtp81")]
+layout_mode = 2
+
+[node name="Slot4" parent="UI/HUD/inventory_HUD/Inventory/grid_Inventory" unique_id=97524594 instance=ExtResource("2_wtp81")]
+layout_mode = 2
+
+[node name="Slot5" parent="UI/HUD/inventory_HUD/Inventory/grid_Inventory" unique_id=731726389 instance=ExtResource("2_wtp81")]
+layout_mode = 2
+
+[node name="Slot6" parent="UI/HUD/inventory_HUD/Inventory/grid_Inventory" unique_id=1657548333 instance=ExtResource("2_wtp81")]
+layout_mode = 2
+
+[node name="menu_Pause" parent="UI/HUD" unique_id=739766871 instance=ExtResource("3_8jt83")]
+layout_mode = 0
+anchors_preset = 0
+
+[node name="menu_Options" parent="UI/HUD" unique_id=940799158 instance=ExtResource("14_232u1")]
+visible = false
+layout_mode = 1
+
+[node name="SFX_button" type="AudioStreamPlayer" parent="UI/HUD" unique_id=437745292]
+bus = &"SFX"
+
+[connection signal="input_event" from="object" to="object" method="_on_input_event"]
+[connection signal="mouse_entered" from="object" to="object" method="_on_mouse_entered"]
+[connection signal="input_event" from="object2" to="object2" method="_on_input_event"]
+[connection signal="mouse_entered" from="object2" to="object2" method="_on_mouse_entered"]
+[connection signal="input_event" from="object3" to="object3" method="_on_input_event"]
+[connection signal="mouse_entered" from="object3" to="object3" method="_on_mouse_entered"]
+[connection signal="pressed" from="UI/HUD/inventory_HUD/open_Inventory_Button" to="UI/HUD" method="_on_open_inventory_button_pressed"]
+[connection signal="pressed" from="UI/HUD/inventory_HUD/Inventory/close_Inventory_Button" to="UI/HUD" method="_on_close_inventory_button_pressed"]

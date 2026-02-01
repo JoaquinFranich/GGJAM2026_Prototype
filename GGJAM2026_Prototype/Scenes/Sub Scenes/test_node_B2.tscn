@@ -1,24 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://d03xq5vs7mxwb"]
+[gd_scene format=3 uid="uid://d03xq5vs7mxwb"]
 
 [ext_resource type="Script" uid="uid://yxuaks03atg1" path="res://Scripts/scene_ui_config.gd" id="1_0q13t"]
 [ext_resource type="Texture2D" uid="uid://b35n4mnlocwcx" path="res://Assets/Images/Scene B/ESCENA.B2.jpg" id="2_0q13t"]
 [ext_resource type="Texture2D" uid="uid://b1n8e8ukym206" path="res://Assets/Images/Objects/escenario_maletin_cerrado.png" id="3_e8tgy"]
+[ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="5_hn2w7"]
 
-[node name="TestNodeA1" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hn2w7"]
+size = Vector2(130.66666, 66.33331)
+
+[node name="TestNodeA1" type="Node2D" unique_id=239917966]
 script = ExtResource("1_0q13t")
 focus_item_position = Vector2(438, 920)
 focus_item_scale = Vector2(0.6, 0.6)
 visible_direction_buttons = Array[String](["right"])
 button_right_target_scene = "res://Scenes/Sub Scenes/test_node_B1.tscn"
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=1834790687]
 show_behind_parent = true
 texture = ExtResource("2_0q13t")
 centered = false
 
-[node name="Background2" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(524, 830)
-scale = Vector2(0.5635359, 0.5635359)
+[node name="Area2D" type="Area2D" parent="." unique_id=1750728847]
+position = Vector2(709, 942)
+scale = Vector2(3, 3)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1673793536]
+position = Vector2(6.1666775, -3)
+scale = Vector2(0.18642493, 0.18968691)
 texture = ExtResource("3_e8tgy")
-centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1698930791]
+position = Vector2(5.3333282, -4.1666565)
+shape = SubResource("RectangleShape2D_hn2w7")
+
+[node name="UI" parent="." unique_id=2021790239 instance=ExtResource("5_hn2w7")]
+layer = 6
+visible = false

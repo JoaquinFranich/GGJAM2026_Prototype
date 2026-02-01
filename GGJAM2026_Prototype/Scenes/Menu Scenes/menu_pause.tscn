@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://wxqvo30moqd1"]
+
+[ext_resource type="Script" uid="uid://1f547dxato1v" path="res://Scripts/Menu/menu_pause.gd" id="1_pv2yn"]
+[ext_resource type="Texture2D" uid="uid://bom7s5h56d5x" path="res://Assets/Images/Menu/menu_fondo.png" id="2_d6l7a"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5pmb1"]
+texture = ExtResource("2_d6l7a")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n8bbg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5pmb1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3rpux"]
+
+[node name="menu_Pause" type="Panel" unique_id=739766871]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_pv2yn")
+
+[node name="Panel" type="Panel" parent="." unique_id=153880524]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3420139
+anchor_top = 0.10339506
+anchor_right = 0.6970486
+anchor_bottom = 0.9074074
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5pmb1")
+metadata/_edit_use_anchors_ = true
+
+[node name="button_Container" type="VBoxContainer" parent="Panel" unique_id=1599780679]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -99.5
+offset_right = 136.0
+offset_bottom = 99.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="button_play" type="Button" parent="Panel/button_Container" unique_id=925822360]
+clip_contents = true
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9166399, 0.91663986, 0.9166398, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.7162962, 0.7162962, 0.7162962, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n8bbg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5pmb1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3rpux")
+text = "Continuar"
+
+[node name="button_options" type="Button" parent="Panel/button_Container" unique_id=18698047]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9166399, 0.91663986, 0.9166398, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.7162962, 0.7162962, 0.7162962, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n8bbg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5pmb1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3rpux")
+text = "Opciones"
+
+[node name="button_exit" type="Button" parent="Panel/button_Container" unique_id=476815247]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9166399, 0.91663986, 0.9166398, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.7162962, 0.7162962, 0.7162962, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n8bbg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5pmb1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3rpux")
+text = "Regresar al inicio"
+
+[connection signal="pressed" from="Panel/button_Container/button_play" to="." method="_on_button_play_pressed"]
+[connection signal="pressed" from="Panel/button_Container/button_options" to="." method="_on_button_options_pressed"]
+[connection signal="pressed" from="Panel/button_Container/button_exit" to="." method="_on_button_exit_pressed"]

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://br0r4hh5lefip"
+path="res://.godot/imported/abrir la cerradura.wav-0378502c1eeee0c28e28def4dd14a317.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/abrir la cerradura.wav"
+dest_files=["res://.godot/imported/abrir la cerradura.wav-0378502c1eeee0c28e28def4dd14a317.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

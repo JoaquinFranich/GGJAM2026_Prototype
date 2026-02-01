@@ -1,24 +1,177 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkykema7cn0oj"]
+[gd_scene format=3 uid="uid://bkykema7cn0oj"]
 
 [ext_resource type="Script" uid="uid://yxuaks03atg1" path="res://Scripts/scene_ui_config.gd" id="1_g7b05"]
 [ext_resource type="Texture2D" uid="uid://dmv8jlk33n4l2" path="res://Assets/Images/Clues/PISTA_C_TATETI.png" id="2_7exak"]
 [ext_resource type="Texture2D" uid="uid://c1kwktdvnlju8" path="res://Assets/Images/Scene C/ESCENA.C3.jpg" id="2_g7b05"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/PickupItem.tscn" id="4_upqh3"]
+[ext_resource type="Script" uid="uid://r2c2xvf45ui6" path="res://Scripts/Inventory/PickupObject.gd" id="4_3ktgv"]
 [ext_resource type="Resource" uid="uid://rokpjk8r0ol4" path="res://Resource/piedra_puzzle_1.tres" id="5_tj0i3"]
+[ext_resource type="Texture2D" uid="uid://cq5ephqfddp02" path="res://Assets/Images/Items/objeto_esc_mineral2.png" id="6_1nm5b"]
+[ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="6_tj0i3"]
+[ext_resource type="Script" uid="uid://dghya7hu205vw" path="res://Scripts/Puzzle/puzzle_2.gd" id="7_3ktgv"]
+[ext_resource type="PackedScene" uid="uid://srm0hdrqnlg7" path="res://Scenes/UI/Components/panel.tscn" id="7_srtqp"]
+[ext_resource type="Texture2D" uid="uid://rbutpi87mcoa" path="res://Assets/Images/Puzzle/PUZZLE_1_TATETI_A1.png" id="8_fr3s4"]
+[ext_resource type="Texture2D" uid="uid://b31cb7r31ilpd" path="res://Assets/Images/Puzzle/PUZZLE_2_TATETI_A1.png" id="9_6umxo"]
+[ext_resource type="Texture2D" uid="uid://cdurkf54vsg67" path="res://Assets/Images/Puzzle/PUZZLE_3_TATETI_A1.png" id="10_652u6"]
+[ext_resource type="Texture2D" uid="uid://t5g7l31kq5yc" path="res://Assets/Images/Puzzle/PUZZLE_1_TATETI_A2.png" id="11_ar4si"]
+[ext_resource type="Texture2D" uid="uid://d3b8fjcfuhr1e" path="res://Assets/Images/Puzzle/PUZZLE_2_TATETI_A2.png" id="12_4b6b7"]
+[ext_resource type="Texture2D" uid="uid://dc2omt83vrqg5" path="res://Assets/Images/Puzzle/PUZZLE_3_TATETI_A2.png" id="13_hyxy4"]
+[ext_resource type="Texture2D" uid="uid://b1kde2qxk6541" path="res://Assets/Images/Puzzle/PUZZLE_1_TATETI_A4.png" id="13_r8udf"]
+[ext_resource type="Texture2D" uid="uid://plx1c0brbp63" path="res://Assets/Images/Puzzle/PUZZLE_2_TATETI_A4.png" id="14_1vthq"]
+[ext_resource type="Texture2D" uid="uid://c2myudip1ekta" path="res://Assets/Images/Puzzle/PUZZLE_1_TATETI_A3.png" id="14_rj0oy"]
+[ext_resource type="Texture2D" uid="uid://bas4aqhpecsjm" path="res://Assets/Images/Puzzle/PUZZLE_3_TATETI_A4.png" id="15_1vthq"]
+[ext_resource type="Texture2D" uid="uid://bjumljyeyxyis" path="res://Assets/Images/Puzzle/PUZZLE_2_TATETI_A3.png" id="15_3ktgv"]
+[ext_resource type="Texture2D" uid="uid://cnif0twk8riec" path="res://Assets/Images/Puzzle/PUZZLE_3_TATETI_A3.png" id="16_1nm5b"]
+[ext_resource type="Texture2D" uid="uid://b3e365puk16jl" path="res://Assets/Images/Puzzle/PUZZLE_1_TATETI_A7.png" id="16_j5gk5"]
+[ext_resource type="Texture2D" uid="uid://cmqoifrbk4kar" path="res://Assets/Images/Puzzle/PUZZLE_1_TATETI_A10.png" id="17_3isuu"]
+[ext_resource type="Texture2D" uid="uid://b2ls3y1e1ig44" path="res://Assets/Images/Puzzle/PUZZLE_2_TATETI_A7.png" id="17_674wx"]
+[ext_resource type="Texture2D" uid="uid://ofa4jnomlmxs" path="res://Assets/Images/Puzzle/PUZZLE_3_TATETI_A7.png" id="18_y6voh"]
+[ext_resource type="Texture2D" uid="uid://d0eimiwme7lhk" path="res://Assets/Images/Puzzle/PUZZLE_2_TATETI_A10.png" id="19_0x7lo"]
+[ext_resource type="Texture2D" uid="uid://dpb62aunibgb" path="res://Assets/Images/Puzzle/PUZZLE_1_TATETI_A5.png" id="19_5fwgm"]
+[ext_resource type="Texture2D" uid="uid://6mn2jyljxsvr" path="res://Assets/Images/Puzzle/PUZZLE_3_TATETI_A10.png" id="21_4fwhm"]
+[ext_resource type="Texture2D" uid="uid://fnu40e7cawbo" path="res://Assets/Images/Puzzle/PUZZLE_1_TATETI_A8.png" id="22_shtxx"]
+[ext_resource type="Texture2D" uid="uid://b862l1pi2cmqp" path="res://Assets/Images/Puzzle/PUZZLE_1_TATETI_A11.png" id="23_v26u7"]
+[ext_resource type="Texture2D" uid="uid://dgrviqsy7cjtm" path="res://Assets/Images/Puzzle/PUZZLE_2_TATETI_A5.png" id="24_hfb43"]
+[ext_resource type="Texture2D" uid="uid://bluko8hjvlp4x" path="res://Assets/Images/Puzzle/PUZZLE_2_TATETI_A8.png" id="26_rwpbf"]
+[ext_resource type="Texture2D" uid="uid://divr420oklsm5" path="res://Assets/Images/Puzzle/PUZZLE_3_TATETI_A5.png" id="27_5a3ox"]
+[ext_resource type="Texture2D" uid="uid://d0u0cytofqquu" path="res://Assets/Images/Puzzle/PUZZLE_1_TATETI_A6.png" id="27_u6o7y"]
+[ext_resource type="Texture2D" uid="uid://1fg5xkm17eg" path="res://Assets/Images/Puzzle/PUZZLE_1_TATETI_A9.png" id="28_2eq3s"]
+[ext_resource type="Texture2D" uid="uid://dl2f8djhwa7kb" path="res://Assets/Images/Puzzle/PUZZLE_2_TATETI_A11.png" id="28_axi2k"]
+[ext_resource type="Texture2D" uid="uid://bsrgf5lr8qplv" path="res://Assets/Images/Puzzle/PUZZLE_1_TATETI_A12.png" id="29_eeqo7"]
+[ext_resource type="Texture2D" uid="uid://dvwwi3tcfqs3" path="res://Assets/Images/Puzzle/PUZZLE_3_TATETI_A8.png" id="30_4mk3x"]
+[ext_resource type="Texture2D" uid="uid://cq2m7iv2tgmqy" path="res://Assets/Images/Puzzle/PUZZLE_2_TATETI_A6.png" id="33_3e6yj"]
+[ext_resource type="Texture2D" uid="uid://boyxqfm3ba2q0" path="res://Assets/Images/Puzzle/PUZZLE_3_TATETI_A11.png" id="33_g5ykj"]
+[ext_resource type="Texture2D" uid="uid://dv1by3vo225g4" path="res://Assets/Images/Puzzle/PUZZLE_2_TATETI_A9.png" id="35_yeg1n"]
+[ext_resource type="Texture2D" uid="uid://cnmxu2o6xot8e" path="res://Assets/Images/Puzzle/PUZZLE_2_TATETI_A12.png" id="37_olpi2"]
+[ext_resource type="Texture2D" uid="uid://c6digqa3ikf2f" path="res://Assets/Images/Puzzle/PUZZLE_3_TATETI_A6.png" id="39_tqgq1"]
+[ext_resource type="Texture2D" uid="uid://d35yv1rd1rsgf" path="res://Assets/Images/Puzzle/PUZZLE_3_TATETI_A9.png" id="42_msf3x"]
+[ext_resource type="Texture2D" uid="uid://c0v6xx8btb14i" path="res://Assets/Images/Puzzle/PUZZLE_3_TATETI_A12.png" id="45_d7py3"]
 
-[node name="TestNodeA1" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_generic"]
+size = Vector2(100, 100)
+
+[node name="TestNodeA1" type="Node2D" unique_id=575501862]
 script = ExtResource("1_g7b05")
 visible_direction_buttons = Array[String](["left"])
 button_left_target_scene = "res://Scenes/Sub Scenes/test_node_C2.tscn"
 mask_clue_texture = ExtResource("2_7exak")
 mask_clue_position = Vector2(750, 700)
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=916551471]
 show_behind_parent = true
 texture = ExtResource("2_g7b05")
 centered = false
 
-[node name="PickupItem" parent="." instance=ExtResource("4_upqh3")]
-visible = false
-position = Vector2(854, 451)
+[node name="PickupItem" type="Area2D" parent="." unique_id=1601956107]
+position = Vector2(939, 955)
+script = ExtResource("4_3ktgv")
 item_data = ExtResource("5_tj0i3")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PickupItem" unique_id=62041502]
+texture = ExtResource("6_1nm5b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItem" unique_id=1189362272]
+shape = SubResource("RectangleShape2D_generic")
+
+[node name="UI" parent="." unique_id=2021790239 instance=ExtResource("6_tj0i3")]
+layer = 6
+visible = false
+
+[node name="UI_PUZZLE" type="CanvasLayer" parent="." unique_id=1658404337]
+script = ExtResource("7_3ktgv")
+
+[node name="HUD" type="Control" parent="UI_PUZZLE" unique_id=706890361]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="GridContainer" type="GridContainer" parent="UI_PUZZLE/HUD" unique_id=109263312]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.28732634
+anchor_top = 0.20185184
+anchor_right = 0.7061465
+anchor_bottom = 0.63580245
+offset_right = 6.1035156e-05
+offset_bottom = 3.0517578e-05
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 0
+columns = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" parent="UI_PUZZLE/HUD/GridContainer" unique_id=693399836 instance=ExtResource("7_srtqp")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+images = Array[Texture2D]([ExtResource("8_fr3s4"), ExtResource("9_6umxo"), ExtResource("10_652u6"), null])
+index = 3
+
+[node name="Panel2" parent="UI_PUZZLE/HUD/GridContainer" unique_id=1420407472 instance=ExtResource("7_srtqp")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+images = Array[Texture2D]([ExtResource("13_r8udf"), ExtResource("14_1vthq"), ExtResource("15_1vthq"), null])
+
+[node name="Panel3" parent="UI_PUZZLE/HUD/GridContainer" unique_id=1212691307 instance=ExtResource("7_srtqp")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+images = Array[Texture2D]([ExtResource("16_j5gk5"), ExtResource("17_674wx"), ExtResource("18_y6voh"), null])
+index = 1
+
+[node name="Panel4" parent="UI_PUZZLE/HUD/GridContainer" unique_id=436926908 instance=ExtResource("7_srtqp")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+images = Array[Texture2D]([ExtResource("17_3isuu"), ExtResource("19_0x7lo"), ExtResource("21_4fwhm"), null])
+index = 3
+
+[node name="Panel5" parent="UI_PUZZLE/HUD/GridContainer" unique_id=1948627730 instance=ExtResource("7_srtqp")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+images = Array[Texture2D]([ExtResource("11_ar4si"), ExtResource("12_4b6b7"), ExtResource("13_hyxy4"), null])
+index = 2
+
+[node name="Panel6" parent="UI_PUZZLE/HUD/GridContainer" unique_id=1166372924 instance=ExtResource("7_srtqp")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+images = Array[Texture2D]([ExtResource("19_5fwgm"), ExtResource("24_hfb43"), ExtResource("27_5a3ox"), null])
+index = 2
+
+[node name="Panel7" parent="UI_PUZZLE/HUD/GridContainer" unique_id=2093166343 instance=ExtResource("7_srtqp")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+images = Array[Texture2D]([ExtResource("22_shtxx"), ExtResource("26_rwpbf"), ExtResource("30_4mk3x"), null])
+index = 3
+
+[node name="Panel8" parent="UI_PUZZLE/HUD/GridContainer" unique_id=940842182 instance=ExtResource("7_srtqp")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+images = Array[Texture2D]([ExtResource("23_v26u7"), ExtResource("28_axi2k"), ExtResource("33_g5ykj"), null])
+index = 2
+
+[node name="Panel9" parent="UI_PUZZLE/HUD/GridContainer" unique_id=587604834 instance=ExtResource("7_srtqp")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+images = Array[Texture2D]([ExtResource("14_rj0oy"), ExtResource("15_3ktgv"), ExtResource("16_1nm5b"), null])
+index = 1
+
+[node name="Panel10" parent="UI_PUZZLE/HUD/GridContainer" unique_id=359379439 instance=ExtResource("7_srtqp")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+images = Array[Texture2D]([ExtResource("27_u6o7y"), ExtResource("33_3e6yj"), ExtResource("39_tqgq1"), null])
+index = 2
+
+[node name="Panel11" parent="UI_PUZZLE/HUD/GridContainer" unique_id=1552518214 instance=ExtResource("7_srtqp")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+images = Array[Texture2D]([ExtResource("28_2eq3s"), ExtResource("35_yeg1n"), ExtResource("42_msf3x"), null])
+
+[node name="Panel12" parent="UI_PUZZLE/HUD/GridContainer" unique_id=1364990013 instance=ExtResource("7_srtqp")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+images = Array[Texture2D]([ExtResource("29_eeqo7"), ExtResource("37_olpi2"), ExtResource("45_d7py3"), null])
+index = 3

@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://do1x1vbkhmq0x"]
+
+[ext_resource type="Script" uid="uid://yxuaks03atg1" path="res://Scripts/scene_ui_config.gd" id="1_p0tjr"]
+[ext_resource type="Texture2D" uid="uid://cmf1a75lytpj1" path="res://Assets/Images/Scene E/ESCENA_E1_PUZZLE_PIEDRAS_TAMAÑO.jpg" id="2_p0tjr"]
+[ext_resource type="Script" uid="uid://rqt7ys4xvw" path="res://Scripts/Puzzle/rock.gd" id="3_gua5x"]
+[ext_resource type="Texture2D" uid="uid://cn485ok7ce7fb" path="res://Assets/Images/Personaje/PUZZLE_PIEDRA_1.png" id="3_vejwu"]
+[ext_resource type="Texture2D" uid="uid://ch3pgtll8pphm" path="res://Assets/Images/Personaje/PUZZLE_PIEDRA_2.png" id="4_gua5x"]
+[ext_resource type="Texture2D" uid="uid://thyo2jac8hyc" path="res://Assets/Images/Personaje/PUZZLE_PIEDRA_3.png" id="5_c681o"]
+[ext_resource type="Texture2D" uid="uid://cdk7juo4fi8l4" path="res://Assets/Images/Personaje/PUZZLE_PIEDRA_4.png" id="6_va1sl"]
+[ext_resource type="Texture2D" uid="uid://6d6prid5froj" path="res://Assets/Images/Personaje/PUZZLE_PIEDRA_5.png" id="7_dm346"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5mpp"]
+size = Vector2(71.58948, 28.387695)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k2gll"]
+size = Vector2(71.5896, 38.40683)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xsxdd"]
+size = Vector2(91.56804, 48.425903)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lgt3a"]
+size = Vector2(91.568054, 65.1246)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8bbj"]
+size = Vector2(122.368286, 78.48354)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqw5o"]
+size = Vector2(63, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6wdnu"]
+size = Vector2(70, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kiw4j"]
+size = Vector2(100, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2ylh"]
+size = Vector2(100, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d35jg"]
+size = Vector2(120, 160)
+
+[node name="TestNodeA1" type="Node2D" unique_id=868673908]
+script = ExtResource("1_p0tjr")
+visible_direction_buttons = Array[String](["right"])
+button_right_target_scene = "res://Scenes/Main Scenes/test_node_E.tscn"
+mask_clue_position = Vector2(900, 825)
+mask_clue_scale = Vector2(0.35, 0.35)
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1577372875]
+show_behind_parent = true
+texture = ExtResource("2_p0tjr")
+centered = false
+
+[node name="scene" type="Sprite2D" parent="." unique_id=191976415]
+position = Vector2(955, 537)
+
+[node name="Area2D" type="Area2D" parent="scene" unique_id=839444664]
+scale = Vector2(0.99999994, 0.99999994)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scene/Area2D" unique_id=1256301261]
+position = Vector2(392.07794, 196.20886)
+shape = SubResource("RectangleShape2D_i5mpp")
+
+[node name="Area2D2" type="Area2D" parent="scene" unique_id=1705555093]
+scale = Vector2(0.99999994, 0.99999994)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scene/Area2D2" unique_id=163056641]
+position = Vector2(531.92755, 244.63483)
+shape = SubResource("RectangleShape2D_k2gll")
+
+[node name="Area2D3" type="Area2D" parent="scene" unique_id=112463403]
+scale = Vector2(0.99999994, 0.99999994)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scene/Area2D3" unique_id=238080418]
+position = Vector2(117.37372, 254.65405)
+shape = SubResource("RectangleShape2D_xsxdd")
+
+[node name="Area2D4" type="Area2D" parent="scene" unique_id=1982604277]
+scale = Vector2(0.99999994, 0.99999994)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scene/Area2D4" unique_id=319891695]
+position = Vector2(-215.60132, 326.45804)
+shape = SubResource("RectangleShape2D_lgt3a")
+
+[node name="Area2D5" type="Area2D" parent="scene" unique_id=815074041]
+scale = Vector2(0.99999994, 0.99999994)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scene/Area2D5" unique_id=1749540982]
+position = Vector2(-476.37057, 253.61871)
+shape = SubResource("RectangleShape2D_y8bbj")
+
+[node name="piedra1" type="Area2D" parent="scene" unique_id=355716411 node_paths=PackedStringArray("correct_hole")]
+position = Vector2(211.99988, 120)
+scale = Vector2(1.6648746, 1.669862)
+script = ExtResource("3_gua5x")
+correct_hole = NodePath("../Area2D")
+metadata/_edit_group_ = true
+
+[node name="image" type="Sprite2D" parent="scene/piedra1" unique_id=772682127]
+texture = ExtResource("3_vejwu")
+
+[node name="colission" type="CollisionShape2D" parent="scene/piedra1" unique_id=1955237914]
+shape = SubResource("RectangleShape2D_qqw5o")
+
+[node name="piedra2" type="Area2D" parent="scene" unique_id=1092084525 node_paths=PackedStringArray("correct_hole")]
+position = Vector2(-347, 155)
+script = ExtResource("3_gua5x")
+correct_hole = NodePath("../Area2D2")
+metadata/_edit_group_ = true
+
+[node name="image" type="Sprite2D" parent="scene/piedra2" unique_id=684402697]
+texture = ExtResource("4_gua5x")
+
+[node name="colission" type="CollisionShape2D" parent="scene/piedra2" unique_id=705536539]
+shape = SubResource("RectangleShape2D_6wdnu")
+
+[node name="piedra3" type="Area2D" parent="scene" unique_id=780368881 node_paths=PackedStringArray("correct_hole")]
+position = Vector2(-138, 169)
+script = ExtResource("3_gua5x")
+correct_hole = NodePath("../Area2D3")
+metadata/_edit_group_ = true
+
+[node name="image" type="Sprite2D" parent="scene/piedra3" unique_id=1912130751]
+texture = ExtResource("5_c681o")
+
+[node name="colission" type="CollisionShape2D" parent="scene/piedra3" unique_id=814404194]
+shape = SubResource("RectangleShape2D_kiw4j")
+
+[node name="piedra4" type="Area2D" parent="scene" unique_id=225245261 node_paths=PackedStringArray("correct_hole")]
+position = Vector2(-773, 175.99997)
+script = ExtResource("3_gua5x")
+correct_hole = NodePath("../Area2D4")
+metadata/_edit_group_ = true
+
+[node name="image" type="Sprite2D" parent="scene/piedra4" unique_id=693407341]
+texture = ExtResource("6_va1sl")
+
+[node name="colission" type="CollisionShape2D" parent="scene/piedra4" unique_id=83616232]
+shape = SubResource("RectangleShape2D_i2ylh")
+
+[node name="piedra5" type="Area2D" parent="scene" unique_id=1646267925 node_paths=PackedStringArray("correct_hole")]
+position = Vector2(799.13983, 185.3547)
+script = ExtResource("3_gua5x")
+correct_hole = NodePath("../Area2D5")
+metadata/_edit_group_ = true
+
+[node name="image" type="Sprite2D" parent="scene/piedra5" unique_id=2063930695]
+texture = ExtResource("7_dm346")
+
+[node name="colission" type="CollisionShape2D" parent="scene/piedra5" unique_id=2084060945]
+shape = SubResource("RectangleShape2D_d35jg")
+
+[connection signal="input_event" from="scene/piedra1" to="scene/piedra1" method="_on_input_event"]
+[connection signal="input_event" from="scene/piedra2" to="scene/piedra2" method="_on_input_event"]
+[connection signal="input_event" from="scene/piedra3" to="scene/piedra3" method="_on_input_event"]
+[connection signal="input_event" from="scene/piedra4" to="scene/piedra4" method="_on_input_event"]
+[connection signal="input_event" from="scene/piedra5" to="scene/piedra5" method="_on_input_event"]

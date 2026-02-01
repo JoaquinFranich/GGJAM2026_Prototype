@@ -6,6 +6,8 @@ extends Node
 signal transition_started
 signal transition_completed
 
+var activo = true
+
 var fade_duration: float = 0.5
 var fade_color: Color = Color.BLACK
 
@@ -321,3 +323,7 @@ func set_fade_color(color: Color):
 	fade_color = color
 	if fade_overlay:
 		fade_overlay.color = color
+		
+func activar():
+	if not activo:
+		return

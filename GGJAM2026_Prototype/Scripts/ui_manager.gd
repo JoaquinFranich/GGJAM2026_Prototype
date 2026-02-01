@@ -3,8 +3,14 @@ extends CanvasLayer
 ## Singleton para gestionar todos los elementos de la interfaz de usuario
 ## Centraliza botones de dirección, FocusItem, diálogos e inventario (futuro)
 
+@onready var inventory_button: Button = $InventoryButton
+@onready var character_portrait: TextureRect = $CharacterPortrait
+
+
 signal focus_item_clicked
 signal direction_button_clicked(direction: String)
+
+var activo = true	
 
 # Referencias a elementos UI
 var _direction_buttons_container: Control
@@ -513,3 +519,13 @@ func update_inventory_slots():
 func toggle_inventory():
 	if _inventory_panel:
 		_inventory_panel.visible = not _inventory_panel.visible
+
+func activar():
+	if not activo:
+		inventory_button.visible = false
+		character_portrait.visible = false
+		return
+	else:
+		inventory_button.visible = true
+		character_portrait.visible = true
+		return

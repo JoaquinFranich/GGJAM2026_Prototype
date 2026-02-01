@@ -1,14 +1,14 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3 uid="uid://d2p4s8loqccgw"]
 
-[ext_resource type="Script" uid="uid://pickup_script_uid" path="res://Scripts/Inventory/PickupObject.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://r2c2xvf45ui6" path="res://Scripts/Inventory/PickupObject.gd" id="1_script"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_generic"]
 size = Vector2(100, 100)
 
-[node name="PickupItem" type="Area2D"]
+[node name="PickupItem" type="Area2D" unique_id=874566283]
 script = ExtResource("1_script")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=62041502]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1189362272]
 shape = SubResource("RectangleShape2D_generic")

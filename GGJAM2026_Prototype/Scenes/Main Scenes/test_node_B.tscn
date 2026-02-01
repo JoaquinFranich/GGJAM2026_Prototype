@@ -1,16 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://h7rtt3fqhnn8"]
+[gd_scene format=3 uid="uid://h7rtt3fqhnn8"]
 
 [ext_resource type="Texture2D" uid="uid://cnrq5mjv3dgfi" path="res://Assets/Images/Scene B/ESCENA.B0.jpg" id="2_84bu1"]
 [ext_resource type="Script" uid="uid://yxuaks03atg1" path="res://Scripts/scene_ui_config.gd" id="2_ui_config"]
+[ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="3_k7jfg"]
 
-[node name="TestNodeA" type="Node2D"]
+[node name="TestNodeA" type="Node2D" unique_id=490884651]
 script = ExtResource("2_ui_config")
 visible_direction_buttons = Array[String](["up", "down", "left"])
 button_up_target_scene = "res://Scenes/Sub Scenes/test_node_C1.tscn"
 button_down_target_scene = "res://Scenes/Main Scenes/test_node_00.tscn"
 button_left_target_scene = "res://Scenes/Sub Scenes/test_node_B1.tscn"
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=1449044606]
 show_behind_parent = true
 texture = ExtResource("2_84bu1")
 centered = false
+
+[node name="UI" parent="." unique_id=2021790239 instance=ExtResource("3_k7jfg")]
+layer = 6

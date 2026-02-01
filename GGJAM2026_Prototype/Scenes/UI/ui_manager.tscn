@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ohkq2yimyfak"]
+[gd_scene format=3 uid="uid://ohkq2yimyfak"]
 
 [ext_resource type="Script" uid="uid://dxjx1v8suhs8f" path="res://Scripts/ui_manager.gd" id="1_ui_mgr"]
 [ext_resource type="Texture2D" uid="uid://bb6p0ous5qhfi" path="res://Assets/Images/UI/FLECHA_IZQUIERDA.png" id="2_left"]
@@ -15,11 +15,11 @@
 [ext_resource type="Texture2D" uid="uid://dnhup8ivq4b2v" path="res://Assets/Images/Items/interfaz_inventario.png" id="12_81skb"]
 [ext_resource type="PackedScene" path="res://Scenes/UI/Components/Slot.tscn" id="12_slot"]
 
-[node name="UI_manager" type="CanvasLayer"]
+[node name="UI_manager" type="CanvasLayer" unique_id=154810077]
 layer = 5
 script = ExtResource("1_ui_mgr")
 
-[node name="DirectionButtons" type="Control" parent="."]
+[node name="DirectionButtons" type="Control" parent="." unique_id=1125233856]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,7 +28,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ButtonLeft" type="Button" parent="DirectionButtons"]
+[node name="ButtonLeft" type="Button" parent="DirectionButtons" unique_id=284970407]
 visible = false
 layout_mode = 0
 offset_left = 54.0
@@ -39,7 +39,7 @@ icon = ExtResource("2_left")
 flat = true
 script = ExtResource("6_btn_left")
 
-[node name="ButtonRight" type="Button" parent="DirectionButtons"]
+[node name="ButtonRight" type="Button" parent="DirectionButtons" unique_id=1471660246]
 visible = false
 layout_mode = 0
 offset_left = 1777.0
@@ -50,7 +50,7 @@ icon = ExtResource("3_right")
 flat = true
 script = ExtResource("7_btn_right")
 
-[node name="ButtonUp" type="Button" parent="DirectionButtons"]
+[node name="ButtonUp" type="Button" parent="DirectionButtons" unique_id=1527938544]
 visible = false
 layout_mode = 0
 offset_left = 913.0
@@ -61,7 +61,7 @@ icon = ExtResource("4_up")
 flat = true
 script = ExtResource("8_btn_up")
 
-[node name="ButtonDown" type="Button" parent="DirectionButtons"]
+[node name="ButtonDown" type="Button" parent="DirectionButtons" unique_id=2051046454]
 visible = false
 layout_mode = 0
 offset_left = 913.0
@@ -72,7 +72,7 @@ icon = ExtResource("5_down")
 flat = true
 script = ExtResource("9_btn_down")
 
-[node name="MaskButton" type="Button" parent="."]
+[node name="MaskButton" type="Button" parent="." unique_id=1925877171]
 offset_left = 320.0
 offset_top = 822.0
 offset_right = 472.0
@@ -81,7 +81,7 @@ focus_mode = 0
 icon = ExtResource("10_4jujk")
 flat = true
 
-[node name="MaskOverlay" type="Control" parent="."]
+[node name="MaskOverlay" type="Control" parent="." unique_id=1905574071]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -91,7 +91,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ColorFilter" type="ColorRect" parent="MaskOverlay"]
+[node name="ColorFilter" type="ColorRect" parent="MaskOverlay" unique_id=547328455]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -101,7 +101,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(1, 0, 0, 0.223529)
 
-[node name="ArrowParticles" type="CPUParticles2D" parent="MaskOverlay"]
+[node name="ArrowParticles" type="CPUParticles2D" parent="MaskOverlay" unique_id=454477179]
 position = Vector2(1975, 327)
 scale = Vector2(1, 0.3600006)
 amount = 30
@@ -120,7 +120,7 @@ angle_max = 180.0
 scale_amount_min = 0.5
 scale_amount_max = 1.5
 
-[node name="ClueDisplay" type="TextureRect" parent="MaskOverlay"]
+[node name="ClueDisplay" type="TextureRect" parent="MaskOverlay" unique_id=522578463]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.46
@@ -136,9 +136,9 @@ grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="FocusItemContainer" type="Node2D" parent="."]
+[node name="FocusItemContainer" type="Node2D" parent="." unique_id=2092264393]
 
-[node name="CharacterPortrait" type="TextureRect" parent="."]
+[node name="CharacterPortrait" type="TextureRect" parent="." unique_id=2123530789]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -151,7 +151,7 @@ mouse_filter = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="InventoryButton" type="Button" parent="."]
+[node name="InventoryButton" type="Button" parent="." unique_id=1066821880]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -166,7 +166,7 @@ grow_vertical = 0
 focus_mode = 0
 icon = ExtResource("12_1ex63")
 
-[node name="InventoryPanel" type="Control" parent="."]
+[node name="InventoryPanel" type="Control" parent="." unique_id=2141740118]
 visible = false
 layout_mode = 3
 anchors_preset = 6
@@ -182,7 +182,7 @@ grow_horizontal = 0
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Background" type="TextureRect" parent="InventoryPanel"]
+[node name="Background" type="TextureRect" parent="InventoryPanel" unique_id=582143536]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.53300005
@@ -198,7 +198,7 @@ scale = Vector2(0.67999756, 1)
 mouse_filter = 2
 texture = ExtResource("12_81skb")
 
-[node name="Title" type="Label" parent="InventoryPanel"]
+[node name="Title" type="Label" parent="InventoryPanel" unique_id=2093554189]
 visible = false
 layout_mode = 1
 anchors_preset = 5
@@ -213,7 +213,7 @@ grow_vertical = 0
 text = "Inventario"
 horizontal_alignment = 1
 
-[node name="ItemsContainer" type="GridContainer" parent="InventoryPanel"]
+[node name="ItemsContainer" type="GridContainer" parent="InventoryPanel" unique_id=1753887706]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.079
@@ -230,32 +230,32 @@ theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 columns = 2
 
-[node name="Slot1" parent="InventoryPanel/ItemsContainer" instance=ExtResource("12_slot")]
+[node name="Slot1" parent="InventoryPanel/ItemsContainer" unique_id=169222892 instance=ExtResource("12_slot")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Slot2" parent="InventoryPanel/ItemsContainer" instance=ExtResource("12_slot")]
+[node name="Slot2" parent="InventoryPanel/ItemsContainer" unique_id=1603502771 instance=ExtResource("12_slot")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Slot3" parent="InventoryPanel/ItemsContainer" instance=ExtResource("12_slot")]
+[node name="Slot3" parent="InventoryPanel/ItemsContainer" unique_id=1139391086 instance=ExtResource("12_slot")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Slot4" parent="InventoryPanel/ItemsContainer" instance=ExtResource("12_slot")]
+[node name="Slot4" parent="InventoryPanel/ItemsContainer" unique_id=553898821 instance=ExtResource("12_slot")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Slot5" parent="InventoryPanel/ItemsContainer" instance=ExtResource("12_slot")]
+[node name="Slot5" parent="InventoryPanel/ItemsContainer" unique_id=1927560622 instance=ExtResource("12_slot")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Slot6" parent="InventoryPanel/ItemsContainer" instance=ExtResource("12_slot")]
+[node name="Slot6" parent="InventoryPanel/ItemsContainer" unique_id=36564495 instance=ExtResource("12_slot")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

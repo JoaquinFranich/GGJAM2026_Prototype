@@ -6,6 +6,8 @@ extends Node
 signal dialogue_started
 signal dialogue_finished
 
+var activo = true
+
 # Escena del panel (se instancia al iniciar)
 var _panel_scene: PackedScene
 var _canvas: CanvasLayer
@@ -143,3 +145,7 @@ func set_speaker_portrait(speaker_id: String, texture_path: String) -> void:
 ## Velocidad del efecto máquina de escribir (caracteres por segundo)
 func set_typewriter_speed(chars_per_second: float) -> void:
 	_chars_per_second = chars_per_second
+
+func activar():
+	if not activo:
+		return
