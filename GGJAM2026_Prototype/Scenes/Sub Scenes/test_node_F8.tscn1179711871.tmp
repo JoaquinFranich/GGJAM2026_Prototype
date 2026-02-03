@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b52d1cwnkj07j"]
+
+[ext_resource type="Script" uid="uid://cxiklny6tn6a8" path="res://Scripts/final_credits.gd" id="1_ek1t4"]
+[ext_resource type="Texture2D" uid="uid://cl47l2bulxeds" path="res://Assets/Images/Scene F/ESCENA_F8_FINAL_VICTIMA_2.jpg" id="2_ek1t4"]
+[ext_resource type="PackedScene" uid="uid://dq15gh62gdshr" path="res://Scenes/Sub Scenes/Video.tscn" id="3_uutgb"]
+
+[node name="TestNodeA1" type="Node2D" unique_id=382063233]
+script = ExtResource("1_ek1t4")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=779931607]
+show_behind_parent = true
+texture = ExtResource("2_ek1t4")
+centered = false
+
+[node name="VideoStreamPlayer" parent="Background" unique_id=1455727732 instance=ExtResource("3_uutgb")]

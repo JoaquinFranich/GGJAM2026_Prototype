@@ -9,18 +9,21 @@ signal item_placed
 
 @export var required_item_name: String = ""
 @export var placed_node: Node2D # El nodo que se hará visible (ej: La llave/Recompensa)
+@export var placed_node_start_visible: bool = false
 @export var node_to_hide: Node2D # El nodo que desaparecerá (ej: La paloma)
+@export var node_to_hide_start_visible:  = true
 
 var _is_hovering = false
+var abrir_reja = false
 
 func _ready():
 	# El nodo recompensa empieza oculto
 	if placed_node:
-		placed_node.visible = false
+		placed_node.visible = placed_node_start_visible
 	
 	# El nodo a ocultar empieza visible (por defecto en la escena)
 	if node_to_hide:
-		node_to_hide.visible = true
+		node_to_hide.visible = node_to_hide_start_visible
 	
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
@@ -59,4 +62,5 @@ func _try_place():
 		collision_mask = 0
 		
 		item_placed.emit()
+		abrir_reja = true
 		print("PlaceableZone: Item colocado con éxito.")

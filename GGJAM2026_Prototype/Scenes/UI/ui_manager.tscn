@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bc4rw67nnoujl" path="res://Assets/Images/Clues/FLECHA_PISTA_PARTICULA.png" id="11_2fful"]
 [ext_resource type="Texture2D" uid="uid://b4igw8iyfsa4f" path="res://Assets/Images/UI/menu_boton_small.png" id="12_1ex63"]
 [ext_resource type="Texture2D" uid="uid://dnhup8ivq4b2v" path="res://Assets/Images/Items/interfaz_inventario.png" id="12_81skb"]
-[ext_resource type="PackedScene" path="res://Scenes/UI/Components/Slot.tscn" id="12_slot"]
+[ext_resource type="PackedScene" uid="uid://bl58fjdjrkeor" path="res://Scenes/UI/Components/Slot.tscn" id="12_slot"]
 
 [node name="UI_manager" type="CanvasLayer" unique_id=154810077]
 layer = 5
@@ -185,50 +185,46 @@ mouse_filter = 2
 [node name="Background" type="TextureRect" parent="InventoryPanel" unique_id=582143536]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.53300005
-anchor_right = 0.684
-anchor_bottom = 1.0
-offset_left = 78.45305
-offset_top = -7.5
-offset_right = 316.11206
-offset_bottom = 7.5
+anchor_left = -0.47717845
+anchor_top = -0.03125
+anchor_right = 1.3297125
+anchor_bottom = 1.0146484
+offset_right = 191.08395
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.67999756, 1)
 mouse_filter = 2
 texture = ExtResource("12_81skb")
+metadata/_edit_use_anchors_ = true
 
 [node name="Title" type="Label" parent="InventoryPanel" unique_id=2093554189]
 visible = false
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -50.0
-offset_top = 10.0
-offset_right = 50.0
-offset_bottom = 40.0
+anchors_preset = -1
+anchor_left = 0.17012449
+anchor_top = 0.078125
+anchor_right = 0.58506227
+anchor_bottom = 0.13671875
 grow_horizontal = 2
-grow_vertical = 0
 text = "Inventario"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="ItemsContainer" type="GridContainer" parent="InventoryPanel" unique_id=1753887706]
+clip_contents = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.079
-anchor_top = 0.164
-anchor_right = 1.0
-anchor_bottom = 0.855
-offset_left = -0.038993835
-offset_top = 0.031974792
-offset_right = -12.0
-offset_bottom = 0.16799927
+anchor_left = -0.087136894
+anchor_top = 0.16015619
+anchor_right = 0.84232366
+anchor_bottom = 0.83593744
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/h_separation = 10
-theme_override_constants/v_separation = 10
+theme_override_constants/v_separation = 4
 columns = 2
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
 
 [node name="Slot1" parent="InventoryPanel/ItemsContainer" unique_id=169222892 instance=ExtResource("12_slot")]
 layout_mode = 2
