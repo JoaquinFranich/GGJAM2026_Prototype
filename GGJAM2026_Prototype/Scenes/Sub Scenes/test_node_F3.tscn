@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://b7vtex1yv4y3n"]
+
+[ext_resource type="Script" uid="uid://cid7ncsrq72bm" path="res://Scripts/Puzzles/puzzle_F3.gd" id="1_2q8el"]
+[ext_resource type="Texture2D" uid="uid://ct2wjaw1hb8gq" path="res://Assets/Images/Scene F/ESCENA_F3_CLOACA_FINAL_SI_BARRAS.jpg" id="2_03olj"]
+[ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="3_kjfsc"]
+[ext_resource type="Script" uid="uid://udt3cuknigo0" path="res://Scripts/Inventory/PlaceableZone.gd" id="4_k7xm0"]
+[ext_resource type="Texture2D" uid="uid://bwx5mfp84doj7" path="res://Assets/Images/Items/objeto_esc_mineral1.png" id="5_11qm3"]
+[ext_resource type="Texture2D" uid="uid://cq5ephqfddp02" path="res://Assets/Images/Items/objeto_esc_mineral2.png" id="6_idh3d"]
+[ext_resource type="Texture2D" uid="uid://bs616o6noh8t5" path="res://Assets/Images/Items/objeto_esc_mineral3.png" id="7_p3mbu"]
+[ext_resource type="Texture2D" uid="uid://dbs8ofuax755w" path="res://Assets/Images/Objects/SIMBOLO_003.png" id="8_idh3d"]
+[ext_resource type="Texture2D" uid="uid://6dtwvqwdf834" path="res://Assets/Images/Objects/SIMBOLO_002.png" id="9_k70h3"]
+[ext_resource type="Texture2D" uid="uid://dnlgoivcgy7sr" path="res://Assets/Images/Objects/SIMBOLO_001.png" id="10_wylyk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d3e6v"]
+radius = 56.568542
+
+[node name="TestNodeF3" type="Node2D" unique_id=1976410508]
+script = ExtResource("1_2q8el")
+scene_entry_text = Array[String](["Una reja extraña.", "Con tres huecos.", "Es para las piedras. Esto es lo que querían que hiciera."])
+visible_direction_buttons = Array[String](["right"])
+button_right_target_scene = "res://Scenes/Sub Scenes/test_node_F2.tscn"
+mask_clue_position = Vector2(900, 825)
+mask_clue_scale = Vector2(0.35, 0.35)
+
+[node name="Background" type="Sprite2D" parent="." unique_id=369073424]
+texture = ExtResource("2_03olj")
+centered = false
+
+[node name="Minerales" type="Node2D" parent="." unique_id=104812532]
+
+[node name="Piedra1" type="Area2D" parent="Minerales" unique_id=78220887 node_paths=PackedStringArray("placed_node", "node_to_hide")]
+script = ExtResource("4_k7xm0")
+required_item_name = "piedra_puzzle_1"
+placed_node = NodePath("../../Piedra_Colocada2")
+node_to_hide = NodePath("../../Logo1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Minerales/Piedra1" unique_id=113343214]
+position = Vector2(816, 753)
+shape = SubResource("CircleShape2D_d3e6v")
+
+[node name="Piedra2" type="Area2D" parent="Minerales" unique_id=276098719 node_paths=PackedStringArray("placed_node", "node_to_hide")]
+script = ExtResource("4_k7xm0")
+required_item_name = "piedra_puzzle_2"
+placed_node = NodePath("../../Piedra_Colocada3")
+node_to_hide = NodePath("../../Logo3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Minerales/Piedra2" unique_id=144892687]
+position = Vector2(1158, 724)
+shape = SubResource("CircleShape2D_d3e6v")
+
+[node name="Piedra3" type="Area2D" parent="Minerales" unique_id=846078815 node_paths=PackedStringArray("placed_node", "node_to_hide")]
+script = ExtResource("4_k7xm0")
+required_item_name = "piedra_puzzle_3"
+placed_node = NodePath("../../Piedra_Colocada1")
+node_to_hide = NodePath("../../Logo2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Minerales/Piedra3" unique_id=2021123473]
+position = Vector2(975, 362)
+shape = SubResource("CircleShape2D_d3e6v")
+
+[node name="Piedra_Colocada1" type="Sprite2D" parent="." unique_id=1314117396]
+visible = false
+position = Vector2(975, 363)
+texture = ExtResource("5_11qm3")
+
+[node name="Piedra_Colocada2" type="Sprite2D" parent="." unique_id=300584542]
+visible = false
+position = Vector2(813, 753)
+texture = ExtResource("6_idh3d")
+
+[node name="Piedra_Colocada3" type="Sprite2D" parent="." unique_id=1966976745]
+visible = false
+position = Vector2(1158, 728)
+texture = ExtResource("7_p3mbu")
+
+[node name="Logo2" type="Sprite2D" parent="." unique_id=1334715797]
+position = Vector2(972.16254, 307.08447)
+scale = Vector2(0.14764267, 0.12801956)
+texture = ExtResource("8_idh3d")
+
+[node name="Logo1" type="Sprite2D" parent="." unique_id=1525147221]
+position = Vector2(780.22504, 683.853)
+scale = Vector2(0.16442837, 0.16841905)
+texture = ExtResource("9_k70h3")
+
+[node name="Logo3" type="Sprite2D" parent="." unique_id=2110226542]
+position = Vector2(1195, 653.00006)
+scale = Vector2(0.189, 0.189)
+texture = ExtResource("10_wylyk")
+
+[node name="UI" parent="." unique_id=1763300547 instance=ExtResource("3_kjfsc")]
+layer = 6
+visible = false

@@ -1,0 +1,273 @@
+[gd_scene format=3 uid="uid://b30uj3wqthsj5"]
+
+[ext_resource type="Script" uid="uid://4850qgntji2g" path="res://Scripts/hud.gd" id="2_ogi7j"]
+[ext_resource type="PackedScene" uid="uid://bnsr5545w24xj" path="res://Scenes/Menu Scenes/menu_options.tscn" id="12_gkdvu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_23r87"]
+size = Vector2(71.58948, 28.387695)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkb17"]
+size = Vector2(71.5896, 38.40683)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4n3bf"]
+size = Vector2(91.56804, 48.425903)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qj2t6"]
+size = Vector2(91.568054, 65.1246)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gkdvu"]
+size = Vector2(122.368286, 78.48354)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lmibb"]
+size = Vector2(63, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2qgar"]
+size = Vector2(70, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1djk2"]
+size = Vector2(100, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2ef4"]
+size = Vector2(100, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_41e3e"]
+size = Vector2(120, 160)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fc6wd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_20ibb"]
+
+[node name="Puzzle3" type="Node2D" unique_id=1586064223]
+
+[node name="scene" type="Sprite2D" parent="." unique_id=1206340572]
+position = Vector2(578, 324)
+scale = Vector2(0.6006458, 0.5988518)
+
+[node name="Area2D" type="Area2D" parent="scene" unique_id=1520883097]
+scale = Vector2(0.99999994, 0.99999994)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scene/Area2D" unique_id=1695090277]
+position = Vector2(392.07794, 196.20886)
+shape = SubResource("RectangleShape2D_23r87")
+
+[node name="Area2D2" type="Area2D" parent="scene" unique_id=1585322272]
+scale = Vector2(0.99999994, 0.99999994)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scene/Area2D2" unique_id=1403088396]
+position = Vector2(531.92755, 244.63483)
+shape = SubResource("RectangleShape2D_hkb17")
+
+[node name="Area2D3" type="Area2D" parent="scene" unique_id=1382545317]
+scale = Vector2(0.99999994, 0.99999994)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scene/Area2D3" unique_id=1099203870]
+position = Vector2(117.37372, 254.65405)
+shape = SubResource("RectangleShape2D_4n3bf")
+
+[node name="Area2D4" type="Area2D" parent="scene" unique_id=1242552102]
+scale = Vector2(0.99999994, 0.99999994)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scene/Area2D4" unique_id=2034220721]
+position = Vector2(-215.60132, 326.45804)
+shape = SubResource("RectangleShape2D_qj2t6")
+
+[node name="Area2D5" type="Area2D" parent="scene" unique_id=451767579]
+scale = Vector2(0.99999994, 0.99999994)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scene/Area2D5" unique_id=1468707248]
+position = Vector2(-476.37057, 253.61871)
+shape = SubResource("RectangleShape2D_gkdvu")
+
+[node name="piedra1" type="Area2D" parent="scene" unique_id=294994655]
+position = Vector2(827.44275, 419.13544)
+scale = Vector2(1.6648746, 1.669862)
+metadata/_edit_group_ = true
+
+[node name="image" type="Sprite2D" parent="scene/piedra1" unique_id=1960773027]
+
+[node name="colission" type="CollisionShape2D" parent="scene/piedra1" unique_id=1293090939]
+shape = SubResource("RectangleShape2D_lmibb")
+
+[node name="piedra2" type="Area2D" parent="scene" unique_id=1089572891]
+position = Vector2(-735.87463, 305.58478)
+metadata/_edit_group_ = true
+
+[node name="image" type="Sprite2D" parent="scene/piedra2" unique_id=1981237572]
+
+[node name="colission" type="CollisionShape2D" parent="scene/piedra2" unique_id=299293729]
+shape = SubResource("RectangleShape2D_2qgar")
+
+[node name="piedra3" type="Area2D" parent="scene" unique_id=1708600744]
+position = Vector2(-824.1129, 447.52307)
+metadata/_edit_group_ = true
+
+[node name="image" type="Sprite2D" parent="scene/piedra3" unique_id=1177183128]
+
+[node name="colission" type="CollisionShape2D" parent="scene/piedra3" unique_id=1432961059]
+shape = SubResource("RectangleShape2D_1djk2")
+
+[node name="piedra4" type="Area2D" parent="scene" unique_id=1090538375]
+position = Vector2(-839.0968, 202.05331)
+metadata/_edit_group_ = true
+
+[node name="image" type="Sprite2D" parent="scene/piedra4" unique_id=756296532]
+
+[node name="colission" type="CollisionShape2D" parent="scene/piedra4" unique_id=1350237783]
+shape = SubResource("RectangleShape2D_y2ef4")
+
+[node name="piedra5" type="Area2D" parent="scene" unique_id=872030282]
+position = Vector2(799.13983, 185.3547)
+metadata/_edit_group_ = true
+
+[node name="image" type="Sprite2D" parent="scene/piedra5" unique_id=208520270]
+
+[node name="colission" type="CollisionShape2D" parent="scene/piedra5" unique_id=107533832]
+shape = SubResource("RectangleShape2D_41e3e")
+
+[node name="Scene_ui" type="CanvasLayer" parent="." unique_id=324067708]
+layer = -1
+
+[node name="Image" type="TextureRect" parent="Scene_ui" unique_id=193189766]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1595312031]
+
+[node name="HUD" type="Control" parent="UI" unique_id=1552952506]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("2_ogi7j")
+metadata/_edit_use_anchors_ = true
+
+[node name="inventory_HUD" type="Panel" parent="UI/HUD" unique_id=1968143591]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 690.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_fc6wd")
+metadata/_edit_group_ = true
+
+[node name="open_Inventory_Button" type="Button" parent="UI/HUD/inventory_HUD" unique_id=797383456]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.9296875
+anchor_top = 0.3587963
+anchor_right = 1.0
+anchor_bottom = 0.6412037
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 128
+text = "<"
+
+[node name="Inventory" type="Panel" parent="UI/HUD/inventory_HUD" unique_id=947729830]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_right = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_20ibb")
+
+[node name="close_Inventory_Button" type="Button" parent="UI/HUD/inventory_HUD/Inventory" unique_id=1772393601]
+layout_mode = 0
+anchor_left = -0.0043010423
+anchor_top = 0.314376
+anchor_right = -0.0043010423
+anchor_bottom = 0.314376
+offset_left = 80.999985
+offset_top = 183.0
+offset_right = 161.99998
+offset_bottom = 366.0
+rotation = 3.1415927
+theme_override_font_sizes/font_size = 128
+text = "<"
+metadata/_edit_use_anchors_ = true
+
+[node name="text_Inventory" type="Label" parent="UI/HUD/inventory_HUD/Inventory" unique_id=71261484]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.63256055
+anchor_top = 0.083252884
+anchor_right = 0.79922724
+anchor_bottom = 0.15269732
+offset_left = -175.14063
+offset_top = -2.6990738
+offset_right = -30.640625
+offset_bottom = -1.6574059
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "INVENTARIO"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="grid_Inventory" type="GridContainer" parent="UI/HUD/inventory_HUD/Inventory" unique_id=1143492098]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.227957
+anchor_top = 0.17219588
+anchor_right = 0.7354839
+anchor_bottom = 0.8309637
+columns = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="slot" parent="UI/HUD/inventory_HUD/Inventory/grid_Inventory" unique_id=2144664429]
+layout_mode = 2
+
+[node name="slot2" parent="UI/HUD/inventory_HUD/Inventory/grid_Inventory" unique_id=608686254]
+layout_mode = 2
+
+[node name="slot3" parent="UI/HUD/inventory_HUD/Inventory/grid_Inventory" unique_id=423009234]
+layout_mode = 2
+
+[node name="slot4" parent="UI/HUD/inventory_HUD/Inventory/grid_Inventory" unique_id=1137688523]
+layout_mode = 2
+
+[node name="slot5" parent="UI/HUD/inventory_HUD/Inventory/grid_Inventory" unique_id=1685974819]
+layout_mode = 2
+
+[node name="slot6" parent="UI/HUD/inventory_HUD/Inventory/grid_Inventory" unique_id=399843458]
+layout_mode = 2
+
+[node name="menu_Pause" parent="UI/HUD" unique_id=739766871]
+visible = false
+layout_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="menu_Options" parent="UI/HUD" unique_id=940799158 instance=ExtResource("12_gkdvu")]
+visible = false
+layout_mode = 1
+
+[node name="SFX_button" type="AudioStreamPlayer" parent="UI/HUD" unique_id=535602341]
+bus = &"SFX"
+
+[connection signal="input_event" from="scene/piedra1" to="scene/piedra1" method="_on_input_event"]
+[connection signal="input_event" from="scene/piedra2" to="scene/piedra2" method="_on_input_event"]
+[connection signal="input_event" from="scene/piedra3" to="scene/piedra3" method="_on_input_event"]
+[connection signal="input_event" from="scene/piedra4" to="scene/piedra4" method="_on_input_event"]
+[connection signal="input_event" from="scene/piedra5" to="scene/piedra5" method="_on_input_event"]
+[connection signal="pressed" from="UI/HUD/inventory_HUD/open_Inventory_Button" to="UI/HUD" method="_on_open_inventory_button_pressed"]
+[connection signal="pressed" from="UI/HUD/inventory_HUD/Inventory/close_Inventory_Button" to="UI/HUD" method="_on_close_inventory_button_pressed"]

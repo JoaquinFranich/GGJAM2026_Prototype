@@ -1,35 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://box4w3o0rixy8"]
+[gd_scene format=3 uid="uid://box4w3o0rixy8"]
 
-[ext_resource type="Script" uid="uid://cn3wugrrr4eea" path="res://Scripts/test_node.gd" id="1_5i8v5"]
-[ext_resource type="PackedScene" uid="uid://cn608h0uv81g6" path="res://Scenes/Buttons Scenes/focus_item_scene.tscn" id="2_0m4p8"]
-[ext_resource type="Texture2D" uid="uid://cagmkfmmswoqk" path="res://Assets/Images/AGU04928.JPG" id="2_kikfd"]
-[ext_resource type="PackedScene" uid="uid://c411v8jfiphlo" path="res://Scenes/Buttons Scenes/button_left_scene.tscn" id="3_eg62h"]
-[ext_resource type="PackedScene" uid="uid://nt346hojr4fx" path="res://Scenes/Buttons Scenes/button_right_scene.tscn" id="4_6jkra"]
-[ext_resource type="PackedScene" uid="uid://o8plrju4600a" path="res://Scenes/Buttons Scenes/button_up_scene.tscn" id="5_mlucj"]
-[ext_resource type="PackedScene" uid="uid://bu0b1ia4kw37q" path="res://Scenes/Buttons Scenes/button_down_scene.tscn" id="6_j7f2x"]
+[ext_resource type="Texture2D" uid="uid://cliarb12jt4s2" path="res://Assets/Images/Scene A/ESCENA A1.jpg" id="2_fn28i"]
+[ext_resource type="Script" uid="uid://yxuaks03atg1" path="res://Scripts/scene_ui_config.gd" id="2_ui_config"]
+[ext_resource type="Texture2D" uid="uid://btxbtt3q2hn1k" path="res://Assets/Images/Objects/Cuerpo_Escena-A1.png" id="3_vx1ef"]
+[ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="4_gjq73"]
 
-[node name="Node2D" type="Node2D"]
-script = ExtResource("1_5i8v5")
+[node name="TestNodeA1" type="Node2D" unique_id=1375498459]
+script = ExtResource("2_ui_config")
+focus_item_position = Vector2(750, 550)
+scene_entry_text = Array[String](["Formas que se delinean con la luz...   ", "Son piernas humanas.", "Que sea un vagabundo dormido, un borracho... cualquier otra cosa."])
+visible_direction_buttons = Array[String](["left"])
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=1486700521]
 show_behind_parent = true
-position = Vector2(578, 326)
-scale = Vector2(0.192, 0.1615)
-texture = ExtResource("2_kikfd")
+texture = ExtResource("2_fn28i")
+centered = false
 
-[node name="FocusItem" parent="." instance=ExtResource("2_0m4p8")]
-position = Vector2(645, 339.00003)
+[node name="DeadBody" type="Sprite2D" parent="." unique_id=1124912725]
+position = Vector2(699, 559)
+scale = Vector2(0.7257143, 0.72571427)
+texture = ExtResource("3_vx1ef")
 
-[node name="DirectionButtons" type="CanvasGroup" parent="."]
-
-[node name="ButtonLeft" parent="DirectionButtons" instance=ExtResource("3_eg62h")]
-offset_left = 2.0
-offset_top = 199.0
-offset_right = 181.0
-offset_bottom = 460.0
-
-[node name="ButtonRight" parent="DirectionButtons" instance=ExtResource("4_6jkra")]
-
-[node name="ButtonUp" parent="DirectionButtons" instance=ExtResource("5_mlucj")]
-
-[node name="ButtonDown" parent="DirectionButtons" instance=ExtResource("6_j7f2x")]
+[node name="UI" parent="." unique_id=2021790239 instance=ExtResource("4_gjq73")]
+layer = 6
+visible = false

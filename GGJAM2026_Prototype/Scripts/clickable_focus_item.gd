@@ -11,8 +11,6 @@ extends Node2D
 ## - Al pasar el mouse sobre el área, cambia a cursor de mano
 ## - Al salir, vuelve al cursor normal
 
-var hand_cursor = preload("res://Assets/Images/HandCursor.png")
-
 func _ready():
 	# Buscar el Area2D hijo
 	var area = _find_area2d()
@@ -35,17 +33,43 @@ func _find_area2d() -> Area2D:
 	return null
 
 ## Maneja el clic en el área
-func _on_area_input_event(viewport: Node, event: InputEvent, shape_idx: int):
+func _on_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if event is InputEventMouseButton:
 		var mouse_event = event as InputEventMouseButton
-		if mouse_event.pressed and mouse_event.button_index == MOUSE_BUTTON_LEFT:
-			# Delegar toda la lógica de navegación al SceneManager
-			SceneManager.on_focusitem_clicked()
+		if mouse_event.button_index == MOUSE_BUTTON_LEFT:
+			if mouse_event.pressed:
+				CursorManager.set_click_cursor()
+				
+				# 1. Verificar si tenemos una meta-data de destino (puesta por UI_manager)
+				var target_scene = get_meta("target_scene", "")
+				var dialogue_data = get_meta("dialogue", null)
+				
+				# 2. Si hay destino, ir allí DIRECTAMENTE
+				if target_scene != "" and ResourceLoader.exists(target_scene):
+					AudioManager.play_sfx("pasos", 1.0, 0.8)
+					SceneManager.change_scene(target_scene)
+					# Opcional: emitir señal local si es necesario
+				
+				# 2b. Si hay diálogo, mostrarlo
+				elif dialogue_data != null:
+					# Si es solo diálogo, quizás un sonido de interacción leve o nada
+					if dialogue_data is Array:
+						DialogueManager.show_dialogue(dialogue_data)
+					elif dialogue_data is String and dialogue_data != "":
+						DialogueManager.show_dialogue([dialogue_data])
+				
+				# 3. Si NO hay destino, usar comportamiento por defecto
+				else:
+					AudioManager.play_sfx("pasos", 1.0, 0.8)
+					SceneManager.on_focusitem_clicked()
+			else:
+				# Al soltar (pressed = false), volver a mano
+				CursorManager.set_hand_cursor()
 
 ## Cambia el cursor a mano al pasar el mouse
 func _on_mouse_entered():
-	Input.set_custom_mouse_cursor(hand_cursor)
+	CursorManager.set_hand_cursor()
 
 ## Restaura el cursor al salir
 func _on_mouse_exited():
-	Input.set_custom_mouse_cursor(null)
+	CursorManager.reset_cursor()

@@ -6,6 +6,17 @@ extends Node
 signal transition_started
 signal transition_completed
 
+var pipa_entregada: bool = false
+var candado_abierto: bool = false
+var activo = true
+
+# Diccionario para recordar qué objetos dejamos en el suelo
+var items_on_floor: Dictionary = {}
+
+# IDs técnicos de tus objetos (ajústalos a tus nombres reales)
+const PIPA_ID = "pipas"
+const NUEVO_OBJETO_ID = "objeto_D3"
+
 var fade_duration: float = 0.5
 var fade_color: Color = Color.BLACK
 
@@ -16,7 +27,7 @@ var fade_overlay: ColorRect
 var current_scene: String = ""
 
 # Escena a la que lleva "Volver" global. Por defecto la escena inicial del proyecto.
-var volver_target: String = "res://Scenes/Main Scenes/test_node_A.tscn"
+var volver_target: String = "res://Scenes/Main Scenes/test_node_00.tscn"
 
 # =============================================================================
 # SISTEMA DE NAVEGACIÓN CENTRALIZADO
@@ -25,12 +36,13 @@ var volver_target: String = "res://Scenes/Main Scenes/test_node_A.tscn"
 # Escenas principales en orden (A, B, C, D, E, F)
 # Modifica este array con las rutas reales de tus escenas principales
 var main_scenes: Array[String] = [
-	"res://Scenes/Main Scenes/test_node_A.tscn",      # A (escena principal 1)
-	"res://Scenes/Main Scenes/test_node_B.tscn",      # B (descomentar y ajustar cuando existan)
-	"res://Scenes/Main Scenes/test_node_C.tscn",      # C
-	# "res://Scenes/scene_D.tscn",      # D
-	# "res://Scenes/scene_E.tscn",      # E
-	# "res://Scenes/scene_F.tscn",      # F
+	"res://Scenes/Main Scenes/test_node_00.tscn", # 00 (escena principal 1)
+	"res://Scenes/Main Scenes/test_node_A.tscn", # A (descomentar y ajustar cuando existan)
+	"res://Scenes/Main Scenes/test_node_B.tscn", # B
+	"res://Scenes/Main Scenes/test_node_C.tscn", # C
+	"res://Scenes/Main Scenes/test_node_D.tscn", # D
+	"res://Scenes/Main Scenes/test_node_E.tscn", # E
+	"res://Scenes/Main Scenes/test_node_F.tscn",
 ]
 
 # Subescenas por cada escena principal
@@ -38,22 +50,64 @@ var main_scenes: Array[String] = [
 # Valor: array ordenado de sus subescenas [A1, A2, A3] o [B1, B2, B3], etc.
 var sub_scenes: Dictionary = {
 	"res://Scenes/Main Scenes/test_node_A.tscn": [
-		"res://Scenes/Sub Scenes/test_node_A1.tscn",       # A1
-		"res://Scenes/Sub Scenes/test_node_A2.tscn",     # A2 (descomentar cuando exista)
-		"res://Scenes/Sub Scenes/test_node_A3.tscn",     # A3
+		"res://Scenes/Sub Scenes/test_node_A1.tscn",
+		"res://Scenes/Sub Scenes/test_node_A2.tscn",
+		"res://Scenes/Sub Scenes/test_node_A3.tscn",
 	],
-	# "res://Scenes/scene_B.tscn": [
-	#     "res://Scenes/B1.tscn",
-	#     "res://Scenes/B2.tscn",
-	#     "res://Scenes/B3.tscn",
-	# ],
+	"res://Scenes/Main Scenes/test_node_B.tscn": [
+		"res://Scenes/Sub Scenes/test_node_B1.tscn",
+		"res://Scenes/Sub Scenes/test_node_B2.tscn",
+		"res://Scenes/Sub Scenes/test_node_B3.tscn",
+		"res://Scenes/Sub Scenes/test_node_B4.tscn"
+	 ],
+	"res://Scenes/Main Scenes/test_node_C.tscn": [
+		"res://Scenes/Sub Scenes/test_node_C1.tscn",
+		"res://Scenes/Sub Scenes/test_node_C2.tscn",
+		"res://Scenes/Sub Scenes/test_node_C3.tscn",
+		"res://Scenes/Sub Scenes/test_node_C4.tscn"
+	],
+	"res://Scenes/Main Scenes/test_node_D.tscn": [
+		"res://Scenes/Sub Scenes/test_node_D1.tscn",
+		"res://Scenes/Sub Scenes/test_node_D2.tscn",
+		"res://Scenes/Sub Scenes/test_node_D3.tscn",
+		"res://Scenes/Sub Scenes/test_node_D4.tscn",
+		"res://Scenes/Sub Scenes/test_node_D5.tscn",
+	],
+		"res://Scenes/Main Scenes/test_node_E.tscn": [
+		"res://Scenes/Sub Scenes/test_node_E1.tscn",
+		"res://Scenes/Sub Scenes/test_node_E2.tscn",
+		"res://Scenes/Sub Scenes/test_node_E3.tscn",
+		"res://Scenes/Sub Scenes/test_node_E4.tscn",
+		"res://Scenes/Sub Scenes/test_node_E5.tscn",
+	],
+		"res://Scenes/Main Scenes/test_node_F.tscn": [
+		"res://Scenes/Sub Scenes/test_node_F1.tscn",
+		"res://Scenes/Sub Scenes/test_node_F2.tscn",
+		"res://Scenes/Sub Scenes/test_node_F3.tscn",
+		"res://Scenes/Sub Scenes/test_node_F4.tscn",
+		"res://Scenes/Sub Scenes/test_node_F5.tscn",
+		"res://Scenes/Sub Scenes/test_node_F6.tscn",
+		"res://Scenes/Sub Scenes/test_node_F7.tscn",
+		"res://Scenes/Sub Scenes/test_node_F8.tscn",
+	],
 }
 
 # Inventario simple: lista de IDs de ítems recogidos
 # Sirve para saber si, al volver, ir directo a la main scene
 var inventory: Array[String] = []
 
+# Registro de diálogos de entrada ya vistos por escena
+# Clave: ruta de la escena, Valor: true
+var dialogues_seen: Dictionary = {}
+
 # =============================================================================
+
+func mark_dialogue_seen(scene_path: String) -> void:
+	dialogues_seen[scene_path] = true
+
+func has_seen_dialogue(scene_path: String) -> bool:
+	return dialogues_seen.has(scene_path)
+
 
 func _ready():
 	# Crear overlay para el fade
@@ -77,34 +131,35 @@ func _set_initial_current_scene():
 
 ## Cambia a una nueva escena con efecto de fade
 ## scene_path: Ruta de la escena destino (ej: "res://Scenes/nueva_escena.tscn")
+
 func change_scene(scene_path: String):
 	if not ResourceLoader.exists(scene_path):
 		push_error("SceneManager: La escena no existe: " + scene_path)
 		return
 	
 	transition_started.emit()
-	
-	# Fade out
 	await fade_out()
 	
-	# Cambiar escena
 	var error = get_tree().change_scene_to_file(scene_path)
 	if error != OK:
 		push_error("SceneManager: Error al cambiar de escena: " + str(error))
 		return
 	
-	# Resetear el cursor al cambiar de escena
 	Input.set_custom_mouse_cursor(null)
-
-	# Actualizar escena actual
 	current_scene = scene_path
+	
+	_check_and_play_ambience(scene_path)
 	
 	# Esperar un frame para que la nueva escena se cargue
 	await get_tree().process_frame
-	
-	# Fade in
+
+	var escena_actual = get_tree().current_scene
+	if escena_actual == null:
+		await get_tree().process_frame # Esperamos un frame extra por seguridad
+		escena_actual = get_tree().current_scene
+
+	# Lógica heredada eliminada (D2, D3, D5) para evitar conflictos.
 	await fade_in()
-	
 	transition_completed.emit()
 
 ## Indica si se puede usar "Volver" (no estamos ya en volver_target)
@@ -155,6 +210,14 @@ func can_advance() -> bool:
 ## Indica si hay una escena anterior disponible (para habilitar/deshabilitar botón Volver)
 func can_go_back() -> bool:
 	return _get_back_scene() != ""
+
+## Obtiene la siguiente escena disponible (método público)
+func get_next_scene() -> String:
+	return _get_next_scene()
+
+## Obtiene la escena anterior disponible (método público)
+func get_back_scene() -> String:
+	return _get_back_scene()
 
 # =============================================================================
 # LÓGICA INTERNA DE NAVEGACIÓN
@@ -237,6 +300,7 @@ func has_item(item_id: String) -> bool:
 func add_item(item_id: String) -> void:
 	if not has_item(item_id):
 		inventory.append(item_id)
+		AudioManager.play_sfx("item_found")
 		print("SceneManager: Ítem agregado al inventario: " + item_id)
 
 ## Remueve un ítem del inventario
@@ -250,6 +314,14 @@ func _has_item_for_chain(main_scene: String) -> bool:
 	# Usa la ruta de la main scene como ID del ítem
 	# Ejemplo: si recogiste el ítem de la cadena A, llamas add_item("res://Scenes/test_node.tscn")
 	return has_item(main_scene)
+
+var items_dropped_in_scenes: Dictionary = {} # Guarda qué items hay en cada escena
+
+func drop_item_here(item_id: String):
+	if item_id in inventory:
+		inventory.erase(item_id)
+		items_dropped_in_scenes[current_scene] = item_id
+		print("Objeto ", item_id, " dejado en ", current_scene)
 
 ## Efecto de fade out (pantalla se oscurece)
 func fade_out() -> Signal:
@@ -282,3 +354,15 @@ func set_fade_color(color: Color):
 	fade_color = color
 	if fade_overlay:
 		fade_overlay.color = color
+
+func _check_and_play_ambience(scene_path: String):
+	# Excluir escenas F4 en adelante y Hands
+	if "test_node_F4" in scene_path or "test_node_F5" in scene_path or "test_node_F6" in scene_path or "test_node_F7" in scene_path or "test_node_F8" in scene_path or "hands" in scene_path:
+		# Si estamos en estas escenas, quizás debamos detener la música o cambiarla.
+		# Por ahora, simplemente paramos la de ambiente día si está sonando.
+		# Opcional: fade out
+		# AudioManager.stop_music(2.0)
+		pass
+	elif "test_node_00" in scene_path or "test_node_A" in scene_path or "test_node_B" in scene_path or "test_node_C" in scene_path or "test_node_D" in scene_path or "test_node_E" in scene_path or "test_node_F" in scene_path:
+		# Nota: "test_node_F" match F1, F2, F3. F4+ ya fueron excluidos arriba.
+		AudioManager.play_music("amb_dia", 2.0)

@@ -1,8 +1,6 @@
 extends Node2D
 
-var hand_cursor = preload("res://Assets/Images/HandCursor.png")
-
-# Diccionario que mapea el nombre del nodo Area2D a su escena destino
+var scene_mapping = {
 # Puedes modificar estas rutas según las escenas que crees
 var scene_mapping = {
 	"FocusItem": "res://Scenes/test_node2.tscn",
@@ -54,16 +52,21 @@ func _process(delta):
 func _on_area2d_input_event(viewport: Node, event: InputEvent, shape_idx: int, area_name: String):
 	if event is InputEventMouseButton:
 		var mouse_event = event as InputEventMouseButton
-		if mouse_event.pressed and mouse_event.button_index == MOUSE_BUTTON_LEFT:
-			# Cambiar a la escena correspondiente
-			if scene_mapping.has(area_name):
-				var target_scene = scene_mapping[area_name]
-				SceneManager.change_scene(target_scene)
+		if mouse_event.button_index == MOUSE_BUTTON_LEFT:
+			if mouse_event.pressed:
+				CursorManager.set_click_cursor()
+				# Cambiar a la escena correspondiente
+				if scene_mapping.has(area_name):
+					var target_scene = scene_mapping[area_name]
+					SceneManager.change_scene(target_scene)
+				else:
+					push_warning("No hay escena asignada para: " + area_name)
 			else:
-				push_warning("No hay escena asignada para: " + area_name)
+				# Al soltar, volver a mano
+				CursorManager.set_hand_cursor()
 
 func change_cursor_hand():
-	Input.set_custom_mouse_cursor(hand_cursor)
+	CursorManager.set_hand_cursor()
 	
 func change_cursor_back():
-	Input.set_custom_mouse_cursor(null)
+	CursorManager.reset_cursor()

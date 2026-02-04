@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bl58fjdjrkeor"]
+
+[ext_resource type="Script" uid="uid://kx8xu062xhhq" path="res://Scripts/Inventory/Slot.gd" id="1_script"]
+
+[node name="Slot" type="Button" unique_id=626753044]
+custom_minimum_size = Vector2(107, 116)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+flat = true
+script = ExtResource("1_script")
+
+[node name="SlotImage" type="TextureRect" parent="." unique_id=840115089]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cmeil0cvcqm30"]
+
+[ext_resource type="Script" uid="uid://yxuaks03atg1" path="res://Scripts/scene_ui_config.gd" id="1_bwaml"]
+[ext_resource type="Texture2D" uid="uid://bj6nqhumncd26" path="res://Assets/Images/Scene B/ESCENA.B1.jpg" id="2_bwaml"]
+[ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="3_u02mj"]
+
+[node name="TestNodeB1" type="Node2D" unique_id=1209076192]
+script = ExtResource("1_bwaml")
+visible_direction_buttons = Array[String](["up", "right"])
+button_up_target_scene = "res://Scenes/Sub Scenes/test_node_B2.tscn"
+button_right_target_scene = "res://Scenes/Main Scenes/test_node_B.tscn"
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1059781295]
+show_behind_parent = true
+texture = ExtResource("2_bwaml")
+centered = false
+
+[node name="UI" parent="." unique_id=2021790239 instance=ExtResource("3_u02mj")]
+layer = 6
+visible = false

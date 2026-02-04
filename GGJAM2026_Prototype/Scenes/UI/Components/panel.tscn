@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://srm0hdrqnlg7"]
+
+[ext_resource type="Script" uid="uid://vjsd2mh8ve70" path="res://Scripts/Puzzle/cube_Button.gd" id="1_buy22"]
+[ext_resource type="Script" uid="uid://bs71rx6y546r" path="res://Scripts/Puzzle/cube_Pannel.gd" id="1_qbult"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1cqkm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r1uyw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5hgfh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1cqkm"]
+
+[node name="Panel" type="Panel" unique_id=693399836]
+custom_minimum_size = Vector2(171, 163)
+anchors_preset = -1
+anchor_right = 0.0890625
+anchor_bottom = 0.15092592
+offset_right = -57.0
+offset_bottom = -54.33333
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_1cqkm")
+script = ExtResource("1_qbult")
+images = Array[Texture2D]([null, null, null, null])
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="." unique_id=540870712]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_r1uyw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5hgfh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1cqkm")
+script = ExtResource("1_buy22")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

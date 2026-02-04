@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://l8fdwkvpow2y"]
+
+[ext_resource type="Script" uid="uid://dkbwxd82uomxl" path="res://Scripts/final_sequence_f6.gd" id="1_dpr2u"]
+[ext_resource type="Texture2D" uid="uid://dqr5wxxuuanq8" path="res://Assets/Images/Scene F/ESCENA_F6_FINAL_MONOLITO.jpg" id="2_ht008"]
+[ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="3_dpr2u"]
+
+[node name="TestNodeF6" type="Node2D" unique_id=301554458]
+script = ExtResource("1_dpr2u")
+focus_item_position = Vector2(910, 620)
+scene_entry_text = Array[String](["La máscara está quieta.", "Ahora vibra la daga... La ranura en la piedra es perfecta para ella.", "Sé lo que tengo que hacer."])
+
+[node name="Background" type="Sprite2D" parent="." unique_id=633293781]
+show_behind_parent = true
+texture = ExtResource("2_ht008")
+centered = false
+
+[node name="UI" parent="." unique_id=1962210357 instance=ExtResource("3_dpr2u")]
+layer = 6
+visible = false

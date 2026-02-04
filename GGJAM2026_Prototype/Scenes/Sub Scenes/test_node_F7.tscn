@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dqi1wilx7m60y"]
+
+[ext_resource type="Script" uid="uid://0sh5i36qqwrj" path="res://Scripts/final_sequence_f7.gd" id="1_new_script"]
+[ext_resource type="Texture2D" uid="uid://b8sqlljc5gsuo" path="res://Assets/Images/Scene F/ESCENA_F7_FINAL_VICTIMA_1.jpg" id="2_tgyoi"]
+[ext_resource type="Texture2D" uid="uid://cl47l2bulxeds" path="res://Assets/Images/Scene F/ESCENA_F8_FINAL_VICTIMA_2.jpg" id="3_sxb4h"]
+[ext_resource type="Texture2D" uid="uid://dxtjrw6b2msvx" path="res://Assets/Images/UI/ESCENARIO_FINAL_MANO_2.png" id="4_hand2"]
+
+[node name="TestNodeF7" type="Node2D" unique_id=669889768]
+script = ExtResource("1_new_script")
+scene_entry_text = Array[String](["Que he hecho???!!", "QUE SIGNIFICA ESTO??!!", "QUE ESTA PASANDO??!!"])
+mask_clue_position = Vector2(900, 825)
+mask_clue_scale = Vector2(0.35, 0.35)
+
+[node name="Background1" type="Sprite2D" parent="." unique_id=617680017]
+show_behind_parent = true
+texture = ExtResource("3_sxb4h")
+centered = false
+
+[node name="Background2" type="Sprite2D" parent="." unique_id=754236119]
+visible = false
+show_behind_parent = true
+texture = ExtResource("2_tgyoi")
+centered = false
+
+[node name="Hand2" type="Sprite2D" parent="." unique_id=143121367]
+position = Vector2(760, 487)
+scale = Vector2(0.789, 0.789)
+texture = ExtResource("4_hand2")
+centered = false

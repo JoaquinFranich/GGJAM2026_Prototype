@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://c6rr18biram6y"]
+
+[ext_resource type="Script" uid="uid://beytkw4s85k20" path="res://Scripts/Inventory/InventoryItem.gd" id="1_cesi7"]
+[ext_resource type="Texture2D" uid="uid://b5pfn82u6837k" path="res://Assets/Images/Objects/esc_papel_abierto.png" id="2_wf8ve"]
+
+[resource]
+script = ExtResource("1_cesi7")
+name = "papel_pista_1"
+texture = ExtResource("2_wf8ve")
+metadata/_custom_type_script = "uid://beytkw4s85k20"

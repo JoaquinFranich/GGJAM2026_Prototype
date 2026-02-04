@@ -1,0 +1,283 @@
+[gd_scene format=3 uid="uid://dih2r1lumuyoe"]
+
+[ext_resource type="Script" uid="uid://yxuaks03atg1" path="res://Scripts/scene_ui_config.gd" id="1_1oowx"]
+[ext_resource type="Texture2D" uid="uid://cighjr5ic47xt" path="res://Assets/Images/Scene B/ESCENA.B3.png" id="2_1oowx"]
+[ext_resource type="Script" uid="uid://daprvolg7lj4o" path="res://Scripts/Puzzle/bloquear_puzzle1.gd" id="3_svr7u"]
+[ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="4_g6ibs"]
+[ext_resource type="Script" uid="uid://bt4yta8ln7gqe" path="res://Scripts/Puzzle/container_numbers.gd" id="5_svr7u"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g6ibs"]
+texture = ExtResource("2_1oowx")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xiequ"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fqhsh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gur73"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qbm3g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o7ocj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h0uog"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hmufs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4cg3r"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a5cts"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ugiw0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_urdsm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hr45o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5g4jb"]
+
+[node name="TestNodeB3" type="Node2D" unique_id=449171460]
+script = ExtResource("1_1oowx")
+scene_entry_text = Array[String](["Un candado numérico. No creo en coincidencias, pero pruebo: 4-7-1.", "Un clic metálico."])
+visible_direction_buttons = Array[String](["up"])
+button_up_target_scene = "res://Scenes/Sub Scenes/test_node_B2.tscn"
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1370629567]
+visible = false
+show_behind_parent = true
+scale = Vector2(1.4992187, 1.5013889)
+texture = ExtResource("2_1oowx")
+centered = false
+script = ExtResource("3_svr7u")
+
+[node name="UI_PUZZLE" type="CanvasLayer" parent="." unique_id=1991684245]
+
+[node name="HUD" type="Control" parent="UI_PUZZLE" unique_id=832534200]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="candado_UI" type="Panel" parent="UI_PUZZLE/HUD" unique_id=312357225]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_g6ibs")
+metadata/_edit_use_anchors_ = true
+
+[node name="container_Numbers" type="HBoxContainer" parent="UI_PUZZLE/HUD/candado_UI" unique_id=1567691646]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.28125
+anchor_top = 0.25462964
+anchor_right = 0.7092014
+anchor_bottom = 0.7376543
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_svr7u")
+metadata/_edit_use_anchors_ = true
+
+[node name="number_Panel1" type="Panel" parent="UI_PUZZLE/HUD/candado_UI/container_Numbers" unique_id=812566814]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_xiequ")
+metadata/_edit_group_ = true
+
+[node name="button_Up1" type="Button" parent="UI_PUZZLE/HUD/candado_UI/container_Numbers/number_Panel1" unique_id=1076797703]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.17571884
+grow_horizontal = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fqhsh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gur73")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qbm3g")
+text = "^"
+metadata/_edit_use_anchors_ = true
+
+[node name="number1" type="Label" parent="UI_PUZZLE/HUD/candado_UI/container_Numbers/number_Panel1" unique_id=1423074975]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.2117904
+anchor_right = 1.0
+anchor_bottom = 0.7882096
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 96
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="button_Down1" type="Button" parent="UI_PUZZLE/HUD/candado_UI/container_Numbers/number_Panel1" unique_id=335028300]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.8210863
+anchor_right = 1.0
+anchor_bottom = 0.99680513
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fqhsh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gur73")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qbm3g")
+text = "v"
+metadata/_edit_use_anchors_ = true
+
+[node name="number_Panel2" type="Panel" parent="UI_PUZZLE/HUD/candado_UI/container_Numbers" unique_id=113960362]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_o7ocj")
+metadata/_edit_group_ = true
+
+[node name="button_Up2" type="Button" parent="UI_PUZZLE/HUD/candado_UI/container_Numbers/number_Panel2" unique_id=51366187]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.17571884
+grow_horizontal = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fqhsh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gur73")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qbm3g")
+text = "^"
+metadata/_edit_use_anchors_ = true
+
+[node name="number2" type="Label" parent="UI_PUZZLE/HUD/candado_UI/container_Numbers/number_Panel2" unique_id=1293743549]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.2117904
+anchor_right = 1.0
+anchor_bottom = 0.7882096
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 96
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="button_Down2" type="Button" parent="UI_PUZZLE/HUD/candado_UI/container_Numbers/number_Panel2" unique_id=1255909844]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.81789136
+anchor_right = 1.0
+anchor_bottom = 0.9936102
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fqhsh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_h0uog")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hmufs")
+text = "v"
+metadata/_edit_use_anchors_ = true
+
+[node name="number_Panel3" type="Panel" parent="UI_PUZZLE/HUD/candado_UI/container_Numbers" unique_id=226269342]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4cg3r")
+metadata/_edit_group_ = true
+
+[node name="button_Up3" type="Button" parent="UI_PUZZLE/HUD/candado_UI/container_Numbers/number_Panel3" unique_id=2094845495]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.17571884
+grow_horizontal = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fqhsh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gur73")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qbm3g")
+text = "^"
+metadata/_edit_use_anchors_ = true
+
+[node name="number3" type="Label" parent="UI_PUZZLE/HUD/candado_UI/container_Numbers/number_Panel3" unique_id=1910174208]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.2117904
+anchor_right = 1.0
+anchor_bottom = 0.7882096
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 96
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="button_Down3" type="Button" parent="UI_PUZZLE/HUD/candado_UI/container_Numbers/number_Panel3" unique_id=758833627]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.81789136
+anchor_right = 1.0
+anchor_bottom = 0.9936102
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fqhsh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gur73")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qbm3g")
+text = "v"
+metadata/_edit_use_anchors_ = true
+
+[node name="open_Candado" type="Panel" parent="UI_PUZZLE/HUD/candado_UI" unique_id=867782398]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4253472
+anchor_top = 0.85030866
+anchor_right = 0.5737847
+anchor_bottom = 0.962963
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_a5cts")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="open" type="Button" parent="UI_PUZZLE/HUD/candado_UI/open_Candado" unique_id=263132537]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.12328767
+anchor_right = 1.0
+anchor_bottom = 0.8767123
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ugiw0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_urdsm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hr45o")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5g4jb")
+text = "ABRIR"
+metadata/_edit_use_anchors_ = true
+
+[node name="UI" parent="." unique_id=2021790239 instance=ExtResource("4_g6ibs")]
+layer = 6
+visible = false
+
+[connection signal="pressed" from="UI_PUZZLE/HUD/candado_UI/container_Numbers/number_Panel1/button_Up1" to="UI_PUZZLE/HUD/candado_UI/container_Numbers" method="_on_button_up_1_pressed"]
+[connection signal="pressed" from="UI_PUZZLE/HUD/candado_UI/container_Numbers/number_Panel1/button_Down1" to="UI_PUZZLE/HUD/candado_UI/container_Numbers" method="_on_button_down_1_pressed"]
+[connection signal="pressed" from="UI_PUZZLE/HUD/candado_UI/container_Numbers/number_Panel2/button_Up2" to="UI_PUZZLE/HUD/candado_UI/container_Numbers" method="_on_button_up_2_pressed"]
+[connection signal="pressed" from="UI_PUZZLE/HUD/candado_UI/container_Numbers/number_Panel2/button_Down2" to="UI_PUZZLE/HUD/candado_UI/container_Numbers" method="_on_button_down_2_pressed"]
+[connection signal="pressed" from="UI_PUZZLE/HUD/candado_UI/container_Numbers/number_Panel3/button_Up3" to="UI_PUZZLE/HUD/candado_UI/container_Numbers" method="_on_button_up_3_pressed"]
+[connection signal="pressed" from="UI_PUZZLE/HUD/candado_UI/container_Numbers/number_Panel3/button_Down3" to="UI_PUZZLE/HUD/candado_UI/container_Numbers" method="_on_button_down_3_pressed"]
+[connection signal="pressed" from="UI_PUZZLE/HUD/candado_UI/open_Candado/open" to="UI_PUZZLE/HUD/candado_UI/container_Numbers" method="_on_open_pressed"]
+[connection signal="pressed" from="UI_PUZZLE/HUD/candado_UI/open_Candado/open" to="UI_PUZZLE/HUD/candado_UI/container_Numbers" method="_on_open_candado_pressed"]

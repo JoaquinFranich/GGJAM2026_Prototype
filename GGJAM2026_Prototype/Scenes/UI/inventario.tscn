@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cda1136i4k88b"]
+
+[ext_resource type="PackedScene" uid="uid://d2p4s8loqccgw" path="res://Scenes/Objects/PickupItem.tscn" id="1_j15t8"]
+[ext_resource type="Resource" uid="uid://cs5rhlx013abx" path="res://Resource/pipas.tres" id="2_j1vyv"]
+[ext_resource type="Resource" uid="uid://ckjwp5x0em6io" path="res://Resource/cuchillo.tres" id="4_usoq0"]
+[ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="5_v7mxy"]
+[ext_resource type="Resource" uid="uid://b203o58woj4e5" path="res://Resource/Mascara.tres" id="5_xxtvc"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_snqdn"]
+load_path = "res://.godot/imported/ESCENA A2.jpg-6b1fda04d292cd039bc7e92882cd234e.ctex"
+
+[node name="game_UI" type="Node2D" unique_id=388317032]
+
+[node name="scene1" type="Sprite2D" parent="." unique_id=1736037816]
+visible = false
+position = Vector2(575.875, 324.125)
+scale = Vector2(0.6001302, 0.59976846)
+texture = SubResource("CompressedTexture2D_snqdn")
+
+[node name="PickupItem" parent="." unique_id=874566283 instance=ExtResource("1_j15t8")]
+position = Vector2(279, 397)
+item_data = ExtResource("2_j1vyv")
+
+[node name="PickupItem2" parent="." unique_id=571919695 instance=ExtResource("1_j15t8")]
+position = Vector2(652, 401)
+item_data = ExtResource("5_xxtvc")
+
+[node name="PickupItem3" parent="." unique_id=1138293607 instance=ExtResource("1_j15t8")]
+position = Vector2(487, 574)
+item_data = ExtResource("4_usoq0")
+
+[node name="Scene_ui" type="CanvasLayer" parent="." unique_id=243799558]
+layer = -1
+
+[node name="Image" type="TextureRect" parent="Scene_ui" unique_id=58283113]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="UI" parent="." unique_id=2021790239 instance=ExtResource("5_v7mxy")]

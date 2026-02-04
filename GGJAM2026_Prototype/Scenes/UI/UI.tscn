@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://njmoefb4dxlm"]
+
+[ext_resource type="Script" uid="uid://4850qgntji2g" path="res://Scripts/hud.gd" id="1_b83rk"]
+[ext_resource type="PackedScene" uid="uid://wxqvo30moqd1" path="res://Scenes/Menu Scenes/menu_pause.tscn" id="2_oqha6"]
+[ext_resource type="PackedScene" uid="uid://bnsr5545w24xj" path="res://Scenes/Menu Scenes/menu_options.tscn" id="3_7tgkj"]
+[ext_resource type="AudioStream" uid="uid://lyhycf4xt7o7" path="res://Assets/Audio/boton inicio.wav" id="4_jevvu"]
+[ext_resource type="AudioStream" uid="uid://t50eh1e551tx" path="res://Assets/Audio/moverse entre opciones.wav" id="5_oqha6"]
+
+[node name="UI" type="CanvasLayer" unique_id=2021790239]
+
+[node name="HUD" type="Control" parent="." unique_id=1364834191]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_b83rk")
+metadata/_edit_use_anchors_ = true
+
+[node name="menu_Pause" parent="HUD" unique_id=739766871 instance=ExtResource("2_oqha6")]
+layout_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="menu_Options" parent="HUD" unique_id=940799158 instance=ExtResource("3_7tgkj")]
+visible = false
+layout_mode = 1
+
+[node name="SFX_button" type="AudioStreamPlayer" parent="HUD" unique_id=2053555636]
+stream = ExtResource("4_jevvu")
+bus = &"SFX"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HUD" unique_id=696753576]
+stream = ExtResource("5_oqha6")
+bus = &"SFX"

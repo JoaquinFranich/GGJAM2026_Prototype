@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://be7t503n67gyr"]
+
+[ext_resource type="Script" uid="uid://yxuaks03atg1" path="res://Scripts/scene_ui_config.gd" id="1_yqrum"]
+[ext_resource type="Texture2D" uid="uid://b35n4mnlocwcx" path="res://Assets/Images/Scene B/ESCENA.B2.jpg" id="2_a5ei0"]
+[ext_resource type="Script" uid="uid://r2c2xvf45ui6" path="res://Scripts/Inventory/PickupObject.gd" id="3_yqrum"]
+[ext_resource type="Texture2D" uid="uid://q3ur3od2llky" path="res://Assets/Images/Items/escenario_maletin_abierto_mascara.png" id="4_ppv3a"]
+[ext_resource type="Resource" uid="uid://b203o58woj4e5" path="res://Resource/Mascara.tres" id="4_yqrum"]
+[ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="5_ftdvx"]
+[ext_resource type="Texture2D" uid="uid://cxntco3idlb4i" path="res://Assets/Images/Items/escenario_maletin_abierto.png" id="6_8xcrl"]
+[ext_resource type="Script" uid="uid://dyen8gfy7nn40" path="res://Scripts/Puzzle/Maletin.gd" id="7_ppv3a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5ei0"]
+size = Vector2(194, 143)
+
+[node name="TestNodeA1" type="Node2D" unique_id=239917966]
+script = ExtResource("1_yqrum")
+focus_item_position = Vector2(438, 920)
+focus_item_scale = Vector2(0.6, 0.6)
+visible_direction_buttons = Array[String](["right"])
+button_right_target_scene = "res://Scenes/Sub Scenes/test_node_B1.tscn"
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1834790687]
+show_behind_parent = true
+texture = ExtResource("2_a5ei0")
+centered = false
+
+[node name="PickupItem" type="Area2D" parent="." unique_id=874566283]
+position = Vector2(293, -21)
+script = ExtResource("3_yqrum")
+item_data = ExtResource("4_yqrum")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PickupItem" unique_id=62041502]
+position = Vector2(446.75, 855)
+scale = Vector2(0.53346205, 0.6131148)
+texture = ExtResource("4_ppv3a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItem" unique_id=1189362272]
+position = Vector2(428, 920.5)
+shape = SubResource("RectangleShape2D_a5ei0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=841406890]
+position = Vector2(739.75, 833)
+scale = Vector2(0.53346205, 0.6131148)
+texture = ExtResource("6_8xcrl")
+script = ExtResource("7_ppv3a")
+
+[node name="UI" parent="." unique_id=2021790239 instance=ExtResource("5_ftdvx")]
+layer = 6
+
+[connection signal="input_event" from="PickupItem" to="Sprite2D" method="_on_pickup_item_input_event"]

@@ -1,0 +1,476 @@
+[gd_scene format=3 uid="uid://bxtny80000tk"]
+
+[ext_resource type="Texture2D" uid="uid://d3q6r53jy0m65" path="res://Assets/Arte Conceptual/ESCENARIO_PUZZLE_CANDADO_PLANO 3_ABIERTO.jpg" id="1_6he5u"]
+[ext_resource type="Texture2D" uid="uid://cm3bnfgk1w36q" path="res://Assets/Arte Conceptual/escenario_maletin_cerrado.png" id="2_6he5u"]
+[ext_resource type="Script" uid="uid://bjra2ysnqxaqr" path="res://Scripts/hud.gd" id="2_b21fk"]
+[ext_resource type="Texture2D" uid="uid://be86nkjb2ijyk" path="res://Assets/Arte Conceptual/interfaz_inventario.png" id="3_4wiqn"]
+[ext_resource type="Script" uid="uid://lkuxo4wtbcxs" path="res://Scripts/object.gd" id="3_fc6wd"]
+[ext_resource type="Texture2D" uid="uid://cserj81xs6tll" path="res://Assets/Arte Conceptual/escenario_maletin_close up.png" id="4_8yig3"]
+[ext_resource type="Resource" uid="uid://72khd2vcatav" path="res://Resource/Mascara.tres" id="4_20ibb"]
+[ext_resource type="PackedScene" uid="uid://cv7q47p7bgiei" path="res://Scenes/slot.tscn" id="4_cmxtg"]
+[ext_resource type="Script" uid="uid://bkiwjoimyheua" path="res://Scripts/container_numbers.gd" id="5_8yig3"]
+[ext_resource type="Texture2D" uid="uid://pbtrlk1n64b4" path="res://Assets/Arte Conceptual/menu_boton_large.png" id="6_w6xic"]
+[ext_resource type="PackedScene" uid="uid://cl2l3phambiry" path="res://Scenes/menu_pause.tscn" id="11_fc6wd"]
+[ext_resource type="PackedScene" uid="uid://bnsr5545w24xj" path="res://Scenes/menu_options.tscn" id="12_fc6wd"]
+[ext_resource type="AudioStream" uid="uid://diyve87ggx7e4" path="res://Audio/boton inicio.wav" id="13_fc6wd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b21fk"]
+size = Vector2(89, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2ef4"]
+size = Vector2(265.69174, 143.88977)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w6xic"]
+texture = ExtResource("4_8yig3")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4g23"]
+bg_color = Color(18.892157, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4sbii"]
+bg_color = Color(0.9882266, 0, 0.10187087, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6he5u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_20ibb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kxp6t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5xwju"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8yig3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wgihu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o2uq0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w6xic"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fc6wd"]
+texture = ExtResource("6_w6xic")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bc0aw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y4g23"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4sbii"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pnuok"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fc6wd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_20ibb"]
+texture = ExtResource("3_4wiqn")
+
+[node name="Puzzle1" type="Node2D" unique_id=1586064223]
+
+[node name="scene" type="Sprite2D" parent="." unique_id=1206340572]
+position = Vector2(575.5, 325.49997)
+scale = Vector2(0.59843755, 0.6046297)
+
+[node name="Area2D" type="Area2D" parent="scene" unique_id=965426511]
+scale = Vector2(3, 3)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="scene/Area2D" unique_id=839507007]
+position = Vector2(-1.66893e-06, -0.2756673)
+scale = Vector2(0.12429704, 0.12944932)
+texture = ExtResource("2_6he5u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scene/Area2D" unique_id=36019058]
+shape = SubResource("RectangleShape2D_b21fk")
+
+[node name="Mascara" type="Area2D" parent="scene" unique_id=294994655]
+script = ExtResource("3_fc6wd")
+item_data = ExtResource("4_20ibb")
+metadata/_edit_group_ = true
+
+[node name="image" type="Sprite2D" parent="scene/Mascara" unique_id=1960773027]
+
+[node name="colission" type="CollisionShape2D" parent="scene/Mascara" unique_id=1293090939]
+position = Vector2(-0.00012207031, 6.1035156e-05)
+scale = Vector2(1, 0.9999999)
+shape = SubResource("RectangleShape2D_y2ef4")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1595312031]
+
+[node name="HUD" type="Control" parent="UI" unique_id=1552952506]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("2_b21fk")
+metadata/_edit_use_anchors_ = true
+
+[node name="candado_UI" type="Panel" parent="UI/HUD" unique_id=79938444]
+visible = false
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_w6xic")
+metadata/_edit_use_anchors_ = true
+
+[node name="exit_Candado" type="Panel" parent="UI/HUD/candado_UI" unique_id=287949295]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.9314236
+anchor_right = 1.0
+anchor_bottom = 0.11574074
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_y4g23")
+metadata/_edit_use_anchors_ = true
+
+[node name="exit" type="Button" parent="UI/HUD/candado_UI/exit_Candado" unique_id=531657983]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 54
+theme_override_styles/normal = SubResource("StyleBoxFlat_4sbii")
+text = "X"
+metadata/_edit_use_anchors_ = true
+
+[node name="container_Numbers" type="HBoxContainer" parent="UI/HUD/candado_UI" unique_id=943739506]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.28125
+anchor_top = 0.25462964
+anchor_right = 0.7092014
+anchor_bottom = 0.7376543
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_8yig3")
+metadata/_edit_use_anchors_ = true
+
+[node name="number_Panel1" type="Panel" parent="UI/HUD/candado_UI/container_Numbers" unique_id=1376836181]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6he5u")
+metadata/_edit_group_ = true
+
+[node name="button_Up1" type="Button" parent="UI/HUD/candado_UI/container_Numbers/number_Panel1" unique_id=214297570]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.17571884
+grow_horizontal = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_20ibb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kxp6t")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5xwju")
+text = "^"
+metadata/_edit_use_anchors_ = true
+
+[node name="number1" type="Label" parent="UI/HUD/candado_UI/container_Numbers/number_Panel1" unique_id=540211786]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.2117904
+anchor_right = 1.0
+anchor_bottom = 0.7882096
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 96
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="button_Down1" type="Button" parent="UI/HUD/candado_UI/container_Numbers/number_Panel1" unique_id=1830859716]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.8210863
+anchor_right = 1.0
+anchor_bottom = 0.99680513
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_20ibb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kxp6t")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5xwju")
+text = "v"
+metadata/_edit_use_anchors_ = true
+
+[node name="number_Panel2" type="Panel" parent="UI/HUD/candado_UI/container_Numbers" unique_id=761888472]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8yig3")
+metadata/_edit_group_ = true
+
+[node name="button_Up2" type="Button" parent="UI/HUD/candado_UI/container_Numbers/number_Panel2" unique_id=872662847]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.17571884
+grow_horizontal = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_20ibb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kxp6t")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5xwju")
+text = "^"
+metadata/_edit_use_anchors_ = true
+
+[node name="number2" type="Label" parent="UI/HUD/candado_UI/container_Numbers/number_Panel2" unique_id=904373821]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.2117904
+anchor_right = 1.0
+anchor_bottom = 0.7882096
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 96
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="button_Down2" type="Button" parent="UI/HUD/candado_UI/container_Numbers/number_Panel2" unique_id=796566898]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.81789136
+anchor_right = 1.0
+anchor_bottom = 0.9936102
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_20ibb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wgihu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_o2uq0")
+text = "v"
+metadata/_edit_use_anchors_ = true
+
+[node name="number_Panel3" type="Panel" parent="UI/HUD/candado_UI/container_Numbers" unique_id=1916030992]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_w6xic")
+metadata/_edit_group_ = true
+
+[node name="button_Up3" type="Button" parent="UI/HUD/candado_UI/container_Numbers/number_Panel3" unique_id=1805098820]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.17571884
+grow_horizontal = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_20ibb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kxp6t")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5xwju")
+text = "^"
+metadata/_edit_use_anchors_ = true
+
+[node name="number3" type="Label" parent="UI/HUD/candado_UI/container_Numbers/number_Panel3" unique_id=2027889514]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.2117904
+anchor_right = 1.0
+anchor_bottom = 0.7882096
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 96
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="button_Down3" type="Button" parent="UI/HUD/candado_UI/container_Numbers/number_Panel3" unique_id=2052739092]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.81789136
+anchor_right = 1.0
+anchor_bottom = 0.9936102
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_20ibb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kxp6t")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5xwju")
+text = "v"
+metadata/_edit_use_anchors_ = true
+
+[node name="open_Candado" type="Panel" parent="UI/HUD/candado_UI" unique_id=1227262558]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4253472
+anchor_top = 0.85030866
+anchor_right = 0.5737847
+anchor_bottom = 0.962963
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fc6wd")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="open" type="Button" parent="UI/HUD/candado_UI/open_Candado" unique_id=1020725230]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.12328767
+anchor_right = 1.0
+anchor_bottom = 0.8767123
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bc0aw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_y4g23")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4sbii")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pnuok")
+text = "ABRIR"
+metadata/_edit_use_anchors_ = true
+
+[node name="inventory_HUD" type="Panel" parent="UI/HUD" unique_id=1968143591]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 690.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_fc6wd")
+metadata/_edit_group_ = true
+
+[node name="open_Inventory_Button" type="Button" parent="UI/HUD/inventory_HUD" unique_id=797383456]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.9296875
+anchor_top = 0.3587963
+anchor_right = 1.0
+anchor_bottom = 0.6412037
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 128
+text = "<"
+
+[node name="Inventory" type="Panel" parent="UI/HUD/inventory_HUD" unique_id=947729830]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_right = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_20ibb")
+
+[node name="close_Inventory_Button" type="Button" parent="UI/HUD/inventory_HUD/Inventory" unique_id=1772393601]
+layout_mode = 0
+anchor_left = -0.0043010423
+anchor_top = 0.314376
+anchor_right = -0.0043010423
+anchor_bottom = 0.314376
+offset_left = 80.999985
+offset_top = 182.99998
+offset_right = 161.99998
+offset_bottom = 366.0
+rotation = 3.1415927
+theme_override_font_sizes/font_size = 128
+text = "<"
+metadata/_edit_use_anchors_ = true
+
+[node name="text_Inventory" type="Label" parent="UI/HUD/inventory_HUD/Inventory" unique_id=71261484]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.63256055
+anchor_top = 0.083252884
+anchor_right = 0.79922724
+anchor_bottom = 0.15269732
+offset_left = -175.14063
+offset_top = -2.6990738
+offset_right = -30.640625
+offset_bottom = -1.6574059
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "INVENTARIO"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="grid_Inventory" type="GridContainer" parent="UI/HUD/inventory_HUD/Inventory" unique_id=1143492098]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.227957
+anchor_top = 0.17219588
+anchor_right = 0.7354839
+anchor_bottom = 0.8309637
+columns = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="slot" parent="UI/HUD/inventory_HUD/Inventory/grid_Inventory" unique_id=2144664429 instance=ExtResource("4_cmxtg")]
+layout_mode = 2
+
+[node name="slot2" parent="UI/HUD/inventory_HUD/Inventory/grid_Inventory" unique_id=608686254 instance=ExtResource("4_cmxtg")]
+layout_mode = 2
+
+[node name="slot3" parent="UI/HUD/inventory_HUD/Inventory/grid_Inventory" unique_id=423009234 instance=ExtResource("4_cmxtg")]
+layout_mode = 2
+
+[node name="slot4" parent="UI/HUD/inventory_HUD/Inventory/grid_Inventory" unique_id=1137688523 instance=ExtResource("4_cmxtg")]
+layout_mode = 2
+
+[node name="slot5" parent="UI/HUD/inventory_HUD/Inventory/grid_Inventory" unique_id=1685974819 instance=ExtResource("4_cmxtg")]
+layout_mode = 2
+
+[node name="slot6" parent="UI/HUD/inventory_HUD/Inventory/grid_Inventory" unique_id=399843458 instance=ExtResource("4_cmxtg")]
+layout_mode = 2
+
+[node name="menu_Pause" parent="UI/HUD" unique_id=739766871 instance=ExtResource("11_fc6wd")]
+visible = false
+layout_mode = 1
+
+[node name="menu_Options" parent="UI/HUD" unique_id=940799158 instance=ExtResource("12_fc6wd")]
+visible = false
+layout_mode = 1
+
+[node name="SFX_button" type="AudioStreamPlayer" parent="UI/HUD" unique_id=220780838]
+stream = ExtResource("13_fc6wd")
+bus = &"SFX"
+
+[node name="Scene_ui" type="CanvasLayer" parent="." unique_id=409230288]
+layer = -1
+
+[node name="Image" type="TextureRect" parent="Scene_ui" unique_id=2128377609]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6he5u")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="input_event" from="scene/Area2D" to="UI/HUD/candado_UI/container_Numbers" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="scene/Mascara" to="scene/Mascara" method="_on_input_event"]
+[connection signal="input_event" from="scene/Mascara" to="UI/HUD/candado_UI/container_Numbers" method="_on_mascara_input_event"]
+[connection signal="mouse_entered" from="scene/Mascara" to="scene/Mascara" method="_on_mouse_entered"]
+[connection signal="pressed" from="UI/HUD/candado_UI/exit_Candado/exit" to="UI/HUD/candado_UI/container_Numbers" method="_on_exit_pressed"]
+[connection signal="pressed" from="UI/HUD/candado_UI/container_Numbers/number_Panel1/button_Up1" to="UI/HUD/candado_UI/container_Numbers" method="_on_button_up_1_pressed"]
+[connection signal="pressed" from="UI/HUD/candado_UI/container_Numbers/number_Panel1/button_Down1" to="UI/HUD/candado_UI/container_Numbers" method="_on_button_down_1_pressed"]
+[connection signal="pressed" from="UI/HUD/candado_UI/container_Numbers/number_Panel2/button_Up2" to="UI/HUD/candado_UI/container_Numbers" method="_on_button_up_2_pressed"]
+[connection signal="pressed" from="UI/HUD/candado_UI/container_Numbers/number_Panel2/button_Down2" to="UI/HUD/candado_UI/container_Numbers" method="_on_button_down_2_pressed"]
+[connection signal="pressed" from="UI/HUD/candado_UI/container_Numbers/number_Panel3/button_Up3" to="UI/HUD/candado_UI/container_Numbers" method="_on_button_up_3_pressed"]
+[connection signal="pressed" from="UI/HUD/candado_UI/container_Numbers/number_Panel3/button_Down3" to="UI/HUD/candado_UI/container_Numbers" method="_on_button_down_3_pressed"]
+[connection signal="pressed" from="UI/HUD/candado_UI/open_Candado/open" to="UI/HUD/candado_UI/container_Numbers" method="_on_open_candado_pressed"]
+[connection signal="pressed" from="UI/HUD/inventory_HUD/open_Inventory_Button" to="UI/HUD" method="_on_open_inventory_button_pressed"]
+[connection signal="pressed" from="UI/HUD/inventory_HUD/Inventory/close_Inventory_Button" to="UI/HUD" method="_on_close_inventory_button_pressed"]

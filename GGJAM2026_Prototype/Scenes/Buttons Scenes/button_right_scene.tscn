@@ -1,12 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://nt346hojr4fx"]
+[gd_scene load_steps=3 format=3 uid="uid://do3jhuq56v8pk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylgs7"]
-size = Vector2(59, 34)
+[ext_resource type="Texture2D" uid="uid://d7b117old0t7" path="res://Assets/Images/UI/FLECHA_DERECHA.png" id="1_d08sc"]
+[ext_resource type="Script" uid="uid://bdm0vwyn4ardg" path="res://Scripts/back_button.gd" id="2_vuy2r"]
 
-[node name="ButtonRight" type="Sprite2D"]
+[node name="ButtonLeft" type="Button"]
+offset_right = 93.0
+offset_bottom = 84.0
+icon = ExtResource("1_d08sc")
+flat = true
+script = ExtResource("2_vuy2r")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1119, 379)
-shape = SubResource("RectangleShape2D_ylgs7")
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

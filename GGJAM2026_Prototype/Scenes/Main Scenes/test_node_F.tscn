@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://divpppecqf63c"]
+
+[ext_resource type="Script" uid="uid://yxuaks03atg1" path="res://Scripts/scene_ui_config.gd" id="1_eik3w"]
+[ext_resource type="Texture2D" uid="uid://dg1lycnl2imx" path="res://Assets/Images/Scene F/ESCENA_F0.jpg" id="2_eik3w"]
+[ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="3_ad15x"]
+
+[node name="TestNodeF" type="Node2D" unique_id=1548031054]
+script = ExtResource("1_eik3w")
+scene_entry_text = Array[String](["Intento volver sobre mis pasos hacia el cuerpo, pero el maletín se vuelve un lastre insoportable.", "Si avanzo, es ligero; si retrocedo, es como cargar plomo.", "Me están forzando a un camino."])
+visible_direction_buttons = Array[String](["right"])
+button_right_target_scene = "res://Scenes/Sub Scenes/test_node_F1.tscn"
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1228545026]
+show_behind_parent = true
+texture = ExtResource("2_eik3w")
+centered = false
+
+[node name="UI" parent="." unique_id=2021790239 instance=ExtResource("3_ad15x")]
+layer = 6
+visible = false

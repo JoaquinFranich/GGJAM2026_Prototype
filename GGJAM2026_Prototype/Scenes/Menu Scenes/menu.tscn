@@ -1,0 +1,316 @@
+[gd_scene format=3 uid="uid://cfbjpwptyioll"]
+
+[ext_resource type="Texture2D" uid="uid://bjn218bvowegl" path="res://Assets/Images/Menu/PANTALLA DE INICIO.jpg" id="1_bxvnp"]
+[ext_resource type="Script" uid="uid://c6fxlddpdtms6" path="res://Scripts/Menu/menu_inicio.gd" id="1_rctyp"]
+[ext_resource type="Texture2D" uid="uid://b3061oxauusai" path="res://Assets/Images/Menu/logo_vertical_color_light.png" id="5_8ml8r"]
+[ext_resource type="Texture2D" uid="uid://wxaw688sm4lc" path="res://Assets/Images/Menu/logo 2.png" id="6_des1n"]
+[ext_resource type="Texture2D" uid="uid://bom7s5h56d5x" path="res://Assets/Images/Menu/menu_fondo.png" id="7_01goe"]
+[ext_resource type="AudioStream" uid="uid://coieqiapvgqd4" path="res://Assets/Audio/musica de menu de inicio.wav" id="8_7mkfr"]
+[ext_resource type="Script" uid="uid://bsrrrc2kjmdef" path="res://Scripts/Menu/menu_options.gd" id="8_8r5ys"]
+[ext_resource type="AudioStream" uid="uid://lyhycf4xt7o7" path="res://Assets/Audio/boton inicio.wav" id="10_8r5ys"]
+[ext_resource type="AudioStream" uid="uid://t50eh1e551tx" path="res://Assets/Audio/moverse entre opciones.wav" id="11_7omxj"]
+[ext_resource type="Texture2D" uid="uid://cy88eiokrlbx" path="res://Assets/Images/Menu/LOGO JUEGO XIBI.png" id="12_8ml8r"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6kd3e"]
+texture = ExtResource("1_bxvnp")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6swd7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7qvly"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rfqti"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7646g"]
+texture = ExtResource("5_8ml8r")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6swd7"]
+texture = ExtResource("6_des1n")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_23t3j"]
+texture = ExtResource("7_01goe")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aqwrv"]
+bg_color = Color(18.892157, 0, 0, 1)
+corner_radius_top_right = 15
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g8i7c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_23t3j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ph6h"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_aqwrv"]
+color = Color(1, 1, 1, 1)
+thickness = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kt2nm"]
+bg_color = Color(0.16794264, 0.61649424, 0.99999994, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0mag"]
+bg_color = Color(0, 0.3675467, 0.63751465, 1)
+
+[node name="menu" type="Control" unique_id=637132732]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rctyp")
+
+[node name="menu_Inicio" type="Panel" parent="." unique_id=98235813]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.004166667
+anchor_top = -0.03888889
+anchor_right = 0.99583334
+anchor_bottom = 0.9611111
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6kd3e")
+metadata/_edit_use_anchors_ = true
+
+[node name="title_Container" type="HBoxContainer" parent="menu_Inicio" unique_id=1701797062]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.18489583
+anchor_top = 0.09259259
+anchor_right = 0.7505208
+anchor_bottom = 0.75648147
+offset_right = 140.0
+offset_bottom = -38.0
+grow_horizontal = 2
+theme_override_constants/separation = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="LogoJuegoXibi" type="Sprite2D" parent="menu_Inicio/title_Container" unique_id=711059883]
+position = Vector2(577, 380)
+scale = Vector2(0.5623264, 0.5623264)
+texture = ExtResource("12_8ml8r")
+
+[node name="button_Container" type="VBoxContainer" parent="menu_Inicio" unique_id=2065700392]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4515625
+anchor_top = 0.75277776
+anchor_right = 0.5911385
+anchor_bottom = 0.91481483
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="button_play" type="Button" parent="menu_Inicio/button_Container" unique_id=2091999064]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.99694544, 6.2329323e-06, 1.540184e-06, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6swd7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7qvly")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rfqti")
+text = "Jugar"
+
+[node name="button_options" type="Button" parent="menu_Inicio/button_Container" unique_id=1684846833]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.99694544, 6.2329323e-06, 1.540184e-06, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6swd7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7qvly")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rfqti")
+text = "Opciones"
+
+[node name="button_exit" type="Button" parent="menu_Inicio/button_Container" unique_id=1055715773]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.99694544, 6.2329323e-06, 1.540184e-06, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6swd7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7qvly")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rfqti")
+text = "Salir del juego"
+
+[node name="logo_Container" type="VBoxContainer" parent="menu_Inicio" unique_id=1129122361]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8421875
+anchor_top = 0.49814814
+anchor_right = 0.982118
+anchor_bottom = 0.9992285
+offset_top = 25.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="godot_Logo" type="Panel" parent="menu_Inicio/logo_Container" unique_id=809365802]
+clip_contents = true
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_7646g")
+metadata/_edit_use_anchors_ = true
+
+[node name="gameSquare_Logo" type="Panel" parent="menu_Inicio/logo_Container" unique_id=1703797722]
+clip_contents = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_6swd7")
+
+[node name="menu_Options" type="Panel" parent="." unique_id=940799158]
+visible = false
+layout_mode = 0
+anchor_left = 0.3420139
+anchor_top = 0.10339506
+anchor_right = 0.6970486
+anchor_bottom = 0.9074074
+theme_override_styles/panel = SubResource("StyleBoxTexture_23t3j")
+script = ExtResource("8_8r5ys")
+metadata/_edit_use_anchors_ = true
+
+[node name="title_Options" type="Label" parent="menu_Options" unique_id=1249116664]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.17913562
+anchor_top = 0.117053494
+anchor_right = 0.8208644
+anchor_bottom = 0.20787086
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Menu de opciones"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="exit_Options" type="Panel" parent="menu_Options" unique_id=1724922949]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.89659977
+anchor_top = 0.0060544903
+anchor_right = 0.98407054
+anchor_bottom = 0.096871845
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_aqwrv")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="exit" type="Button" parent="menu_Options/exit_Options" unique_id=618685726]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.641934, 0.64193404, 0.64193386, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g8i7c")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_23t3j")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8ph6h")
+text = "X"
+
+[node name="container_Options" type="VBoxContainer" parent="menu_Options" unique_id=1764873145]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.099648125
+anchor_top = 0.43138245
+anchor_right = 0.9003519
+anchor_bottom = 0.5686176
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="menu_Options/container_Options" unique_id=689512812]
+layout_mode = 2
+
+[node name="music-Text" type="Label" parent="menu_Options/container_Options/HBoxContainer" unique_id=1294569111]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="music_value" type="Label" parent="menu_Options/container_Options/HBoxContainer" unique_id=744770516]
+layout_mode = 2
+text = "100"
+
+[node name="music_Volume" type="HSlider" parent="menu_Options/container_Options" unique_id=669032801]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_aqwrv")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kt2nm")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_w0mag")
+min_value = -50.0
+max_value = 0.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="menu_Options/container_Options" unique_id=1623643846]
+layout_mode = 2
+
+[node name="sfx_Text" type="Label" parent="menu_Options/container_Options/HBoxContainer2" unique_id=1198160178]
+layout_mode = 2
+text = "SFX Volume"
+
+[node name="sfx_value" type="Label" parent="menu_Options/container_Options/HBoxContainer2" unique_id=1690192761]
+layout_mode = 2
+text = "100"
+
+[node name="sfx_Volume" type="HSlider" parent="menu_Options/container_Options" unique_id=188658996]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_aqwrv")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kt2nm")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_w0mag")
+min_value = -50.0
+max_value = 0.0
+metadata/_edit_use_anchors_ = true
+
+[node name="checkbox_Fullscreen" type="CheckBox" parent="menu_Options/container_Options" unique_id=1754473807]
+layout_mode = 2
+text = "Fullscreen
+"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=399161317]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=793056984]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Music_menu" type="AudioStreamPlayer" parent="." unique_id=17187681]
+stream = ExtResource("8_7mkfr")
+autoplay = true
+bus = &"Music"
+
+[node name="SFX_button" type="AudioStreamPlayer" parent="." unique_id=733677518]
+stream = ExtResource("10_8r5ys")
+bus = &"SFX"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1806095315]
+stream = ExtResource("11_7omxj")
+bus = &"SFX"
+
+[connection signal="pressed" from="menu_Inicio/button_Container/button_play" to="." method="_on_button_play_pressed"]
+[connection signal="pressed" from="menu_Inicio/button_Container/button_options" to="." method="_on_button_options_pressed"]
+[connection signal="pressed" from="menu_Inicio/button_Container/button_exit" to="." method="_on_button_exit_pressed"]
+[connection signal="pressed" from="menu_Options/exit_Options/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="menu_Options/exit_Options/exit" to="menu_Options" method="_on_exit_pressed"]
+[connection signal="value_changed" from="menu_Options/container_Options/music_Volume" to="menu_Options" method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="menu_Options/container_Options/sfx_Volume" to="menu_Options" method="_on_sfx_volume_value_changed"]
+[connection signal="toggled" from="menu_Options/container_Options/checkbox_Fullscreen" to="menu_Options" method="_on_checkbox_fullscreen_toggled"]
+[connection signal="finished" from="Music_menu" to="." method="_on_music_menu_finished"]

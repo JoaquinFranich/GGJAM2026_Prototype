@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cfsx7427ljp0p"]
+
+[ext_resource type="Script" uid="uid://yxuaks03atg1" path="res://Scripts/scene_ui_config.gd" id="1_sk7cr"]
+[ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="3_iddmx"]
+[ext_resource type="Texture2D" uid="uid://io5k8uwmjwvs" path="res://Assets/Images/Scene D/ESCENA_D4_PUZZLE_CANDADO_PLANO 1_CERRADO.jpg" id="3_sk7cr"]
+
+[node name="TestNodeD4" type="Node2D" unique_id=143139298]
+script = ExtResource("1_sk7cr")
+focus_item_position = Vector2(1200, 660)
+focus_item_scale = Vector2(0.66, 0.66)
+focus_item_target_scene = "res://Scenes/Sub Scenes/test_node_C5.tscn"
+scene_entry_text = Array[String](["El punto de máxima vibración: una alcantarilla con un candado oxidado.", "¿Qué guardan aquí que requiere tanto misterio?"])
+visible_direction_buttons = Array[String](["up", "down"])
+button_up_target_scene = "res://Scenes/Main Scenes/test_node_E.tscn"
+button_down_target_scene = "res://Scenes/Sub Scenes/test_node_D2.tscn"
+mask_clue_position = Vector2(900, 825)
+mask_clue_scale = Vector2(0.35, 0.35)
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1788820202]
+show_behind_parent = true
+texture = ExtResource("3_sk7cr")
+centered = false
+
+[node name="UI" parent="." unique_id=2021790239 instance=ExtResource("3_iddmx")]
+layer = 6
+visible = false

@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://bnsr5545w24xj"]
+
+[ext_resource type="Texture2D" uid="uid://bom7s5h56d5x" path="res://Assets/Images/Menu/menu_fondo.png" id="1_dwk61"]
+[ext_resource type="Script" uid="uid://bsrrrc2kjmdef" path="res://Scripts/Menu/menu_options.gd" id="2_wsrt0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_23t3j"]
+texture = ExtResource("1_dwk61")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aqwrv"]
+bg_color = Color(18.892157, 0, 0, 1)
+corner_radius_top_right = 15
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g8i7c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_23t3j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ph6h"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_aqwrv"]
+color = Color(1, 1, 1, 1)
+thickness = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kt2nm"]
+bg_color = Color(0.16794264, 0.61649424, 0.99999994, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0mag"]
+bg_color = Color(0, 0.3675467, 0.63751465, 1)
+
+[node name="menu_Options" type="Panel" unique_id=940799158]
+anchors_preset = -1
+anchor_left = 0.3420139
+anchor_top = 0.10339506
+anchor_right = 0.6970486
+anchor_bottom = 0.9074074
+theme_override_styles/panel = SubResource("StyleBoxTexture_23t3j")
+script = ExtResource("2_wsrt0")
+metadata/_edit_use_anchors_ = true
+
+[node name="title_Options" type="Label" parent="." unique_id=1249116664]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.17913562
+anchor_top = 0.117053494
+anchor_right = 0.8208644
+anchor_bottom = 0.20787086
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Menu de opciones"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="exit_Options" type="Panel" parent="." unique_id=1724922949]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.89659977
+anchor_top = 0.0060544903
+anchor_right = 0.98407054
+anchor_bottom = 0.096871845
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_aqwrv")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="exit" type="Button" parent="exit_Options" unique_id=618685726]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.641934, 0.64193404, 0.64193386, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g8i7c")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_23t3j")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8ph6h")
+text = "X"
+
+[node name="container_Options" type="VBoxContainer" parent="." unique_id=1764873145]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.099648125
+anchor_top = 0.43138245
+anchor_right = 0.9003519
+anchor_bottom = 0.5686176
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="container_Options" unique_id=689512812]
+layout_mode = 2
+
+[node name="music-Text" type="Label" parent="container_Options/HBoxContainer" unique_id=1294569111]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="music_value" type="Label" parent="container_Options/HBoxContainer" unique_id=744770516]
+layout_mode = 2
+text = "100"
+
+[node name="music_Volume" type="HSlider" parent="container_Options" unique_id=669032801]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_aqwrv")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kt2nm")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_w0mag")
+min_value = -50.0
+max_value = 0.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="container_Options" unique_id=1623643846]
+layout_mode = 2
+
+[node name="sfx_Text" type="Label" parent="container_Options/HBoxContainer2" unique_id=1198160178]
+layout_mode = 2
+text = "SFX Volume"
+
+[node name="sfx_value" type="Label" parent="container_Options/HBoxContainer2" unique_id=1690192761]
+layout_mode = 2
+text = "100"
+
+[node name="sfx_Volume" type="HSlider" parent="container_Options" unique_id=188658996]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_aqwrv")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kt2nm")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_w0mag")
+min_value = -50.0
+max_value = 0.0
+metadata/_edit_use_anchors_ = true
+
+[node name="checkbox_Fullscreen" type="CheckBox" parent="container_Options" unique_id=1754473807]
+layout_mode = 2
+text = "Fullscreen
+"
+
+[connection signal="pressed" from="exit_Options/exit" to="." method="_on_exit_pressed"]
+[connection signal="value_changed" from="container_Options/music_Volume" to="." method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="container_Options/sfx_Volume" to="." method="_on_sfx_volume_value_changed"]
+[connection signal="toggled" from="container_Options/checkbox_Fullscreen" to="." method="_on_checkbox_fullscreen_toggled"]

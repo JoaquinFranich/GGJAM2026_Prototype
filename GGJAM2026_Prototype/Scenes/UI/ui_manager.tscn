@@ -1,0 +1,273 @@
+[gd_scene format=3 uid="uid://ohkq2yimyfak"]
+
+[ext_resource type="Script" uid="uid://dxjx1v8suhs8f" path="res://Scripts/ui_manager.gd" id="1_ui_mgr"]
+[ext_resource type="Texture2D" uid="uid://bb6p0ous5qhfi" path="res://Assets/Images/UI/FLECHA_IZQUIERDA.png" id="2_left"]
+[ext_resource type="Texture2D" uid="uid://d7b117old0t7" path="res://Assets/Images/UI/FLECHA_DERECHA.png" id="3_right"]
+[ext_resource type="Texture2D" uid="uid://dtt6psnd7jxci" path="res://Assets/Images/UI/FLECHA_ARRIBA.png" id="4_up"]
+[ext_resource type="Texture2D" uid="uid://dj1bx6q70m7l5" path="res://Assets/Images/UI/FLECHA_ABAJO.png" id="5_down"]
+[ext_resource type="Script" uid="uid://bt5qb6fw70ct5" path="res://Scripts/direction_button_left.gd" id="6_btn_left"]
+[ext_resource type="Script" uid="uid://peat3akbnfrf" path="res://Scripts/direction_button_right.gd" id="7_btn_right"]
+[ext_resource type="Script" uid="uid://d3fj3c8g5xnr5" path="res://Scripts/direction_button_up.gd" id="8_btn_up"]
+[ext_resource type="Script" uid="uid://drq08otxijrjj" path="res://Scripts/direction_button_down.gd" id="9_btn_down"]
+[ext_resource type="Texture2D" uid="uid://c2hncm32q0ao0" path="res://Assets/Images/UI/MASCARA_UI.png" id="10_4jujk"]
+[ext_resource type="Texture2D" uid="uid://bc4rw67nnoujl" path="res://Assets/Images/Clues/FLECHA_PISTA_PARTICULA.png" id="11_2fful"]
+[ext_resource type="Texture2D" uid="uid://b4igw8iyfsa4f" path="res://Assets/Images/UI/menu_boton_small.png" id="12_1ex63"]
+[ext_resource type="Texture2D" uid="uid://dnhup8ivq4b2v" path="res://Assets/Images/Items/interfaz_inventario.png" id="12_81skb"]
+[ext_resource type="PackedScene" uid="uid://bl58fjdjrkeor" path="res://Scenes/UI/Components/Slot.tscn" id="12_slot"]
+[ext_resource type="AudioStream" uid="uid://gpr1ptk18uru" path="res://Assets/Audio/inventario abre.wav" id="15_8rjbk"]
+[ext_resource type="AudioStream" uid="uid://d2erkcvpaol4u" path="res://Assets/Audio/inventario cierra.wav" id="16_lqd3k"]
+
+[node name="UI_manager" type="CanvasLayer" unique_id=154810077]
+layer = 5
+script = ExtResource("1_ui_mgr")
+
+[node name="DirectionButtons" type="Control" parent="." unique_id=1125233856]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ButtonLeft" type="Button" parent="DirectionButtons" unique_id=284970407]
+visible = false
+layout_mode = 0
+offset_left = 54.0
+offset_top = 540.0
+offset_right = 147.0
+offset_bottom = 624.0
+icon = ExtResource("2_left")
+flat = true
+script = ExtResource("6_btn_left")
+
+[node name="ButtonRight" type="Button" parent="DirectionButtons" unique_id=1471660246]
+visible = false
+layout_mode = 0
+offset_left = 1777.0
+offset_top = 540.0
+offset_right = 1870.0
+offset_bottom = 624.0
+icon = ExtResource("3_right")
+flat = true
+script = ExtResource("7_btn_right")
+
+[node name="ButtonUp" type="Button" parent="DirectionButtons" unique_id=1527938544]
+visible = false
+layout_mode = 0
+offset_left = 913.0
+offset_top = 62.0
+offset_right = 1010.0
+offset_bottom = 146.0
+icon = ExtResource("4_up")
+flat = true
+script = ExtResource("8_btn_up")
+
+[node name="ButtonDown" type="Button" parent="DirectionButtons" unique_id=2051046454]
+visible = false
+layout_mode = 0
+offset_left = 913.0
+offset_top = 953.0
+offset_right = 1010.0
+offset_bottom = 1037.0
+icon = ExtResource("5_down")
+flat = true
+script = ExtResource("9_btn_down")
+
+[node name="MaskButton" type="Button" parent="." unique_id=1925877171]
+offset_left = 320.0
+offset_top = 822.0
+offset_right = 472.0
+offset_bottom = 1018.0
+focus_mode = 0
+icon = ExtResource("10_4jujk")
+flat = true
+
+[node name="MaskOverlay" type="Control" parent="." unique_id=1905574071]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorFilter" type="ColorRect" parent="MaskOverlay" unique_id=547328455]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0, 0, 0.223529)
+
+[node name="ArrowParticles" type="CPUParticles2D" parent="MaskOverlay" unique_id=454477179]
+position = Vector2(1975, 327)
+scale = Vector2(1, 0.3600006)
+amount = 30
+texture = ExtResource("11_2fful")
+lifetime = 10.0
+randomness = 0.3
+emission_shape = 3
+emission_rect_extents = Vector2(10, 540)
+direction = Vector2(-1, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 400.0
+angle_min = 180.0
+angle_max = 180.0
+scale_amount_min = 0.5
+scale_amount_max = 1.5
+
+[node name="ClueDisplay" type="TextureRect" parent="MaskOverlay" unique_id=522578463]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.46
+anchor_top = 0.72800004
+anchor_right = 0.46
+anchor_bottom = 0.72800004
+offset_left = -188.20001
+offset_top = -184.24005
+offset_right = 188.79999
+offset_bottom = 184.75995
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FocusItemContainer" type="Node2D" parent="." unique_id=2092264393]
+
+[node name="CharacterPortrait" type="TextureRect" parent="." unique_id=2123530789]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -278.0
+offset_right = 317.0395
+offset_bottom = -20.0
+grow_vertical = 0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="InventoryButton" type="Button" parent="." unique_id=1066821880]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 238.0
+offset_top = -123.0
+offset_right = 338.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+icon = ExtResource("12_1ex63")
+
+[node name="InventoryPanel" type="Control" parent="." unique_id=2141740118]
+visible = false
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -294.0
+offset_top = 10.0
+offset_right = -53.0
+offset_bottom = 522.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Background" type="TextureRect" parent="InventoryPanel" unique_id=582143536]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.47717845
+anchor_top = -0.03125
+anchor_right = 1.3297125
+anchor_bottom = 1.0146484
+offset_right = 191.08395
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.67999756, 1)
+mouse_filter = 2
+texture = ExtResource("12_81skb")
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="InventoryPanel" unique_id=2093554189]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.17012449
+anchor_top = 0.078125
+anchor_right = 0.58506227
+anchor_bottom = 0.13671875
+grow_horizontal = 2
+text = "Inventario"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemsContainer" type="GridContainer" parent="InventoryPanel" unique_id=1753887706]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.087136894
+anchor_top = 0.16015619
+anchor_right = 0.84232366
+anchor_bottom = 0.83593744
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 4
+columns = 2
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="Slot1" parent="InventoryPanel/ItemsContainer" unique_id=169222892 instance=ExtResource("12_slot")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot2" parent="InventoryPanel/ItemsContainer" unique_id=1603502771 instance=ExtResource("12_slot")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot3" parent="InventoryPanel/ItemsContainer" unique_id=1139391086 instance=ExtResource("12_slot")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot4" parent="InventoryPanel/ItemsContainer" unique_id=553898821 instance=ExtResource("12_slot")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot5" parent="InventoryPanel/ItemsContainer" unique_id=1927560622 instance=ExtResource("12_slot")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot6" parent="InventoryPanel/ItemsContainer" unique_id=36564495 instance=ExtResource("12_slot")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="abrir" type="AudioStreamPlayer" parent="." unique_id=1837462097]
+stream = ExtResource("15_8rjbk")
+
+[node name="cerrar" type="AudioStreamPlayer" parent="." unique_id=1623089367]
+stream = ExtResource("16_lqd3k")
+
+[connection signal="mouse_exited" from="DirectionButtons/ButtonLeft" to="DirectionButtons/ButtonLeft" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="DirectionButtons/ButtonRight" to="DirectionButtons/ButtonRight" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DirectionButtons/ButtonRight" to="DirectionButtons/ButtonRight" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="DirectionButtons/ButtonUp" to="DirectionButtons/ButtonUp" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DirectionButtons/ButtonUp" to="DirectionButtons/ButtonUp" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="DirectionButtons/ButtonDown" to="DirectionButtons/ButtonDown" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DirectionButtons/ButtonDown" to="DirectionButtons/ButtonDown" method="_on_mouse_exited"]

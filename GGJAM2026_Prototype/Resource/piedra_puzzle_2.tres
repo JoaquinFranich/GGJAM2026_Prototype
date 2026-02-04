@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://dneimewbskmw3"]
+
+[ext_resource type="Script" uid="uid://beytkw4s85k20" path="res://Scripts/Inventory/InventoryItem.gd" id="1_tm1rg"]
+[ext_resource type="Texture2D" uid="uid://bs616o6noh8t5" path="res://Assets/Images/Items/objeto_esc_mineral3.png" id="2_wxqof"]
+
+[resource]
+script = ExtResource("1_tm1rg")
+name = "piedra_puzzle_2"
+texture = ExtResource("2_wxqof")
+metadata/_custom_type_script = "uid://beytkw4s85k20"
