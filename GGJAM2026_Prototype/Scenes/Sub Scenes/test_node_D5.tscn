@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://6537tf15pxwn"]
 
-[ext_resource type="Script" uid="uid://yxuaks03atg1" path="res://Scripts/scene_ui_config.gd" id="1_mumra"]
+[ext_resource type="Script" path="res://Scripts/Puzzles/puzzle_D5.gd" id="1_puzzle_d5"]
 [ext_resource type="Texture2D" uid="uid://c3ka57tsslr3s" path="res://Assets/Images/Scene D/ESCENA_D5_PUZZLE_CANDADO_PLANO_2_CERRADO.jpg" id="2_ea1f5"]
 [ext_resource type="Texture2D" uid="uid://bd4ri2owdoh1r" path="res://Assets/Images/Clues/PISTA_D_PALOMA.png" id="2_mumra"]
 [ext_resource type="Texture2D" uid="uid://df1fykvvokakk" path="res://Assets/Images/Scene D/ESCENARIO_D8_PUZZLE_CANDADO_PLANO 2_ABIERTO.jpg" id="3_c6eh0"]
@@ -13,7 +13,7 @@
 size = Vector2(425, 224)
 
 [node name="TestNodeD5" type="Node2D" unique_id=100685621]
-script = ExtResource("1_mumra")
+script = ExtResource("1_puzzle_d5")
 focus_item_position = Vector2(910, 1100)
 focus_item_scale = Vector2(0.33, 0.33)
 focus_item_target_scene = "res://Scenes/Sub Scenes/test_node_D6.tscn"

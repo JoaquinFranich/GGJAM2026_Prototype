@@ -20,7 +20,8 @@ func _process(delta: float) -> void:
 
 
 func _on_music_volume_value_changed(value: float) -> void:
-	audio_stream_player.play()
+	# audio_stream_player.play()
+	AudioManager.play_sfx("ui_hover")
 	var bus_Music_Index = AudioServer.get_bus_index("Music")
 	var porcentaje = int(((value + 50.0) / 50.0) * 100.0)
 	AudioServer.set_bus_volume_db(bus_Music_Index, value)
@@ -30,17 +31,19 @@ func _on_music_volume_value_changed(value: float) -> void:
 
 
 func _on_sfx_volume_value_changed(value: float) -> void:
-	audio_stream_player.play()
+	# audio_stream_player.play()
+	AudioManager.play_sfx("ui_hover")
 	var bus_Music_Index = AudioServer.get_bus_index("SFX")
 	var porcentaje = int(((value + 50.0) / 50.0) * 100.0)
 	AudioServer.set_bus_volume_db(bus_Music_Index, value)
 	Settings.sfx_Volume = value
-	sfx_value.text =str(int(porcentaje))
+	sfx_value.text = str(int(porcentaje))
 	pass # Replace with function body.
 
 
 func _on_checkbox_fullscreen_toggled(toggled_on: bool) -> void:
-	audio_stream_player.play()
+	# audio_stream_player.play()
+	AudioManager.play_sfx("ui_hover")
 	if toggled_on == true:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		Settings.is_Fullscreen = toggled_on
@@ -51,6 +54,7 @@ func _on_checkbox_fullscreen_toggled(toggled_on: bool) -> void:
 
 
 func _on_exit_pressed() -> void:
-	audio_stream_player.play()
+	# audio_stream_player.play()
+	AudioManager.play_sfx("ui_hover")
 	menu_options.visible = false
 	pass # Replace with function body.

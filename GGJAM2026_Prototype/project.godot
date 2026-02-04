@@ -26,6 +26,7 @@ DialogueManager="*res://Scripts/dialogue_manager.gd"
 UI_manager="*res://Scenes/UI/ui_manager.tscn"
 PuzzleManager="*uid://b2mpqe2t1a3p2"
 Settings="*uid://br70jtx5qvkpn"
+AudioManager="*res://Scripts/audio_manager.gd"
 
 [display]
 

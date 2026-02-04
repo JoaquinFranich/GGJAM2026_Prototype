@@ -2,8 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://bjn218bvowegl" path="res://Assets/Images/Menu/PANTALLA DE INICIO.jpg" id="1_bxvnp"]
 [ext_resource type="Script" uid="uid://c6fxlddpdtms6" path="res://Scripts/Menu/menu_inicio.gd" id="1_rctyp"]
-[ext_resource type="Texture2D" uid="uid://d0f423ebyu5kq" path="res://Assets/Images/Menu/titulo1.png" id="2_a8wve"]
-[ext_resource type="Texture2D" uid="uid://bj4g2j7blpoo3" path="res://Assets/Images/Menu/titulo2.png" id="3_c60ft"]
 [ext_resource type="Texture2D" uid="uid://b3061oxauusai" path="res://Assets/Images/Menu/logo_vertical_color_light.png" id="5_8ml8r"]
 [ext_resource type="Texture2D" uid="uid://wxaw688sm4lc" path="res://Assets/Images/Menu/logo 2.png" id="6_des1n"]
 [ext_resource type="Texture2D" uid="uid://bom7s5h56d5x" path="res://Assets/Images/Menu/menu_fondo.png" id="7_01goe"]
@@ -15,12 +13,6 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6kd3e"]
 texture = ExtResource("1_bxvnp")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rfqti"]
-texture = ExtResource("2_a8wve")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vjdpo"]
-texture = ExtResource("3_c60ft")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6swd7"]
 
@@ -85,25 +77,18 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.18489583
 anchor_top = 0.09259259
-anchor_right = 0.6710069
-anchor_bottom = 0.38271606
+anchor_right = 0.7505208
+anchor_bottom = 0.75648147
 offset_right = 140.0
 offset_bottom = -38.0
 grow_horizontal = 2
 theme_override_constants/separation = 10
 metadata/_edit_use_anchors_ = true
 
-[node name="title1" type="Panel" parent="menu_Inicio/title_Container" unique_id=1689770655]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_rfqti")
-
-[node name="title2" type="Panel" parent="menu_Inicio/title_Container" unique_id=580728243]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_vjdpo")
+[node name="LogoJuegoXibi" type="Sprite2D" parent="menu_Inicio/title_Container" unique_id=711059883]
+position = Vector2(577, 380)
+scale = Vector2(0.5623264, 0.5623264)
+texture = ExtResource("12_8ml8r")
 
 [node name="button_Container" type="VBoxContainer" parent="menu_Inicio" unique_id=2065700392]
 clip_contents = true
@@ -319,11 +304,6 @@ bus = &"SFX"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1806095315]
 stream = ExtResource("11_7omxj")
 bus = &"SFX"
-
-[node name="LogoJuegoXibi" type="Sprite2D" parent="." unique_id=711059883]
-position = Vector2(924, 438)
-scale = Vector2(0.5623264, 0.5623264)
-texture = ExtResource("12_8ml8r")
 
 [connection signal="pressed" from="menu_Inicio/button_Container/button_play" to="." method="_on_button_play_pressed"]
 [connection signal="pressed" from="menu_Inicio/button_Container/button_options" to="." method="_on_button_options_pressed"]

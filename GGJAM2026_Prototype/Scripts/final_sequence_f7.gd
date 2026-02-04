@@ -15,6 +15,10 @@ func _ready():
 	focus_item_position = Vector2.ZERO
 	super._ready()
 	
+	# Cambiar retrato a policía asustado
+	if UI_manager and UI_manager._character_portrait:
+		UI_manager._character_portrait.texture = load("res://Assets/Images/Personaje/policia_asustado.png")
+	
 	# Reproducir audio de entrada tras el fade
 	_play_plot_twist_sound()
 	

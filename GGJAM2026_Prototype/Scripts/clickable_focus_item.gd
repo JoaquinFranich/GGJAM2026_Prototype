@@ -46,11 +46,13 @@ func _on_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 				
 				# 2. Si hay destino, ir allí DIRECTAMENTE
 				if target_scene != "" and ResourceLoader.exists(target_scene):
+					AudioManager.play_sfx("pasos", 1.0, 0.8)
 					SceneManager.change_scene(target_scene)
 					# Opcional: emitir señal local si es necesario
 				
 				# 2b. Si hay diálogo, mostrarlo
 				elif dialogue_data != null:
+					# Si es solo diálogo, quizás un sonido de interacción leve o nada
 					if dialogue_data is Array:
 						DialogueManager.show_dialogue(dialogue_data)
 					elif dialogue_data is String and dialogue_data != "":
@@ -58,6 +60,7 @@ func _on_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 				
 				# 3. Si NO hay destino, usar comportamiento por defecto
 				else:
+					AudioManager.play_sfx("pasos", 1.0, 0.8)
 					SceneManager.on_focusitem_clicked()
 			else:
 				# Al soltar (pressed = false), volver a mano

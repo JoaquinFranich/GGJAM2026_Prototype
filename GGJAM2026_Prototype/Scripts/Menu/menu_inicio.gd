@@ -15,7 +15,9 @@ func _ready() -> void:
 	DialogueManager.activo = false
 	UI_manager.activo = false
 	UI_manager.visible = false
-	music_menu.play()
+	# music_menu.play() # Reemplazado por AudioManager
+	AudioManager.play_music("musica_menu")
+	
 	color_rect.visible = true
 	color_rect.modulate.a = 1.5
 	fade_out()
@@ -43,7 +45,9 @@ func _process(delta: float) -> void:
 
 
 func _on_button_play_pressed() -> void:
-	$SFX_button.play()
+	# $SFX_button.play()
+	AudioManager.play_sfx("ui_start")
+	AudioManager.stop_music() # Detener música al iniciar
 	await get_tree().create_timer(0.5).timeout
 	color_rect.visible = true
 	color_rect.modulate.a = 0.0
@@ -58,17 +62,19 @@ func _on_button_play_pressed() -> void:
 
 
 func _on_button_options_pressed() -> void:
-	$SFX_button.play()
+	# $SFX_button.play()
+	AudioManager.play_sfx("ui_hover")
 	menu_options.visible = true
 	pass # Replace with function body.
 
 
 func _on_button_exit_pressed() -> void:
-	$SFX_button.play()
+	# $SFX_button.play()
+	AudioManager.play_sfx("ui_hover")
 	get_tree().quit()
 	pass # Replace with function body.
 
 
 func _on_music_menu_finished() -> void:
-	music_menu.play()
+	# music_menu.play() 
 	pass # Replace with function body.

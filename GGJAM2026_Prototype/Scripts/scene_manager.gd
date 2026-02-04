@@ -148,6 +148,8 @@ func change_scene(scene_path: String):
 	Input.set_custom_mouse_cursor(null)
 	current_scene = scene_path
 	
+	_check_and_play_ambience(scene_path)
+	
 	# Esperar un frame para que la nueva escena se cargue
 	await get_tree().process_frame
 
@@ -298,6 +300,7 @@ func has_item(item_id: String) -> bool:
 func add_item(item_id: String) -> void:
 	if not has_item(item_id):
 		inventory.append(item_id)
+		AudioManager.play_sfx("item_found")
 		print("SceneManager: Ítem agregado al inventario: " + item_id)
 
 ## Remueve un ítem del inventario
@@ -351,3 +354,15 @@ func set_fade_color(color: Color):
 	fade_color = color
 	if fade_overlay:
 		fade_overlay.color = color
+
+func _check_and_play_ambience(scene_path: String):
+	# Excluir escenas F4 en adelante y Hands
+	if "test_node_F4" in scene_path or "test_node_F5" in scene_path or "test_node_F6" in scene_path or "test_node_F7" in scene_path or "test_node_F8" in scene_path or "hands" in scene_path:
+		# Si estamos en estas escenas, quizás debamos detener la música o cambiarla.
+		# Por ahora, simplemente paramos la de ambiente día si está sonando.
+		# Opcional: fade out
+		# AudioManager.stop_music(2.0)
+		pass
+	elif "test_node_00" in scene_path or "test_node_A" in scene_path or "test_node_B" in scene_path or "test_node_C" in scene_path or "test_node_D" in scene_path or "test_node_E" in scene_path or "test_node_F" in scene_path:
+		# Nota: "test_node_F" match F1, F2, F3. F4+ ya fueron excluidos arriba.
+		AudioManager.play_music("amb_dia", 2.0)

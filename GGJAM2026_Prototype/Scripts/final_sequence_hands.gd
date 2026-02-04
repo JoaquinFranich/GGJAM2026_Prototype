@@ -13,6 +13,13 @@ func configure_ui():
 		UI_manager.hide_all_direction_buttons()
 		UI_manager.set_current_clue(null) # Ocultar botón máscara
 		UI_manager.clear_all_focus_items() # Asegurar que no haya focus items
+		
+		# Cambiar retrato a policía asustado
+		if UI_manager._character_portrait:
+			UI_manager._character_portrait.texture = load("res://Assets/Images/Personaje/policia_asustado.png")
+	
+	# Restaurar la llamada para mostrar diálogo, ya que sobrescribimos configure_ui
+	_check_and_show_scene_dialogue()
 
 func _ready():
 	super._ready()

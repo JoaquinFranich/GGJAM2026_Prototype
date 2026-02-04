@@ -7,7 +7,7 @@
 
 [node name="TestNodeF7" type="Node2D" unique_id=669889768]
 script = ExtResource("1_new_script")
-scene_entry_text = Array[String](["No puedo soltar el mango.", "Calor húmedo inunda mi mano.", "Que...", "Que he hecho???!!"])
+scene_entry_text = Array[String](["Que he hecho???!!", "QUE SIGNIFICA ESTO??!!", "QUE ESTA PASANDO??!!"])
 mask_clue_position = Vector2(900, 825)
 mask_clue_scale = Vector2(0.35, 0.35)
 

@@ -30,6 +30,7 @@ var _mask_overlay: Control
 var _arrow_particles: CPUParticles2D
 var _clue_display: TextureRect
 var _mask_timer: Timer
+var _current_mask_sfx: AudioStreamPlayer
 
 # Referencias para Retrato de Personaje
 var _character_portrait: TextureRect
@@ -130,7 +131,7 @@ func _initialize_references():
 	if not _mask_timer:
 		_mask_timer = Timer.new()
 		_mask_timer.one_shot = true
-		_mask_timer.wait_time = 3.0 # Duración de la máscara en segundos
+		_mask_timer.wait_time = 8.0 # Duración de la máscara en segundos (actualizado a 8s)
 		_mask_timer.timeout.connect(_on_mask_timer_timeout)
 		add_child(_mask_timer)
 	
@@ -296,6 +297,7 @@ func _on_focus_item_with_target_clicked(_viewport: Node, event: InputEvent, _sha
 		if mb.pressed and mb.button_index == MOUSE_BUTTON_LEFT:
 			var target_scene = focus_item.get_meta("target_scene", "")
 			if target_scene != "" and ResourceLoader.exists(target_scene):
+				AudioManager.play_sfx("pasos", 1.0, 0.8)
 				SceneManager.change_scene(target_scene)
 				focus_item_clicked.emit()
 			else:
@@ -345,33 +347,44 @@ func _get_direction_button(direction: String) -> Button:
 func _on_button_left_pressed():
 	# Verificar si el botón tiene configuración personalizada
 	if _button_left and "target_scene" in _button_left and _button_left.target_scene != "":
+		AudioManager.play_sfx("pasos", 1.0, 0.8)
 		SceneManager.change_scene(_button_left.target_scene)
 	else:
 		# Botón izquierdo: Volver a escena anterior (navegación entre subescenas)
+		AudioManager.play_sfx("pasos", 1.0, 0.8)
 		SceneManager.on_back_clicked()
 	direction_button_clicked.emit("left")
 
 func _on_button_right_pressed():
 	# Verificar si el botón tiene configuración personalizada
 	if _button_right and "target_scene" in _button_right and _button_right.target_scene != "":
+		AudioManager.play_sfx("pasos", 1.0, 0.8)
 		SceneManager.change_scene(_button_right.target_scene)
 	else:
 		# Botón derecho: Avanzar a siguiente subescena
 		# Usa la misma lógica que FocusItem
 		SceneManager.on_focusitem_clicked()
+		# Nota: on_focusitem_clicked puede que no cambie de escena inmediatamente si es un zoom, 
+		# pero "pasos" suele implicar movimiento. Si es solo zoom, quizá otro sonido?
+		# Por ahora usamos pasos como feedback genérico de navegación.
+		AudioManager.play_sfx("pasos", 1.0, 0.8)
 	direction_button_clicked.emit("right")
 
 func _on_button_up_pressed():
 	# Botón arriba: El botón ya maneja su propia lógica en direction_button_up.gd
 	# Solo emitimos la señal para notificar
+	# AÑADIDO: Sonido de pasos aquí también por consistencia si navega
+	AudioManager.play_sfx("pasos", 1.0, 0.8)
 	direction_button_clicked.emit("up")
 
 func _on_button_down_pressed():
 	# Verificar si el botón tiene configuración personalizada
 	if _button_down and "target_scene" in _button_down and _button_down.target_scene != "":
+		AudioManager.play_sfx("pasos", 1.0, 0.8)
 		SceneManager.change_scene(_button_down.target_scene)
 	else:
 		# Botón abajo: Navegar a escena principal anterior (C --> B)
+		AudioManager.play_sfx("pasos", 1.0, 0.8)
 		var main_scenes = SceneManager.main_scenes
 		var current = SceneManager.current_scene
 		var current_idx = main_scenes.find(current)
@@ -414,6 +427,7 @@ func toggle_mask_mode():
 	if _mask_overlay:
 		# 1. Mostrar Overlay
 		_mask_overlay.visible = true
+		_current_mask_sfx = AudioManager.play_sfx("corrupcion")
 		
 		# 2. Gestionar Partículas (Solo en F1 y F2)
 		_update_arrow_particles_state()
@@ -449,6 +463,11 @@ func _update_arrow_particles_state():
 func hide_mask_overlay():
 	if _mask_overlay:
 		_mask_overlay.visible = false
+	
+	# Detener sonido de corrupción si sigue sonando
+	if _current_mask_sfx and _current_mask_sfx.playing:
+		_current_mask_sfx.stop()
+		_current_mask_sfx = null
 	
 	# Apagar partículas también
 	if _arrow_particles:
@@ -509,6 +528,7 @@ func register_item(item: InventoryItem) -> bool:
 	
 	_inventory_data.items.append(item)
 	update_inventory_slots()
+	AudioManager.play_sfx("item_found")
 	return true
 
 ## Actualiza la visualización de los slots
@@ -528,6 +548,10 @@ func update_inventory_slots():
 func toggle_inventory():
 	if _inventory_panel:
 		_inventory_panel.visible = not _inventory_panel.visible
+		if _inventory_panel.visible:
+			AudioManager.play_sfx("inv_open")
+		else:
+			AudioManager.play_sfx("inv_close")
 
 # =============================================================================
 # LÓGICA DE SELECCIÓN Y USO DE ITEMS (DRAG & DROP)
