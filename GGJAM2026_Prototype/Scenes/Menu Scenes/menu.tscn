@@ -61,15 +61,12 @@ script = ExtResource("1_rctyp")
 
 [node name="menu_Inicio" type="Panel" parent="." unique_id=98235813]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.004166667
-anchor_top = -0.03888889
-anchor_right = 0.99583334
-anchor_bottom = 0.9611111
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_6kd3e")
-metadata/_edit_use_anchors_ = true
 
 [node name="title_Container" type="HBoxContainer" parent="menu_Inicio" unique_id=1701797062]
 clip_contents = true
