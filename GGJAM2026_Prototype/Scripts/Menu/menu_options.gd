@@ -3,6 +3,7 @@ extends Panel
 @onready var menu_options: Panel = $"."
 @onready var music_value: Label = $container_Options/HBoxContainer/music_value
 @onready var sfx_value: Label = $container_Options/HBoxContainer2/sfx_value
+@onready var audio_stream_player: AudioStreamPlayer = $"../AudioStreamPlayer"
 
 const DEFAULT_BUS_LAYOUT = preload("uid://bn037rd0xnmvl")
 
@@ -19,7 +20,7 @@ func _process(delta: float) -> void:
 
 
 func _on_music_volume_value_changed(value: float) -> void:
-	$"../SFX_button".play()
+	audio_stream_player.play()
 	var bus_Music_Index = AudioServer.get_bus_index("Music")
 	var porcentaje = int(((value + 50.0) / 50.0) * 100.0)
 	AudioServer.set_bus_volume_db(bus_Music_Index, value)
@@ -29,7 +30,7 @@ func _on_music_volume_value_changed(value: float) -> void:
 
 
 func _on_sfx_volume_value_changed(value: float) -> void:
-	$"../SFX_button".play()
+	audio_stream_player.play()
 	var bus_Music_Index = AudioServer.get_bus_index("SFX")
 	var porcentaje = int(((value + 50.0) / 50.0) * 100.0)
 	AudioServer.set_bus_volume_db(bus_Music_Index, value)
@@ -39,7 +40,7 @@ func _on_sfx_volume_value_changed(value: float) -> void:
 
 
 func _on_checkbox_fullscreen_toggled(toggled_on: bool) -> void:
-	$"../SFX_button".play()
+	audio_stream_player.play()
 	if toggled_on == true:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		Settings.is_Fullscreen = toggled_on
@@ -50,6 +51,6 @@ func _on_checkbox_fullscreen_toggled(toggled_on: bool) -> void:
 
 
 func _on_exit_pressed() -> void:
-	$"../SFX_button".play()
+	audio_stream_player.play()
 	menu_options.visible = false
 	pass # Replace with function body.

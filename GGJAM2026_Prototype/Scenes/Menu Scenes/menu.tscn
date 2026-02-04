@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://coieqiapvgqd4" path="res://Assets/Audio/musica de menu de inicio.wav" id="8_7mkfr"]
 [ext_resource type="Script" uid="uid://bsrrrc2kjmdef" path="res://Scripts/Menu/menu_options.gd" id="8_8r5ys"]
 [ext_resource type="AudioStream" uid="uid://lyhycf4xt7o7" path="res://Assets/Audio/boton inicio.wav" id="10_8r5ys"]
+[ext_resource type="AudioStream" uid="uid://t50eh1e551tx" path="res://Assets/Audio/moverse entre opciones.wav" id="11_7omxj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6kd3e"]
 texture = ExtResource("1_bxvnp")
@@ -331,6 +332,10 @@ bus = &"Music"
 
 [node name="SFX_button" type="AudioStreamPlayer" parent="." unique_id=733677518]
 stream = ExtResource("10_8r5ys")
+bus = &"SFX"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1806095315]
+stream = ExtResource("11_7omxj")
 bus = &"SFX"
 
 [connection signal="pressed" from="menu_Inicio/button_Container/button_play" to="." method="_on_button_play_pressed"]

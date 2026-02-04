@@ -6,6 +6,7 @@ extends Control
 @onready var sfx_volume: HSlider = $menu_Options/container_Options/sfx_Volume
 @onready var checkbox_fullscreen: CheckBox = $menu_Options/container_Options/checkbox_Fullscreen
 @onready var ui: CanvasLayer = $".."
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 
 @onready var inventario: Inventory = preload("res://Resource/inventory.tres")

@@ -5,7 +5,8 @@ extends CanvasLayer
 
 @onready var inventory_button: Button = $InventoryButton
 @onready var character_portrait: TextureRect = $CharacterPortrait
-
+@onready var abrir: AudioStreamPlayer = $abrir
+@onready var cerrar: AudioStreamPlayer = $cerrar
 
 signal focus_item_clicked
 signal direction_button_clicked(direction: String)
