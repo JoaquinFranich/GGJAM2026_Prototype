@@ -91,8 +91,13 @@ func _check_if_completed():
 		print("Piedras colocadas")
 		_finish_puzzle()
 
+func fade_out():
+	var tween = get_tree().create_tween()
+	tween.tween_property($ColorRect, "modulate:a", 1.0, 1.0)
+
 func _finish_puzzle():
 	print("F3: ¡Puzzle completado! Avanzando a F4...")
 	# Esperar un poco para que el jugador vea la última piedra
-	await get_tree().create_timer(1.0).timeout
-	SceneManager.change_scene(next_scene)
+	var tween = get_tree().create_tween()
+	tween.tween_property($ColorRect, "modulate:a", 1.0, 2.0)
+	SceneManager.change_scene("res://Scenes/Sub Scenes/test_node_F4.tscn")
