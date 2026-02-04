@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://r2c2xvf45ui6" path="res://Scripts/Inventory/PickupObject.gd" id="3_cix7b"]
 [ext_resource type="Texture2D" uid="uid://c1qe1227ic417" path="res://Assets/Images/Objects/PALOMA_001.png" id="3_hmipk"]
 [ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="3_m4y1v"]
-[ext_resource type="Resource" uid="uid://d2f7awb7idwq5" path="res://Resource/Llave.tres" id="4_fk4xl"]
+[ext_resource type="Resource" uid="uid://d2f7awb7idwq5" path="res://Resource/llave.tres" id="4_fk4xl"]
 [ext_resource type="Texture2D" uid="uid://cmbyhl6kog5ef" path="res://Assets/Images/Items/objeto_esc_llave.png" id="5_cix7b"]
 [ext_resource type="Script" uid="uid://udt3cuknigo0" path="res://Scripts/Inventory/PlaceableZone.gd" id="8_6wg7w"]
 
@@ -15,8 +15,9 @@ size = Vector2(100, 100)
 [sub_resource type="CircleShape2D" id="CircleShape2D_5tsd2"]
 radius = 113.110565
 
-[node name="TestNodeA1" type="Node2D" unique_id=1924624491]
+[node name="TestNodeD3" type="Node2D" unique_id=1924624491]
 script = ExtResource("1_7f8qy")
+scene_entry_text = Array[String](["Un nido de palomas en la vigas del puente.", "Un destello metálico entre las plumas y la paja.", "¡Una llave! Pero el ave está anidando, es agresiva.", "Necesito distraerla, hacer que baje...", "Tal vez con un ofrecimiento de comida."])
 visible_direction_buttons = Array[String](["down"])
 button_down_target_scene = "res://Scenes/Sub Scenes/test_node_D2.tscn"
 mask_clue_position = Vector2(900, 825)

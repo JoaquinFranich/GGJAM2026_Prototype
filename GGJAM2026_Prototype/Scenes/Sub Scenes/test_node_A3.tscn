@@ -6,6 +6,7 @@
 
 [node name="TestNodeA3" type="Node2D" unique_id=758343481]
 script = ExtResource("2_ui_config")
+scene_entry_text = Array[String](["Un mensaje escrito en lo que espero que sea pintura roja, pero sé que no lo es.", "'NO SIGAS. ESPERA'.", "¿Es una trampa? ¿O alguien que sabe lo que viene trata de protegerme?"])
 visible_direction_buttons = Array[String](["left"])
 
 [node name="Background" type="Sprite2D" parent="." unique_id=133688717]

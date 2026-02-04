@@ -4,10 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://burcs7n6hvjii" path="res://Assets/Images/Scene F/ESCENA_F4_CLOACA_FINAL_NO_BARRAS.jpg" id="2_dhngl"]
 [ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="3_4yqfu"]
 
-[node name="TestNodeA1" type="Node2D" unique_id=1691780315]
+[node name="TestNodeF4" type="Node2D" unique_id=1691780315]
 script = ExtResource("1_dhngl")
 focus_item_position = Vector2(990, 535)
 focus_item_scale = Vector2(0.38, 0.38)
+scene_entry_text = Array[String](["Con un crujido de siglos, la reja cede.", "Un susurro de aire frío sale de la oscuridad. ", "El miedo me aconseja huir, pero la necesidad de saber, de cerrar este caso, es más fuerte.", "Entro."])
 mask_clue_position = Vector2(900, 825)
 mask_clue_scale = Vector2(0.35, 0.35)
 

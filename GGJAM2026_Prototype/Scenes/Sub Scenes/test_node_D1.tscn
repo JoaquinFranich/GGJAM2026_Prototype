@@ -6,8 +6,9 @@
 [ext_resource type="Resource" uid="uid://cs5rhlx013abx" path="res://Resource/pipas.tres" id="4_1c742"]
 [ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="5_1c742"]
 
-[node name="TestNodeA1" type="Node2D" unique_id=1567934849]
+[node name="TestNodeD1" type="Node2D" unique_id=1567934849]
 script = ExtResource("1_vef8d")
+scene_entry_text = Array[String](["Un detalle fuera de lugar: un paquete de semillas en el contenedor orgánico. ", "El reciclaje es lo mínimo que podemos hacer por la ciudad.", "Lo corrijo casi por reflejo.", "Quedan semillas. Podrían ser útiles. En esta noche, cualquier cosa es un recurso potencial."])
 visible_direction_buttons = Array[String](["left"])
 button_left_target_scene = "res://Scenes/Main Scenes/test_node_D.tscn"
 mask_clue_position = Vector2(900, 825)

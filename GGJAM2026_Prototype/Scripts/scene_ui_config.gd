@@ -28,19 +28,19 @@ extends Node2D
 ## Si pones una ruta, el FocusItem te llevará ahí obligatoriamente.
 @export var focus_item_target_scene: String = ""
 
-@export var scene_entry_text: String = ""
+@export var scene_entry_text: Array[String] = []
 
 ## 🎯 Configuración de múltiples FocusItems
 ## Cada elemento del array es un FocusItem con:
 ## - position: Vector2 (posición)
 ## - scale: Vector2 (tamaño, opcional)
 ## - target_scene: String (escena destino, opcional, "" = navegación automática)
-## - dialogue: String (texto a mostrar, opcional, si no hay target_scene)
+## - dialogue: String o Array[String] (texto a mostrar, opcional, si no hay target_scene)
 ## 
 ## EJEMPLO en código:
 ## focus_items = [
 ##   {"position": Vector2(100, 200), "scale": Vector2(1, 1), "target_scene": "res://path/to/scene1.tscn"},
-##   {"position": Vector2(500, 300), "dialogue": "Mira, una pista."}
+##   {"position": Vector2(500, 300), "dialogue": ["Mira, una pista.", "Es muy interesante."]}
 ## ]
 ##
 ## ⚠️ NOTA: Esta propiedad no se puede editar directamente en el Inspector de Godot.
@@ -91,7 +91,8 @@ extends Node2D
 
 func _ready():
 	# Esperar un frame para asegurar que UI_manager esté listo
-	await get_tree().process_frame
+	if is_inside_tree():
+		await get_tree().process_frame
 	if ui:
 		ui.visible = false
 	# Configurar la UI
@@ -125,11 +126,34 @@ func configure_ui():
 	# Si mask_clue_texture es null, set_current_clue ocultará el botón
 	UI_manager.set_current_clue(mask_clue_texture, mask_clue_position, mask_clue_scale)
 	
+	# Mostrar texto de contexto si corresponde
+	_check_and_show_scene_dialogue()
+
+## Lógica para mostrar diálogo de entrada con persistencia
+func _check_and_show_scene_dialogue():
 	# Mostrar texto de contexto si existe
-	if scene_entry_text != "":
+	if scene_entry_text.size() > 0:
+		# Verificar si ya se vio este diálogo
+		# CORRECCIÓN: Usar scene_file_path del propio nodo raíz, no del padre.
+		var current_scene_path = scene_file_path
+		
+		# Si la ruta está vacía (ej. probando escena suelta sin guardar), intentar usar nombre
+		if current_scene_path == "":
+			current_scene_path = name
+			
+		if current_scene_path != "" and SceneManager.has_seen_dialogue(current_scene_path):
+			return # Ya se vio, no mostrar nada
+		
+		# Marcar como visto
+		if current_scene_path != "":
+			SceneManager.mark_dialogue_seen(current_scene_path)
+			
 		# Pequeño delay para asegurar que el fade-in de la escena no oculte el diálogo
-		await get_tree().create_timer(0.5).timeout
-		DialogueManager.show_dialogue([scene_entry_text])
+		if is_inside_tree():
+			await get_tree().create_timer(0.5).timeout
+			DialogueManager.show_dialogue(scene_entry_text)
+		else:
+			pass
 
 func _configure_direction_button(direction: String, target_scene_path: String):
 	if target_scene_path != "":

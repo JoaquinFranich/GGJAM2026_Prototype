@@ -9,6 +9,7 @@
 script = ExtResource("2_ui_config")
 focus_item_position = Vector2(960, 320)
 focus_item_scale = Vector2(0.1924167, 0.16237502)
+scene_entry_text = Array[String](["El foco del olor está bajo el puente.", "Un bulto oscuro.", "Procedo con cautela.", "Protocolo: identificar antes de acercarse."])
 visible_direction_buttons = Array[String](["left"])
 
 [node name="Background" type="Sprite2D" parent="." unique_id=2009882021]

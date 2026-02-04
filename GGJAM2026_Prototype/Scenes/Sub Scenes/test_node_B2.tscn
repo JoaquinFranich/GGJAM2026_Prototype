@@ -8,10 +8,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hn2w7"]
 size = Vector2(130.66666, 66.33331)
 
-[node name="TestNodeA1" type="Node2D" unique_id=239917966]
+[node name="TestNodeB2" type="Node2D" unique_id=239917966]
 script = ExtResource("1_0q13t")
 focus_item_position = Vector2(438, 920)
 focus_item_scale = Vector2(0.6, 0.6)
+scene_entry_text = Array[String](["Un maletín de cuero antiguo, estilo centenario, pero en estado imposible para haber estado en el barro."])
 visible_direction_buttons = Array[String](["right"])
 button_right_target_scene = "res://Scenes/Sub Scenes/test_node_B1.tscn"
 

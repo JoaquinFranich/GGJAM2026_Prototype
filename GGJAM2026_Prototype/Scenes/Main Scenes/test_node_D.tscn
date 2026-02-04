@@ -4,10 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://dt2rqmkmwjqix" path="res://Assets/Images/Scene D/ESCENA_D0_TACHO_DE_BASURA.jpg" id="2_cm3ef"]
 [ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="3_1tdas"]
 
-[node name="TestNodeA" type="Node2D" unique_id=2101172013]
+[node name="TestNodeD" type="Node2D" unique_id=2101172013]
 script = ExtResource("1_cm3ef")
 focus_item_position = Vector2(445, 730)
 focus_item_scale = Vector2(0.25, 0.25)
+scene_entry_text = Array[String](["Sigo la vibración por el sendero."])
 visible_direction_buttons = Array[String](["right", "down"])
 button_down_target_scene = "res://Scenes/Sub Scenes/test_node_C1.tscn"
 button_right_target_scene = "res://Scenes/Sub Scenes/test_node_D2.tscn"

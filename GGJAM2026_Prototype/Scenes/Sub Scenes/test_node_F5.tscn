@@ -4,10 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://b6l5u2rpi7efx" path="res://Assets/Images/Scene F/ESCENA_F5_FINAL_HABITACION_MONOLITO2.jpg" id="2_v0ykb"]
 [ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="3_8l0vs"]
 
-[node name="TestNodeA1" type="Node2D" unique_id=952390868]
+[node name="TestNodeF5" type="Node2D" unique_id=952390868]
 script = ExtResource("1_v0ykb")
 focus_item_position = Vector2(953, 525)
 focus_item_scale = Vector2(0.25, 0.25)
+scene_entry_text = Array[String](["La alcantarilla desemboca en una cámara que no debería existir.", "echos altos, iluminación fría y antinatural. Y en el centro, un monolito de piedra negra con runas.", "Esto está más allá de cualquier investigación policial."])
 mask_clue_position = Vector2(900, 825)
 mask_clue_scale = Vector2(0.35, 0.35)
 

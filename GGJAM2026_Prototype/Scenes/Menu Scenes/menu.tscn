@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://c6fxlddpdtms6" path="res://Scripts/Menu/menu_inicio.gd" id="1_rctyp"]
 [ext_resource type="Texture2D" uid="uid://d0f423ebyu5kq" path="res://Assets/Images/Menu/titulo1.png" id="2_a8wve"]
 [ext_resource type="Texture2D" uid="uid://bj4g2j7blpoo3" path="res://Assets/Images/Menu/titulo2.png" id="3_c60ft"]
-[ext_resource type="Texture2D" uid="uid://djj2lt4s5yxyh" path="res://Assets/Images/Menu/godot image.png" id="4_vjdpo"]
-[ext_resource type="Texture2D" uid="uid://dvfeu6msqd5v1" path="res://Assets/Images/Menu/gamesquare logo.jpeg" id="5_rctyp"]
+[ext_resource type="Texture2D" uid="uid://b3061oxauusai" path="res://Assets/Images/Menu/logo_vertical_color_light.png" id="5_8ml8r"]
+[ext_resource type="Texture2D" uid="uid://wxaw688sm4lc" path="res://Assets/Images/Menu/logo 2.png" id="6_des1n"]
 [ext_resource type="Texture2D" uid="uid://bom7s5h56d5x" path="res://Assets/Images/Menu/menu_fondo.png" id="7_01goe"]
 [ext_resource type="AudioStream" uid="uid://coieqiapvgqd4" path="res://Assets/Audio/musica de menu de inicio.wav" id="8_7mkfr"]
 [ext_resource type="Script" uid="uid://bsrrrc2kjmdef" path="res://Scripts/Menu/menu_options.gd" id="8_8r5ys"]
@@ -28,23 +28,11 @@ texture = ExtResource("3_c60ft")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rfqti"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6swd7"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.021434633, 0.021434639, 0.021434609, 1)
-corner_radius_top_left = 25
-corner_radius_top_right = 25
-corner_radius_bottom_right = 25
-corner_radius_bottom_left = 25
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7646g"]
-texture = ExtResource("4_vjdpo")
+texture = ExtResource("5_8ml8r")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6swd7"]
-texture = ExtResource("5_rctyp")
+texture = ExtResource("6_des1n")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_23t3j"]
 texture = ExtResource("7_01goe")
@@ -81,9 +69,11 @@ script = ExtResource("1_rctyp")
 
 [node name="menu_Inicio" type="Panel" parent="." unique_id=98235813]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = -0.004166667
+anchor_top = -0.03888889
+anchor_right = 0.99583334
+anchor_bottom = 0.9611111
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_6kd3e")
@@ -119,10 +109,10 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_vjdpo")
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.037326388
-anchor_top = 0.6080247
-anchor_right = 0.30381945
-anchor_bottom = 0.99691355
+anchor_left = 0.4515625
+anchor_top = 0.75277776
+anchor_right = 0.5911385
+anchor_bottom = 0.91481483
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
@@ -172,10 +162,10 @@ text = "Salir del juego"
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.8854167
-anchor_top = 0.5324074
-anchor_right = 0.9722222
-anchor_bottom = 0.91820985
+anchor_left = 0.8421875
+anchor_top = 0.49814814
+anchor_right = 0.982118
+anchor_bottom = 0.9992285
 offset_top = 25.0
 grow_horizontal = 0
 grow_vertical = 0
@@ -184,21 +174,10 @@ theme_override_constants/separation = 30
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel" type="Panel" parent="menu_Inicio/logo_Container" unique_id=468334869]
-custom_minimum_size = Vector2(100, 120)
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_6swd7")
-
-[node name="godot_Logo" type="Panel" parent="menu_Inicio/logo_Container/Panel" unique_id=809365802]
+[node name="godot_Logo" type="Panel" parent="menu_Inicio/logo_Container" unique_id=809365802]
 clip_contents = true
 custom_minimum_size = Vector2(0, 120)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_7646g")
 metadata/_edit_use_anchors_ = true

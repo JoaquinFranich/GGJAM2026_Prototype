@@ -10,6 +10,9 @@ func configure_ui():
 	
 	# 2. Configurar zona interactiva (FocusItem invisible)
 	_setup_interaction_zone()
+	
+	# 3. Mostrar diálogo de contexto (si existe y no se ha visto)
+	_check_and_show_scene_dialogue()
 
 func _setup_interaction_zone():
 	# Creamos un botón invisible que cubra el monolito

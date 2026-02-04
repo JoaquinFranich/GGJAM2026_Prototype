@@ -47,8 +47,9 @@ size = Vector2(120, 160)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_generic"]
 size = Vector2(100, 100)
 
-[node name="TestNodeA1" type="Node2D" unique_id=868673908]
+[node name="TestNodeE1" type="Node2D" unique_id=868673908]
 script = ExtResource("1_p0tjr")
+scene_entry_text = Array[String](["Un grupo de piedras de río, pero cinco son notablemente distintas.", "Más pulidas, con una energía casi táctil.", "No son naturales de este lugar."])
 visible_direction_buttons = Array[String](["right"])
 button_right_target_scene = "res://Scenes/Main Scenes/test_node_E.tscn"
 mask_clue_position = Vector2(900, 825)

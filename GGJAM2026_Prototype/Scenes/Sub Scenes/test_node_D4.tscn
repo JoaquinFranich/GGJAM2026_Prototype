@@ -4,11 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="3_iddmx"]
 [ext_resource type="Texture2D" uid="uid://io5k8uwmjwvs" path="res://Assets/Images/Scene D/ESCENA_D4_PUZZLE_CANDADO_PLANO 1_CERRADO.jpg" id="3_sk7cr"]
 
-[node name="TestNodeA1" type="Node2D" unique_id=143139298]
+[node name="TestNodeD4" type="Node2D" unique_id=143139298]
 script = ExtResource("1_sk7cr")
 focus_item_position = Vector2(1200, 660)
 focus_item_scale = Vector2(0.66, 0.66)
 focus_item_target_scene = "res://Scenes/Sub Scenes/test_node_C5.tscn"
+scene_entry_text = Array[String](["El punto de máxima vibración: una alcantarilla con un candado oxidado.", "¿Qué guardan aquí que requiere tanto misterio?"])
 visible_direction_buttons = Array[String](["up", "down"])
 button_up_target_scene = "res://Scenes/Main Scenes/test_node_E.tscn"
 button_down_target_scene = "res://Scenes/Sub Scenes/test_node_D2.tscn"

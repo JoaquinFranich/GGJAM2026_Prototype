@@ -12,11 +12,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c6eh0"]
 size = Vector2(425, 224)
 
-[node name="TestNodeA1" type="Node2D" unique_id=100685621]
+[node name="TestNodeD5" type="Node2D" unique_id=100685621]
 script = ExtResource("1_mumra")
 focus_item_position = Vector2(910, 1100)
 focus_item_scale = Vector2(0.33, 0.33)
 focus_item_target_scene = "res://Scenes/Sub Scenes/test_node_D6.tscn"
+scene_entry_text = Array[String](["A través de la máscara, otro símbolo dorado marca la pared.", "La advertencia sangrienta resuena en mi cabeza, pero retroceder ahora sería negar la verdad.", "Un policía no hace eso."])
 visible_direction_buttons = Array[String](["right"])
 button_right_target_scene = "res://Scenes/Sub Scenes/test_node_D4.tscn"
 mask_clue_texture = ExtResource("2_mumra")

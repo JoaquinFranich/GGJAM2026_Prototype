@@ -24,7 +24,7 @@ var _current_index: int = -1
 var _full_text: String = ""
 var _visible_chars: int = 0
 var _typewriter_timer: float = 0.0
-var _chars_per_second: float = 30.0
+var _chars_per_second: float = 40.0 # Más lento y fluido (antes 30.0)
 var _is_typing: bool = false
 
 # Rutas de caras por speaker (preparado para varios personajes)
@@ -34,6 +34,9 @@ var _speaker_portraits: Dictionary = {
 }
 
 const FADE_DURATION: float = 0.25
+
+# Referencia al botón "Siguiente"
+var _next_button: Button
 
 func _ready():
 	_panel_scene = load("res://Scenes/UI/dialogue_panel.tscn") as PackedScene
@@ -45,14 +48,41 @@ func _ready():
 		if _panel:
 			_portrait = _panel.get_node_or_null("MarginContainer/HBoxContainer/Portrait")
 			_text_label = _panel.get_node_or_null("MarginContainer/HBoxContainer/TextLabel")
+			# Buscar el botón Next dentro del panel (asumimos que lo agregaremos ahí)
+			_next_button = _panel.get_node_or_null("NextButton")
+			
 		if _click_overlay:
 			_click_overlay.gui_input.connect(_on_overlay_gui_input)
+			
+		if _next_button:
+			_next_button.pressed.connect(_on_next_button_pressed)
+			
 	else:
 		push_error("DialogueManager: No se pudo cargar res://Scenes/UI/dialogue_panel.tscn")
+		
+	# Conectarse al SceneManager para limpiar diálogo al cambiar de escena
+	if SceneManager:
+		SceneManager.transition_started.connect(_on_scene_transition_started)
+
+func _on_scene_transition_started():
+	# Si hay un diálogo activo, cerrarlo inmediatamente al cambiar de escena
+	if _panel and _panel.visible:
+		_close_dialogue()
 
 func _process(delta: float):
 	if not _is_typing:
+		# Actualizar estado del botón si no está escribiendo
+		if _next_button:
+			if _current_index < _blocks.size() - 1:
+				_next_button.text = "Siguiente"
+			else:
+				_next_button.text = "Cerrar"
 		return
+
+	# Si está escribiendo...
+	if _next_button:
+		_next_button.text = "..." # Ocultar o cambiar texto mientras escribe
+		
 	if _text_label == null:
 		return
 	_typewriter_timer += delta
@@ -102,6 +132,10 @@ func _show_current_block() -> void:
 	_panel.modulate.a = 0.0
 	var tween = create_tween()
 	tween.tween_property(_panel, "modulate:a", 1.0, FADE_DURATION)
+	
+	# Asegurar que el botón sea visible
+	if _next_button:
+		_next_button.visible = true
 
 func _close_dialogue() -> void:
 	if _panel:
@@ -120,16 +154,22 @@ func _on_overlay_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		var mb = event as InputEventMouseButton
 		if mb.pressed and mb.button_index == MOUSE_BUTTON_LEFT:
-			if _is_typing:
-				# Completar texto
-				_is_typing = false
-				_visible_chars = _full_text.length()
-				if _text_label:
-					_text_label.visible_characters = _visible_chars
-			else:
-				# Siguiente bloque o cerrar
-				_current_index += 1
-				_show_current_block()
+			_advance_dialogue()
+
+func _on_next_button_pressed():
+	_advance_dialogue()
+
+func _advance_dialogue():
+	if _is_typing:
+		# Completar texto
+		_is_typing = false
+		_visible_chars = _full_text.length()
+		if _text_label:
+			_text_label.visible_characters = _visible_chars
+	else:
+		# Siguiente bloque o cerrar
+		_current_index += 1
+		_show_current_block()
 
 func _get_speaker_texture(speaker_id: String) -> Texture2D:
 	if _speaker_portraits.has(speaker_id):

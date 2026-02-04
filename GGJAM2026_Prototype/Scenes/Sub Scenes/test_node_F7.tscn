@@ -5,8 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://cl47l2bulxeds" path="res://Assets/Images/Scene F/ESCENA_F8_FINAL_VICTIMA_2.jpg" id="3_sxb4h"]
 [ext_resource type="Texture2D" uid="uid://dxtjrw6b2msvx" path="res://Assets/Images/UI/ESCENARIO_FINAL_MANO_2.png" id="4_hand2"]
 
-[node name="TestNodeA2" type="Node2D" unique_id=669889768]
+[node name="TestNodeF7" type="Node2D" unique_id=669889768]
 script = ExtResource("1_new_script")
+scene_entry_text = Array[String](["No puedo soltar el mango.", "Calor húmedo inunda mi mano.", "Que...", "Que he hecho???!!"])
 mask_clue_position = Vector2(900, 825)
 mask_clue_scale = Vector2(0.35, 0.35)
 

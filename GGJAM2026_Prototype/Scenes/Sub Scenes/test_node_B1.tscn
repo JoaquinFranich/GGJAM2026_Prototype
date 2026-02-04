@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bj6nqhumncd26" path="res://Assets/Images/Scene B/ESCENA.B1.jpg" id="2_bwaml"]
 [ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="3_u02mj"]
 
-[node name="TestNodeA1" type="Node2D" unique_id=1209076192]
+[node name="TestNodeB1" type="Node2D" unique_id=1209076192]
 script = ExtResource("1_bwaml")
 visible_direction_buttons = Array[String](["up", "right"])
 button_up_target_scene = "res://Scenes/Sub Scenes/test_node_B2.tscn"

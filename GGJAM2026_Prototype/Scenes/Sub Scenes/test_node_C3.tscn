@@ -49,8 +49,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_generic"]
 size = Vector2(100, 100)
 
-[node name="TestNodeA1" type="Node2D" unique_id=575501862]
+[node name="TestNodeC3" type="Node2D" unique_id=575501862]
 script = ExtResource("1_g7b05")
+scene_entry_text = Array[String](["La máscara se desprende.", "Al recogerla y ver a través de sus ojos vacíos, el mundo normal se desvanece.", "En el suelo, un símbolo brilla con luz dorada.", "Es el primero de los tres. Una pista que sólo yo puedo ver."])
 visible_direction_buttons = Array[String](["left"])
 button_left_target_scene = "res://Scenes/Sub Scenes/test_node_C2.tscn"
 mask_clue_texture = ExtResource("2_7exak")

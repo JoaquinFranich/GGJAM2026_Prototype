@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dg1lycnl2imx" path="res://Assets/Images/Scene F/ESCENA_F0.jpg" id="2_eik3w"]
 [ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="3_ad15x"]
 
-[node name="TestNodeA" type="Node2D" unique_id=1548031054]
+[node name="TestNodeF" type="Node2D" unique_id=1548031054]
 script = ExtResource("1_eik3w")
+scene_entry_text = Array[String](["Intento volver sobre mis pasos hacia el cuerpo, pero el maletín se vuelve un lastre insoportable.", "Si avanzo, es ligero; si retrocedo, es como cargar plomo.", "Me están forzando a un camino."])
 visible_direction_buttons = Array[String](["right"])
 button_right_target_scene = "res://Scenes/Sub Scenes/test_node_F1.tscn"
 

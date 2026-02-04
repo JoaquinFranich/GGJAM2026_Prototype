@@ -4,10 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://b0urlbmpw17o3" path="res://Assets/Images/Scene C/ESCENA.C2.jpg" id="2_ux5t6"]
 [ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="3_tbxct"]
 
-[node name="TestNodeA1" type="Node2D" unique_id=1352549975]
+[node name="TestNodeC2" type="Node2D" unique_id=1352549975]
 script = ExtResource("1_ux5t6")
 focus_item_position = Vector2(1000, 389)
 focus_item_scale = Vector2(0.38, 0.38)
+scene_entry_text = Array[String](["Con cada paso, la máscara en la valija gana masa.", "No es alucinación; mi brazo lo siente.", "Las reglas de este caso se reescriben frente a mí."])
 visible_direction_buttons = Array[String](["left"])
 button_left_target_scene = "res://Scenes/Sub Scenes/test_node_C1.tscn"
 mask_clue_position = Vector2(740, 640)
@@ -20,3 +21,4 @@ centered = false
 
 [node name="UI" parent="." unique_id=2021790239 instance=ExtResource("3_tbxct")]
 layer = 6
+visible = false

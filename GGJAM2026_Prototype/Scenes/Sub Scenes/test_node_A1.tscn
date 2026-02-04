@@ -8,6 +8,7 @@
 [node name="TestNodeA1" type="Node2D" unique_id=1375498459]
 script = ExtResource("2_ui_config")
 focus_item_position = Vector2(750, 550)
+scene_entry_text = Array[String](["Formas que se delinean con la luz...   ", "Son piernas humanas.", "Que sea un vagabundo dormido, un borracho... cualquier otra cosa."])
 visible_direction_buttons = Array[String](["left"])
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1486700521]

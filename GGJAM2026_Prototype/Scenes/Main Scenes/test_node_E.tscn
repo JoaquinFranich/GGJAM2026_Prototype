@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://gfhwpkijsdbf" path="res://Assets/Images/Scene E/ESCENA.E0.jpg" id="2_nie4c"]
 [ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="3_uhcec"]
 
-[node name="TestNodeA" type="Node2D" unique_id=1475346407]
+[node name="TestNodeE" type="Node2D" unique_id=1475346407]
 script = ExtResource("1_nie4c")
+scene_entry_text = Array[String](["Dos piedras con símbolos ancestrales.", "Esto es un rompecabezas, y alguien o algo quiere que lo arme.", "¿Para qué?"])
 visible_direction_buttons = Array[String](["left", "right", "up", "down"])
 button_up_target_scene = "res://Scenes/Main Scenes/test_node_F.tscn"
 button_down_target_scene = "res://Scenes/Sub Scenes/test_node_D4.tscn"

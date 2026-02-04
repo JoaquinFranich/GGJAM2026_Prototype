@@ -5,8 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://dvmkjikl6jh7f" path="res://Assets/Images/Scene F/ESCENA_F2.jpg" id="3_1adgj"]
 [ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="4_1adgj"]
 
-[node name="TestNodeA1" type="Node2D" unique_id=1183998394]
+[node name="TestNodF2" type="Node2D" unique_id=1183998394]
 script = ExtResource("1_pkwe2")
+scene_entry_text = Array[String](["Otra vez. Las flechas.", "Me marcan un camino. ", "No tengo opción."])
 visible_direction_buttons = Array[String](["right", "left"])
 button_left_target_scene = "res://Scenes/Sub Scenes/test_node_F3.tscn"
 button_right_target_scene = "res://Scenes/Sub Scenes/test_node_F1.tscn"

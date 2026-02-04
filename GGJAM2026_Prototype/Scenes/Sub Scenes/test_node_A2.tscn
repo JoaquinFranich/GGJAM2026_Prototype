@@ -11,10 +11,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_generic"]
 size = Vector2(100, 100)
 
-[node name="TestNodeA3" type="Node2D" unique_id=2084449683]
+[node name="TestNodeA2" type="Node2D" unique_id=2084449683]
 script = ExtResource("2_ui_config")
 focus_item_position = Vector2(325, 150)
 focus_item_scale = Vector2(0.25, 0.25)
+scene_entry_text = Array[String](["Confirmado: homicidio. El cuerpo está fresco.    ", "¿El agresor sigue aquí?", "Repaso mental: dos horas de ronda, nadie cruzó. Esto no estaba.", "La radio sólo da interferencia.", "Estoy completamente solo.", "Números y símbolos. '4 7 1'.", "Los símbolos de abajo... los reconozco.", "¿Dónde los vi? En un libro, tal vez en el archivo..."])
 visible_direction_buttons = Array[String](["left"])
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1780080185]

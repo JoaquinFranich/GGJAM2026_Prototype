@@ -5,8 +5,9 @@
 [ext_resource type="Script" uid="uid://daprvolg7lj4o" path="res://Scripts/Puzzle/bloquear_puzzle1.gd" id="3_6tntl"]
 [ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="3_k7jfg"]
 
-[node name="TestNodeA" type="Node2D" unique_id=490884651]
+[node name="TestNodeB" type="Node2D" unique_id=490884651]
 script = ExtResource("2_ui_config")
+scene_entry_text = Array[String](["Abandono la bici. Establezco un perímetro mental.", "Pisadas en el barro blando, talla grande, dirección sur hacia la corriente.", "Mi única pista tangible."])
 visible_direction_buttons = Array[String](["up", "down", "left"])
 button_up_target_scene = "res://Scenes/Sub Scenes/test_node_C1.tscn"
 button_down_target_scene = "res://Scenes/Main Scenes/test_node_00.tscn"

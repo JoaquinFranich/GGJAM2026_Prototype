@@ -4,10 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://cbrt501w7r2sp" path="res://Assets/Images/Scene C/ESCENA.C1.jpg" id="2_quvt5"]
 [ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="3_qsfkd"]
 
-[node name="TestNodeA1" type="Node2D" unique_id=1046900385]
+[node name="TestNodeC1" type="Node2D" unique_id=1046900385]
 script = ExtResource("1_quvt5")
 focus_item_position = Vector2(1425, 500)
 focus_item_scale = Vector2(0.28, 0.28)
+scene_entry_text = Array[String](["El peso del maletín cambia.", "No es físico, es como si me tirara.", "La vibración es una brújula apuntando al tateti oxidado.", "La lógica grita, pero mi instinto detective sigue la anomalía."])
 visible_direction_buttons = Array[String](["up", "down"])
 button_up_target_scene = "res://Scenes/Main Scenes/test_node_D.tscn"
 button_down_target_scene = "res://Scenes/Main Scenes/test_node_B.tscn"

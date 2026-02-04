@@ -14,8 +14,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_d3e6v"]
 radius = 56.568542
 
-[node name="TestNodeA1" type="Node2D" unique_id=1976410508]
+[node name="TestNodeF3" type="Node2D" unique_id=1976410508]
 script = ExtResource("1_2q8el")
+scene_entry_text = Array[String](["Una reja extraña.", "Con tres huecos.", "Es para las piedras. Esto es lo que querían que hiciera."])
 visible_direction_buttons = Array[String](["right"])
 button_right_target_scene = "res://Scenes/Sub Scenes/test_node_F2.tscn"
 mask_clue_position = Vector2(900, 825)

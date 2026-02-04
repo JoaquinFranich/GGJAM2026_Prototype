@@ -6,6 +6,7 @@
 
 [node name="TestNode00" type="Node2D" unique_id=977432099]
 script = ExtResource("2_ui_config")
+scene_entry_text = Array[String](["La humedad de esta noche de verano hace que el aire se sienta espeso. ", "Pero ese olor nauseabundo... es distinto.", "El río suele traer animales muertos.", "Pero esto parece más..."])
 visible_direction_buttons = Array[String](["right", "up"])
 button_up_target_scene = "res://Scenes/Main Scenes/test_node_B.tscn"
 button_right_target_scene = "res://Scenes/Main Scenes/test_node_A.tscn"

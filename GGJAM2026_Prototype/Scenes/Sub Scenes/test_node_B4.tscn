@@ -20,11 +20,12 @@ size = Vector2(194, 143)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_generic"]
 size = Vector2(100, 100)
 
-[node name="TestNodeA1" type="Node2D" unique_id=239917966]
+[node name="TestNodeB4" type="Node2D" unique_id=239917966]
 script = ExtResource("1_yqrum")
 focus_item_position = Vector2(438, 920)
 focus_item_scale = Vector2(0.6, 0.6)
 focus_item_target_scene = null
+scene_entry_text = Array[String](["Adentro, el pasado me mira: una daga ritual y una máscara que deberian pertenecer a un museo. No a este rio..."])
 focus_items = null
 visible_direction_buttons = Array[String](["right"])
 button_up_target_scene = null

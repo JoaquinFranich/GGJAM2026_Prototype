@@ -5,8 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://4mpx16pevp53" path="res://Assets/Images/Scene F/ESCENA_F1.jpg" id="3_i8g3v"]
 [ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="4_i8g3v"]
 
-[node name="TestNodeA1" type="Node2D" unique_id=1991124784]
+[node name="TestNodeF1" type="Node2D" unique_id=1991124784]
 script = ExtResource("1_iok87")
+scene_entry_text = Array[String](["Mi visión a través de la máscara ahora muestra flechas fantasmales que fluyen en una dirección, como un río de energía.", "No son alucinaciones; son instrucciones.", "Todas en la misma dirección. Estoy perdiendo la cabeza."])
 visible_direction_buttons = Array[String](["right", "left"])
 button_left_target_scene = "res://Scenes/Sub Scenes/test_node_F2.tscn"
 button_right_target_scene = "res://Scenes/Main Scenes/test_node_E.tscn"

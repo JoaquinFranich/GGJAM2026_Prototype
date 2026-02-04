@@ -35,8 +35,9 @@ texture = ExtResource("2_1oowx")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5g4jb"]
 
-[node name="TestNodeA1" type="Node2D" unique_id=449171460]
+[node name="TestNodeB3" type="Node2D" unique_id=449171460]
 script = ExtResource("1_1oowx")
+scene_entry_text = Array[String](["Un candado numérico. No creo en coincidencias, pero pruebo: 4-7-1.", "Un clic metálico."])
 visible_direction_buttons = Array[String](["up"])
 button_up_target_scene = "res://Scenes/Sub Scenes/test_node_B2.tscn"
 
@@ -278,5 +279,5 @@ visible = false
 [connection signal="pressed" from="UI_PUZZLE/HUD/candado_UI/container_Numbers/number_Panel2/button_Down2" to="UI_PUZZLE/HUD/candado_UI/container_Numbers" method="_on_button_down_2_pressed"]
 [connection signal="pressed" from="UI_PUZZLE/HUD/candado_UI/container_Numbers/number_Panel3/button_Up3" to="UI_PUZZLE/HUD/candado_UI/container_Numbers" method="_on_button_up_3_pressed"]
 [connection signal="pressed" from="UI_PUZZLE/HUD/candado_UI/container_Numbers/number_Panel3/button_Down3" to="UI_PUZZLE/HUD/candado_UI/container_Numbers" method="_on_button_down_3_pressed"]
-[connection signal="pressed" from="UI_PUZZLE/HUD/candado_UI/open_Candado/open" to="UI_PUZZLE/HUD/candado_UI/container_Numbers" method="_on_open_candado_pressed"]
 [connection signal="pressed" from="UI_PUZZLE/HUD/candado_UI/open_Candado/open" to="UI_PUZZLE/HUD/candado_UI/container_Numbers" method="_on_open_pressed"]
+[connection signal="pressed" from="UI_PUZZLE/HUD/candado_UI/open_Candado/open" to="UI_PUZZLE/HUD/candado_UI/container_Numbers" method="_on_open_candado_pressed"]

@@ -5,8 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://ddt1r27ijkk7a" path="res://Assets/Images/Clues/PISTA_E_PIEDRAS.png" id="2_lux52"]
 [ext_resource type="PackedScene" uid="uid://njmoefb4dxlm" path="res://Scenes/UI/UI.tscn" id="4_nnps4"]
 
-[node name="TestNodeA1" type="Node2D" unique_id=1534088877]
+[node name="TestNodeE2" type="Node2D" unique_id=1534088877]
 script = ExtResource("1_gtbb5")
+scene_entry_text = Array[String](["La máscara confirma: El tercer símbolo.", "Lo tomo. El juego, o el ritual, está completo."])
 visible_direction_buttons = Array[String](["left"])
 button_left_target_scene = "res://Scenes/Main Scenes/test_node_E.tscn"
 mask_clue_texture = ExtResource("2_lux52")

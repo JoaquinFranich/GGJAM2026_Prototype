@@ -96,7 +96,18 @@ var sub_scenes: Dictionary = {
 # Sirve para saber si, al volver, ir directo a la main scene
 var inventory: Array[String] = []
 
+# Registro de diálogos de entrada ya vistos por escena
+# Clave: ruta de la escena, Valor: true
+var dialogues_seen: Dictionary = {}
+
 # =============================================================================
+
+func mark_dialogue_seen(scene_path: String) -> void:
+	dialogues_seen[scene_path] = true
+
+func has_seen_dialogue(scene_path: String) -> bool:
+	return dialogues_seen.has(scene_path)
+
 
 func _ready():
 	# Crear overlay para el fade
