@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://bsrrrc2kjmdef" path="res://Scripts/Menu/menu_options.gd" id="8_8r5ys"]
 [ext_resource type="AudioStream" uid="uid://lyhycf4xt7o7" path="res://Assets/Audio/boton inicio.wav" id="10_8r5ys"]
 [ext_resource type="AudioStream" uid="uid://t50eh1e551tx" path="res://Assets/Audio/moverse entre opciones.wav" id="11_7omxj"]
+[ext_resource type="Texture2D" uid="uid://cy88eiokrlbx" path="res://Assets/Images/Menu/LOGO JUEGO XIBI.png" id="12_8ml8r"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6kd3e"]
 texture = ExtResource("1_bxvnp")
@@ -103,11 +104,13 @@ theme_override_constants/separation = 10
 metadata/_edit_use_anchors_ = true
 
 [node name="title1" type="Panel" parent="menu_Inicio/title_Container" unique_id=1689770655]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_rfqti")
 
 [node name="title2" type="Panel" parent="menu_Inicio/title_Container" unique_id=580728243]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_vjdpo")
@@ -337,6 +340,11 @@ bus = &"SFX"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1806095315]
 stream = ExtResource("11_7omxj")
 bus = &"SFX"
+
+[node name="LogoJuegoXibi" type="Sprite2D" parent="." unique_id=711059883]
+position = Vector2(924, 438)
+scale = Vector2(0.5623264, 0.5623264)
+texture = ExtResource("12_8ml8r")
 
 [connection signal="pressed" from="menu_Inicio/button_Container/button_play" to="." method="_on_button_play_pressed"]
 [connection signal="pressed" from="menu_Inicio/button_Container/button_options" to="." method="_on_button_options_pressed"]

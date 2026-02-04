@@ -42,11 +42,16 @@ func _on_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 				
 				# 1. Verificar si tenemos una meta-data de destino (puesta por UI_manager)
 				var target_scene = get_meta("target_scene", "")
+				var dialogue_text = get_meta("dialogue", "")
 				
 				# 2. Si hay destino, ir allí DIRECTAMENTE
 				if target_scene != "" and ResourceLoader.exists(target_scene):
 					SceneManager.change_scene(target_scene)
 					# Opcional: emitir señal local si es necesario
+				
+				# 2b. Si hay diálogo, mostrarlo
+				elif dialogue_text != "":
+					DialogueManager.show_dialogue([dialogue_text])
 				
 				# 3. Si NO hay destino, usar comportamiento por defecto
 				else:

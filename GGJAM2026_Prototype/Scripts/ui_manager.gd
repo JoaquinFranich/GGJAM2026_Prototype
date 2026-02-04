@@ -258,6 +258,11 @@ func configure_focus_items(focus_items_config: Array):
 		focus_item.position = position
 		focus_item.scale = item_scale
 		
+		# Configurar datos adicionales
+		var conversation_text = item_config.get("dialogue", "")
+		if conversation_text != "":
+			focus_item.set_meta("dialogue", conversation_text)
+		
 		# Configurar escena destino si se especificó
 		if target_scene != "":
 			# Necesitamos modificar el script del FocusItem para aceptar target_scene

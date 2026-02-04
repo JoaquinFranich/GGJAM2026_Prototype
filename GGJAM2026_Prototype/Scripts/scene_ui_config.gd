@@ -28,16 +28,19 @@ extends Node2D
 ## Si pones una ruta, el FocusItem te llevará ahí obligatoriamente.
 @export var focus_item_target_scene: String = ""
 
+@export var scene_entry_text: String = ""
+
 ## 🎯 Configuración de múltiples FocusItems
 ## Cada elemento del array es un FocusItem con:
 ## - position: Vector2 (posición)
 ## - scale: Vector2 (tamaño, opcional)
 ## - target_scene: String (escena destino, opcional, "" = navegación automática)
+## - dialogue: String (texto a mostrar, opcional, si no hay target_scene)
 ## 
 ## EJEMPLO en código:
 ## focus_items = [
 ##   {"position": Vector2(100, 200), "scale": Vector2(1, 1), "target_scene": "res://path/to/scene1.tscn"},
-##   {"position": Vector2(500, 300), "target_scene": "res://path/to/scene2.tscn"}
+##   {"position": Vector2(500, 300), "dialogue": "Mira, una pista."}
 ## ]
 ##
 ## ⚠️ NOTA: Esta propiedad no se puede editar directamente en el Inspector de Godot.
@@ -117,9 +120,16 @@ func configure_ui():
 	_configure_direction_button("left", button_left_target_scene)
 	_configure_direction_button("right", button_right_target_scene)
 	
+
 	# Configurar Pista de Máscara
 	# Si mask_clue_texture es null, set_current_clue ocultará el botón
 	UI_manager.set_current_clue(mask_clue_texture, mask_clue_position, mask_clue_scale)
+	
+	# Mostrar texto de contexto si existe
+	if scene_entry_text != "":
+		# Pequeño delay para asegurar que el fade-in de la escena no oculte el diálogo
+		await get_tree().create_timer(0.5).timeout
+		DialogueManager.show_dialogue([scene_entry_text])
 
 func _configure_direction_button(direction: String, target_scene_path: String):
 	if target_scene_path != "":
@@ -139,7 +149,7 @@ func _configure_direction_button(direction: String, target_scene_path: String):
 ## Ejemplo:
 ##   configure_focus_items_manual([
 ##     {"position": Vector2(100, 200), "target_scene": "res://Scenes/Sub Scenes/test_node_A4.tscn"},
-##     {"position": Vector2(500, 300), "target_scene": "res://Scenes/Sub Scenes/test_node_A5.tscn"}
+##     {"position": Vector2(500, 300), "dialogue": "Un texto de prueba"}
 ##   ])
 func configure_focus_items_manual(focus_items_config: Array):
 	focus_items = focus_items_config
